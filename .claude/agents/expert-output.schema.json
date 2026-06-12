@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ExpertPrediction",
+  "description": "10人の競馬予想専門家が返す共通スキーマ。集約 skill の入力契約。",
+  "type": "object",
+  "required": [
+    "expert_id",
+    "expert_name",
+    "school",
+    "backend",
+    "effort",
+    "race_id",
+    "pack_version",
+    "predicted_ranking",
+    "win_prob",
+    "marks",
+    "confidence",
+    "rationale",
+    "data_used",
+    "warnings"
+  ],
+  "properties": {
+    "expert_id": {
+      "type": "string",
+      "description": "安定識別子（jinba-<expert_id> と一致）"
+    },
+    "expert_name": {
+      "type": "string",
+      "description": "表示用の日本語名"
+    },
+    "school": {
+      "type": "string",
+      "description": "流派ラベル"
+    },
+    "backend": {
+      "type": "string",
+      "description": "バックエンドモデル識別子"
+    },
+    "effort": {
+      "type": "string",
+      "enum": ["high", "medium", "low"]
+    },
+    "race_id": {
+      "type": "string",
+      "description": "対象レースID（netkeiba形式）"
+    },
+    "pack_version": {
+      "type": "string",
+      "description": "参照した RaceDataPack の世代（v1, v2, ...）"
+    },
+    "predicted_ranking": {
+      "type": "array",
+      "description": "着順予想。全頭でなくてよい（5着以下省略可）",
+      "items": {
+        "type": "object",
+        "required": ["horse_num", "rank"],
+        "properties": {
+          "horse_num": { "type": "integer", "minimum": 1 },
+          "rank": { "type": "integer", "minimum": 1 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "win_prob": {
+      "type": "array",
+      "description": "単勝確率分布（上位のみ列挙可。未列挙馬は集約 skill が均等割当+εフロア）",
+      "items": {
+        "type": "object",
+        "required": ["horse_num", "prob"],
+        "properties": {
+          "horse_num": { "type": "integer", "minimum": 1 },
+          "prob": { "type": "number", "minimum": 0, "maximum": 1 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "place_prob": {
+      "type": "array",
+      "description": "3着内確率（任意。省略時は集約 skill が win_prob から Harville 近似で導出）",
+      "items": {
+        "type": "object",
+        "required": ["horse_num", "prob"],
+        "properties": {
+          "horse_num": { "type": "integer", "minimum": 1 },
+          "prob": { "type": "number", "minimum": 0, "maximum": 1 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "marks": {
+      "type": "object",
+      "description": "印（◎○▲△）",
+      "required": ["honmei", "taikou", "tanana", "renka"],
+      "properties": {
+        "honmei": { "type": "integer", "minimum": 1, "description": "◎ 本命" },
+        "taikou": { "type": "integer", "minimum": 1, "description": "○ 対抗" },
+        "tanana": { "type": "integer", "minimum": 1, "description": "▲ 単穴" },
+        "renka": {
+          "type": "array",
+          "description": "△ 連下",
+          "items": { "type": "integer", "minimum": 1 }
+        }
+      },
+      "additionalProperties": false
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "自己評価の信頼度。集約時の log pooling 指数に使用"
+    },
+    "rationale": {
+      "type": "string",
+      "description": "予想根拠（200字程度。人間レビュー用）",
+      "maxLength": 500
+    },
+    "data_used": {
+      "type": "array",
+      "description": "主に使用した入力データのタグ",
+      "items": { "type": "string" }
+    },
+    "warnings": {
+      "type": "array",
+      "description": "注意事項（空配列可）",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": false
+}
