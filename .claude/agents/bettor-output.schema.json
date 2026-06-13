@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BettorPortfolio",
+  "description": "資金配分専門家が返す共通スキーマ。買い目集約スクリプトの入力契約。",
+  "type": "object",
+  "required": ["bettor_id", "bettor_name", "philosophy", "backend", "tickets", "total_stake_jpy", "notes"],
+  "properties": {
+    "bettor_id": { "type": "string" },
+    "bettor_name": { "type": "string" },
+    "philosophy": { "type": "string", "description": "配分哲学の一行要約" },
+    "backend": { "type": "string" },
+    "tickets": {
+      "type": "array",
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "required": ["bet_type", "selection", "stake_jpy", "rationale_short"],
+        "properties": {
+          "bet_type": { "type": "string", "enum": ["単勝", "複勝", "ワイド", "馬連", "三連複", "三連単"] },
+          "selection": {
+            "type": "string",
+            "description": "単勝複勝=\"5\" / ワイド馬連=\"5-16\"(昇順) / 三連複=\"2-5-16\"(昇順) / 三連単=\"16→5→2\"(着順)"
+          },
+          "stake_jpy": { "type": "integer", "minimum": 300, "multipleOf": 100 },
+          "rationale_short": { "type": "string", "maxLength": 120 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "total_stake_jpy": { "type": "integer", "minimum": 0, "maximum": 10000 },
+    "skipped_budget_jpy": { "type": "integer", "minimum": 0, "description": "見送り額（任意）" },
+    "notes": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}
