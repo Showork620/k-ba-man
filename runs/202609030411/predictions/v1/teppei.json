@@ -1,0 +1,53 @@
+{
+  "expert_id": "teppei",
+  "expert_name": "鉄平",
+  "school": "調教",
+  "backend": "claude-sonnet (codex-fallback)",
+  "effort": "high",
+  "race_id": "202609030411",
+  "pack_version": "v1",
+  "predicted_ranking": [
+    { "horse_num": 1,  "rank": 1 },
+    { "horse_num": 16, "rank": 2 },
+    { "horse_num": 15, "rank": 3 },
+    { "horse_num": 5,  "rank": 4 },
+    { "horse_num": 2,  "rank": 5 }
+  ],
+  "win_prob": [
+    { "horse_num": 1,  "prob": 0.22 },
+    { "horse_num": 16, "prob": 0.18 },
+    { "horse_num": 15, "prob": 0.16 },
+    { "horse_num": 5,  "prob": 0.12 },
+    { "horse_num": 2,  "prob": 0.09 },
+    { "horse_num": 12, "prob": 0.06 }
+  ],
+  "place_prob": [
+    { "horse_num": 1,  "prob": 0.55 },
+    { "horse_num": 16, "prob": 0.50 },
+    { "horse_num": 15, "prob": 0.48 },
+    { "horse_num": 5,  "prob": 0.38 },
+    { "horse_num": 2,  "prob": 0.30 },
+    { "horse_num": 12, "prob": 0.22 }
+  ],
+  "marks": {
+    "honmei": 1,
+    "taikou": 16,
+    "tanana": 15,
+    "renka": [5, 2, 12]
+  },
+  "confidence": 0.58,
+  "rationale": "◎ダノンデサイル：最終追い切り栗東CW 84.6-54.5-38.6-11.7は全体こそ遅めだが、1週前82.6で手前変換タイミング良好・加速速いと好評価。ウッド選択で長距離対応の余力を残した仕上げ方が好感。○メイショウタバル：最終CW ラスト1F 10.9は出走18頭中最速。1週前80.8も好調評価で2走通じて末脚が研ぎ澄まされている。▲マイユニバース：最終CW 78.6全体時計は全出走馬中最速。1週前79.3も単走で好調、可動域広く伸び良好。仕上がり最高潮。△連下はクロワデュノール（1週前の併せ遅れから最終で改善）、ミュージアムマイル（最終坂路で併せ先着）、マイネルエンペラー（最終CW 11.5安定）。スティンガーグラスは1週前舌出し・反応鈍く消し。",
+  "data_used": [
+    "pack-v1.json",
+    "web:宝塚記念2026最終追い切りタイム一覧（bfkeiba.com）",
+    "web:宝塚記念2026 1週前追い切り診断（rihua-keiba.com）",
+    "web:宝塚記念2026調教S評価（umanity.jp）"
+  ],
+  "warnings": [
+    "training フィールドが空のためWebFetchで取得した追切タイムを使用",
+    "past_races フィールドが空のため近走実績は調教評価に絞った予想",
+    "梅雨入り後の馬場変動（良→稍重）は当日確認必須。含水率・クッション値は金曜公開前",
+    "ダノンデサイルは本来CWよりウッド選択の意図を重視した評価だが、追切タイム数値は全体遅め。仕上げ方針の判断に裁量含む",
+    "クロワデュノールは1週前に3頭併せ外で遅れており、最終での改善は確認できるが1週前評価との乖離に注意"
+  ]
+}

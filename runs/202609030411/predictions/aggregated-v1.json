@@ -1,0 +1,314 @@
+{
+  "race_id": "202609030411",
+  "method": "borda_count + normalized log pooling (confidence-weighted geometric mean); tiebreak: avg_rank → win_prob → borda → horse_num",
+  "probability_notes": {
+    "win_prob": "正規化 log pooling（Σ重み=1 の信頼度加重幾何平均）",
+    "win_prob_linear": "線形プール（単純平均・参考）",
+    "place_prob_lb": "place_prob の線形平均。未列挙馬を0扱いした下限近似"
+  },
+  "expert_count": 10,
+  "experts_used": [
+    "葵",
+    "吾郎",
+    "陽菜",
+    "健太",
+    "誠",
+    "美咲",
+    "さくら",
+    "龍之介",
+    "鉄平",
+    "優子"
+  ],
+  "aggregated_ranking": [
+    {
+      "rank": 1,
+      "horse_num": 5,
+      "horse_name": "クロワデュノール",
+      "borda_score": 47,
+      "win_prob": 0.2988,
+      "win_prob_linear": 0.2844,
+      "place_prob_lb": 0.588,
+      "borda_rank": 1,
+      "prob_rank": 1
+    },
+    {
+      "rank": 2,
+      "horse_num": 2,
+      "horse_name": "ミュージアムマイル",
+      "borda_score": 35,
+      "win_prob": 0.1789,
+      "win_prob_linear": 0.1658,
+      "place_prob_lb": 0.444,
+      "borda_rank": 3,
+      "prob_rank": 2
+    },
+    {
+      "rank": 3,
+      "horse_num": 16,
+      "horse_name": "メイショウタバル",
+      "borda_score": 37,
+      "win_prob": 0.1752,
+      "win_prob_linear": 0.1639,
+      "place_prob_lb": 0.443,
+      "borda_rank": 2,
+      "prob_rank": 3
+    },
+    {
+      "rank": 4,
+      "horse_num": 17,
+      "horse_name": "レガレイラ",
+      "borda_score": 20,
+      "win_prob": 0.0922,
+      "win_prob_linear": 0.1011,
+      "place_prob_lb": 0.29,
+      "borda_rank": 4,
+      "prob_rank": 4
+    },
+    {
+      "rank": 5,
+      "horse_num": 1,
+      "horse_name": "ダノンデサイル",
+      "borda_score": 18,
+      "win_prob": 0.0906,
+      "win_prob_linear": 0.0921,
+      "place_prob_lb": 0.289,
+      "borda_rank": 5,
+      "prob_rank": 5
+    },
+    {
+      "rank": 6,
+      "horse_num": 15,
+      "horse_name": "マイユニバース",
+      "borda_score": 5,
+      "win_prob": 0.0316,
+      "win_prob_linear": 0.0442,
+      "place_prob_lb": 0.137,
+      "borda_rank": 7,
+      "prob_rank": 6
+    },
+    {
+      "rank": 7,
+      "horse_num": 6,
+      "horse_name": "ビザンチンドリーム",
+      "borda_score": 7,
+      "win_prob": 0.03,
+      "win_prob_linear": 0.0373,
+      "place_prob_lb": 0.118,
+      "borda_rank": 6,
+      "prob_rank": 7
+    },
+    {
+      "rank": 8,
+      "horse_num": 14,
+      "horse_name": "スティンガーグラス",
+      "borda_score": 2,
+      "win_prob": 0.019,
+      "win_prob_linear": 0.0213,
+      "place_prob_lb": 0.053,
+      "borda_rank": 8,
+      "prob_rank": 8
+    },
+    {
+      "rank": 9,
+      "horse_num": 4,
+      "horse_name": "ミクニインスパイア",
+      "borda_score": 0,
+      "win_prob": 0.0103,
+      "win_prob_linear": 0.0122,
+      "place_prob_lb": 0.02,
+      "borda_rank": 10,
+      "prob_rank": 9
+    },
+    {
+      "rank": 10,
+      "horse_num": 9,
+      "horse_name": "コスモキュランダ",
+      "borda_score": 0,
+      "win_prob": 0.0091,
+      "win_prob_linear": 0.0092,
+      "place_prob_lb": 0.008,
+      "borda_rank": 13,
+      "prob_rank": 11
+    },
+    {
+      "rank": 11,
+      "horse_num": 7,
+      "horse_name": "ファミリータイム",
+      "borda_score": 0,
+      "win_prob": 0.0079,
+      "win_prob_linear": 0.0077,
+      "place_prob_lb": 0,
+      "borda_rank": 11,
+      "prob_rank": 13
+    },
+    {
+      "rank": 12,
+      "horse_num": 3,
+      "horse_name": "シュガークン",
+      "borda_score": 0,
+      "win_prob": 0.0074,
+      "win_prob_linear": 0.0072,
+      "place_prob_lb": 0,
+      "borda_rank": 9,
+      "prob_rank": 15
+    },
+    {
+      "rank": 13,
+      "horse_num": 12,
+      "horse_name": "マイネルエンペラー",
+      "borda_score": 0,
+      "win_prob": 0.0101,
+      "win_prob_linear": 0.0143,
+      "place_prob_lb": 0.031,
+      "borda_rank": 16,
+      "prob_rank": 10
+    },
+    {
+      "rank": 14,
+      "horse_num": 10,
+      "horse_name": "ジューンテイク",
+      "borda_score": 0,
+      "win_prob": 0.0079,
+      "win_prob_linear": 0.0077,
+      "place_prob_lb": 0,
+      "borda_rank": 14,
+      "prob_rank": 14
+    },
+    {
+      "rank": 15,
+      "horse_num": 8,
+      "horse_name": "タガノデュード",
+      "borda_score": 0,
+      "win_prob": 0.0074,
+      "win_prob_linear": 0.0072,
+      "place_prob_lb": 0,
+      "borda_rank": 12,
+      "prob_rank": 16
+    },
+    {
+      "rank": 16,
+      "horse_num": 13,
+      "horse_name": "シェイクユアハート",
+      "borda_score": 0,
+      "win_prob": 0.0089,
+      "win_prob_linear": 0.0097,
+      "place_prob_lb": 0.01,
+      "borda_rank": 17,
+      "prob_rank": 12
+    },
+    {
+      "rank": 17,
+      "horse_num": 11,
+      "horse_name": "シンエンペラー",
+      "borda_score": 0,
+      "win_prob": 0.0074,
+      "win_prob_linear": 0.0072,
+      "place_prob_lb": 0,
+      "borda_rank": 15,
+      "prob_rank": 17
+    },
+    {
+      "rank": 18,
+      "horse_num": 18,
+      "horse_name": "ミステリーウェイ",
+      "borda_score": 0,
+      "win_prob": 0.0074,
+      "win_prob_linear": 0.0072,
+      "place_prob_lb": 0,
+      "borda_rank": 18,
+      "prob_rank": 18
+    }
+  ],
+  "marks": {
+    "◎ 本命": "5 クロワデュノール",
+    "○ 対抗": "2 ミュージアムマイル",
+    "▲ 単穴": "16 メイショウタバル",
+    "△ 連下": [
+      "17 レガレイラ",
+      "1 ダノンデサイル",
+      "15 マイユニバース"
+    ]
+  },
+  "expert_predictions": [
+    {
+      "expert": "葵（騎手/claude-sonnet）",
+      "honmei": "◎ クロワデュノール",
+      "taikou": "○ メイショウタバル",
+      "tanana": "▲ ミュージアムマイル",
+      "renka": "△ レガレイラ △ スティンガーグラス △ ダノンデサイル",
+      "confidence": 0.62
+    },
+    {
+      "expert": "吾郎（馬場読み・トラックバイアス/claude-sonnet (gemini-fallback)）",
+      "honmei": "◎ クロワデュノール",
+      "taikou": "○ ミュージアムマイル",
+      "tanana": "▲ ダノンデサイル",
+      "renka": "△ ビザンチンドリーム △ メイショウタバル",
+      "confidence": 0.62
+    },
+    {
+      "expert": "陽菜（穴党・逆張り/claude-haiku (gemini-fallback)）",
+      "honmei": "◎ レガレイラ",
+      "taikou": "○ クロワデュノール",
+      "tanana": "▲ ミュージアムマイル",
+      "renka": "△ メイショウタバル △ ビザンチンドリーム △ ダノンデサイル",
+      "confidence": 0.62
+    },
+    {
+      "expert": "健太（指数/claude-sonnet）",
+      "honmei": "◎ クロワデュノール",
+      "taikou": "○ メイショウタバル",
+      "tanana": "▲ ミュージアムマイル",
+      "renka": "△ ダノンデサイル △ レガレイラ",
+      "confidence": 0.68
+    },
+    {
+      "expert": "誠（データ統計派/claude-sonnet (codex-fallback)）",
+      "honmei": "◎ クロワデュノール",
+      "taikou": "○ メイショウタバル",
+      "tanana": "▲ ミュージアムマイル",
+      "renka": "△ レガレイラ △ ダノンデサイル",
+      "confidence": 0.62
+    },
+    {
+      "expert": "美咲（展開/claude-opus）",
+      "honmei": "◎ クロワデュノール",
+      "taikou": "○ メイショウタバル",
+      "tanana": "▲ ミュージアムマイル",
+      "renka": "△ ダノンデサイル △ レガレイラ △ マイユニバース",
+      "confidence": 0.62
+    },
+    {
+      "expert": "さくら（オッズ/claude-haiku）",
+      "honmei": "◎ クロワデュノール",
+      "taikou": "○ ミュージアムマイル",
+      "tanana": "▲ メイショウタバル",
+      "renka": "△ レガレイラ △ ダノンデサイル",
+      "confidence": 0.55
+    },
+    {
+      "expert": "龍之介（血統/claude-opus）",
+      "honmei": "◎ メイショウタバル",
+      "taikou": "○ ミュージアムマイル",
+      "tanana": "▲ クロワデュノール",
+      "renka": "△ レガレイラ △ ビザンチンドリーム △ ダノンデサイル",
+      "confidence": 0.65
+    },
+    {
+      "expert": "鉄平（調教/claude-sonnet (codex-fallback)）",
+      "honmei": "◎ ダノンデサイル",
+      "taikou": "○ メイショウタバル",
+      "tanana": "▲ マイユニバース",
+      "renka": "△ クロワデュノール △ ミュージアムマイル △ マイネルエンペラー",
+      "confidence": 0.58
+    },
+    {
+      "expert": "優子（本命/claude-haiku）",
+      "honmei": "◎ クロワデュノール",
+      "taikou": "○ ミュージアムマイル",
+      "tanana": "▲ メイショウタバル",
+      "renka": "△ レガレイラ △ ダノンデサイル △ ビザンチンドリーム",
+      "confidence": 0.72
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "expert_id": "yuko",
+  "expert_name": "優子",
+  "school": "本命",
+  "backend": "claude-haiku",
+  "effort": "low",
+  "race_id": "202609030411",
+  "pack_version": "v1",
+  "predicted_ranking": [
+    {"horse_num": 5, "rank": 1},
+    {"horse_num": 2, "rank": 2},
+    {"horse_num": 16, "rank": 3},
+    {"horse_num": 17, "rank": 4},
+    {"horse_num": 1, "rank": 5}
+  ],
+  "win_prob": [
+    {"horse_num": 5, "prob": 0.42},
+    {"horse_num": 2, "prob": 0.28},
+    {"horse_num": 16, "prob": 0.14},
+    {"horse_num": 17, "prob": 0.08},
+    {"horse_num": 1, "prob": 0.05},
+    {"horse_num": 6, "prob": 0.02},
+    {"horse_num": 15, "prob": 0.01}
+  ],
+  "place_prob": [
+    {"horse_num": 5, "prob": 0.68},
+    {"horse_num": 2, "prob": 0.58},
+    {"horse_num": 16, "prob": 0.38},
+    {"horse_num": 17, "prob": 0.28},
+    {"horse_num": 1, "prob": 0.18},
+    {"horse_num": 6, "prob": 0.10},
+    {"horse_num": 15, "prob": 0.08},
+    {"horse_num": 14, "prob": 0.06}
+  ],
+  "marks": {
+    "honmei": 5,
+    "taikou": 2,
+    "tanana": 16,
+    "renka": [17, 1, 6]
+  },
+  "confidence": 0.72,
+  "rationale": "クロワデュノールは2.4倍1番人気で、直近のG1（天皇賞春、大阪杯）を連勝している。安定感抜群。阪神芝2200mは大阪杯勝利で距離・コース適性を証明済み。ミュージアムマイルは4.5倍で2番人気。有馬記念勝利、秋天2着と安定した実績。メイショウタバルは6.0倍で武豊とのコンビ、父ゴールドシップがこのレース連覇したG1馬。複勝圏は5、2、16で堅く考える。",
+  "data_used": ["odds", "horses_pedigree", "recent_g1_wins", "jockey_information"],
+  "warnings": ["梅雨入り後の馬場変動に注意", "前日オッズ未確定"]
+}

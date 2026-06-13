@@ -1,0 +1,215 @@
+{
+  "meta": {
+    "purpose": "資金配分専門家への共通入力。10人のAI予想専門家の集約結果のみを含む（個別予想は含まない）",
+    "race": "第67回宝塚記念 2026-06-14 阪神11R 芝2200m内回り 18頭 15:40発走",
+    "track_assumption": "良馬場前提。稍重以下に悪化した場合このポートフォリオは無効",
+    "budget_jpy": 10000,
+    "odds_note": "win_odds_bet365 は 6/10 時点の固定オッズ。JRA当日オッズとは乖離しうる。nikkan/spread は予想オッズ（参考）",
+    "takeout": {
+      "単勝複勝": 0.2,
+      "馬連ワイド": 0.225,
+      "三連複": 0.25,
+      "三連単": 0.275
+    }
+  },
+  "horses": [
+    {
+      "horse_num": 5,
+      "name": "クロワデュノール",
+      "win_prob": 0.2988,
+      "win_prob_linear": 0.2844,
+      "place_prob_lb": 0.588,
+      "breakeven_odds": 3.35,
+      "win_odds_bet365": 2.4,
+      "win_odds_nikkan": 2.7,
+      "win_odds_spread": 2.3
+    },
+    {
+      "horse_num": 2,
+      "name": "ミュージアムマイル",
+      "win_prob": 0.1789,
+      "win_prob_linear": 0.1658,
+      "place_prob_lb": 0.444,
+      "breakeven_odds": 5.59,
+      "win_odds_bet365": 4.5,
+      "win_odds_nikkan": 4.5,
+      "win_odds_spread": 5.2
+    },
+    {
+      "horse_num": 16,
+      "name": "メイショウタバル",
+      "win_prob": 0.1752,
+      "win_prob_linear": 0.1639,
+      "place_prob_lb": 0.443,
+      "breakeven_odds": 5.71,
+      "win_odds_bet365": 6,
+      "win_odds_nikkan": 5.2,
+      "win_odds_spread": 3.7
+    },
+    {
+      "horse_num": 17,
+      "name": "レガレイラ",
+      "win_prob": 0.0922,
+      "win_prob_linear": 0.1011,
+      "place_prob_lb": 0.29,
+      "breakeven_odds": 10.85,
+      "win_odds_bet365": 9,
+      "win_odds_nikkan": 9.5,
+      "win_odds_spread": 8.6
+    },
+    {
+      "horse_num": 1,
+      "name": "ダノンデサイル",
+      "win_prob": 0.0906,
+      "win_prob_linear": 0.0921,
+      "place_prob_lb": 0.289,
+      "breakeven_odds": 11.04,
+      "win_odds_bet365": 10,
+      "win_odds_nikkan": 8,
+      "win_odds_spread": null
+    },
+    {
+      "horse_num": 15,
+      "name": "マイユニバース",
+      "win_prob": 0.0316,
+      "win_prob_linear": 0.0442,
+      "place_prob_lb": 0.137,
+      "breakeven_odds": 31.65,
+      "win_odds_bet365": 15,
+      "win_odds_nikkan": null,
+      "win_odds_spread": null
+    },
+    {
+      "horse_num": 6,
+      "name": "ビザンチンドリーム",
+      "win_prob": 0.03,
+      "win_prob_linear": 0.0373,
+      "place_prob_lb": 0.118,
+      "breakeven_odds": 33.33,
+      "win_odds_bet365": 15,
+      "win_odds_nikkan": 12.3,
+      "win_odds_spread": null
+    },
+    {
+      "horse_num": 14,
+      "name": "スティンガーグラス",
+      "win_prob": 0.019,
+      "win_prob_linear": 0.0213,
+      "place_prob_lb": 0.053,
+      "breakeven_odds": 52.63,
+      "win_odds_bet365": 31,
+      "win_odds_nikkan": null,
+      "win_odds_spread": null
+    },
+    {
+      "horse_num": 4,
+      "name": "ミクニインスパイア",
+      "win_prob": 0.0103,
+      "win_prob_linear": 0.0122,
+      "place_prob_lb": 0.02,
+      "breakeven_odds": 97.09,
+      "win_odds_bet365": 26,
+      "win_odds_nikkan": null,
+      "win_odds_spread": null
+    },
+    {
+      "horse_num": 9,
+      "name": "コスモキュランダ",
+      "win_prob": 0.0091,
+      "win_prob_linear": 0.0092,
+      "place_prob_lb": 0.008,
+      "breakeven_odds": 109.89,
+      "win_odds_bet365": 41,
+      "win_odds_nikkan": null,
+      "win_odds_spread": null
+    },
+    {
+      "horse_num": 7,
+      "name": "ファミリータイム",
+      "win_prob": 0.0079,
+      "win_prob_linear": 0.0077,
+      "place_prob_lb": 0,
+      "breakeven_odds": 126.58,
+      "win_odds_bet365": 71,
+      "win_odds_nikkan": null,
+      "win_odds_spread": null
+    },
+    {
+      "horse_num": 3,
+      "name": "シュガークン",
+      "win_prob": 0.0074,
+      "win_prob_linear": 0.0072,
+      "place_prob_lb": 0,
+      "breakeven_odds": 135.14,
+      "win_odds_bet365": 101,
+      "win_odds_nikkan": null,
+      "win_odds_spread": null
+    },
+    {
+      "horse_num": 12,
+      "name": "マイネルエンペラー",
+      "win_prob": 0.0101,
+      "win_prob_linear": 0.0143,
+      "place_prob_lb": 0.031,
+      "breakeven_odds": 99.01,
+      "win_odds_bet365": 51,
+      "win_odds_nikkan": null,
+      "win_odds_spread": null
+    },
+    {
+      "horse_num": 10,
+      "name": "ジューンテイク",
+      "win_prob": 0.0079,
+      "win_prob_linear": 0.0077,
+      "place_prob_lb": 0,
+      "breakeven_odds": 126.58,
+      "win_odds_bet365": 41,
+      "win_odds_nikkan": null,
+      "win_odds_spread": null
+    },
+    {
+      "horse_num": 8,
+      "name": "タガノデュード",
+      "win_prob": 0.0074,
+      "win_prob_linear": 0.0072,
+      "place_prob_lb": 0,
+      "breakeven_odds": 135.14,
+      "win_odds_bet365": 101,
+      "win_odds_nikkan": null,
+      "win_odds_spread": null
+    },
+    {
+      "horse_num": 13,
+      "name": "シェイクユアハート",
+      "win_prob": 0.0089,
+      "win_prob_linear": 0.0097,
+      "place_prob_lb": 0.01,
+      "breakeven_odds": 112.36,
+      "win_odds_bet365": 41,
+      "win_odds_nikkan": null,
+      "win_odds_spread": null
+    },
+    {
+      "horse_num": 11,
+      "name": "シンエンペラー",
+      "win_prob": 0.0074,
+      "win_prob_linear": 0.0072,
+      "place_prob_lb": 0,
+      "breakeven_odds": 135.14,
+      "win_odds_bet365": 101,
+      "win_odds_nikkan": null,
+      "win_odds_spread": null
+    },
+    {
+      "horse_num": 18,
+      "name": "ミステリーウェイ",
+      "win_prob": 0.0074,
+      "win_prob_linear": 0.0072,
+      "place_prob_lb": 0,
+      "breakeven_odds": 135.14,
+      "win_odds_bet365": 151,
+      "win_odds_nikkan": null,
+      "win_odds_spread": null
+    }
+  ]
+}

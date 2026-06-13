@@ -1,0 +1,47 @@
+{
+  "bettor_id": "sayuri",
+  "bettor_name": "さゆり",
+  "philosophy": "複勝圏確率最優先。place_prob 0.3以上の有力馬に絞り、トリガミ回避を最重視。5点以内の堅い構成。",
+  "backend": "claude-haiku",
+  "tickets": [
+    {
+      "bet_type": "複勝",
+      "selection": "2",
+      "stake_jpy": 1500,
+      "rationale_short": "ミュージアムマイル。place_prob 44.4%で安定。単勝4.5倍→複勝≈1.5倍の予想。"
+    },
+    {
+      "bet_type": "複勝",
+      "selection": "16",
+      "stake_jpy": 1500,
+      "rationale_short": "メイショウタバル。place_prob 44.3%、複勝2.0〜2.5倍見込み。2番との重複で保護。"
+    },
+    {
+      "bet_type": "ワイド",
+      "selection": "2-16",
+      "stake_jpy": 2000,
+      "rationale_short": "2・16の両馬複勝圏内想定。単勝4.5・6.0倍→ワイド≈1.2〜1.8倍、トリガミ回避可能。"
+    },
+    {
+      "bet_type": "ワイド",
+      "selection": "5-16",
+      "stake_jpy": 1500,
+      "rationale_short": "5番と16番。5番place_prob 58.8%、16番44.3%で両馬複勝圏確率が高い。"
+    },
+    {
+      "bet_type": "ワイド",
+      "selection": "2-5",
+      "stake_jpy": 1500,
+      "rationale_short": "最有力2馬の組み合わせ。place_prob 44.4%・58.8%で確実性重視。"
+    }
+  ],
+  "total_stake_jpy": 8000,
+  "skipped_budget_jpy": 2000,
+  "notes": [
+    "複勝5番単独は見送り：単勝2.4倍では複勝配当が0.8〜1.0倍に低下、当たって損するリスク（トリガミ）が高い。",
+    "複勝2・16と3本のワイドで、2・5・16の3馬の複勝圏内確率を最大化。5点で的中率優先。",
+    "ワイド配当は単勝オッズから概算：2-16の単勝4.5・6.0倍→ワイド≈1.2〜1.8倍を想定。",
+    "5番クロワデュノール（place_prob 58.8%）は信頼度が高いが、単勝オッズの低さから複勝は配当不足。ワイドで参加。",
+    "予算10,000円中8,000円使用。残2,000円は保守余裕（trickle-down損失回避）。"
+  ]
+}

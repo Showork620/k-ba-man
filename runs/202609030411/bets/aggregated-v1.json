@@ -1,0 +1,196 @@
+{
+  "method": "portfolio averaging over 5 bettors (equal weight); dust<200 dropped",
+  "bettor_count": 5,
+  "bettors": [
+    {
+      "bettor": "剛",
+      "backend": "claude-opus",
+      "philosophy": "軸#5を背骨に三連複フォーメーションを展開。本線で的中率を、中穴#17/#1絡みで配当を稼ぐ。確率の裏付けがある中穴止まり、闇雲な大穴は買わない。",
+      "total_stake_jpy": 7200,
+      "ticket_count": 9
+    },
+    {
+      "bettor": "一徹",
+      "backend": "codex-gpt-5.5",
+      "philosophy": "期待値プラスでも賭け金が規律に届かなければ買わない。見送りも投資判断。",
+      "total_stake_jpy": 0,
+      "ticket_count": 0
+    },
+    {
+      "bettor": "楓",
+      "backend": "claude-sonnet",
+      "philosophy": "単勝・複勝・ワイド・三連複を3シナリオに分散し、どの決着でも壊滅しないポートフォリオ",
+      "total_stake_jpy": 7900,
+      "ticket_count": 12
+    },
+    {
+      "bettor": "律",
+      "backend": "gemini-2.5-flash",
+      "philosophy": "回収率の規律派。市場オッズと集約確率の乖離が小さく、損益分岐オッズを5%上回る条件を満たす買い目がないため見送ります。",
+      "total_stake_jpy": 0,
+      "ticket_count": 0
+    },
+    {
+      "bettor": "さゆり",
+      "backend": "claude-haiku",
+      "philosophy": "複勝圏確率最優先。place_prob 0.3以上の有力馬に絞り、トリガミ回避を最重視。5点以内の堅い構成。",
+      "total_stake_jpy": 8000,
+      "ticket_count": 5
+    }
+  ],
+  "aggregated_tickets": [
+    {
+      "bet_type": "複勝",
+      "selection": "16",
+      "stake_jpy": 500,
+      "consensus": "3/5",
+      "backers": [
+        "剛",
+        "楓",
+        "さゆり"
+      ],
+      "rationales": [
+        "剛: タバルtop3 P=52%、概算1.53倍。三連複が外れても元を一部回収する床",
+        "楓: 16番メイショウタバル。place_prob 44.3%、breakeven 5.71 vs bet365 6.0でわずかに期待値プラス",
+        "さゆり: メイショウタバル。place_prob 44.3%、複勝2.0〜2.5倍見込み。2番との重複で保護。"
+      ]
+    },
+    {
+      "bet_type": "三連複",
+      "selection": "2-5-16",
+      "stake_jpy": 500,
+      "consensus": "2/5",
+      "backers": [
+        "剛",
+        "楓"
+      ],
+      "rationales": [
+        "剛: 本線。上位3頭でP=13.0%最大。配当は薄い(概算5.8倍)が的中率の柱",
+        "楓: シナリオA本命。Harville 6順列合計P≈15.6%。控除後期待配当≈4.8倍。最重点張り"
+      ]
+    },
+    {
+      "bet_type": "ワイド",
+      "selection": "2-16",
+      "stake_jpy": 500,
+      "consensus": "2/5",
+      "backers": [
+        "楓",
+        "さゆり"
+      ],
+      "rationales": [
+        "楓: シナリオB核。5番が飛んだ時の2-3番手コンビ。win_prob合計35.4%で信頼性高い",
+        "さゆり: 2・16の両馬複勝圏内想定。単勝4.5・6.0倍→ワイド≈1.2〜1.8倍、トリガミ回避可能。"
+      ]
+    },
+    {
+      "bet_type": "複勝",
+      "selection": "2",
+      "stake_jpy": 400,
+      "consensus": "2/5",
+      "backers": [
+        "楓",
+        "さゆり"
+      ],
+      "rationales": [
+        "楓: 2番ミュージアムマイル。place_prob 44.4%、シナリオB（5番飛び）での主力回収",
+        "さゆり: ミュージアムマイル。place_prob 44.4%で安定。単勝4.5倍→複勝≈1.5倍の予想。"
+      ]
+    },
+    {
+      "bet_type": "ワイド",
+      "selection": "5-16",
+      "stake_jpy": 400,
+      "consensus": "2/5",
+      "backers": [
+        "楓",
+        "さゆり"
+      ],
+      "rationales": [
+        "楓: 本命1-2番手コンビ。Harville近似でplace_prob積≈26%。シナリオA最頻出ペア",
+        "さゆり: 5番と16番。5番place_prob 58.8%、16番44.3%で両馬複勝圏確率が高い。"
+      ]
+    },
+    {
+      "bet_type": "ワイド",
+      "selection": "2-5",
+      "stake_jpy": 400,
+      "consensus": "2/5",
+      "backers": [
+        "楓",
+        "さゆり"
+      ],
+      "rationales": [
+        "楓: 1・2番手コンビ。win_prob合計47.8%の上位2頭。シナリオA本命決着の複線",
+        "さゆり: 最有力2馬の組み合わせ。place_prob 44.4%・58.8%で確実性重視。"
+      ]
+    },
+    {
+      "bet_type": "三連複",
+      "selection": "1-5-16",
+      "stake_jpy": 300,
+      "consensus": "2/5",
+      "backers": [
+        "剛",
+        "楓"
+      ],
+      "rationales": [
+        "剛: 軸+タバル+ダノン。P=5.8%、概算12.9倍。本線の裏目を埋める",
+        "楓: 1番ダノンデサイルwin_prob 9.1%を軸に絡める。本命3頭がわずかに変わる準本命ライン"
+      ]
+    },
+    {
+      "bet_type": "三連複",
+      "selection": "5-16-17",
+      "stake_jpy": 300,
+      "consensus": "2/5",
+      "backers": [
+        "剛",
+        "楓"
+      ],
+      "rationales": [
+        "剛: 軸+タバル+レガレイラ。P=6.0%、概算12.6倍。中穴2方向をカバー",
+        "楓: シナリオC中波乱。17番レガレイラ絡み。Harville推定P≈6.1%、高配当期待で少額抑え"
+      ]
+    },
+    {
+      "bet_type": "三連複",
+      "selection": "2-5-17",
+      "stake_jpy": 200,
+      "consensus": "1/5",
+      "backers": [
+        "剛"
+      ],
+      "rationales": [
+        "剛: 軸+M.マイル+レガレイラ。中穴#17絡みP=6.1%、概算12倍ゾーン"
+      ]
+    },
+    {
+      "bet_type": "三連複",
+      "selection": "1-2-5",
+      "stake_jpy": 200,
+      "consensus": "1/5",
+      "backers": [
+        "剛"
+      ],
+      "rationales": [
+        "剛: 軸+M.マイル+ダノン。#1絡みP=6.0%、概算12.5倍"
+      ]
+    },
+    {
+      "bet_type": "複勝",
+      "selection": "5",
+      "stake_jpy": 200,
+      "consensus": "1/5",
+      "backers": [
+        "楓"
+      ],
+      "rationales": [
+        "楓: 本命軸。place_prob 58.8%と最高値。シナリオA・C両方で基盤回収を担う安全弁"
+      ]
+    }
+  ],
+  "total_stake_jpy": 3900,
+  "pass_jpy": 6100,
+  "pass_note": "pass = 集合的な見送り額（各自が使わなかった予算とダスト切捨ての平均）"
+}

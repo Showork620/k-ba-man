@@ -1,0 +1,68 @@
+{
+  "expert_id": "tatsunosuke",
+  "expert_name": "龍之介",
+  "school": "血統",
+  "backend": "claude-opus",
+  "effort": "high",
+  "race_id": "202609030411",
+  "pack_version": "v1",
+  "predicted_ranking": [
+    { "horse_num": 16, "rank": 1 },
+    { "horse_num": 2, "rank": 2 },
+    { "horse_num": 5, "rank": 3 },
+    { "horse_num": 17, "rank": 4 },
+    { "horse_num": 6, "rank": 5 }
+  ],
+  "win_prob": [
+    { "horse_num": 16, "prob": 0.22 },
+    { "horse_num": 2, "prob": 0.18 },
+    { "horse_num": 5, "prob": 0.16 },
+    { "horse_num": 17, "prob": 0.12 },
+    { "horse_num": 6, "prob": 0.08 },
+    { "horse_num": 1, "prob": 0.07 },
+    { "horse_num": 15, "prob": 0.05 },
+    { "horse_num": 13, "prob": 0.03 },
+    { "horse_num": 12, "prob": 0.03 },
+    { "horse_num": 14, "prob": 0.02 },
+    { "horse_num": 10, "prob": 0.01 },
+    { "horse_num": 7, "prob": 0.01 },
+    { "horse_num": 9, "prob": 0.01 },
+    { "horse_num": 4, "prob": 0.005 },
+    { "horse_num": 11, "prob": 0.003 },
+    { "horse_num": 3, "prob": 0.001 },
+    { "horse_num": 8, "prob": 0.001 },
+    { "horse_num": 18, "prob": 0.001 }
+  ],
+  "place_prob": [
+    { "horse_num": 16, "prob": 0.52 },
+    { "horse_num": 2, "prob": 0.46 },
+    { "horse_num": 5, "prob": 0.42 },
+    { "horse_num": 17, "prob": 0.32 },
+    { "horse_num": 6, "prob": 0.22 },
+    { "horse_num": 1, "prob": 0.20 },
+    { "horse_num": 15, "prob": 0.14 },
+    { "horse_num": 13, "prob": 0.10 },
+    { "horse_num": 12, "prob": 0.09 }
+  ],
+  "marks": {
+    "honmei": 16,
+    "taikou": 2,
+    "tanana": 5,
+    "renka": [17, 6, 1]
+  },
+  "confidence": 0.65,
+  "rationale": "宝塚記念はステイゴールド系の独壇場。父ゴールドシップ（ステイゴールド直仔）のメイショウタバルは昨年の同レース勝馬で阪神芝全勝、梅雨馬場も苦にしない。母父フレンチデピュティのパワーも内回り向き。対抗ミュージアムマイルは父リオンディーズ（ロベルト系）×母父ハーツクライでスタミナ二重補強、トニービン内包も宝塚好走血統に合致。クロワデュノールは能力最上位も、キタサンブラック産駒はSS系統で本レースでは血統的にやや割引。",
+  "data_used": [
+    "pedigree",
+    "broodmare_sire",
+    "takarazuka_kinen_blood_trend_10yr",
+    "stay_gold_line_stats",
+    "hearts_cry_tonbin_stats",
+    "web_search_pedigree_data"
+  ],
+  "warnings": [
+    "past_races・training データが pack に未収録のため、近走調子・調教内容は未考慮",
+    "馬場状態が良予報だが梅雨入り後で当日変動リスクあり。稍重以上ならメイショウタバルの優位度はさらに上昇",
+    "ファン投票1位クロワデュノールは能力面では最上位候補だが、血統視点ではSS主流系統のため本分析では3番手評価"
+  ]
+}

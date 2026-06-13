@@ -1,0 +1,124 @@
+{
+  "expert_id": "sakura",
+  "expert_name": "さくら",
+  "school": "オッズ",
+  "backend": "claude-haiku",
+  "effort": "medium",
+  "race_id": "202609030411",
+  "pack_version": "v1",
+  "predicted_ranking": [
+    {
+      "horse_num": 5,
+      "rank": 1
+    },
+    {
+      "horse_num": 2,
+      "rank": 2
+    },
+    {
+      "horse_num": 16,
+      "rank": 3
+    },
+    {
+      "horse_num": 17,
+      "rank": 4
+    },
+    {
+      "horse_num": 1,
+      "rank": 5
+    }
+  ],
+  "win_prob": [
+    {
+      "horse_num": 5,
+      "prob": 0.32
+    },
+    {
+      "horse_num": 2,
+      "prob": 0.18
+    },
+    {
+      "horse_num": 16,
+      "prob": 0.14
+    },
+    {
+      "horse_num": 17,
+      "prob": 0.12
+    },
+    {
+      "horse_num": 1,
+      "prob": 0.08
+    },
+    {
+      "horse_num": 15,
+      "prob": 0.05
+    },
+    {
+      "horse_num": 6,
+      "prob": 0.05
+    },
+    {
+      "horse_num": 4,
+      "prob": 0.03
+    },
+    {
+      "horse_num": 14,
+      "prob": 0.02
+    }
+  ],
+  "place_prob": [
+    {
+      "horse_num": 5,
+      "prob": 0.62
+    },
+    {
+      "horse_num": 2,
+      "prob": 0.42
+    },
+    {
+      "horse_num": 16,
+      "prob": 0.35
+    },
+    {
+      "horse_num": 17,
+      "prob": 0.32
+    },
+    {
+      "horse_num": 1,
+      "prob": 0.22
+    },
+    {
+      "horse_num": 15,
+      "prob": 0.15
+    },
+    {
+      "horse_num": 6,
+      "prob": 0.14
+    },
+    {
+      "horse_num": 4,
+      "prob": 0.10
+    }
+  ],
+  "marks": {
+    "honmei": 5,
+    "taikou": 2,
+    "tanana": 16,
+    "renka": [
+      17,
+      1
+    ]
+  },
+  "confidence": 0.55,
+  "rationale": "オッズ市場はファン投票と一致し、クロワデュノール(2.4倍)が圧倒的本命。ミュージアムマイル(4.5倍)は若い4歳馬で外国人騎手。メイショウタバル(6倍)が3番人気で、宝塚記念の歴史的な3-4番人気波乱パターンに合致。複勝層の支持を受けるレガレイラ(9倍)も軽視できず。市場の歪みは小さいが、古馬層からダノンデサイル(10倍)が控除的な狙い目。",
+  "data_used": [
+    "horses.odds",
+    "race.fan_vote_top3",
+    "pack_meta.sources"
+  ],
+  "warnings": [
+    "複勝オッズが明示されていないため、単勝オッズから推定",
+    "当週阪神芝バイアスと梅雨時の馬場変動に注意（実況中継時の変更あり得る）",
+    "past_races / training データなしで流動的メンバーの詳細評価は限定的"
+  ]
+}

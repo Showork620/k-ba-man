@@ -1,0 +1,56 @@
+{
+  "expert_id": "goro",
+  "expert_name": "吾郎",
+  "school": "馬場読み・トラックバイアス",
+  "backend": "claude-sonnet (gemini-fallback)",
+  "effort": "high",
+  "race_id": "202609030411",
+  "pack_version": "v1",
+  "predicted_ranking": [
+    { "horse_num": 5,  "rank": 1 },
+    { "horse_num": 2,  "rank": 2 },
+    { "horse_num": 1,  "rank": 3 },
+    { "horse_num": 6,  "rank": 4 },
+    { "horse_num": 16, "rank": 5 }
+  ],
+  "win_prob": [
+    { "horse_num": 5,  "prob": 0.30 },
+    { "horse_num": 2,  "prob": 0.20 },
+    { "horse_num": 1,  "prob": 0.12 },
+    { "horse_num": 16, "prob": 0.09 },
+    { "horse_num": 17, "prob": 0.07 },
+    { "horse_num": 6,  "prob": 0.06 },
+    { "horse_num": 15, "prob": 0.04 },
+    { "horse_num": 14, "prob": 0.03 }
+  ],
+  "place_prob": [
+    { "horse_num": 5,  "prob": 0.62 },
+    { "horse_num": 2,  "prob": 0.52 },
+    { "horse_num": 1,  "prob": 0.40 },
+    { "horse_num": 6,  "prob": 0.28 },
+    { "horse_num": 16, "prob": 0.27 },
+    { "horse_num": 17, "prob": 0.25 },
+    { "horse_num": 15, "prob": 0.15 }
+  ],
+  "marks": {
+    "honmei": 5,
+    "taikou": 2,
+    "tanana": 1,
+    "renka": [6, 16]
+  },
+  "confidence": 0.62,
+  "rationale": "6/6-7阪神芝は2日間フラットバイアス（内外・前後差なし）。6/14は晴のち曇・降水確率20%で良馬場維持が濃厚。開幕馬場コンディションは時計速く持続力型に有利。◎クロワデュノール（3枠5番・キタサンブラック産駒）は阪神芝2200m良馬場で血統適性最高。○ミュージアムマイル（1枠2番・D.レーン）は内ラチ沿いロスゼロで好走圏。▲ダノンデサイル（1枠1番・エピファネイア系）は内枠×持続力で3着圏内。△ビザンチンドリームはエピファネイア系穴として評価。メイショウタバルはゴールドシップ系で良馬場では割引。",
+  "data_used": [
+    "pack-v1.json",
+    "阪神芝6/6-7週バイアス結果（bloodline-trackbias.work）",
+    "阪神競馬場6/14天気予報（tenki.jp: 晴のち曇・降水確率20%）",
+    "JRA馬場情報（芝：良）",
+    "阪神芝2200m枠順・脚質データ（keiba-course.com）",
+    "JRAリフレッシュ工事後馬場特性（2025春完了）"
+  ],
+  "warnings": [
+    "past_races / training データなし（pack-v1では空配列）。血統・馬場・枠順・オッズのみで判定",
+    "梅雨期のため前日からの降雨で馬場変動リスクあり。やや重以下になればメイショウタバル（ゴールドシップ系）の評価を上方修正要",
+    "gemini CLI unavailable につき claude-sonnet で代替実行"
+  ]
+}
