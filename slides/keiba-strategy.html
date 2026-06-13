@@ -1,0 +1,2118 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>k-ba-man 競馬予想作戦スライド</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #14211d;
+        --muted: #5d6864;
+        --paper: #f7f8fb;
+        --surface: #ffffff;
+        --line: #d9ded9;
+        --green: #0f7a4f;
+        --green-soft: #dff2e9;
+        --red: #b33b32;
+        --red-soft: #f7dfdc;
+        --gold: #d99b18;
+        --gold-soft: #fff1cf;
+        --blue: #315b96;
+        --blue-soft: #dfeaff;
+        --violet: #7651a8;
+        --violet-soft: #ebe2f7;
+        --shadow: 0 20px 70px rgb(20 33 29 / 14%);
+        --radius: 8px;
+        font-family:
+          "Hiragino Sans", "Yu Gothic", "YuGothic", "Noto Sans JP",
+          system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        min-height: 100%;
+        margin: 0;
+        background:
+          linear-gradient(90deg, rgb(15 122 79 / 6%) 1px, transparent 1px),
+          linear-gradient(rgb(15 122 79 / 5%) 1px, transparent 1px),
+          var(--paper);
+        background-size: 42px 42px;
+        color: var(--ink);
+      }
+
+      body {
+        overflow: hidden;
+      }
+
+      body.is-presentation {
+        background: var(--paper);
+      }
+
+      button {
+        font: inherit;
+      }
+
+      .deck {
+        position: relative;
+        width: 100vw;
+        height: 100dvh;
+        min-height: 620px;
+        overflow: hidden;
+      }
+
+      .slide {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        padding: clamp(24px, 4vw, 56px);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(5%);
+        transition:
+          opacity 220ms ease,
+          transform 260ms ease;
+      }
+
+      .slide.is-active {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateX(0);
+      }
+
+      .slide.was-left {
+        transform: translateX(-5%);
+      }
+
+      .stage {
+        position: relative;
+        width: min(1160px, 100%);
+        min-height: min(720px, calc(100dvh - 128px));
+        display: grid;
+        align-content: center;
+        gap: clamp(22px, 3vw, 36px);
+        padding: clamp(26px, 4vw, 54px);
+        background: rgb(255 255 255 / 88%);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .stage::before {
+        content: "";
+        position: absolute;
+        inset: 14px;
+        border: 1px dashed rgb(15 122 79 / 28%);
+        border-radius: calc(var(--radius) - 2px);
+        pointer-events: none;
+      }
+
+      .stage > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .stage:not(.hero-grid):not(.two-col):not(.closing-grid):not(.self-intro-stage):not(.recruit-stage) {
+        align-content: start;
+      }
+
+      .kicker {
+        margin: 0;
+        color: var(--green);
+        font-size: clamp(13px, 1.6vw, 16px);
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+
+      .stage > div:first-child > .kicker + :is(h1, h2) {
+        margin-top: clamp(10px, 1.25vw, 18px);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        max-width: 980px;
+        font-size: clamp(32px, 6.35vw, 70px);
+        line-height: 1.02;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        max-width: 940px;
+        font-size: clamp(24px, 3.75vw, 43px);
+        line-height: 1.16;
+        letter-spacing: 0;
+      }
+
+      h3 {
+        font-size: clamp(19px, 2.35vw, 27px);
+        line-height: 1.16;
+        letter-spacing: 0;
+      }
+
+      .lead {
+        max-width: 760px;
+        color: var(--muted);
+        font-size: clamp(17px, 2.1vw, 24px);
+        line-height: 1.65;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+        align-items: center;
+        gap: clamp(24px, 4vw, 56px);
+      }
+
+      .track-visual {
+        min-height: 360px;
+        display: grid;
+        place-items: center;
+      }
+
+      .track {
+        position: relative;
+        width: min(440px, 100%);
+        aspect-ratio: 1.28;
+        border: 34px solid #227454;
+        border-radius: 48% 48% 46% 46% / 54% 54% 46% 46%;
+        background:
+          radial-gradient(ellipse at center, #b98b53 0 40%, transparent 41%),
+          #e8c188;
+        box-shadow: inset 0 0 0 12px #e9f1e6, 0 18px 42px rgb(20 33 29 / 18%);
+      }
+
+      .track::before {
+        content: "";
+        position: absolute;
+        inset: -22px;
+        border: 3px dashed rgb(255 255 255 / 82%);
+        border-radius: inherit;
+      }
+
+      .runner {
+        position: absolute;
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border-radius: 999px;
+        background: var(--surface);
+        border: 2px solid var(--ink);
+        color: var(--ink);
+        font-size: 16px;
+        font-weight: 900;
+        box-shadow: 0 8px 18px rgb(20 33 29 / 20%);
+      }
+
+      .r1 { left: 10%; top: 14%; }
+      .r2 { left: 37%; top: 4%; }
+      .r3 { right: 18%; top: 13%; }
+      .r4 { right: 4%; top: 42%; }
+      .r5 { right: 16%; bottom: 12%; }
+      .r6 { left: 46%; bottom: 2%; }
+      .r7 { left: 17%; bottom: 11%; }
+      .r8 { left: 2%; top: 44%; }
+      .r9 { left: 28%; top: 36%; background: var(--green-soft); }
+      .r10 { right: 31%; top: 39%; background: var(--gold-soft); }
+
+      .formula-card {
+        display: grid;
+        gap: 16px;
+        padding: clamp(22px, 3vw, 34px);
+        background: var(--green-soft);
+        border: 1px solid #b8dccb;
+        border-radius: var(--radius);
+      }
+
+      .formula {
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 14px;
+        color: var(--green);
+        font-size: clamp(36px, 7vw, 76px);
+        font-weight: 900;
+        line-height: 1;
+        letter-spacing: 0;
+      }
+
+      .formula small {
+        color: var(--muted);
+        font-size: clamp(15px, 1.7vw, 18px);
+        font-weight: 700;
+      }
+
+      .proof-line {
+        display: grid;
+        gap: 8px;
+        padding: 14px 16px;
+        background: rgb(255 255 255 / 74%);
+        border: 1px solid rgb(15 122 79 / 20%);
+        border-radius: var(--radius);
+        color: var(--ink);
+        font-size: clamp(16px, 1.9vw, 20px);
+        font-weight: 900;
+        line-height: 1.45;
+      }
+
+      .proof-line span {
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .source-note {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1.55;
+      }
+
+      .source-note a {
+        color: var(--green);
+        font-weight: 900;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 3px;
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: clamp(22px, 4vw, 52px);
+        align-items: center;
+      }
+
+      .principles {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .principle {
+        min-height: 132px;
+        padding: 18px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+      }
+
+      .principle b {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 18px;
+      }
+
+      .principle span {
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.55;
+      }
+
+      .flow {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+        align-items: center;
+        gap: 14px;
+      }
+
+      .flow-box {
+        min-height: 188px;
+        display: grid;
+        align-content: center;
+        justify-items: start;
+        gap: 14px;
+        padding: 22px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+      }
+
+      .flow-box strong {
+        font-size: clamp(20px, 2.4vw, 28px);
+        line-height: 1.15;
+      }
+
+      .flow-box span {
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      .arrow {
+        width: 42px;
+        height: 42px;
+        display: grid;
+        place-items: center;
+        color: var(--green);
+      }
+
+      .arrow svg,
+      .mini-icon svg,
+      .avatar svg {
+        display: block;
+      }
+
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        padding: 5px 10px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--surface);
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 800;
+        line-height: 1.25;
+        white-space: nowrap;
+      }
+
+      .agent-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(18px, 3vw, 28px);
+      }
+
+      .agent-card {
+        min-height: 420px;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: 20px;
+        padding: clamp(20px, 3vw, 30px);
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-left: 8px solid var(--accent);
+        border-radius: var(--radius);
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+        --character-art: none;
+      }
+
+      .agent-card::before {
+        content: "";
+        position: absolute;
+        right: -36px;
+        bottom: -112px;
+        width: 360px;
+        height: 540px;
+        background: var(--character-art) right bottom / contain no-repeat;
+        opacity: 1;
+        filter: saturate(1.18) contrast(1.22) drop-shadow(0 18px 24px rgb(20 33 29 / 20%));
+        transform: rotate(-2deg);
+        transform-origin: 70% 80%;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .agent-card:nth-child(even)::before {
+        right: -28px;
+        transform: rotate(2deg);
+      }
+
+      .agent-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(102deg, rgb(255 255 255 / 0.94) 0%, rgb(255 255 255 / 0.36) 44%, rgb(255 255 255 / 0) 100%);
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .agent-card > * {
+        position: relative;
+        z-index: 2;
+      }
+
+      .agent-head {
+        display: grid;
+        grid-template-columns: 86px minmax(0, 1fr);
+        align-items: center;
+        gap: 18px;
+      }
+
+      .avatar {
+        width: 86px;
+        aspect-ratio: 1;
+        display: grid;
+        place-items: center;
+        border: 2px solid var(--accent);
+        border-radius: 50%;
+        background: var(--accent-soft);
+      }
+
+      .agent-name {
+        display: grid;
+        gap: 8px;
+      }
+
+      .agent-name .role {
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .agent-name h3 {
+        font-size: clamp(18px, 2.15vw, 25px);
+      }
+
+      .agent-body {
+        display: grid;
+        gap: 15px;
+      }
+
+      .quote {
+        padding: 16px;
+        background: var(--accent-soft);
+        border-radius: var(--radius);
+        color: var(--ink);
+        font-size: clamp(17px, 2vw, 21px);
+        font-weight: 800;
+        line-height: 1.45;
+      }
+
+      .watch-list {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .watch-list li {
+        display: grid;
+        grid-template-columns: 24px minmax(0, 1fr);
+        gap: 9px;
+        align-items: start;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.55;
+      }
+
+      .mini-icon {
+        width: 24px;
+        height: 24px;
+        display: grid;
+        place-items: center;
+        color: var(--accent);
+      }
+
+      .badge-line {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        min-height: 28px;
+        padding: 4px 9px;
+        border-radius: 999px;
+        background: #f0f2f5;
+        color: #39413f;
+        font-size: 12px;
+        font-weight: 900;
+        line-height: 1.25;
+      }
+
+      .red { --accent: var(--red); --accent-soft: var(--red-soft); }
+      .green { --accent: var(--green); --accent-soft: var(--green-soft); }
+      .blue { --accent: var(--blue); --accent-soft: var(--blue-soft); }
+      .gold { --accent: var(--gold); --accent-soft: var(--gold-soft); }
+      .violet { --accent: var(--violet); --accent-soft: var(--violet-soft); }
+
+      .closing-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.02fr);
+        gap: clamp(22px, 4vw, 54px);
+        align-items: center;
+      }
+
+      .scoreboard {
+        display: grid;
+        gap: 12px;
+      }
+
+      .score-row {
+        display: grid;
+        grid-template-columns: 110px minmax(0, 1fr) 72px;
+        align-items: center;
+        gap: 12px;
+        padding: 14px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+      }
+
+      .score-label {
+        font-weight: 900;
+      }
+
+      .score-bar {
+        height: 16px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: #e8ecea;
+      }
+
+      .score-bar span {
+        display: block;
+        width: var(--w);
+        height: 100%;
+        background: var(--accent);
+      }
+
+      .score-note {
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 800;
+        text-align: right;
+      }
+
+      .result-layout {
+        display: grid;
+        grid-template-columns: minmax(310px, 0.9fr) minmax(0, 1.1fr);
+        gap: clamp(18px, 3vw, 34px);
+        align-items: stretch;
+      }
+
+      .result-hero,
+      .bet-summary {
+        display: grid;
+        align-content: center;
+        gap: 18px;
+        padding: clamp(22px, 3vw, 34px);
+        background: var(--green-soft);
+        border: 1px solid #b8dccb;
+        border-left: 8px solid var(--green);
+        border-radius: var(--radius);
+      }
+
+      .result-hero .mark {
+        color: var(--green);
+        font-size: clamp(18px, 2vw, 22px);
+        font-weight: 900;
+      }
+
+      .result-hero strong {
+        color: var(--ink);
+        font-size: clamp(32px, 4.8vw, 58px);
+        line-height: 1.05;
+      }
+
+      .result-hero span {
+        color: var(--muted);
+        font-size: clamp(16px, 1.8vw, 20px);
+        font-weight: 800;
+        line-height: 1.5;
+      }
+
+      .result-ranks {
+        display: grid;
+        gap: 10px;
+      }
+
+      .rank-row {
+        display: grid;
+        grid-template-columns: 54px minmax(0, 1fr) 82px;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 14px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-left: 6px solid var(--accent);
+        border-radius: var(--radius);
+      }
+
+      .rank-row .mark {
+        display: grid;
+        place-items: center;
+        min-height: 40px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 18px;
+        font-weight: 900;
+      }
+
+      .rank-row strong {
+        display: block;
+        font-size: clamp(18px, 2.1vw, 23px);
+        line-height: 1.15;
+      }
+
+      .rank-row small {
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .rank-row .prob {
+        color: var(--accent);
+        font-size: 20px;
+        font-weight: 900;
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .result-note,
+      .bet-note {
+        color: var(--muted);
+        font-size: clamp(14px, 1.6vw, 17px);
+        font-weight: 800;
+        line-height: 1.55;
+      }
+
+      .bet-layout {
+        display: grid;
+        grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+        gap: clamp(18px, 3vw, 34px);
+        align-items: stretch;
+      }
+
+      .bet-summary {
+        background: var(--gold-soft);
+        border-color: #edd290;
+        border-left-color: var(--gold);
+      }
+
+      .budget-number {
+        color: var(--gold);
+        font-size: clamp(48px, 7vw, 86px);
+        font-weight: 900;
+        line-height: 0.95;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .bet-summary strong {
+        font-size: clamp(23px, 3vw, 34px);
+        line-height: 1.18;
+      }
+
+      .bet-points {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .bet-points li {
+        display: grid;
+        grid-template-columns: 24px minmax(0, 1fr);
+        gap: 10px;
+        color: var(--muted);
+        font-size: 15px;
+        font-weight: 800;
+        line-height: 1.45;
+      }
+
+      .ticket-table {
+        display: grid;
+        gap: 8px;
+      }
+
+      .ticket-row {
+        display: grid;
+        grid-template-columns: 86px minmax(0, 1fr) 74px;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+      }
+
+      .ticket-row.is-main {
+        border-left: 6px solid var(--green);
+        background: #f8fffb;
+      }
+
+      .ticket-type {
+        color: var(--accent, var(--green));
+        font-size: 14px;
+        font-weight: 900;
+      }
+
+      .ticket-selection {
+        font-size: clamp(16px, 1.8vw, 20px);
+        font-weight: 900;
+        line-height: 1.15;
+      }
+
+      .ticket-amount {
+        color: var(--ink);
+        font-size: 18px;
+        font-weight: 900;
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .result-stage,
+      .bet-stage {
+        gap: clamp(16px, 2.4vw, 26px);
+        padding: clamp(22px, 3vw, 40px);
+      }
+
+      .result-stage h2,
+      .bet-stage h2 {
+        max-width: none;
+        font-size: clamp(24px, 3.55vw, 40px);
+        line-height: 1.14;
+      }
+
+      .result-stage .result-layout,
+      .bet-stage .bet-layout {
+        gap: clamp(14px, 2.2vw, 24px);
+      }
+
+      .result-stage .result-hero,
+      .bet-stage .bet-summary {
+        gap: 12px;
+        padding: clamp(18px, 2.4vw, 26px);
+      }
+
+      .result-stage .result-hero strong {
+        font-size: clamp(30px, 4vw, 46px);
+      }
+
+      .result-stage .result-hero span,
+      .result-stage .result-note,
+      .bet-stage .bet-note {
+        font-size: clamp(13px, 1.5vw, 16px);
+      }
+
+      .result-stage .result-ranks,
+      .bet-stage .ticket-table,
+      .bet-stage .bet-points {
+        gap: 8px;
+      }
+
+      .result-stage .rank-row {
+        grid-template-columns: 48px minmax(0, 1fr) 72px;
+        gap: 10px;
+        padding: 8px 12px;
+      }
+
+      .result-stage .rank-row .mark {
+        min-height: 36px;
+        font-size: 17px;
+      }
+
+      .result-stage .rank-row strong {
+        font-size: clamp(17px, 1.8vw, 20px);
+      }
+
+      .result-stage .rank-row small {
+        font-size: 12px;
+      }
+
+      .result-stage .rank-row .prob {
+        font-size: 18px;
+      }
+
+      .bet-stage .budget-number {
+        font-size: clamp(42px, 5.6vw, 62px);
+      }
+
+      .bet-stage .bet-summary strong {
+        font-size: clamp(20px, 2.3vw, 26px);
+      }
+
+      .bet-stage .bet-points li {
+        font-size: 13px;
+        line-height: 1.35;
+      }
+
+      .bet-stage .ticket-row {
+        grid-template-columns: 76px minmax(0, 1fr) 70px;
+        gap: 8px;
+        padding: 7px 10px;
+      }
+
+      .bet-stage .ticket-type {
+        font-size: 13px;
+      }
+
+      .bet-stage .ticket-selection {
+        font-size: clamp(15px, 1.6vw, 17px);
+      }
+
+      .bet-stage .ticket-amount {
+        font-size: 15px;
+      }
+
+      .recruit-stage {
+        min-height: min(680px, calc(100dvh - 128px));
+        padding: 0;
+        border: 0;
+        background: #2da6b5;
+        overflow: hidden;
+      }
+
+      .recruit-stage::before {
+        display: none;
+      }
+
+      .recruit-art {
+        width: 100%;
+        height: 100%;
+        min-height: inherit;
+        object-fit: contain;
+        display: block;
+      }
+
+      .recruit-qr {
+        position: absolute;
+        right: clamp(24px, 4vw, 56px);
+        bottom: clamp(24px, 4vw, 48px);
+        z-index: 3;
+        width: clamp(142px, 16vw, 182px);
+        display: grid;
+        justify-items: center;
+        gap: 8px;
+        padding: 12px;
+        background: rgb(255 255 255 / 96%);
+        border: 1px solid rgb(20 33 29 / 12%);
+        border-radius: 8px;
+        box-shadow: 0 18px 44px rgb(20 33 29 / 18%);
+        color: var(--ink);
+        text-decoration: none;
+      }
+
+      .recruit-qr img {
+        width: 100%;
+        aspect-ratio: 1;
+        display: block;
+      }
+
+      .recruit-qr span {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .recruit-qr strong {
+        color: #f45c79;
+        font-size: 15px;
+        font-weight: 900;
+        line-height: 1.15;
+        text-align: center;
+      }
+
+      .self-intro-stage {
+        min-height: min(680px, calc(100dvh - 128px));
+        grid-template-columns: minmax(0, 0.9fr) minmax(340px, 1.1fr);
+        align-items: center;
+        gap: clamp(22px, 4vw, 52px);
+        background:
+          linear-gradient(90deg, rgb(245 92 121 / 9%) 1px, transparent 1px),
+          linear-gradient(rgb(45 166 181 / 9%) 1px, transparent 1px),
+          #ffffff;
+        background-size: 42px 42px;
+      }
+
+      .self-intro-copy {
+        display: grid;
+        gap: 20px;
+      }
+
+      .self-intro-copy h2 {
+        max-width: 620px;
+      }
+
+      .intro-list {
+        display: grid;
+        gap: 14px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .intro-list li {
+        display: grid;
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 14px;
+        align-items: center;
+        padding: 14px 16px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-left: 6px solid var(--accent);
+        border-radius: var(--radius);
+        box-shadow: 0 12px 30px rgb(20 33 29 / 8%);
+      }
+
+      .intro-list .mini-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        font-size: 17px;
+        font-weight: 900;
+      }
+
+      .intro-list strong {
+        display: block;
+        font-size: clamp(17px, 2vw, 23px);
+        line-height: 1.25;
+      }
+
+      .intro-list span:last-child {
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .intro-visual {
+        position: relative;
+        display: grid;
+        gap: 16px;
+      }
+
+      .intro-flyer {
+        width: 100%;
+        display: block;
+        border-radius: var(--radius);
+        border: 1px solid rgb(20 33 29 / 14%);
+        box-shadow: 0 22px 60px rgb(20 33 29 / 18%);
+      }
+
+      .intro-mascot {
+        position: absolute;
+        left: -54px;
+        bottom: -44px;
+        width: clamp(86px, 12vw, 128px);
+        filter: drop-shadow(0 18px 24px rgb(20 33 29 / 18%));
+        transform: rotate(-4deg);
+      }
+
+      .nav {
+        position: fixed;
+        right: clamp(14px, 2vw, 28px);
+        bottom: clamp(14px, 2vw, 28px);
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        background: rgb(255 255 255 / 92%);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        box-shadow: 0 12px 38px rgb(20 33 29 / 15%);
+        backdrop-filter: blur(8px);
+      }
+
+      .nav-button {
+        width: 48px;
+        height: 48px;
+        display: grid;
+        place-items: center;
+        border: 0;
+        border-radius: 999px;
+        background: var(--ink);
+        color: white;
+        cursor: pointer;
+        transition: transform 160ms ease, background 160ms ease;
+      }
+
+      .nav-button:hover,
+      .nav-button:focus-visible,
+      .nav-button.is-active {
+        background: var(--green);
+        outline: 3px solid rgb(15 122 79 / 24%);
+        outline-offset: 2px;
+      }
+
+      .nav-button:active {
+        transform: scale(0.94);
+      }
+
+      .nav-button:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+
+      body.is-presentation .slide {
+        padding: 0;
+      }
+
+      body.is-presentation .stage {
+        width: 100vw;
+        height: 100dvh;
+        min-height: 100dvh;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      body.is-presentation .recruit-stage {
+        padding: 0;
+      }
+
+      body.is-presentation .stage::before,
+      body.is-presentation .dots {
+        display: none;
+      }
+
+      body.is-presentation .nav {
+        right: 20px;
+        bottom: 20px;
+      }
+
+      .counter {
+        min-width: 58px;
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 900;
+        text-align: center;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .progress {
+        position: fixed;
+        inset: 0 0 auto;
+        z-index: 25;
+        height: 6px;
+        background: rgb(20 33 29 / 9%);
+      }
+
+      .progress span {
+        display: block;
+        width: var(--progress, 11.11%);
+        height: 100%;
+        background: linear-gradient(90deg, var(--green), var(--gold), var(--red));
+        transition: width 220ms ease;
+      }
+
+      .dots {
+        position: fixed;
+        left: clamp(14px, 2vw, 28px);
+        bottom: clamp(18px, 2vw, 32px);
+        z-index: 20;
+        display: flex;
+        gap: 8px;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        padding: 0;
+        border: 0;
+        border-radius: 999px;
+        background: rgb(20 33 29 / 22%);
+        cursor: pointer;
+      }
+
+      .dot.is-active {
+        width: 32px;
+        background: var(--green);
+      }
+
+      .dot:focus-visible {
+        outline: 3px solid rgb(15 122 79 / 28%);
+        outline-offset: 3px;
+      }
+
+      @media (max-width: 900px) {
+        body {
+          overflow: hidden;
+        }
+
+        .deck {
+          min-height: 100dvh;
+        }
+
+        .slide {
+          padding: 18px;
+          padding-bottom: 112px;
+          place-items: start center;
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+
+        .stage {
+          min-height: calc(100dvh - 90px);
+          padding: 24px;
+        }
+
+        .hero-grid,
+        .two-col,
+        .closing-grid,
+        .result-layout,
+        .bet-layout,
+        .self-intro-stage {
+          grid-template-columns: 1fr;
+        }
+
+        .track-visual {
+          min-height: 230px;
+        }
+
+        .track {
+          width: min(330px, 92%);
+          border-width: 24px;
+        }
+
+        .runner {
+          width: 31px;
+          height: 31px;
+          font-size: 13px;
+        }
+
+        .principles,
+        .agent-grid,
+        .flow {
+          grid-template-columns: 1fr;
+        }
+
+        .arrow {
+          margin: -6px auto;
+          transform: rotate(90deg);
+        }
+
+        .agent-card {
+          min-height: auto;
+        }
+
+        .agent-head {
+          grid-template-columns: 68px minmax(0, 1fr);
+        }
+
+        .avatar {
+          width: 68px;
+        }
+
+        .dots {
+          display: none;
+        }
+
+        .nav {
+          right: 50%;
+          transform: translateX(50%);
+        }
+      }
+
+      @media (max-width: 560px) {
+        .deck {
+          min-height: 720px;
+        }
+
+        .slide {
+          padding: 12px;
+        }
+
+        .stage {
+          min-height: calc(100dvh - 88px);
+          padding: 20px;
+          gap: 20px;
+        }
+
+        .stage::before {
+          inset: 9px;
+        }
+
+        .principle {
+          min-height: auto;
+        }
+
+        .score-row {
+          grid-template-columns: 84px minmax(0, 1fr) 52px;
+          gap: 9px;
+          padding: 12px;
+        }
+
+        .tag,
+        .badge {
+          white-space: normal;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+        }
+      }
+
+      @media print {
+        body {
+          overflow: visible;
+          background: white;
+        }
+
+        .deck {
+          height: auto;
+          min-height: 0;
+          overflow: visible;
+        }
+
+        .slide {
+          position: relative;
+          min-height: 100vh;
+          break-after: page;
+          opacity: 1;
+          transform: none;
+          pointer-events: auto;
+        }
+
+        .nav,
+        .dots,
+        .progress {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="progress" aria-hidden="true"><span></span></div>
+
+    <main class="deck" aria-live="polite">
+      <section class="slide is-active" aria-label="表紙">
+        <div class="stage hero-grid">
+          <div>
+            <p class="kicker">k-ba-man strategy deck</p>
+            <h1>競馬予想は、ひとりで悩むより10人で割る。</h1>
+            <p class="lead">独立した10人の agent が、血統・統計・展開・馬場・オッズを別々の角度から読み、最後に平均でノイズをならす作戦会議です。</p>
+          </div>
+          <div class="track-visual" aria-hidden="true">
+            <div class="track">
+              <span class="runner r1">1</span>
+              <span class="runner r2">2</span>
+              <span class="runner r3">3</span>
+              <span class="runner r4">4</span>
+              <span class="runner r5">5</span>
+              <span class="runner r6">6</span>
+              <span class="runner r7">7</span>
+              <span class="runner r8">8</span>
+              <span class="runner r9">9</span>
+              <span class="runner r10">10</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" aria-label="自己紹介">
+        <div class="stage self-intro-stage">
+          <div class="self-intro-copy">
+            <p class="kicker">about me</p>
+            <h2>自己紹介</h2>
+            <ul class="intro-list" aria-label="自己紹介">
+              <li class="red">
+                <span class="mini-icon">会</span>
+                <span><strong>株式会社Gemcook</strong><span>大切な誰かを喜ばせるアプリを作る会社です。</span></span>
+              </li>
+              <li class="blue">
+                <span class="mini-icon">実</span>
+                <span><strong>フロントエンド / バックエンドエンジニア兼任</strong><span>UIからAPI、運用までまとめて作ります。</span></span>
+              </li>
+              <li class="green">
+                <span class="mini-icon">AI</span>
+                <span><strong>AI駆動開発勉強会（大阪支部）運営</strong><span>関西からAI時代の開発スタイルを盛り上げています。</span></span>
+              </li>
+            </ul>
+          </div>
+          <div class="intro-visual" aria-label="AI駆動開発勉強会 大阪">
+            <img class="intro-flyer" src="assets/ai-driven-development-osaka.png" alt="AI駆動開発勉強会 大阪 第12回 告知画像">
+            <img class="intro-mascot" src="assets/gemcook-mascot-peek.png" alt="" aria-hidden="true">
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" aria-label="集合知の法則">
+        <div class="stage two-col">
+          <div>
+            <p class="kicker">wisdom of crowds</p>
+            <h2>予想の平均は、平均的な一人より強い。</h2>
+            <p class="lead">これは雰囲気ではなく、Diversity Prediction Theorem で出てくる数学的な帰結です。一人の予想に出る癖も、独立した複数予想を平均すると打ち消されやすくなります。</p>
+          </div>
+          <div class="formula-card">
+            <div class="formula">
+              <span>E = M - D</span>
+              <small>群衆誤差 = 個人平均誤差 - 多様性</small>
+            </div>
+            <div class="proof-line">
+              <strong>D >= 0 なので、E <= M</strong>
+              <span>つまり、集団平均の二乗誤差は、個人予想の平均二乗誤差以下になる。</span>
+            </div>
+            <p class="lead">だから作戦はシンプル。そこそこ当てる10人を、違う理由で悩ませる。</p>
+            <p class="source-note">Source: Scott E. Page, <a href="https://www.engineering.pitt.edu/contentassets/0192c0e1473b41a08c125c46e2a5dd51/making-the-difference--applying-a-logic-of-diversity.pdf" target="_blank" rel="noreferrer">Diversity Prediction Theorem</a> / <a href="https://shs.cairn.info/article/E_RFSP_675_0899?lang=en" target="_blank" rel="noreferrer">Crowd Beats Averages Law</a></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" aria-label="成立条件">
+        <div class="stage">
+          <div>
+            <p class="kicker">4 conditions</p>
+            <h2>集合知が効くための4条件</h2>
+          </div>
+          <div class="principles">
+            <div class="principle">
+              <b>多様性</b>
+              <span>血統派、統計派、穴党、馬場読み。信じるものをあえて散らす。</span>
+            </div>
+            <div class="principle">
+              <b>独立性</b>
+              <span>他の agent の印を見せない。全員で同じ空気に飲まれない。</span>
+            </div>
+            <div class="principle">
+              <b>分散性</b>
+              <span>それぞれが自分の局所知識を深掘る。全員が総合評論家にならない。</span>
+            </div>
+            <div class="principle">
+              <b>集約</b>
+              <span>最後は確率を混ぜる。声の大きさではなく、分布としてまとめる。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" aria-label="作戦フロー">
+        <div class="stage">
+          <div>
+            <p class="kicker">race operation</p>
+            <h2>作戦は、入力を揃えて出力を混ぜる。</h2>
+          </div>
+          <div class="flow">
+            <div class="flow-box green">
+              <div class="mini-icon" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                  <rect x="5" y="3" width="16" height="20" rx="2" stroke="currentColor" stroke-width="2"/>
+                  <path d="M9 8h8M9 13h8M9 18h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <strong>RaceDataPack</strong>
+              <span>出馬表、過去走、調教、天気、馬場を同じファイルで配布。</span>
+            </div>
+            <div class="arrow" aria-hidden="true">
+              <svg width="42" height="42" viewBox="0 0 42 42" fill="none">
+                <path d="M8 21h24M24 13l8 8-8 8" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="flow-box blue">
+              <div class="mini-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <circle cx="9" cy="9" r="4" stroke="currentColor" stroke-width="2"/>
+                  <circle cx="19" cy="9" r="4" stroke="currentColor" stroke-width="2"/>
+                  <circle cx="14" cy="19" r="4" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </div>
+              <strong>10人が独立予想</strong>
+              <span>同じ事実を見て、違う流派で勝ち馬確率を出す。</span>
+            </div>
+            <div class="arrow" aria-hidden="true">
+              <svg width="42" height="42" viewBox="0 0 42 42" fill="none">
+                <path d="M8 21h24M24 13l8 8-8 8" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="flow-box gold">
+              <div class="mini-icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <path d="M5 21l5-6 4 3 8-11" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M5 23h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <strong>確率を集約</strong>
+              <span>平均順位、Borda、log pooling で、ひとつの最終予想へ。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" aria-label="agent 龍之介と誠">
+        <div class="stage">
+          <div>
+            <p class="kicker">agent 01-02</p>
+            <h2>血筋の語り部と、数式の裁判官。</h2>
+          </div>
+          <div class="agent-grid">
+            <article class="agent-card red" style="--character-art: url('assets/characters/tatsunosuke.png')">
+              <div class="agent-head">
+                <div class="avatar" aria-hidden="true">
+                  <svg width="54" height="54" viewBox="0 0 54 54" fill="none">
+                    <path d="M14 39c2-14 10-24 26-26-2 14-10 24-26 26Z" fill="white" stroke="currentColor" stroke-width="3"/>
+                    <path d="M21 32c6-2 11-6 15-12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="agent-name">
+                  <span class="role">血統・配合派</span>
+                  <h3>龍之介</h3>
+                </div>
+              </div>
+              <div class="agent-body">
+                <p class="quote">「父系と母系をたどれば、阪神2200mの顔つきが見えます」</p>
+                <ul class="watch-list">
+                  <li><span class="mini-icon">血</span><span>スタミナ血統、道悪適性、内回りで粘れる配合を見る。</span></li>
+                  <li><span class="mini-icon">読</span><span>馬柱を家系図として読むので、説明が妙に叙情的。</span></li>
+                </ul>
+              </div>
+              <div class="badge-line">
+                <span class="badge">Claude Opus</span>
+                <span class="badge">high effort</span>
+              </div>
+            </article>
+
+            <article class="agent-card blue" style="--character-art: url('assets/characters/makoto.png')">
+              <div class="agent-head">
+                <div class="avatar" aria-hidden="true">
+                  <svg width="54" height="54" viewBox="0 0 54 54" fill="none">
+                    <rect x="10" y="12" width="34" height="30" rx="4" fill="white" stroke="currentColor" stroke-width="3"/>
+                    <path d="M16 22h22M16 29h22M16 36h12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="agent-name">
+                  <span class="role">データ・統計派</span>
+                  <h3>誠</h3>
+                </div>
+              </div>
+              <div class="agent-body">
+                <p class="quote">「印象はログに残りません。数字をください」</p>
+                <ul class="watch-list">
+                  <li><span class="mini-icon">式</span><span>年齢、前走G1、枠順、過去傾向をファクター化する。</span></li>
+                  <li><span class="mini-icon">無</span><span>寡黙だが、スコア表だけは饒舌。</span></li>
+                </ul>
+              </div>
+              <div class="badge-line">
+                <span class="badge">codex</span>
+                <span class="badge">high effort</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" aria-label="agent 美咲と健太">
+        <div class="stage">
+          <div>
+            <p class="kicker">agent 03-04</p>
+            <h2>脳内実況と、指数表の番人。</h2>
+          </div>
+          <div class="agent-grid">
+            <article class="agent-card violet" style="--character-art: url('assets/characters/misaki.png')">
+              <div class="agent-head">
+                <div class="avatar" aria-hidden="true">
+                  <svg width="54" height="54" viewBox="0 0 54 54" fill="none">
+                    <path d="M13 34c8-13 20-13 28 0" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M16 25h22M18 18h18" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                    <circle cx="19" cy="35" r="4" fill="white" stroke="currentColor" stroke-width="3"/>
+                    <circle cx="35" cy="35" r="4" fill="white" stroke="currentColor" stroke-width="3"/>
+                  </svg>
+                </div>
+                <div class="agent-name">
+                  <span class="role">展開・ペース読み派</span>
+                  <h3>美咲</h3>
+                </div>
+              </div>
+              <div class="agent-body">
+                <p class="quote">「3角で息が入って、4角で一斉に動く未来が見えます」</p>
+                <ul class="watch-list">
+                  <li><span class="mini-icon">流</span><span>逃げ、先行、差しの配置からレースを脳内再生する。</span></li>
+                  <li><span class="mini-icon">強</span><span>速いペースでも遅いペースでも残る馬を好む。</span></li>
+                </ul>
+              </div>
+              <div class="badge-line">
+                <span class="badge">Claude Opus</span>
+                <span class="badge">medium effort</span>
+              </div>
+            </article>
+
+            <article class="agent-card green" style="--character-art: url('assets/characters/kenta.png')">
+              <div class="agent-head">
+                <div class="avatar" aria-hidden="true">
+                  <svg width="54" height="54" viewBox="0 0 54 54" fill="none">
+                    <path d="M11 38h32" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M16 34V22M27 34V14M38 34V26" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+                    <path d="M14 15h27" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="agent-name">
+                  <span class="role">スピード指数派</span>
+                  <h3>健太</h3>
+                </div>
+              </div>
+              <div class="agent-body">
+                <p class="quote">「速い馬が速い。以上です」</p>
+                <ul class="watch-list">
+                  <li><span class="mini-icon">指</span><span>直近5走の最高値、平均値、類似条件の指数を比較。</span></li>
+                  <li><span class="mini-icon">即</span><span>迷いが少ない。指数差が大きいときはかなり強気。</span></li>
+                </ul>
+              </div>
+              <div class="badge-line">
+                <span class="badge">Claude Sonnet</span>
+                <span class="badge">low effort</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" aria-label="agent 鉄平とさくら">
+        <div class="stage">
+          <div>
+            <p class="kicker">agent 05-06</p>
+            <h2>早朝の坂路職人と、市場の早口分析官。</h2>
+          </div>
+          <div class="agent-grid">
+            <article class="agent-card gold" style="--character-art: url('assets/characters/teppei.png')">
+              <div class="agent-head">
+                <div class="avatar" aria-hidden="true">
+                  <svg width="54" height="54" viewBox="0 0 54 54" fill="none">
+                    <path d="M11 39c8-4 16-4 24 0 3 2 6 2 8-1" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M17 17h20l-4 14H21l-4-14Z" fill="white" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+                    <path d="M22 13h10" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="agent-name">
+                  <span class="role">調教・仕上がり派</span>
+                  <h3>鉄平</h3>
+                </div>
+              </div>
+              <div class="agent-body">
+                <p class="quote">「時計より、最後の1Fでまだ余ってるかです」</p>
+                <ul class="watch-list">
+                  <li><span class="mini-icon">追</span><span>最終追切、坂路時計、併走馬との手応えで仕上がり判定。</span></li>
+                  <li><span class="mini-icon">朝</span><span>朝が早い。人間側の眠気もファクターに入れそう。</span></li>
+                </ul>
+              </div>
+              <div class="badge-line">
+                <span class="badge">codex</span>
+                <span class="badge">medium effort</span>
+              </div>
+            </article>
+
+            <article class="agent-card red" style="--character-art: url('assets/characters/sakura.png')">
+              <div class="agent-head">
+                <div class="avatar" aria-hidden="true">
+                  <svg width="54" height="54" viewBox="0 0 54 54" fill="none">
+                    <path d="M12 36c7-14 15-16 22-8l8-12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="15" cy="36" r="4" fill="white" stroke="currentColor" stroke-width="3"/>
+                    <circle cx="34" cy="28" r="4" fill="white" stroke="currentColor" stroke-width="3"/>
+                    <circle cx="42" cy="16" r="4" fill="white" stroke="currentColor" stroke-width="3"/>
+                  </svg>
+                </div>
+                <div class="agent-name">
+                  <span class="role">オッズ・市場分析派</span>
+                  <h3>さくら</h3>
+                </div>
+              </div>
+              <div class="agent-body">
+                <p class="quote">「市場は賢いです。でも時々、全員で同じ勘違いをします」</p>
+                <ul class="watch-list">
+                  <li><span class="mini-icon">市</span><span>単勝と複勝のズレ、ファン投票と市場評価の温度差を見る。</span></li>
+                  <li><span class="mini-icon">早</span><span>話すのは速いが、乖離計算はきっちり。</span></li>
+                </ul>
+              </div>
+              <div class="badge-line">
+                <span class="badge">Claude Haiku</span>
+                <span class="badge">medium effort</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" aria-label="agent 葵と陽菜">
+        <div class="stage">
+          <div>
+            <p class="kicker">agent 07-08</p>
+            <h2>人馬関係ウォッチャーと、逆張りの火付け役。</h2>
+          </div>
+          <div class="agent-grid">
+            <article class="agent-card blue" style="--character-art: url('assets/characters/aoi.png')">
+              <div class="agent-head">
+                <div class="avatar" aria-hidden="true">
+                  <svg width="54" height="54" viewBox="0 0 54 54" fill="none">
+                    <circle cx="21" cy="22" r="8" fill="white" stroke="currentColor" stroke-width="3"/>
+                    <circle cx="36" cy="25" r="6" fill="white" stroke="currentColor" stroke-width="3"/>
+                    <path d="M10 43c3-8 9-12 17-12s14 4 17 12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="agent-name">
+                  <span class="role">騎手・厩舎派</span>
+                  <h3>葵</h3>
+                </div>
+              </div>
+              <div class="agent-body">
+                <p class="quote">「馬は強い。でも誰が乗るかで、強さの出方が変わります」</p>
+                <ul class="watch-list">
+                  <li><span class="mini-icon">人</span><span>騎手成績、厩舎、コンビ実績、乗り替わりを加点減点。</span></li>
+                  <li><span class="mini-icon">観</span><span>人間観察が鋭い。コメント欄の空気まで読みそう。</span></li>
+                </ul>
+              </div>
+              <div class="badge-line">
+                <span class="badge">Claude Sonnet</span>
+                <span class="badge">medium effort</span>
+              </div>
+            </article>
+
+            <article class="agent-card violet" style="--character-art: url('assets/characters/hina.png')">
+              <div class="agent-head">
+                <div class="avatar" aria-hidden="true">
+                  <svg width="54" height="54" viewBox="0 0 54 54" fill="none">
+                    <path d="M14 36l26-18" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M18 18h18v18" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M18 36h18" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="agent-name">
+                  <span class="role">穴党・逆張り派</span>
+                  <h3>陽菜</h3>
+                </div>
+              </div>
+              <div class="agent-body">
+                <p class="quote">「みんなが見てる馬？ じゃあ一回、横を見ます」</p>
+                <ul class="watch-list">
+                  <li><span class="mini-icon">穴</span><span>人気馬を疑い、5から9番人気の妙味を探す。</span></li>
+                  <li><span class="mini-icon">跳</span><span>自信は低め。でも当たると会議室がざわつく。</span></li>
+                </ul>
+              </div>
+              <div class="badge-line">
+                <span class="badge">gemini flash</span>
+                <span class="badge">low effort</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" aria-label="agent 優子と吾郎">
+        <div class="stage">
+          <div>
+            <p class="kicker">agent 09-10</p>
+            <h2>複勝圏の守備職人と、馬場を読む現場監督。</h2>
+          </div>
+          <div class="agent-grid">
+            <article class="agent-card green" style="--character-art: url('assets/characters/yuko.png')">
+              <div class="agent-head">
+                <div class="avatar" aria-hidden="true">
+                  <svg width="54" height="54" viewBox="0 0 54 54" fill="none">
+                    <path d="M13 16h28v22H13z" fill="white" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+                    <path d="M19 27l6 6 11-14" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="agent-name">
+                  <span class="role">堅実本命派</span>
+                  <h3>優子</h3>
+                </div>
+              </div>
+              <div class="agent-body">
+                <p class="quote">「穴は買いません。まず3着内に来る馬からです」</p>
+                <ul class="watch-list">
+                  <li><span class="mini-icon">堅</span><span>1から3番人気、G1実績、安定した複勝圏を素直に評価。</span></li>
+                  <li><span class="mini-icon">静</span><span>会議を落ち着かせる係。陽菜とはよく目が合わない。</span></li>
+                </ul>
+              </div>
+              <div class="badge-line">
+                <span class="badge">Claude Haiku</span>
+                <span class="badge">low effort</span>
+              </div>
+            </article>
+
+            <article class="agent-card gold" style="--character-art: url('assets/characters/goro.png')">
+              <div class="agent-head">
+                <div class="avatar" aria-hidden="true">
+                  <svg width="54" height="54" viewBox="0 0 54 54" fill="none">
+                    <path d="M10 36c6-8 13-8 20 0s12 8 14 0" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M17 24c7-5 14-5 21 0" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M26 12v28" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="agent-name">
+                  <span class="role">馬場・トラックバイアス派</span>
+                  <h3>吾郎</h3>
+                </div>
+              </div>
+              <div class="agent-body">
+                <p class="quote">「今日は外が伸びる。土と風がそう言っとる」</p>
+                <ul class="watch-list">
+                  <li><span class="mini-icon">場</span><span>雨、内外バイアス、前残り、道悪実績を最重視。</span></li>
+                  <li><span class="mini-icon">渋</span><span>言葉は少ないが、当週の芝だけはよく語る。</span></li>
+                </ul>
+              </div>
+              <div class="badge-line">
+                <span class="badge">gemini pro</span>
+                <span class="badge">high effort</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" aria-label="まとめ">
+        <div class="stage closing-grid">
+          <div>
+            <p class="kicker">final tactic</p>
+            <h2>結論: 予想を当てにいくより、外し方を分散する。</h2>
+            <p class="lead">10人が同じ馬を同じ理由で推したら、ただの合唱です。違う理由で推し、違う理由で疑い、最後に確率を混ぜる。k-ba-man の作戦はそこにあります。</p>
+          </div>
+          <div class="scoreboard" aria-label="多様性バランス">
+            <div class="score-row green">
+              <span class="score-label">流派</span>
+              <div class="score-bar"><span style="--w: 100%"></span></div>
+              <span class="score-note">10種</span>
+            </div>
+            <div class="score-row blue">
+              <span class="score-label">backend</span>
+              <div class="score-bar"><span style="--w: 80%"></span></div>
+              <span class="score-note">5種</span>
+            </div>
+            <div class="score-row gold">
+              <span class="score-label">effort</span>
+              <div class="score-bar"><span style="--w: 68%"></span></div>
+              <span class="score-note">3段</span>
+            </div>
+            <div class="score-row red">
+              <span class="score-label">独立性</span>
+              <div class="score-bar"><span style="--w: 96%"></span></div>
+              <span class="score-note">必須</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" aria-label="集合知の最終予想">
+        <div class="stage result-stage">
+          <div>
+            <p class="kicker">run 202609030411 | final ensemble</p>
+            <h2>10人の予想を混ぜた、最終盤の集合知予想。</h2>
+          </div>
+          <div class="result-layout">
+            <div class="result-hero">
+              <span class="mark">◎ 本命</span>
+              <strong>5 クロワデュノール</strong>
+              <span>勝率 29.9% / 複勝圏下限 58.8%。10人中7人が本命に推した、集合知の中心軸。</span>
+              <p class="result-note">集約: Borda Count + confidence加重 Log Pooling。個別予想は見せず、最後の統合版だけを採用。</p>
+            </div>
+            <div class="result-ranks" aria-label="最終予想ランキング">
+              <div class="rank-row blue">
+                <span class="mark">○</span>
+                <div>
+                  <strong>2 ミュージアムマイル</strong>
+                  <small>内枠のロスゼロ運び。2番手争いはほぼ同格。</small>
+                </div>
+                <span class="prob">17.9%</span>
+              </div>
+              <div class="rank-row red">
+                <span class="mark">▲</span>
+                <div>
+                  <strong>16 メイショウタバル</strong>
+                  <small>連覇狙いの逃げ馬。血統・調教・馬場で強い支持。</small>
+                </div>
+                <span class="prob">17.5%</span>
+              </div>
+              <div class="rank-row violet">
+                <span class="mark">△</span>
+                <div>
+                  <strong>17 レガレイラ</strong>
+                  <small>穴党の本命。牝馬56kgとG1実績を評価。</small>
+                </div>
+                <span class="prob">9.2%</span>
+              </div>
+              <div class="rank-row green">
+                <span class="mark">△</span>
+                <div>
+                  <strong>1 ダノンデサイル</strong>
+                  <small>調教派の本命。内枠から上位崩しを狙う。</small>
+                </div>
+                <span class="prob">9.1%</span>
+              </div>
+              <div class="rank-row gold">
+                <span class="mark">△</span>
+                <div>
+                  <strong>15 マイユニバース</strong>
+                  <small>最終追切の上昇気配。ビザンチンドリームと僅差。</small>
+                </div>
+                <span class="prob">3.2%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" aria-label="AIが決めた買い目">
+        <div class="stage bet-stage">
+          <div>
+            <p class="kicker">betting portfolio | decided by AI</p>
+            <h2>この確率を元に、買い目もAIに決めてもらいました。</h2>
+          </div>
+          <div class="bet-layout">
+            <div class="bet-summary">
+              <span class="budget-number">3,000円</span>
+              <strong>5人の資金配分AIが作ったポートフォリオを平均した、全11点の最終買い目。</strong>
+              <ul class="bet-points">
+                <li><span>規</span><span>一徹・律は「買える賭けなし」と判断。見送りも投資判断に含める。</span></li>
+                <li><span>無</span><span>単勝はゼロ。複勝・ワイド・三連複でリスクを散らす。</span></li>
+                <li><span>圧</span><span>集合知の投票額3,900円を、確定予算3,000円に圧縮。</span></li>
+              </ul>
+              <p class="bet-note">入力は集約確率だけ。誰がどの馬を推したかは資金配分AIに見せていません。</p>
+            </div>
+            <div class="ticket-table" aria-label="最終買い目">
+              <div class="ticket-row is-main green">
+                <span class="ticket-type">複勝</span>
+                <span class="ticket-selection">16 メイショウタバル</span>
+                <span class="ticket-amount">400円</span>
+              </div>
+              <div class="ticket-row blue">
+                <span class="ticket-type">三連複</span>
+                <span class="ticket-selection">2-5-16</span>
+                <span class="ticket-amount">400円</span>
+              </div>
+              <div class="ticket-row red">
+                <span class="ticket-type">ワイド</span>
+                <span class="ticket-selection">2-16</span>
+                <span class="ticket-amount">400円</span>
+              </div>
+              <div class="ticket-row blue">
+                <span class="ticket-type">複勝</span>
+                <span class="ticket-selection">2 ミュージアムマイル</span>
+                <span class="ticket-amount">300円</span>
+              </div>
+              <div class="ticket-row red">
+                <span class="ticket-type">ワイド</span>
+                <span class="ticket-selection">5-16</span>
+                <span class="ticket-amount">300円</span>
+              </div>
+              <div class="ticket-row green">
+                <span class="ticket-type">ワイド</span>
+                <span class="ticket-selection">2-5</span>
+                <span class="ticket-amount">300円</span>
+              </div>
+              <div class="ticket-row gold">
+                <span class="ticket-type">三連複</span>
+                <span class="ticket-selection">1-5-16 / 5-16-17</span>
+                <span class="ticket-amount">各300円</span>
+              </div>
+              <div class="ticket-row violet">
+                <span class="ticket-type">三連複</span>
+                <span class="ticket-selection">2-5-17 / 1-2-5</span>
+                <span class="ticket-amount">各100円</span>
+              </div>
+              <div class="ticket-row green">
+                <span class="ticket-type">複勝</span>
+                <span class="ticket-selection">5 クロワデュノール</span>
+                <span class="ticket-amount">100円</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section class="slide" aria-label="採用情報">
+        <div class="stage recruit-stage">
+          <img class="recruit-art" src="assets/recruit-slide.png" alt="RECRUIT 採用情報">
+          <a class="recruit-qr" href="https://www.wantedly.com/companies/gemcook/projects" target="_blank" rel="noreferrer" aria-label="Wantedlyの採用情報を開く">
+            <img src="assets/wantedly-projects-qr.png" alt="Wantedly採用情報のQRコード">
+            <span>Wantedly</span>
+            <strong>採用情報はこちら</strong>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <div class="dots" aria-label="スライド選択"></div>
+
+    <nav class="nav" aria-label="スライド操作">
+      <button class="nav-button" type="button" data-prev aria-label="前のスライド" title="前へ">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <span class="counter" aria-label="現在のスライド">1 / 10</span>
+      <button class="nav-button" type="button" data-fullscreen aria-label="全画面表示" title="全画面">
+        <svg class="icon-enter" width="23" height="23" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M8 3H3v5M16 3h5v5M8 21H3v-5M21 16v5h-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="nav-button" type="button" data-next aria-label="次のスライド" title="次へ">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </nav>
+
+    <script>
+      const slides = Array.from(document.querySelectorAll(".slide"));
+      const counter = document.querySelector(".counter");
+      const progress = document.querySelector(".progress span");
+      const dots = document.querySelector(".dots");
+      const previousButton = document.querySelector("[data-prev]");
+      const nextButton = document.querySelector("[data-next]");
+      const fullscreenButton = document.querySelector("[data-fullscreen]");
+      let current = 0;
+      let startX = null;
+      let fallbackPresentation = false;
+
+      slides.forEach((slide, index) => {
+        const dot = document.createElement("button");
+        dot.className = "dot";
+        dot.type = "button";
+        dot.setAttribute("aria-label", `${index + 1}枚目へ`);
+        dot.addEventListener("click", () => goTo(index));
+        dots.appendChild(dot);
+      });
+
+      const dotButtons = Array.from(document.querySelectorAll(".dot"));
+
+      function clampIndex(index) {
+        if (index < 0) return slides.length - 1;
+        if (index >= slides.length) return 0;
+        return index;
+      }
+
+      function goTo(index) {
+        const nextIndex = clampIndex(index);
+        if (nextIndex === current) return;
+
+        slides[current].classList.remove("is-active");
+        slides[current].classList.toggle("was-left", nextIndex > current);
+        current = nextIndex;
+        render();
+      }
+
+      function render() {
+        slides.forEach((slide, index) => {
+          const isActive = index === current;
+          slide.classList.toggle("is-active", isActive);
+          slide.classList.toggle("was-left", index < current);
+          slide.setAttribute("aria-hidden", String(!isActive));
+        });
+
+        dotButtons.forEach((dot, index) => {
+          dot.classList.toggle("is-active", index === current);
+          dot.setAttribute("aria-current", index === current ? "true" : "false");
+        });
+
+        counter.textContent = `${current + 1} / ${slides.length}`;
+        progress.style.setProperty("--progress", `${((current + 1) / slides.length) * 100}%`);
+        history.replaceState(null, "", `#${current + 1}`);
+      }
+
+      previousButton.addEventListener("click", () => goTo(current - 1));
+      nextButton.addEventListener("click", () => goTo(current + 1));
+
+      async function toggleFullscreen() {
+        const isPresentation = document.body.classList.contains("is-presentation");
+
+        if (!document.fullscreenElement) {
+          if (isPresentation) {
+            document.body.classList.remove("is-presentation");
+            fallbackPresentation = false;
+            syncFullscreenButton();
+            return;
+          }
+
+          try {
+            await document.documentElement.requestFullscreen();
+            fallbackPresentation = false;
+            document.body.classList.add("is-presentation");
+          } catch {
+            fallbackPresentation = true;
+            document.body.classList.add("is-presentation");
+          }
+
+          syncFullscreenButton();
+          return;
+        }
+
+        fallbackPresentation = false;
+        await document.exitFullscreen();
+      }
+
+      function syncFullscreenButton() {
+        const isFullscreen = Boolean(document.fullscreenElement) || document.body.classList.contains("is-presentation");
+        fullscreenButton.classList.toggle("is-active", isFullscreen);
+        fullscreenButton.setAttribute("aria-label", isFullscreen ? "全画面を解除" : "全画面表示");
+        fullscreenButton.title = isFullscreen ? "全画面解除" : "全画面";
+      }
+
+      fullscreenButton.addEventListener("click", () => {
+        toggleFullscreen().catch(() => {});
+      });
+
+      document.addEventListener("fullscreenchange", () => {
+        if (!document.fullscreenElement && !fallbackPresentation) {
+          document.body.classList.remove("is-presentation");
+        }
+        syncFullscreenButton();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        const forwardKeys = ["ArrowRight", "PageDown", " "];
+        const backwardKeys = ["ArrowLeft", "PageUp"];
+
+        if (forwardKeys.includes(event.key)) {
+          event.preventDefault();
+          goTo(current + 1);
+        }
+
+        if (backwardKeys.includes(event.key)) {
+          event.preventDefault();
+          goTo(current - 1);
+        }
+
+        if (event.key === "Home") {
+          event.preventDefault();
+          goTo(0);
+        }
+
+        if (event.key === "End") {
+          event.preventDefault();
+          goTo(slides.length - 1);
+        }
+
+        if (event.key.toLowerCase() === "f") {
+          event.preventDefault();
+          toggleFullscreen().catch(() => {});
+        }
+      });
+
+      document.addEventListener("pointerdown", (event) => {
+        startX = event.clientX;
+      });
+
+      document.addEventListener("pointerup", (event) => {
+        if (startX === null) return;
+        const delta = event.clientX - startX;
+        startX = null;
+
+        if (Math.abs(delta) < 80) return;
+        goTo(delta < 0 ? current + 1 : current - 1);
+      });
+
+      const initialSlide = Number(location.hash.replace("#", "")) - 1;
+      if (Number.isInteger(initialSlide) && initialSlide >= 0 && initialSlide < slides.length) {
+        current = initialSlide;
+      }
+
+      render();
+      syncFullscreenButton();
+    </script>
+  </body>
+</html>
