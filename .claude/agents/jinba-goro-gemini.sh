@@ -59,8 +59,8 @@ EOF
   echo ""
   echo "## RaceDataPack"
   cat "$PACK_FILE"
-} | gemini -p "上記の専門家として ExpertPrediction スキーマの JSON を返してください" \
+} | GEMINI_CLI_TRUST_WORKSPACE=true gemini -p "上記の専門家として ExpertPrediction スキーマの JSON を返してください" \
            -m gemini-2.5-pro \
            --output-format json \
            --approval-mode plan \
-  | jq -r '.response'
+  | jq -r '.response' | sed '/^```/d'
