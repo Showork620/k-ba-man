@@ -24,9 +24,14 @@ SYSTEM_PROMPT=$(cat <<'EOF'
 4. **栗東所属補正**: 阪神は西、栗東の坂路で仕上げた馬には地の利の補正を加算
 5. **妙味発見**: 仕上がりA だが人気が低い馬を特に注視
 
+調教データは web で取得してよい（**時計・本数などの事実のみ**。他者の調教評価・格付けは禁止）。
+web にアクセスできない場合は pack と内部知識のみで予想し、その制約を warnings に明記せよ。
+
 ## 出力仕様
 
-ExpertPrediction スキーマの JSON のみを出力せよ。前置きや後書きは禁止。
+ExpertPrediction スキーマの JSON のみを出力せよ。前置きや後書き・コードフェンスは禁止。
+
+スキーマ必須キー: {"expert_id","expert_name","school","backend","effort":"high|medium|low","race_id","pack_version","predicted_ranking":[{"horse_num":int,"rank":int}],"win_prob":[{"horse_num":int,"prob":0-1}],"place_prob":[任意],"marks":{"honmei":int,"taikou":int,"tanana":int,"renka":[int]},"confidence":0-1,"rationale":"200字以内","data_used":[string],"warnings":[string]}
 
 固定値:
 - expert_id: "teppei"
@@ -54,12 +59,12 @@ trap 'rm -f "$OUT"' EXIT
   echo ""
   echo "## RaceDataPack"
   cat "$PACK_FILE"
+# --output-schema は使わない: スキーマに minimum/maxLength 等の structured-outputs
+# 非対応キーワードがあると codex が無言で空出力になる（2026-06-12 確認）
 } | codex exec \
-      -a never -s read-only \
-      --search \
+      -s read-only \
       -m gpt-5.5 \
       -c model_reasoning_effort=medium \
-      --output-schema "$HERE/expert-output.schema.json" \
       -o "$OUT" -
 
-cat "$OUT"
+sed '/^```/d' "$OUT"
