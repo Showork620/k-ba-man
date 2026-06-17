@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>k-ba-man | 競馬予想 × 人間ドラマ</title>
+    <meta
+      name="description"
+      content="k-ba-manの10人の予想屋キャラクター、レース成績、暫定ランキングを追える公式サイトプロトタイプ。"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#app">本文へ移動</a>
+    <header class="site-header">
+      <a class="brand" href="#/overview" aria-label="k-ba-man トップへ">
+        <span class="brand-mark">K</span>
+        <span>
+          <strong>k-ba-man</strong>
+          <small>Roundtable Forecast Drama</small>
+        </span>
+      </a>
+      <nav class="top-nav" aria-label="主要ナビゲーション">
+        <a href="#/overview" data-nav="overview">概要</a>
+        <a href="#/ranking" data-nav="ranking">ランキング</a>
+        <a href="#/characters" data-nav="characters">キャラクター</a>
+        <a href="#/races" data-nav="races">成績履歴</a>
+      </nav>
+    </header>
+
+    <main id="app" tabindex="-1"></main>
+
+    <footer class="site-footer">
+      <p>
+        k-ba-man prototype. Data source:
+        <code>docs/worldbuilding/yosouya-10</code>,
+        <code>runs/202609030411</code>,
+        <code>data/scoring</code>.
+      </p>
+      <p>競馬予想は娯楽情報です。馬券購入は各自の判断と責任で行ってください。</p>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
