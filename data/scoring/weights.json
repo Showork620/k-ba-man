@@ -1,0 +1,174 @@
+{
+  "version": "v1",
+  "rule": "初期は等重み。w_i は cutoff 後の実レースのみで較正（§7.3）。rolling window 20レースの Brier/LogLoss が貯まるまで等重みを維持し、それまでは scores を蓄積するのみ（n が小さい段階での重み付けは過学習）。",
+  "min_races_before_weighting": 20,
+  "races_recorded": [
+    "202609030411"
+  ],
+  "cumulative": {
+    "aoi": {
+      "expert_name": "葵",
+      "per_race": [
+        {
+          "race_id": "202609030411",
+          "win_brier": 0.7806,
+          "win_logloss": 1.6094,
+          "honmei_in_place3": true
+        }
+      ],
+      "races": 1,
+      "mean_win_brier": 0.7806,
+      "mean_win_logloss": 1.6094,
+      "honmei_in_place3_count": 1
+    },
+    "goro": {
+      "expert_name": "吾郎",
+      "per_race": [
+        {
+          "race_id": "202609030411",
+          "win_brier": 0.9843,
+          "win_logloss": 2.4079,
+          "honmei_in_place3": true
+        }
+      ],
+      "races": 1,
+      "mean_win_brier": 0.9843,
+      "mean_win_logloss": 2.4079,
+      "honmei_in_place3_count": 1
+    },
+    "hina": {
+      "expert_name": "陽菜",
+      "per_race": [
+        {
+          "race_id": "202609030411",
+          "win_brier": 0.9395,
+          "win_logloss": 2.1691,
+          "honmei_in_place3": false
+        }
+      ],
+      "races": 1,
+      "mean_win_brier": 0.9395,
+      "mean_win_logloss": 2.1691,
+      "honmei_in_place3_count": 0
+    },
+    "kenta": {
+      "expert_name": "健太",
+      "per_race": [
+        {
+          "race_id": "202609030411",
+          "win_brier": 0.7879,
+          "win_logloss": 1.5141,
+          "honmei_in_place3": true
+        }
+      ],
+      "races": 1,
+      "mean_win_brier": 0.7879,
+      "mean_win_logloss": 1.5141,
+      "honmei_in_place3_count": 1
+    },
+    "makoto": {
+      "expert_name": "誠",
+      "per_race": [
+        {
+          "race_id": "202609030411",
+          "win_brier": 0.8346,
+          "win_logloss": 1.7148,
+          "honmei_in_place3": true
+        }
+      ],
+      "races": 1,
+      "mean_win_brier": 0.8346,
+      "mean_win_logloss": 1.7148,
+      "honmei_in_place3_count": 1
+    },
+    "misaki": {
+      "expert_name": "美咲",
+      "per_race": [
+        {
+          "race_id": "202609030411",
+          "win_brier": 0.8238,
+          "win_logloss": 1.772,
+          "honmei_in_place3": true
+        }
+      ],
+      "races": 1,
+      "mean_win_brier": 0.8238,
+      "mean_win_logloss": 1.772,
+      "honmei_in_place3_count": 1
+    },
+    "sakura": {
+      "expert_name": "さくら",
+      "per_race": [
+        {
+          "race_id": "202609030411",
+          "win_brier": 0.8991,
+          "win_logloss": 2.0005,
+          "honmei_in_place3": true
+        }
+      ],
+      "races": 1,
+      "mean_win_brier": 0.8991,
+      "mean_win_logloss": 2.0005,
+      "honmei_in_place3_count": 1
+    },
+    "tatsunosuke": {
+      "expert_name": "龍之介",
+      "per_race": [
+        {
+          "race_id": "202609030411",
+          "win_brier": 0.6997,
+          "win_logloss": 1.529,
+          "honmei_in_place3": true
+        }
+      ],
+      "races": 1,
+      "mean_win_brier": 0.6997,
+      "mean_win_logloss": 1.529,
+      "honmei_in_place3_count": 1
+    },
+    "teppei": {
+      "expert_name": "鉄平",
+      "per_race": [
+        {
+          "race_id": "202609030411",
+          "win_brier": 0.7749,
+          "win_logloss": 1.7148,
+          "honmei_in_place3": true
+        }
+      ],
+      "races": 1,
+      "mean_win_brier": 0.7749,
+      "mean_win_logloss": 1.7148,
+      "honmei_in_place3_count": 1
+    },
+    "yuko": {
+      "expert_name": "優子",
+      "per_race": [
+        {
+          "race_id": "202609030411",
+          "win_brier": 0.9898,
+          "win_logloss": 2.0197,
+          "honmei_in_place3": true
+        }
+      ],
+      "races": 1,
+      "mean_win_brier": 0.9898,
+      "mean_win_logloss": 2.0197,
+      "honmei_in_place3_count": 1
+    }
+  },
+  "current_weights": {
+    "aoi": 0.1,
+    "goro": 0.1,
+    "hina": 0.1,
+    "kenta": 0.1,
+    "makoto": 0.1,
+    "misaki": 0.1,
+    "sakura": 0.1,
+    "tatsunosuke": 0.1,
+    "teppei": 0.1,
+    "yuko": 0.1
+  },
+  "note": "current_weights は aggregate.mjs が将来読む契約。現在は全員 equal（races < min_races_before_weighting）。",
+  "weighting_active": false
+}

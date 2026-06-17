@@ -1,0 +1,22 @@
+{
+  "race_id": "202609030411",
+  "race_name": "第67回宝塚記念",
+  "date": "2026-06-14",
+  "source": "JRA確定（payout スクリーンショット 2026-06-14）",
+  "winner": 16,
+  "place3": [16, 5, 1],
+  "finish_order_known": [16, 5, 1],
+  "finish_order_complete": false,
+  "_note": "4着以下は未取得。採点は1着(win)と3着内(place)に基づく。完全着順が取れたら RPS / Spearman を追加可能。",
+  "popularity": { "16": 2, "5": 1, "1": 3 },
+  "payouts": {
+    "tansho": { "16": 390 },
+    "fukusho": { "16": 140, "5": 120, "1": 170 },
+    "wakuren": { "3-8": 380 },
+    "umaren": { "5-16": 620 },
+    "umatan": { "16-5": 1360 },
+    "wide": { "5-16": 260, "1-16": 490, "1-5": 290 },
+    "sanrenpuku": { "1-5-16": 1230 },
+    "sanrentan": { "16-5-1": 6040 }
+  }
+}
