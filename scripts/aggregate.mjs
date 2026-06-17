@@ -19,7 +19,7 @@ const predictions = [];
 for (const f of files) {
   try {
     const data = JSON.parse(readFileSync(join(predDir, f), "utf-8"));
-    if (data.expert_id && data.predicted_ranking) {
+    if (data.expert_id && Array.isArray(data.predicted_ranking)) {
       predictions.push(data);
     }
   } catch {

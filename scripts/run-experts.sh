@@ -113,7 +113,7 @@ QUORUM=8
 if [ "$VALID" -ge "$QUORUM" ]; then
   echo ""
   echo "クォーラム達成（$VALID ≥ $QUORUM）。集約可能。"
-  echo "  → node scripts/aggregate.mjs $PRED_DIR"
+  echo "  → node scripts/aggregate.mjs $PRED_DIR $PACK"
 else
   echo ""
   echo "クォーラム未達（$VALID < $QUORUM）。Sho に相談してください。"
