@@ -52,8 +52,8 @@ run_cli() {
   echo "[$cli_type] $name 完了 → $out"
 }
 
-# --- Claude 系 6人 ---
-CLAUDE_EXPERTS=(tatsunosuke misaki kenta sakura aoi yuko)
+# --- Claude 系 6人（吾郎=opus-4-6/max。優子は gemini-flash へ移行）---
+CLAUDE_EXPERTS=(tatsunosuke misaki kenta sakura aoi goro)
 for name in "${CLAUDE_EXPERTS[@]}"; do
   run_claude "$name" &
   PIDS+=($!)
@@ -69,14 +69,14 @@ run_cli "$AGENTS_DIR/jinba-teppei-codex.sh" teppei codex &
 PIDS+=($!)
 NAMES+=(teppei)
 
-# --- gemini 系 2人 ---
+# --- gemini 系 2人（陽菜・優子、flash。吾郎は Claude opus-4-6 へ移行済み）---
 run_cli "$AGENTS_DIR/jinba-hina-gemini.sh" hina gemini &
 PIDS+=($!)
 NAMES+=(hina)
 
-run_cli "$AGENTS_DIR/jinba-goro-gemini.sh" goro gemini &
+run_cli "$AGENTS_DIR/jinba-yuko-gemini.sh" yuko gemini &
 PIDS+=($!)
-NAMES+=(goro)
+NAMES+=(yuko)
 
 # --- 全員の完了を待つ ---
 echo ""

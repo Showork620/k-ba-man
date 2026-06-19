@@ -155,7 +155,7 @@ smoke_test() {
   local claude_ok=1 codex_ok=1 gemini_ok=1
   if command -v claude >/dev/null 2>&1; then echo "  ✓ claude"; else echo "  ✗ claude: 見つからない（予想6人＋配分3人が動かない）"; claude_ok=0; fi
   if command -v codex  >/dev/null 2>&1; then echo "  ✓ codex: $(codex --version 2>/dev/null | head -1)"; else echo "  ✗ codex: 不在 → 誠・鉄平(予想)・一徹(配分) が Claude fallback"; codex_ok=0; fi
-  if command -v gemini >/dev/null 2>&1; then echo "  ✓ gemini: $(gemini --version 2>/dev/null | head -1)"; else echo "  ✗ gemini: 不在 → 吾郎・陽菜(予想)・律(配分) が Claude fallback"; gemini_ok=0; fi
+  if command -v gemini >/dev/null 2>&1; then echo "  ✓ gemini: $(gemini --version 2>/dev/null | head -1)"; else echo "  ✗ gemini: 不在 → 陽菜・優子(予想)・律(配分) が Claude fallback"; gemini_ok=0; fi
   if [ "$codex_ok" -eq 1 ] && [ "$gemini_ok" -eq 1 ]; then
     echo "  → バックエンド多様性 OK"
   else

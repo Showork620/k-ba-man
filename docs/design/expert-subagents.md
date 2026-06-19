@@ -68,8 +68,8 @@ k-ba-man は次の3軸を **直交させて** 多様性を作る:
             ┌─────────┬───────┼───────┬─────────┐
             ▼         ▼       ▼       ▼         ▼
         ┌───────┐ ┌───────┐ ... (10 人並列) ... ┌───────┐
-        │ 龍之介 │ │  誠   │                     │ 吾郎  │
-        │ 血統  │ │ 統計  │                     │ 馬場  │
+        │ 龍之介 │ │  誠   │                     │ 陽菜  │
+        │ 血統  │ │ 統計  │                     │ 穴党  │
         │ Opus  │ │ codex │                     │gemini │
         └───┬───┘ └───┬───┘                     └───┬───┘
             │         │                              │
@@ -433,8 +433,8 @@ runs/202609030811/
 
 - **人物像**: 落ち着いていて寡黙。「複勝率の世界に生きてる」
 - **流派**: 堅実本命（能力上位重視、人気馬信頼度、複勝期待値）
-- **バックエンド**: Claude Haiku（`model: haiku`）
-- **effort**: 低（即断のプロ）
+- **バックエンド**: gemini CLI（`gemini-2.5-flash`、`--output-format json`。2026-06-20 に Claude Haiku から移行）
+- **effort**: 低（即断のプロ。flash は低-中 effort 相当）
 - **宝塚記念2200mでの着眼点**:
   - **1-3 番人気** の馬を素直に評価
   - 過去10年で1-3番人気の複勝率は 50% 超 → 王道で取りこぼさない
@@ -455,8 +455,8 @@ runs/202609030811/
 
 - **人物像**: 風と土を読む老練な職人。当週の馬場を歩いて確かめる
 - **流派**: 馬場読み・トラックバイアス（馬場状態、内外バイアス、当週の傾向）
-- **バックエンド**: gemini CLI（`gemini-2.5-pro`、`--output-format json`。安定版を採用 — `gemini-3-pro-preview` への昇格は実装時に判断）
-- **effort**: 高
+- **バックエンド**: Claude Opus（`model: claude-opus-4-6`、`effort: max`。2026-06-20 に gemini-2.5-pro から移行 — 無料枠 pro の quota 不安定を回避し、馬場読みに最大思考を充てる）
+- **effort**: 高（frontmatter は `max`。出力スキーマ値はその上限 `high`）
 - **宝塚記念2200mでの着眼点**:
   - **梅雨時期の阪神芝**: 6月中旬の雨予報と前日の馬場状態を最重視
   - **稍重〜重馬場想定** での好走馬を抽出（重馬場での過去走 + パワー型・先行脚質を加点）
@@ -488,11 +488,11 @@ runs/202609030811/
 | 調教 | | | | 鉄平 | |
 | 騎手 | | 葵 | | | |
 | オッズ | | | さくら | | |
-| 馬場 | | | | | 吾郎 |
+| 馬場 | 吾郎 | | | | |
 | 穴党 | | | | | 陽菜 |
-| 本命 | | | 優子 | | |
+| 本命 | | | | | 優子 |
 
-→ **10 流派 × 5 バックエンド** で重複なし。各バックエンドが 2 流派ずつカバー。
+→ **10 流派 × 5 バックエンド** で重複なし。2026-06-20 の吾郎→Opus・優子→gemini 移行後の配分は **Opus 3 / Sonnet 2 / Haiku 1 / codex 2 / gemini 2**（当初の各2の均等からはずれた）。
 
 ### 5.2 流派 × effort
 
@@ -508,18 +508,18 @@ runs/202609030811/
 
 | | 高 | 中 | 低 |
 |---|---|---|---|
-| Opus | 龍之介 | 美咲 | |
+| Opus | 龍之介・吾郎 | 美咲 | |
 | Sonnet | | 葵 | 健太 |
-| Haiku | | さくら | 優子 |
+| Haiku | | さくら | |
 | codex | 誠 | 鉄平 | |
-| gemini | 吾郎 | | 陽菜 |
+| gemini | | | 陽菜・優子 |
 
-→ Opus 2 / Sonnet 2 / Haiku 2 / codex 2 / gemini 2 で均等、かつ**全セル1人以下**（バックエンド × effort の完全直交）。effort 配分 3:4:3 を保ったまま同一バックエンド内の effort 重複を排除した（2026-06-12 レビューで健太⇄さくらの effort を入替）。
+→ 当初は Opus 2 / Sonnet 2 / Haiku 2 / codex 2 / gemini 2 で均等・**全セル1人以下**（完全直交）だった。**2026-06-20 に吾郎を gemini-2.5-pro→Claude opus-4-6/max、優子を Haiku→gemini-2.5-flash へ移行**（gemini 無料枠の安定運用の都合）。これにより Opus×高（龍之介・吾郎）と gemini×低（陽菜・優子）が各2人となり、完全直交は崩れた。effort 配分 3:4:3 と流派の独立性は維持。
 
 ### 5.4 多様性スコア（定性チェック）
 
 - ✅ 同じ流派が 2 人いない
-- ✅ 同じバックエンド × 同じ effort のペアが存在しない（§5.3 全セル1人以下を確認済）
+- ⚠ バックエンド × effort は当初全セル1人以下だったが、2026-06-20 の移行で Opus×高（龍之介・吾郎）と gemini×低（陽菜・優子）が各2人に。流派の独立性は保つが完全直交ではない（§5.3）
 - ✅ 「人気馬を信頼する側」（優子・健太・誠）と「人気馬を疑う側」（陽菜・さくら・吾郎）の対抗構造
 - ✅ 「血統・展開・調教」のような **データに表れにくい流派** と「指数・統計・オッズ」のような **数値主導流派** の両方を含む
 - ⚠ プロバイダ単位では **Anthropic 6 : OpenAI 2 : Google 2** — 同一プロバイダのモデルは訓練データ・癖が相関するため、実効多様性はモデル数より小さい。ホーム（Claude Code）の安定性を優先した意図的な偏り。運用で Claude 組の予想相関が高いと判明したら 4:3:3 への再配分を検討
@@ -530,7 +530,7 @@ runs/202609030811/
 
 ### 6.1 `.claude/agents/<name>.md` の雛形
 
-Claude バックエンド（龍之介・美咲・健太・葵・さくら・優子）の雛形:
+Claude バックエンド（龍之介・美咲・健太・葵・さくら・吾郎）の雛形:
 
 ```markdown
 ---
@@ -619,7 +619,7 @@ trap 'rm -f "$OUT"' EXIT
 cat "$OUT"
 ```
 
-gemini の場合（陽菜・吾郎）:
+gemini の場合（陽菜・優子）:
 
 ```bash
 #!/usr/bin/env bash
@@ -666,9 +666,9 @@ k-ba-man/
 │       ├── jinba-aoi.md                 # 葵（Claude Sonnet）
 │       ├── jinba-hina.md                # 陽菜（gemini 入口）
 │       ├── jinba-hina-gemini.sh         # 陽菜ラッパー
-│       ├── jinba-yuko.md                # 優子（Claude Haiku）
-│       ├── jinba-goro.md                # 吾郎（gemini 入口）
-│       ├── jinba-goro-gemini.sh         # 吾郎ラッパー
+│       ├── jinba-yuko.md                # 優子（gemini 入口）
+│       ├── jinba-yuko-gemini.sh         # 優子ラッパー
+│       ├── jinba-goro.md                # 吾郎（Claude Opus 4.6 / max）
 │       └── expert-output.schema.json    # ExpertPrediction の JSON Schema（共通）
 ├── data/
 │   └── experts/                          # 人間予想家の印データ — 評価専用ベースライン（§7.3）。10人には配布しない（§3.3）
@@ -699,7 +699,7 @@ k-ba-man/
 |---|---|
 | Claude subagent | frontmatter の `effort: low/medium/high/xhigh/max` |
 | codex | `-c model_reasoning_effort=minimal/low/medium/high/xhigh`（公式 config reference 確認済 2026-06-12） |
-| gemini | モデル選択（`gemini-2.5-pro` ≒ 高、`gemini-2.5-flash` ≒ 中-低。`gemini-3-pro-preview` も利用可）+ プロンプトで「即断で短く」「熟考して詳しく」を併用 |
+| gemini | モデル選択（`gemini-2.5-pro` ≒ 高、`gemini-2.5-flash` ≒ 中-低）+ プロンプトで「即断で短く」「熟考して詳しく」を併用。※現編成では gemini は陽菜・優子とも `gemini-2.5-flash`（低）のみ — pro は無料枠 quota が不安定で、高 effort 枠は Claude opus へ寄せた（2026-06-20） |
 
 詳細は [cli-invocation.md](../research/cli-invocation.md) §4 のマッピング表参照。
 
