@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "additionalDirectories": [],
+    "allow": ["WebFetch", "WebSearch"],
+    "deny": ["Read(~/.ssh/**)", "Read(~/.aws/**)", "Read(~/.config/**)"]
+  },
+  "sandbox": {
+    "enabled": true,
+    "filesystem": {
+      "denyRead": ["~/"],
+      "allowRead": [".", "~/.nodenv", "~/.bun", "~/.local", "~/.codex", "~/.gemini", "~/.gitconfig"],
+      "allowWrite": [".", "~/.codex", "~/.gemini"]
+    },
+    "network": { "allowedDomains": ["*"] }
+  },
+  "claudeMdExcludes": ["/Users/rhyolite/.claude/CLAUDE.md"],
+  "autoMemoryEnabled": false
+}
