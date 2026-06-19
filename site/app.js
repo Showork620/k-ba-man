@@ -8,7 +8,7 @@ const CHARACTERS = [
     alias: "血筋の語り部",
     firstPerson: "私",
     quote: "父系と母系をたどれば、阪神2200mの顔つきが見えます",
-    image: "../slides/assets/characters/tatsunosuke.png",
+    image: "../assets/characters/tatsunosuke/mid.png",
     color: "#7f1d1d",
     intro:
       "馬を能力値の集合ではなく、血が続けてきた物語として見る。初回ライブ運用では勝ち馬メイショウタバルを本命に置き、円卓に血統派の存在理由を刻んだ。",
@@ -26,7 +26,7 @@ const CHARACTERS = [
     alias: "数式の裁判官",
     firstPerson: "私",
     quote: "印象はログに残りません。数字をください",
-    image: "../slides/assets/characters/makoto.png",
+    image: "../assets/characters/makoto/real.png",
     color: "#0f766e",
     intro:
       "検証された傾向、数値化できるファクター、あとから再計算できるログを信じる。冷たく見えるが、曖昧な根拠で誰かが傷つくことを嫌っている。",
@@ -44,7 +44,7 @@ const CHARACTERS = [
     alias: "脳内実況の映像作家",
     firstPerson: "私",
     quote: "3角で息が入って、4角で一斉に動く未来が見えます",
-    image: "../slides/assets/characters/misaki.png",
+    image: "../assets/characters/misaki/mid.png",
     color: "#6d28d9",
     intro:
       "まだ走っていないレースを頭の中で再生する。逃げ馬の出方、先行馬の位置、差し馬が動くタイミングを透明なコース図に浮かべる。",
@@ -62,7 +62,7 @@ const CHARACTERS = [
     alias: "八重歯の指数バカ",
     firstPerson: "俺",
     quote: "指数が高い！ じゃあ速い！ たぶん勝つ！",
-    image: "../slides/assets/characters/kenta.png",
+    image: "../assets/characters/kenta/mid.png",
     color: "#15803d",
     intro:
       "スピード指数を素直に信じる即断型。強いものを強いと言い切る明るさで、作戦室を現実の速さへ引き戻す。",
@@ -80,7 +80,7 @@ const CHARACTERS = [
     alias: "早朝の坂路職人",
     firstPerson: "俺",
     quote: "時計より、最後の1Fでまだ余ってるかです",
-    image: "../slides/assets/characters/teppei.png",
+    image: "../assets/characters/teppei/mid.png",
     color: "#a16207",
     intro:
       "レース当日の能力より、今週その能力を出せる状態かを見る。追切時計、併せ馬の手応え、馬の息遣いを朝から拾う現場職人。",
@@ -98,7 +98,7 @@ const CHARACTERS = [
     alias: "寝ぼけ眼の情報強者",
     firstPerson: "私",
     quote: "市場は賢いです。でも時々、全員で同じ勘違いをします",
-    image: "../slides/assets/characters/sakura.png",
+    image: "../assets/characters/sakura/mid.png",
     color: "#be123c",
     intro:
       "馬そのものより、人がその馬にどう賭けているかを読む。オッズ表を、無数の人間が同時に書く短編小説として扱う。",
@@ -116,7 +116,7 @@ const CHARACTERS = [
     alias: "人馬関係ウォッチャー",
     firstPerson: "僕",
     quote: "馬は強い。でも誰が乗るかで、強さの出方が変わります",
-    image: "../slides/assets/characters/aoi.png",
+    image: "../assets/characters/aoi/mid.png",
     color: "#1d4ed8",
     intro:
       "騎手、厩舎、主戦復帰、乗り替わりの意図を見る。馬の能力は大切だが、その出し方は人で変わると信じている。",
@@ -134,7 +134,7 @@ const CHARACTERS = [
     alias: "逆張りの火付け役",
     firstPerson: "あたし",
     quote: "みんなが見てる馬？ じゃあ一回、横を見ます",
-    image: "../slides/assets/characters/hina.png",
+    image: "../assets/characters/hina/mid.png",
     color: "#ea580c",
     intro:
       "みんなが見ている方向をあえて見ない。人気が落ちた理由が当日条件で覆る馬を探し、円卓に必要な違う外し方を持ち込む。",
@@ -152,7 +152,7 @@ const CHARACTERS = [
     alias: "複勝圏の守備職人",
     firstPerson: "私",
     quote: "穴は買いません。まず3着内に来る馬からです",
-    image: "../slides/assets/characters/yuko-soft-v2.png",
+    image: "../assets/characters/yuko/mid-mid.png",
     color: "#047857",
     intro:
       "崩れにくい馬、3着内に来る馬、能力上位で安定している馬を見る。派手さはないが、作戦室が過熱したときに戻る場所になる。",
@@ -170,7 +170,7 @@ const CHARACTERS = [
     alias: "馬場を読む現場監督",
     firstPerson: "俺",
     quote: "今日は外が伸びる。土と風がそう言っとる",
-    image: "../slides/assets/characters/goro.png",
+    image: "../assets/characters/goro/mid.png",
     color: "#854d0e",
     intro:
       "公式発表の良・稍重だけでは足りない。芝の傷み、内外バイアス、雨の落ちた時間、風を読み、今日の芝で能力が出るかを問う。",
@@ -479,7 +479,7 @@ function renderOverview() {
         <p class="hero-motto">違う見方を持つ者だけが、同じ卓に座る資格を持つ。</p>
       </div>
       <div class="hero-visual" aria-label="k-ba-manの予想屋10人">
-        <img src="../slides/assets/characters/lineup-real-preview.png" alt="k-ba-manの予想屋10人の集合ビジュアル" />
+        <img src="../assets/characters/real.png" alt="k-ba-manの予想屋10人の集合ビジュアル" />
       </div>
     </section>
 

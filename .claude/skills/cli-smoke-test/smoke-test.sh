@@ -107,7 +107,7 @@ test_codex() {
   fi
   local ver out raw rc
   ver="$(codex --version 2>/dev/null | head -1)"
-  out="$(mktemp "${TMPDIR:-/tmp}/smoke-codex.XXXXXX.txt")"
+  out="$(mktemp "${TMPDIR:-/tmp}/smoke-codex.txt.XXXXXX")"
   # 本番ラッパーと同じ: -s read-only / -m gpt-5.5 / -o ファイル受け（--output-schema は使わない）
   printf '%s\n' "$SMOKE_PROMPT" \
     | run_with_timeout codex exec -s read-only -m gpt-5.5 -c model_reasoning_effort=low -o "$out" - \
@@ -147,7 +147,7 @@ test_gemini() {
   fi
   local ver raw resp rc errf combined
   ver="$(gemini --version 2>/dev/null | head -1)"
-  errf="$(mktemp "${TMPDIR:-/tmp}/smoke-gemini.XXXXXX.err")"
+  errf="$(mktemp "${TMPDIR:-/tmp}/smoke-gemini.err.XXXXXX")"
   # 本番ラッパーと同じ: TRUST_WORKSPACE / --output-format json / --approval-mode plan
   raw="$(run_with_timeout env GEMINI_CLI_TRUST_WORKSPACE=true \
             gemini -p "$SMOKE_PROMPT" -m "$model" --output-format json --approval-mode plan 2>"$errf")"

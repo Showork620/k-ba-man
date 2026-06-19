@@ -17,6 +17,6 @@
 - キャラクター設定: `docs/worldbuilding/yosouya-10/characters/`
 - 第1回ライブ運用: `runs/202609030411/report-v1.md`
 - 採点カード: `data/scoring/202609030411.json`
-- キャラクター画像: `slides/assets/characters/`
+- キャラクター画像: `assets/characters/`（site・slides 共通リソース）
 
 レースが増えたら、`RACES` に採点カード由来の行を追加するだけでランキングと個別履歴が伸びます。
