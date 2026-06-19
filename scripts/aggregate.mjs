@@ -1,31 +1,58 @@
 #!/usr/bin/env node
 // 10人の ExpertPrediction を集約し、統合予想を出力する
-// usage: node scripts/aggregate.mjs <predictions-dir> [pack.json]
+// usage: node scripts/aggregate.mjs <predictions-dir...> [pack.json]
 
-import { readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { readFileSync, readdirSync, writeFileSync, statSync } from "node:fs";
 import { join, dirname } from "node:path";
 
-const predDir = process.argv[2];
-if (!predDir) {
-  console.error("usage: node scripts/aggregate.mjs <predictions-dir> [pack.json]");
+// 複数の予測ディレクトリを受け付ける（§3.5 の世代混在: v1 静的 → v2-odds → v2-baba）。
+// 同一 expert_id は「後のディレクトリ優先（overlay）」で上書き。末尾引数が実在する .json なら pack。
+const rawArgs = process.argv.slice(2);
+if (rawArgs.length === 0) {
+  console.error("usage: node scripts/aggregate.mjs <predictions-dir...> [pack.json]");
   process.exit(1);
 }
-
-const packPath = process.argv[3];
-
-// --- 予測データ読み込み ---
-const files = readdirSync(predDir).filter((f) => f.endsWith(".json"));
-const predictions = [];
-for (const f of files) {
+let packPath;
+let dirArgs = rawArgs;
+const lastArg = rawArgs[rawArgs.length - 1];
+if (lastArg.endsWith(".json")) {
   try {
-    const data = JSON.parse(readFileSync(join(predDir, f), "utf-8"));
-    if (data.expert_id && Array.isArray(data.predicted_ranking)) {
-      predictions.push(data);
+    if (statSync(lastArg).isFile()) {
+      packPath = lastArg;
+      dirArgs = rawArgs.slice(0, -1);
     }
   } catch {
-    console.error(`スキップ: ${f}（パース失敗）`);
+    /* .json だが実ファイルでない → ディレクトリ扱いのまま残す */
   }
 }
+if (dirArgs.length === 0) {
+  console.error("予測ディレクトリが指定されていない。");
+  process.exit(1);
+}
+const predDir = dirArgs[0]; // 出力先（aggregated-v1.json）の親ディレクトリ決定に使う
+
+// --- 予測データ読み込み（複数 dir を overlay。同一 expert_id は後の dir 優先）---
+const byExpert = new Map();
+for (const d of dirArgs) {
+  let files;
+  try {
+    files = readdirSync(d).filter((f) => f.endsWith(".json"));
+  } catch {
+    console.error(`スキップ: ディレクトリを読めない（${d}）`);
+    continue;
+  }
+  for (const f of files) {
+    try {
+      const data = JSON.parse(readFileSync(join(d, f), "utf-8"));
+      if (data.expert_id && Array.isArray(data.predicted_ranking)) {
+        byExpert.set(data.expert_id, data); // 後の dir 優先で上書き（世代混在の overlay）
+      }
+    } catch {
+      console.error(`スキップ: ${join(d, f)}（パース失敗）`);
+    }
+  }
+}
+const predictions = [...byExpert.values()];
 
 if (predictions.length === 0) {
   console.error("有効な予測が0件。終了。");
@@ -234,6 +261,12 @@ const output = {
     "△ 連下": marks.renka.map((h) => `${h} ${name(h)}`),
   },
   expert_predictions: expertSummary,
+  // 世代混在の記録（§3.5: 混ぜる場合はその旨を集約結果に明記する）
+  source_dirs: dirArgs,
+  generations: predictions.map((p) => ({
+    expert_id: p.expert_id,
+    pack_version: p.pack_version ?? null,
+  })),
 };
 
 const outPath = join(dirname(predDir), "aggregated-v1.json");
