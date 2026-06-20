@@ -11,7 +11,7 @@
 ## 正典ソース
 
 - `.claude/agents/jinba-*.md` と各CLIラッパー: 10人の予想流派、分析ルール、出力契約
-- `slides/assets/characters/`: 10人の立ち絵、小物、衣装、視覚モチーフ
+- `assets/characters/<id>/`: 10人の立ち絵（real/mini/mid.png）、小物、衣装、視覚モチーフ（没/旧デザインは `assets/characters-bench/`）
 - `docs/design/expert-subagents.md`: 集合知、独立性、多様性、RaceDataPack の設計
 - `runs/202609030411/`: 初回ライブ運用、的中、反省、成功と危うさ
 
