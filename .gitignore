@@ -1,1 +1,14 @@
+# macOS Finder メタ（リポジトリ全体に散在）
 .DS_Store
+
+# Claude スケジューラのランタイムロック（sessionId/pid の実行時生成物）
+.claude/scheduled_tasks.lock
+
+# 一時ファイル
+tmp/
+
+# 予想ランの生バックエンド出力（.raw）。
+# 注: predictions/v1/*.log（fallback 痕跡）は現状 git 追跡済みで「証跡として残す」が既定のため
+#     ここでは ignore しない。ノイズとして外す方針に変える場合は runs/**/*.log を追記し
+#     既追跡分を git rm --cached する（Sho 判断）。
+runs/**/*.raw

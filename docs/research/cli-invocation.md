@@ -1,6 +1,6 @@
 # CLI invocation 仕様メモ — gemini / codex / Claude Code subagent
 
-調査日: 2026-06-12。各 CLI のローカル `--help` 出力と公式ドキュメント（Claude Code subagent ページ）からの一次情報をベースに整理。
+初回調査: 2026-06-12 ／ 最終更新: 2026-06-20（吾郎→Opus・優子→gemini のバックエンド移行を反映）。各 CLI のローカル `--help` 出力と公式ドキュメント（Claude Code subagent ページ）からの一次情報をベースに整理。**CLI の仕様は変わりやすいため、本番運用前に `.claude/skills/cli-smoke-test` で実際の挙動を再検証すること。**
 
 ## 1. gemini CLI
 
