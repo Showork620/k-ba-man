@@ -22,6 +22,12 @@
 #   --skip-smoke      CLI 死活スモークテストを省略
 #   --pack <name>     pack ファイル名（race-dir 相対。既定 pack-v1.json）。予想・集約・betting-input に反映。
 #                     ※ 採点(score-race.mjs)は pack-v1.json 固定読みのため、非既定 pack 運用時は馬名解決が v1 基準になる点に注意
+#   --race-time HH:MM 発走時刻（JST）。残り時間を表示し --plan の品質アップグレード案内に使う
+#   --refresh-from <step>  指定ステップ以降の成果物を削除して再実行。アップグレード時の古い成果物残留を防ぐ
+#                     aggregate     → aggregated + betting-input + bets を削除
+#                     betting-input → betting-input + bets を削除
+#                     bets          → bets のみ削除
+#   --what-now        現在時刻と発走時刻（--race-time 必須）から最適な行動を案内して終了
 
 set -uo pipefail   # -e は使わない（ゲート判定で非0終了を扱うため）
 # git root へ移動（失敗を握り潰さず明示的に落とす。-e 無しなので cd "" の no-op を防ぐ）
@@ -38,6 +44,9 @@ SKIP_SMOKE=0
 ODDS=""
 BUDGET=""
 PACK_NAME="pack-v1.json"
+RACE_TIME=""
+REFRESH_FROM=""
+WHAT_NOW=0
 RACE_ARG=""
 
 while [ $# -gt 0 ]; do
@@ -50,6 +59,9 @@ while [ $# -gt 0 ]; do
     --odds) ODDS="${2:?--odds にはファイルパスが必要}"; shift ;;
     --budget) BUDGET="${2:?--budget には正の整数が必要}"; shift ;;
     --pack) PACK_NAME="${2:?--pack にはファイル名が必要}"; shift ;;
+    --race-time) RACE_TIME="${2:?--race-time には HH:MM が必要}"; shift ;;
+    --refresh-from) REFRESH_FROM="${2:?--refresh-from には aggregate|betting-input|bets が必要}"; shift ;;
+    --what-now) WHAT_NOW=1 ;;
     -*) echo "unknown option: $1" >&2; exit 2 ;;
     *) RACE_ARG="$1" ;;
   esac
@@ -101,8 +113,76 @@ else
   SCORE="data/scoring/$RACE_ID.json"
 fi
 
+# ── race-time バリデーション ──
+if [ -n "$RACE_TIME" ]; then
+  case "$RACE_TIME" in
+    [0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9]) ;;
+    *) echo "✗ --race-time は HH:MM 形式（00:00〜23:59）で指定: \"$RACE_TIME\"" >&2; exit 2 ;;
+  esac
+fi
+
+# ── refresh-from バリデーション ──
+if [ -n "$REFRESH_FROM" ]; then
+  case "$REFRESH_FROM" in
+    aggregate|betting-input|bets) ;;
+    *) echo "✗ --refresh-from は aggregate|betting-input|bets のいずれか: \"$REFRESH_FROM\"" >&2; exit 2 ;;
+  esac
+fi
+
 # ── ヘルパ ──
 hr() { printf '  %s\n' "────────────────────────────────────────────────────"; }
+
+# 発走までの残り時間（時間単位。小数1桁）。race-time 未指定なら空文字を返す
+hours_to_race() {
+  [ -n "$RACE_TIME" ] || return
+  local now_epoch race_epoch diff_s
+  now_epoch="$(TZ=Asia/Tokyo date +%s)"
+  # 当日の race-time を epoch に変換
+  race_epoch="$(TZ=Asia/Tokyo date -j -f '%Y-%m-%d %H:%M' "$(TZ=Asia/Tokyo date +%Y-%m-%d) $RACE_TIME" +%s 2>/dev/null)" || return
+  diff_s=$((race_epoch - now_epoch))
+  # 負値（発走済み）でもそのまま返す（表示側で判定）
+  # bc で小数1桁
+  printf '%.1f' "$(echo "scale=2; $diff_s / 3600" | bc)"
+}
+
+# aggregated-v1.json から品質レベルを読む（無ければ空）
+read_quality_level() {
+  [ -f "$AGG" ] || return
+  jq -r '.quality_level // empty' "$AGG" 2>/dev/null
+}
+
+# aggregated-v1.json から degraded_experts を読む
+read_degraded_experts() {
+  [ -f "$AGG" ] || return
+  jq -r '.degraded_experts[]? // empty' "$AGG" 2>/dev/null
+}
+
+# 予想ファイルからカテゴリ別の pack_version 内訳を表示
+report_category_status() {
+  local odds_stale=0 baba_stale=0 pv
+  for name in sakura yuko hina; do
+    local f="$PRED_DIR/${name}.json"
+    [ -f "$f" ] || continue
+    pv="$(jq -r '.pack_version // "v1"' "$f" 2>/dev/null)"
+    case "$pv" in v2-odds*) ;; *) odds_stale=$((odds_stale+1)) ;; esac
+  done
+  for name in goro misaki kenta; do
+    local f="$PRED_DIR/${name}.json"
+    [ -f "$f" ] || continue
+    pv="$(jq -r '.pack_version // "v1"' "$f" 2>/dev/null)"
+    case "$pv" in v2-baba*) ;; *) baba_stale=$((baba_stale+1)) ;; esac
+  done
+  if [ "$odds_stale" -gt 0 ]; then
+    echo "  .   オッズ依存(3人) — 暫定（${odds_stale}人が v2-odds 未更新）"
+  else
+    echo "  .   オッズ依存(3人) — v2-odds 更新済み"
+  fi
+  if [ "$baba_stale" -gt 0 ]; then
+    echo "  .   馬場依存(3人)   — 暫定（${baba_stale}人が v2-baba 未更新）"
+  else
+    echo "  .   馬場依存(3人)   — v2-baba 更新済み"
+  fi
+}
 
 # aggregate.mjs と同一の妥当性基準（expert_id ＋ predicted_ranking 配列）で数える
 count_valid_preds() {
@@ -193,11 +273,34 @@ print_plan() {
   echo "║   k-ba-man 週次オーケストレーター — 進捗            ║"
   echo "╚══════════════════════════════════════════════════╝"
   echo "  レース: ${RACE_ID}（${RACE_DIR}）"
+
+  # 発走時刻と残り時間
+  if [ -n "$RACE_TIME" ]; then
+    local htr
+    htr="$(hours_to_race)"
+    if [ -n "$htr" ]; then
+      echo "  発走: 本日 ${RACE_TIME} JST（残り ${htr}h）"
+    else
+      echo "  発走: ${RACE_TIME} JST"
+    fi
+  fi
+
+  # 品質レベル
+  local ql
+  ql="$(read_quality_level)"
+  if [ -n "$ql" ]; then
+    echo "  品質: ${ql}"
+  fi
+
   echo ""
   local np nb
   np="$(count_valid_preds)"; nb="$(count_valid_bettors)"
   status_line "1. pack"            "$([ -f "$PACK" ] && echo 1 || echo 0)"   "$PACK_NAME"
   status_line "2. 予想10人"        "$([ "$np" -gt 0 ] && echo 1 || echo 0)"  "有効 ${np} 人（クォーラム ${QUORUM}）"
+  # 予想が存在しカテゴリ内訳が意味を持つなら表示
+  if [ "$np" -gt 0 ]; then
+    report_category_status
+  fi
   status_line "3. 予想集約"        "$([ -f "$AGG" ] && echo 1 || echo 0)"    "aggregated-v1.json"
   status_line "4. betting-input"   "$([ -f "$BINPUT" ] && echo 1 || echo 0)" "リーク防止生成物"
   status_line "5. 配分5人"         "$([ "$nb" -gt 0 ] && echo 1 || echo 0)"  "有効 ${nb} 人（最小 ${MIN_BETTORS}）"
@@ -205,6 +308,7 @@ print_plan() {
   status_line "7. 確定結果"        "$([ -f "$RESULT" ] && echo 1 || echo 0)" "result.json（人手・レース後）"
   status_line "8. 採点"            "$([ -f "$SCORE" ] && echo 1 || echo 0)"  "$SCORE"
   echo ""
+
   # 次の一手
   if [ ! -f "$PACK" ]; then echo "  次 → pack を手動作成（web 収集。§3.1）: $PACK"
   elif [ "$np" -lt "$QUORUM" ] && [ ! -f "$AGG" ]; then echo "  次 → 予想10人を実行（クォータ消費）。本スクリプトを --plan 無しで"
@@ -216,11 +320,150 @@ print_plan() {
   elif [ ! -f "$SCORE" ]; then echo "  次 → 採点（result.json あり）"
   else echo "  ✓ 全工程完了"
   fi
+
+  # 品質アップグレード案内（L1/L2 で下流完了後）
+  if [ -n "$ql" ] && [ "$ql" != "L3" ] && [ -f "$BETS_AGG" ]; then
+    echo ""
+    echo "  品質を上げるには:"
+    case "$ql" in
+      L1)
+        echo "    → オッズ依存組を再実行（pack-v2-odds → --only sakura,yuko,hina → 再集約）→ L2-odds"
+        echo "    → 馬場依存組を再実行（pack-v2-baba → --only goro,misaki,kenta → 再集約）→ L2-baba"
+        echo "    → 両方完了 → L3"
+        ;;
+      L2-odds)
+        echo "    → 馬場依存組を再実行（pack-v2-baba → --only goro,misaki,kenta → 再集約）→ L3"
+        ;;
+      L2-baba)
+        echo "    → オッズ依存組を再実行（pack-v2-odds → --only sakura,yuko,hina → 再集約）→ L3"
+        ;;
+    esac
+    echo "    再集約後: scripts/run-weekly.sh $RACE_ID --refresh-from aggregate"
+  fi
 }
 
 if [ "$PLAN" -eq 1 ]; then
   print_plan
   exit 0
+fi
+
+# ════════════════════════════════════════════════════════════════
+# --what-now: 発走時刻と現在の状態から最適な行動を案内
+# ════════════════════════════════════════════════════════════════
+if [ "$WHAT_NOW" -eq 1 ]; then
+  if [ -z "$RACE_TIME" ]; then
+    echo "✗ --what-now には --race-time HH:MM が必要" >&2; exit 2
+  fi
+  _htr="$(hours_to_race)"
+  _ql="$(read_quality_level)"
+  _np="$(count_valid_preds)"
+  _now="$(TZ=Asia/Tokyo date '+%Y-%m-%d %H:%M')"
+
+  echo "╔══════════════════════════════════════════════════╗"
+  echo "║   k-ba-man — what-now（次の一手ガイド）           ║"
+  echo "╚══════════════════════════════════════════════════╝"
+  echo "  現在: ${_now} JST"
+  echo "  発走: ${RACE_TIME} JST（残り ${_htr}h）"
+  echo "  レース: ${RACE_ID}"
+  echo ""
+
+  if [ ! -f "$PACK" ]; then
+    echo "  状態: pack なし"
+    echo ""
+    echo "  推奨:"
+    echo "    1. [今すぐ] pack-v1.json を作成（出馬表・オッズ・天気・調教）"
+    echo "       遅く作るほど pack の情報が充実し品質が上がる"
+  elif [ -z "$_ql" ] && [ "$_np" -eq 0 ]; then
+    echo "  状態: pack あり、予想未実行"
+    echo ""
+    echo "  推奨:"
+    # htr を整数比較用に変換（小数点以下切り捨て）
+    _htr_int="${_htr%.*}"
+    if [ "$_htr_int" -gt 18 ] 2>/dev/null; then
+      echo "    まだ早い。T-1日夜（調教・天気予報確定後）のワンショットが最適"
+    elif [ "$_htr_int" -gt 6 ] 2>/dev/null; then
+      echo "    1. [今すぐ] ワンショット実行（L1 品質・約30分）"
+      echo "       bash scripts/run-weekly.sh $RACE_ID --race-time $RACE_TIME --yes"
+      echo "    2. [任意] 当日朝にオッズ更新で L2 へ引き上げ可"
+    elif [ "$_htr_int" -gt 3 ] 2>/dev/null; then
+      echo "    1. [今すぐ] 当日オッズ入り pack でワンショット（実質L2相当）"
+      echo "       bash scripts/run-weekly.sh $RACE_ID --race-time $RACE_TIME --yes"
+      echo "    2. [任意] 発走3h前に馬場更新で L3 も狙える"
+    elif [ "$_htr_int" -gt 1 ] 2>/dev/null; then
+      echo "    1. [今すぐ] 全データ入り pack でワンショット（実質L3相当）"
+      echo "       bash scripts/run-weekly.sh $RACE_ID --race-time $RACE_TIME --yes"
+      echo "    下流処理に ~30分必要。急いで"
+    else
+      echo "    ⚠ 下流処理の時間が足りない可能性"
+      echo "    予想のみ実行し配分は簡略化を検討"
+    fi
+  elif [ "$_ql" = "L1" ]; then
+    echo "  状態: L1 完了済み（ワンショット）"
+    echo ""
+    _htr_int="${_htr%.*}"
+    if [ "$_htr_int" -gt 3 ] 2>/dev/null; then
+      echo "  品質を上げるなら:"
+      echo "    (a) 当日オッズで v2-odds → L2-odds"
+      echo "        bash scripts/run-experts.sh runs/$RACE_ID/pack-v2-odds.json --only sakura,yuko,hina --out v2-odds"
+      echo "    (b) 発走3h前に馬場で v2-baba → L2-baba"
+      echo "        bash scripts/run-experts.sh runs/$RACE_ID/pack-v2-baba.json --only goro,misaki,kenta --out v2-baba"
+      echo "    (c) 両方 → L3"
+    else
+      echo "  推奨: 馬場データで v2-baba 再実行 → L2-baba"
+      echo "    bash scripts/run-experts.sh runs/$RACE_ID/pack-v2-baba.json --only goro,misaki,kenta --out v2-baba"
+    fi
+    echo "    → 再集約後: bash scripts/run-weekly.sh $RACE_ID --refresh-from aggregate --yes"
+  elif [ "$_ql" = "L2-odds" ]; then
+    echo "  状態: L2-odds 完了済み（オッズ更新済み）"
+    echo ""
+    echo "  推奨: 馬場データで v2-baba 再実行 → L3"
+    echo "    bash scripts/run-experts.sh runs/$RACE_ID/pack-v2-baba.json --only goro,misaki,kenta --out v2-baba"
+    echo "    → 再集約後: bash scripts/run-weekly.sh $RACE_ID --refresh-from aggregate --yes"
+  elif [ "$_ql" = "L2-baba" ]; then
+    echo "  状態: L2-baba 完了済み（馬場更新済み）"
+    echo ""
+    echo "  推奨: オッズデータで v2-odds 再実行 → L3"
+    echo "    bash scripts/run-experts.sh runs/$RACE_ID/pack-v2-odds.json --only sakura,yuko,hina --out v2-odds"
+    echo "    → 再集約後: bash scripts/run-weekly.sh $RACE_ID --refresh-from aggregate --yes"
+  elif [ "$_ql" = "L3" ]; then
+    echo "  状態: L3（全ゾーン完了）"
+    echo ""
+    echo "  ✓ 品質最高。提出物を確認してください"
+  else
+    echo "  状態: 予想実行済み（品質レベル不明）"
+    echo ""
+    echo "  → bash scripts/run-weekly.sh $RACE_ID --plan で詳細を確認"
+  fi
+  echo ""
+  exit 0
+fi
+
+# ════════════════════════════════════════════════════════════════
+# --refresh-from: 指定ステップ以降の成果物を削除（アップグレード時の古い成果物残留を防ぐ）
+# ════════════════════════════════════════════════════════════════
+if [ -n "$REFRESH_FROM" ]; then
+  echo "【--refresh-from $REFRESH_FROM】指定ステップ以降の成果物を削除..."
+  # aggregate → betting-input → bets の順に fall-through 削除
+  _do_agg=0; _do_bi=0; _do_bets=0
+  case "$REFRESH_FROM" in
+    aggregate)     _do_agg=1; _do_bi=1; _do_bets=1 ;;
+    betting-input) _do_bi=1; _do_bets=1 ;;
+    bets)          _do_bets=1 ;;
+  esac
+  [ "$_do_agg" -eq 1 ] && [ -f "$AGG" ] && { rm "$AGG"; echo "  削除: $AGG"; }
+  [ "$_do_bi" -eq 1 ] && [ -f "$BINPUT" ] && { rm "$BINPUT"; echo "  削除: $BINPUT"; }
+  if [ "$_do_bets" -eq 1 ]; then
+    if [ -d "$BETS_DIR" ]; then
+      _bc=0
+      for bf in "$BETS_DIR"/*.json; do
+        [ -e "$bf" ] || continue
+        rm "$bf"; _bc=$((_bc+1))
+      done
+      [ "$_bc" -gt 0 ] && echo "  削除: $BETS_DIR/*.json ($_bc ファイル)"
+    fi
+    [ -f "$BETS_AGG" ] && { rm "$BETS_AGG"; echo "  削除: $BETS_AGG"; }
+  fi
+  echo ""
 fi
 
 # ════════════════════════════════════════════════════════════════
