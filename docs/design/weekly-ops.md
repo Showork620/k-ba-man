@@ -50,8 +50,9 @@
 
 | # | ステップ | コマンド / 成果物 | 備考 |
 |---|---|---|---|
-| 1 | **レース後採点** | `node scripts/score-race.mjs runs/<race_id>` | → `data/scoring/<race_id>.json`（各専門家 Brier/LogLoss/印カバー、集団vs個人 E=M−D、人間ベースライン）＋ `data/scoring/weights.json` 更新 |
-| 2 | **総括** | `runs/<race_id>/result-v1.md` | 収支・印答え合わせ・専門家別採点・学び。`runs/202609030411/result-v1.md` がテンプレ |
+| 1 | **予想専門家採点** | `node scripts/score-race.mjs runs/<race_id>` | → `data/scoring/<race_id>.json`（各専門家 Brier/LogLoss/印カバー、集団vs個人 E=M−D、人間ベースライン）＋ `data/scoring/weights.json` 更新 |
+| 2 | **配分専門家収支** | `node scripts/score-bets.mjs runs/<race_id>` | → `data/scoring/bettor-ledger.json`（個人/集約の投資・回収・損益・ROI 累積）。**bets/v1/ のみ対象。r2 はダブルチェック専用のため記録対象外** |
+| 3 | **総括** | `runs/<race_id>/result-v1.md` | 収支・印答え合わせ・専門家別採点・学び。`runs/202609030411/result-v1.md` がテンプレ |
 | 3 | **ステークホルダー報告（任意）** | `runs/<race_id>/report-v1.md` | 外部配布用。n・運の依存・但し書きを正直に |
 | 4 | **メンテ判断** | プロンプト/集約/スキーマの改修 | 下記チェックリスト |
 
@@ -75,8 +76,10 @@ runs/<race_id>/
 │   ├── v{n}/<expert>.json              # 10専門家の ExpertPrediction
 │   └── aggregated-v{n}.json            # 予想集約
 ├── bets/
-│   ├── v{n}/<bettor>.json              # 5配分専門家の BettorPortfolio
-│   └── aggregated-v{n}.json            # 買い目集約
+│   ├── v1/<bettor>.json                # 5配分専門家の BettorPortfolio【公式記録】
+│   ├── aggregated-v1.json              # 買い目集約【公式記録・損益計算対象】
+│   ├── r2/<bettor>.json                # ダブルチェック専用（同通確認など）【記録対象外】
+│   └── aggregated-r2.json             # ダブルチェック集約【記録対象外・損益計算に含めない】
 ├── betting-input-v{n}.json             # 配分専門家への入力（リークなし）
 ├── prediction-v{n}.md                  # 予想提出物
 ├── betting-v{n}.md                     # 買い目提出物

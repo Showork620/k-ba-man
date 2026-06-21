@@ -56,9 +56,6 @@ rationale は数式とスコア表を簡潔に。
 EOF
 )
 
-OUT="$(mktemp /tmp/jinba-makoto.XXXXXX.json)"
-trap 'rm -f "$OUT"' EXIT
-
 {
   echo "$SYSTEM_PROMPT"
   echo ""
@@ -66,10 +63,9 @@ trap 'rm -f "$OUT"' EXIT
   cat "$PACK_FILE"
 # --output-schema は使わない: スキーマに minimum/maxLength 等の structured-outputs
 # 非対応キーワードがあると codex が無言で空出力になる（2026-06-12 確認）
+# -o ファイル は使わない: stdout とファイルに2重出力されて下流の jq がパース失敗する
 } | codex exec \
       -s read-only \
       -m gpt-5.5 \
       -c model_reasoning_effort=high \
-      -o "$OUT" -
-
-sed '/^```/d' "$OUT"
+      - | sed '/^```/d'

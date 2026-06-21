@@ -148,7 +148,7 @@ for i in "${!PIDS[@]}"; do
 done
 
 echo ""
-echo "=== 実行完了（出力先: $PRED_DIR）==="
+echo "=== 実行完了（出力先: ${PRED_DIR}）==="
 
 VALID=0
 TOTAL=${#NAMES[@]}

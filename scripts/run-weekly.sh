@@ -27,6 +27,9 @@
 #                     aggregate     → aggregated + betting-input + bets を削除
 #                     betting-input → betting-input + bets を削除
 #                     bets          → bets のみ削除
+#   --run <id>        ラン識別子（既定 v1）。独立した第2ランには --run r2 を指定。
+#                     predictions/<id>/ bets/<id>/ aggregated-<id>.json betting-input-<id>.json に分離される
+#   --double-check    v1 完了後に r2 を自動実行し、◎○▲の再現性を確認する（標準フロー推奨）
 #   --what-now        現在時刻と発走時刻（--race-time 必須）から最適な行動を案内して終了
 
 set -uo pipefail   # -e は使わない（ゲート判定で非0終了を扱うため）
@@ -48,6 +51,8 @@ RACE_TIME=""
 REFRESH_FROM=""
 WHAT_NOW=0
 RACE_ARG=""
+RUN_ID="v1"
+DOUBLE_CHECK=0
 
 while [ $# -gt 0 ]; do
   case "$1" in
@@ -61,6 +66,8 @@ while [ $# -gt 0 ]; do
     --pack) PACK_NAME="${2:?--pack にはファイル名が必要}"; shift ;;
     --race-time) RACE_TIME="${2:?--race-time には HH:MM が必要}"; shift ;;
     --refresh-from) REFRESH_FROM="${2:?--refresh-from には aggregate|betting-input|bets が必要}"; shift ;;
+    --run) RUN_ID="${2:?--run にはラン識別子が必要}"; shift ;;
+    --double-check) DOUBLE_CHECK=1 ;;
     --what-now) WHAT_NOW=1 ;;
     -*) echo "unknown option: $1" >&2; exit 2 ;;
     *) RACE_ARG="$1" ;;
@@ -83,6 +90,11 @@ for pair in "QUORUM:--quorum:$QUORUM" "MIN_BETTORS:--min-bettors:$MIN_BETTORS"; 
   [ "$val" -ge 1 ] 2>/dev/null || { echo "✗ $flag は 1 以上の整数で指定: \"$val\"" >&2; exit 2; }
 done
 
+# --run は サブディレクトリ名のみ（パス脱出・誤爆防止）
+case "$RUN_ID" in
+  */*|..|.|"") echo "✗ --run はサブディレクトリ名のみ指定可: \"$RUN_ID\"" >&2; exit 2 ;;
+esac
+
 # ── race-dir 解決（race_id でも path でも可）──
 if [ -d "$RACE_ARG" ]; then
   RACE_DIR="$(cd "$RACE_ARG" && pwd)"
@@ -98,11 +110,11 @@ fi
 RACE_ID="$(basename "$RACE_DIR")"
 
 PACK="$RACE_DIR/$PACK_NAME"
-PRED_DIR="$RACE_DIR/predictions/v1"
-AGG="$RACE_DIR/predictions/aggregated-v1.json"
-BINPUT="$RACE_DIR/betting-input-v1.json"
-BETS_DIR="$RACE_DIR/bets/v1"
-BETS_AGG="$RACE_DIR/bets/aggregated-v1.json"
+PRED_DIR="$RACE_DIR/predictions/$RUN_ID"
+AGG="$RACE_DIR/predictions/aggregated-${RUN_ID}.json"
+BINPUT="$RACE_DIR/betting-input-${RUN_ID}.json"
+BETS_DIR="$RACE_DIR/bets/$RUN_ID"
+BETS_AGG="$RACE_DIR/bets/aggregated-${RUN_ID}.json"
 RESULT="$RACE_DIR/result.json"
 # 採点ファイルは score-race.mjs が result.race_id 名で書く。dir名 ≠ race_id でも採点済み判定が効くよう
 # result.json があればその race_id を真とする（無ければ dir 名でフォールバック）
@@ -301,10 +313,15 @@ print_plan() {
   if [ "$np" -gt 0 ]; then
     report_category_status
   fi
-  status_line "3. 予想集約"        "$([ -f "$AGG" ] && echo 1 || echo 0)"    "aggregated-v1.json"
+  status_line "3. 予想集約"        "$([ -f "$AGG" ] && echo 1 || echo 0)"    "aggregated-${RUN_ID}.json"
   status_line "4. betting-input"   "$([ -f "$BINPUT" ] && echo 1 || echo 0)" "リーク防止生成物"
   status_line "5. 配分5人"         "$([ "$nb" -gt 0 ] && echo 1 || echo 0)"  "有効 ${nb} 人（最小 ${MIN_BETTORS}）"
-  status_line "6. 買い目集約"      "$([ -f "$BETS_AGG" ] && echo 1 || echo 0)" "bets/aggregated-v1.json"
+  status_line "6. 買い目集約"      "$([ -f "$BETS_AGG" ] && echo 1 || echo 0)" "bets/aggregated-${RUN_ID}.json"
+  # ダブルチェック（--double-check または RUN_ID=v1 で r2 が存在する場合に表示）
+  if [ "$RUN_ID" = "v1" ]; then
+    _r2_done="$([ -f "$RACE_DIR/bets/aggregated-r2.json" ] && echo 1 || echo 0)"
+    status_line "6b. ダブルチェック(r2)" "$_r2_done" "bets/aggregated-r2.json（--double-check で自動実行）"
+  fi
   status_line "7. 確定結果"        "$([ -f "$RESULT" ] && echo 1 || echo 0)" "result.json（人手・レース後）"
   status_line "8. 採点"            "$([ -f "$SCORE" ] && echo 1 || echo 0)"  "$SCORE"
   echo ""
@@ -507,7 +524,7 @@ else
     echo "  既存の有効予想 $NP 人（クォーラム $QUORUM 未達）"
   fi
   if confirm "予想10専門家を並列実行（クォータ消費）"; then
-    bash scripts/run-experts.sh "$PACK"
+    bash scripts/run-experts.sh "$PACK" --out "$RUN_ID"
     NP="$(count_valid_preds)"
   else
     HALT_CODE=2 halt "予想を実行しなかった" "実行するなら対話シェルで再実行、または --yes"
@@ -529,7 +546,7 @@ if [ ! -f "$AGG" ]; then
   fi
   echo ""
   echo "【3. 予想集約】クォーラム達成（${NP} ≥ ${QUORUM}）"
-  if ! node scripts/aggregate.mjs "$PRED_DIR" "$PACK"; then
+  if ! node scripts/aggregate.mjs "$PRED_DIR" "$PACK" --out "aggregated-${RUN_ID}.json"; then
     HALT_CODE=1 halt "予想集約に失敗" "aggregate.mjs のエラーを確認"
   fi
 else
@@ -541,6 +558,8 @@ fi
 echo ""
 echo "【4. betting-input 生成】"
 BUILD_ARGS=("$RACE_DIR")
+# 非 v1 ランは --version でバージョン（aggregated-<ver>.json ↔ betting-input-<ver>.json）を揃える
+[ "$RUN_ID" != "v1" ] && BUILD_ARGS+=(--version "$RUN_ID")
 # 非既定 pack を予想・集約と揃えて betting-input にも反映（接着漏れ防止）
 [ "$PACK_NAME" != "pack-v1.json" ] && BUILD_ARGS+=(--pack "$PACK_NAME")
 [ -n "$ODDS" ] && BUILD_ARGS+=(--odds "$ODDS")
@@ -570,7 +589,7 @@ elif [ "$NB" -ge "$MIN_BETTORS" ]; then
 else
   if [ "$NB" -gt 0 ]; then echo "  既存の有効ポートフォリオ $NB 人（最小 $MIN_BETTORS 未達）"; fi
   if confirm "配分5専門家を並列実行（クォータ消費）"; then
-    bash scripts/run-bettors.sh "$BINPUT"
+    bash scripts/run-bettors.sh "$BINPUT" --out "$RUN_ID"
     NB="$(count_valid_bettors)"
   else
     HALT_CODE=2 halt "配分を実行しなかった" "実行するなら対話シェルで再実行、または --yes"
@@ -584,12 +603,57 @@ if [ ! -f "$BETS_AGG" ]; then
   fi
   echo ""
   echo "【6. 買い目集約】有効ポートフォリオ $NB 人"
-  if ! node scripts/aggregate-bets.mjs "$BETS_DIR"; then
+  if ! node scripts/aggregate-bets.mjs "$BETS_DIR" --out "aggregated-${RUN_ID}.json"; then
     HALT_CODE=1 halt "買い目集約に失敗" "aggregate-bets.mjs のエラーを確認"
   fi
 else
   echo ""
   echo "【6. 買い目集約】✓ 済み"
+fi
+
+# ── ダブルチェック（再現性確認）──
+# --double-check 指定かつ主ランが v1 の場合のみ実行（再帰防止: --run r2 では起動しない）
+if [ "$DOUBLE_CHECK" -eq 1 ] && [ "$RUN_ID" = "v1" ]; then
+  echo ""
+  echo "【ダブルチェック（r2 独立実行・再現性確認）】"
+  _r2_bets_agg="$RACE_DIR/bets/aggregated-r2.json"
+  _r2_agg="$RACE_DIR/predictions/aggregated-r2.json"
+
+  if [ -f "$_r2_bets_agg" ]; then
+    echo "  ✓ r2 済み（スキップ）"
+  else
+    echo "  → r2 を独立実行中（クォータ消費）..."
+    _r2_args=("$RACE_ID" --run r2 --yes --skip-smoke)
+    [ -n "$RACE_TIME" ] && _r2_args+=(--race-time "$RACE_TIME")
+    bash scripts/run-weekly.sh "${_r2_args[@]}"
+  fi
+
+  if [ -f "$_r2_agg" ] && [ -f "$AGG" ]; then
+    echo ""
+    echo "  ┌── ◎○▲ 再現性チェック ──────────────────────────────"
+    _v1_h="$(jq -r '.marks["◎ 本命"] | split(" ")[0]' "$AGG" 2>/dev/null)"
+    _r2_h="$(jq -r '.marks["◎ 本命"] | split(" ")[0]' "$_r2_agg" 2>/dev/null)"
+    _v1_t="$(jq -r '.marks["○ 対抗"] | split(" ")[0]' "$AGG" 2>/dev/null)"
+    _r2_t="$(jq -r '.marks["○ 対抗"] | split(" ")[0]' "$_r2_agg" 2>/dev/null)"
+    _v1_s="$(jq -r '.marks["▲ 単穴"] | split(" ")[0]' "$AGG" 2>/dev/null)"
+    _r2_s="$(jq -r '.marks["▲ 単穴"] | split(" ")[0]' "$_r2_agg" 2>/dev/null)"
+    _om() { [ "$1" = "$2" ] && echo "✓" || echo "✗"; }
+    printf "  │  ◎ 本命: v1=%s番  r2=%s番  %s\n" "$_v1_h" "$_r2_h" "$(_om "$_v1_h" "$_r2_h")"
+    printf "  │  ○ 対抗: v1=%s番  r2=%s番  %s\n" "$_v1_t" "$_r2_t" "$(_om "$_v1_t" "$_r2_t")"
+    printf "  │  ▲ 単穴: v1=%s番  r2=%s番  %s\n" "$_v1_s" "$_r2_s" "$(_om "$_v1_s" "$_r2_s")"
+    _match=0
+    [ "$_v1_h" = "$_r2_h" ] && _match=$((_match+1))
+    [ "$_v1_t" = "$_r2_t" ] && _match=$((_match+1))
+    [ "$_v1_s" = "$_r2_s" ] && _match=$((_match+1))
+    echo "  │"
+    case "$_match" in
+      3) echo "  │  ✓ 全一致 → 再現性 OK" ;;
+      2) echo "  │  △ 2/3 一致 → おおむね安定（1頭のブレは許容範囲）" ;;
+      1) echo "  │  ⚠ 1/3 一致 → 乖離大。専門家ログを確認推奨" ;;
+      0) echo "  │  ✗ 全不一致 → 再現性なし。集約手法・入力を要確認" ;;
+    esac
+    echo "  └────────────────────────────────────────────────────"
+  fi
 fi
 
 # ── 人手判断ゲート: 予算圧縮・レビュー・提出・結果記録 ──

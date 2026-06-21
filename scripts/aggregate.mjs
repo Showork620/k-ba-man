@@ -7,9 +7,19 @@ import { join, dirname } from "node:path";
 
 // 複数の予測ディレクトリを受け付ける（§3.5 の世代混在: v1 静的 → v2-odds → v2-baba）。
 // 同一 expert_id は「後のディレクトリ優先（overlay）」で上書き。末尾引数が実在する .json なら pack。
-const rawArgs = process.argv.slice(2);
+// --out <filename>  出力ファイル名（既定: aggregated-v1.json）。独立した第2ラン等に使う。
+const allArgs = process.argv.slice(2);
+let outFilename = "aggregated-v1.json";
+const rawArgs = [];
+for (let i = 0; i < allArgs.length; i++) {
+  if (allArgs[i] === "--out" && i + 1 < allArgs.length) {
+    outFilename = allArgs[++i];
+  } else {
+    rawArgs.push(allArgs[i]);
+  }
+}
 if (rawArgs.length === 0) {
-  console.error("usage: node scripts/aggregate.mjs <predictions-dir...> [pack.json]");
+  console.error("usage: node scripts/aggregate.mjs <predictions-dir...> [pack.json] [--out filename]");
   process.exit(1);
 }
 let packPath;
@@ -302,7 +312,7 @@ const output = {
   generations: generationsData,
 };
 
-const outPath = join(dirname(predDir), "aggregated-v1.json");
+const outPath = join(dirname(predDir), outFilename);
 writeFileSync(outPath, JSON.stringify(output, null, 2) + "\n");
 
 // --- コンソール出力 ---

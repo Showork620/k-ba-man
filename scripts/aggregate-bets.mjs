@@ -6,9 +6,20 @@
 import { readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 
-const betsDir = process.argv[2];
+// --out <filename>  出力ファイル名（既定: aggregated-v1.json）。独立した第2ラン等に使う。
+const allArgs = process.argv.slice(2);
+let outFilename = "aggregated-v1.json";
+const positionalArgs = [];
+for (let i = 0; i < allArgs.length; i++) {
+  if (allArgs[i] === "--out" && i + 1 < allArgs.length) {
+    outFilename = allArgs[++i];
+  } else {
+    positionalArgs.push(allArgs[i]);
+  }
+}
+const betsDir = positionalArgs[0];
 if (!betsDir) {
-  console.error("usage: node scripts/aggregate-bets.mjs <bets-dir>");
+  console.error("usage: node scripts/aggregate-bets.mjs <bets-dir> [--out filename]");
   process.exit(1);
 }
 
@@ -102,7 +113,7 @@ const output = {
   pass_note: "pass = 集合的な見送り額（各自が使わなかった予算とダスト切捨ての平均）",
 };
 
-const outPath = join(dirname(betsDir), "aggregated-v1.json");
+const outPath = join(dirname(betsDir), outFilename);
 writeFileSync(outPath, JSON.stringify(output, null, 2) + "\n");
 
 console.log("");

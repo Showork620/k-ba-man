@@ -4,10 +4,22 @@
 set -euo pipefail
 cd "$(git -C "$(dirname "$0")" rev-parse --show-toplevel)"
 
-INPUT="${1:?usage: scripts/run-bettors.sh <betting-input.json>}"
+INPUT="${1:?usage: scripts/run-bettors.sh <betting-input.json> [--out v1]}"
+shift
+OUT="v1"
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --out) OUT="${2:?--out にはサブディレクトリ名が必要}"; shift ;;
+    *) echo "unknown option: $1" >&2; exit 2 ;;
+  esac
+  shift
+done
+case "$OUT" in
+  */*|..|.|"") echo "✗ --out はサブディレクトリ名のみ指定可: \"$OUT\"" >&2; exit 2 ;;
+esac
 INPUT="$(cd "$(dirname "$INPUT")" && pwd)/$(basename "$INPUT")"
 RACE_DIR="$(dirname "$INPUT")"
-BETS_DIR="$RACE_DIR/bets/v1"
+BETS_DIR="$RACE_DIR/bets/$OUT"
 mkdir -p "$BETS_DIR"
 
 AGENTS_DIR=".claude/agents"
@@ -88,7 +100,7 @@ for name in "${NAMES[@]}"; do
   fi
 done
 
-echo "  有効: $VALID / $TOTAL（※ total_stake_jpy=0 の全額見送りも有効なポートフォリオ）"
+echo "  有効: $VALID / ${TOTAL}（※ total_stake_jpy=0 の全額見送りも有効なポートフォリオ）"
 echo ""
 if [ "$VALID" -ge 3 ]; then
   echo "集約可能。→ node scripts/aggregate-bets.mjs $BETS_DIR"
