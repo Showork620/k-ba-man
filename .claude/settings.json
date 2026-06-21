@@ -9,7 +9,7 @@
     "filesystem": {
       "denyRead": ["~/"],
       "allowRead": [".", "~/.nodenv", "~/.bun", "~/.local", "~/.codex", "~/.gemini", "~/.gitconfig", "~/.claude/projects"],
-      "allowWrite": [".", "~/.codex", "~/.gemini"]
+      "allowWrite": [".", "~/.codex", "~/.gemini", "~/.claude/projects"]
     },
     "network": { "allowedDomains": ["*"] }
   },
