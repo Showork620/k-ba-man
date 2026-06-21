@@ -1,0 +1,256 @@
+{
+  "race_id": "202609030611",
+  "race_name": "しらさぎステークス",
+  "scored_note": "レース後採点。win(1着)と place(3着内)に基づく。完全着順未取得のため RPS は未算出。確率正規化は aggregate.mjs と同一規約。",
+  "result": {
+    "winner": 10,
+    "place3": [
+      10,
+      7,
+      11
+    ],
+    "finish_order_complete": true
+  },
+  "expert_count": 10,
+  "metrics_legend": {
+    "win_brier": "マルチクラスBrier（1着イベント）Σ(p−y)^2。0〜2、小さいほど良い",
+    "win_logloss": "−ln(p_winner)。小さいほど良い",
+    "p_winner": "正規化後に1着馬へ与えた確率",
+    "marks_place3_coverage": "印(◎○▲△)の中に実際の3着内3頭が何頭含まれたか（0〜3）",
+    "placed_mean_pred_rank": "3着内各馬に予想で与えた着順の平均（小さいほど良い／予想に無い馬は除外）",
+    "spec_sum_ok": "列挙win_probの合計が§3.4の0.95〜1.05に収まったか（判定は丸め前の生合計。表示の win_prob_listed_sum は3桁丸め）"
+  },
+  "experts": [
+    {
+      "expert_id": "aoi",
+      "expert_name": "葵",
+      "school": "騎手",
+      "backend": "claude-sonnet",
+      "confidence": 0.5,
+      "win_prob_listed_sum": 0.96,
+      "spec_sum_ok": true,
+      "p_winner": 0.1171,
+      "win_brier": 0.9735,
+      "win_logloss": 2.145,
+      "honmei": 1,
+      "honmei_won": false,
+      "honmei_in_place3": false,
+      "marks_place3_coverage": 2,
+      "placed_in_ranking": 2,
+      "placed_mean_pred_rank": 3.5
+    },
+    {
+      "expert_id": "goro",
+      "expert_name": "吾郎",
+      "school": "馬場",
+      "backend": "claude-opus-4-6",
+      "confidence": 0.5,
+      "win_prob_listed_sum": 1.01,
+      "spec_sum_ok": true,
+      "p_winner": 0.0891,
+      "win_brier": 0.9373,
+      "win_logloss": 2.4179,
+      "honmei": 11,
+      "honmei_won": false,
+      "honmei_in_place3": true,
+      "marks_place3_coverage": 2,
+      "placed_in_ranking": 2,
+      "placed_mean_pred_rank": 3
+    },
+    {
+      "expert_id": "hina",
+      "expert_name": "陽菜",
+      "school": "穴党",
+      "backend": "gemini-2.5-flash",
+      "confidence": 0.35,
+      "win_prob_listed_sum": 1,
+      "spec_sum_ok": true,
+      "p_winner": 0.2358,
+      "win_brier": 0.7411,
+      "win_logloss": 1.4446,
+      "honmei": 12,
+      "honmei_won": false,
+      "honmei_in_place3": false,
+      "marks_place3_coverage": 1,
+      "placed_in_ranking": 1,
+      "placed_mean_pred_rank": 2
+    },
+    {
+      "expert_id": "kenta",
+      "expert_name": "健太",
+      "school": "指数",
+      "backend": "claude-sonnet",
+      "confidence": 0.45,
+      "win_prob_listed_sum": 0.97,
+      "spec_sum_ok": true,
+      "p_winner": 0.0773,
+      "win_brier": 1.0605,
+      "win_logloss": 2.5601,
+      "honmei": 11,
+      "honmei_won": false,
+      "honmei_in_place3": true,
+      "marks_place3_coverage": 2,
+      "placed_in_ranking": 2,
+      "placed_mean_pred_rank": 3
+    },
+    {
+      "expert_id": "makoto",
+      "expert_name": "誠",
+      "school": "統計",
+      "backend": "codex-gpt-5.5",
+      "confidence": 0.31,
+      "win_prob_listed_sum": 1,
+      "spec_sum_ok": true,
+      "p_winner": 0.048,
+      "win_brier": 0.9841,
+      "win_logloss": 3.0366,
+      "honmei": 5,
+      "honmei_won": false,
+      "honmei_in_place3": false,
+      "marks_place3_coverage": 2,
+      "placed_in_ranking": 3,
+      "placed_mean_pred_rank": 6
+    },
+    {
+      "expert_id": "misaki",
+      "expert_name": "美咲",
+      "school": "展開",
+      "backend": "claude-opus",
+      "confidence": 0.32,
+      "win_prob_listed_sum": 0.95,
+      "spec_sum_ok": true,
+      "p_winner": 0.08,
+      "win_brier": 0.9492,
+      "win_logloss": 2.5257,
+      "honmei": 11,
+      "honmei_won": false,
+      "honmei_in_place3": true,
+      "marks_place3_coverage": 2,
+      "placed_in_ranking": 2,
+      "placed_mean_pred_rank": 3.5
+    },
+    {
+      "expert_id": "sakura",
+      "expert_name": "さくら",
+      "school": "オッズ",
+      "backend": "claude-haiku",
+      "confidence": 0.48,
+      "win_prob_listed_sum": 0.821,
+      "spec_sum_ok": false,
+      "p_winner": 0.0658,
+      "win_brier": 0.968,
+      "win_logloss": 2.7215,
+      "honmei": 11,
+      "honmei_won": false,
+      "honmei_in_place3": true,
+      "marks_place3_coverage": 2,
+      "placed_in_ranking": 2,
+      "placed_mean_pred_rank": 3.5
+    },
+    {
+      "expert_id": "tatsunosuke",
+      "expert_name": "龍之介",
+      "school": "血統",
+      "backend": "claude-opus",
+      "confidence": 0.5,
+      "win_prob_listed_sum": 0.95,
+      "spec_sum_ok": true,
+      "p_winner": 0.0796,
+      "win_brier": 1.0006,
+      "win_logloss": 2.5307,
+      "honmei": 11,
+      "honmei_won": false,
+      "honmei_in_place3": true,
+      "marks_place3_coverage": 2,
+      "placed_in_ranking": 1,
+      "placed_mean_pred_rank": 1
+    },
+    {
+      "expert_id": "teppei",
+      "expert_name": "鉄平",
+      "school": "調教",
+      "backend": "codex-gpt-5.5",
+      "confidence": 0.32,
+      "win_prob_listed_sum": 1,
+      "spec_sum_ok": true,
+      "p_winner": 0.1333,
+      "win_brier": 0.8537,
+      "win_logloss": 2.0149,
+      "honmei": 5,
+      "honmei_won": false,
+      "honmei_in_place3": false,
+      "marks_place3_coverage": 2,
+      "placed_in_ranking": 2,
+      "placed_mean_pred_rank": 4.5
+    },
+    {
+      "expert_id": "yuko",
+      "expert_name": "優子",
+      "school": "本命",
+      "backend": "gemini-2.5-flash",
+      "confidence": 0.72,
+      "win_prob_listed_sum": 1,
+      "spec_sum_ok": true,
+      "p_winner": 0.0381,
+      "win_brier": 1.1272,
+      "win_logloss": 3.2677,
+      "honmei": 11,
+      "honmei_won": false,
+      "honmei_in_place3": true,
+      "marks_place3_coverage": 2,
+      "placed_in_ranking": 1,
+      "placed_mean_pred_rank": 1
+    }
+  ],
+  "collective_baseline": {
+    "logpool": {
+      "p_winner": 0.1213,
+      "win_brier": 0.8811,
+      "win_logloss": 2.1095
+    },
+    "linear": {
+      "p_winner": 0.0964,
+      "win_brier": 0.9105,
+      "win_logloss": 2.3391
+    }
+  },
+  "diversity_decomposition": {
+    "mean_individual_brier_M": 0.9595,
+    "linear_pool_brier_E": 0.9105,
+    "diversity_D_linear": 0.049,
+    "logpool_brier": 0.8811,
+    "note": "M も E_linear も score-race 側の同一 fullDist（全頭・full precision）から算出。D_linear = M − E_linear ≥ 0 は Jensen 不等式で保証（線形プールが平均個人を必ず下回る／全員同一分布なら D=0）。実運用の集約は logpool（D≥0 保証外）なので別掲。RPS は完全着順が無いため未算出。"
+  },
+  "human_baseline": {
+    "source": "takarazuka-2026.json",
+    "expert_count": 9,
+    "with_identifiable_honmei": 0,
+    "honmei_won_count": 0,
+    "honmei_in_place3_count": 0,
+    "note": "人間予想家の◎が1着/3着内だった数。AI集合知の honmei(◎=集約本命) と同じ土俵で比較するための粗い指標。"
+  },
+  "rankings": {
+    "best_win_brier": [
+      "陽菜(0.7411)",
+      "鉄平(0.8537)",
+      "吾郎(0.9373)"
+    ],
+    "worst_win_brier": [
+      "優子(1.1272)",
+      "健太(1.0605)",
+      "龍之介(1.0006)"
+    ],
+    "honmei_won": [],
+    "honmei_in_place3": [
+      "吾郎",
+      "健太",
+      "美咲",
+      "さくら",
+      "龍之介",
+      "優子"
+    ],
+    "spec_sum_violations": [
+      "さくら(0.821)"
+    ]
+  }
+}

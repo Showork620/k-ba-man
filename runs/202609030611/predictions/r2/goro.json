@@ -1,0 +1,100 @@
+{
+  "expert_id": "goro",
+  "expert_name": "吾郎",
+  "school": "馬場",
+  "backend": "claude-opus-4-6",
+  "effort": "high",
+  "race_id": "202609030611",
+  "pack_version": "v1",
+  "predicted_ranking": [
+    {
+      "horse_num": 7,
+      "rank": 1
+    },
+    {
+      "horse_num": 5,
+      "rank": 2
+    },
+    {
+      "horse_num": 11,
+      "rank": 3
+    },
+    {
+      "horse_num": 12,
+      "rank": 4
+    },
+    {
+      "horse_num": 14,
+      "rank": 5
+    }
+  ],
+  "win_prob": [
+    {
+      "horse_num": 7,
+      "prob": 0.19
+    },
+    {
+      "horse_num": 5,
+      "prob": 0.16
+    },
+    {
+      "horse_num": 11,
+      "prob": 0.14
+    },
+    {
+      "horse_num": 14,
+      "prob": 0.09
+    },
+    {
+      "horse_num": 12,
+      "prob": 0.09
+    },
+    {
+      "horse_num": 10,
+      "prob": 0.08
+    },
+    {
+      "horse_num": 9,
+      "prob": 0.06
+    },
+    {
+      "horse_num": 8,
+      "prob": 0.05
+    },
+    {
+      "horse_num": 1,
+      "prob": 0.04
+    },
+    {
+      "horse_num": 4,
+      "prob": 0.03
+    },
+    {
+      "horse_num": 17,
+      "prob": 0.03
+    }
+  ],
+  "marks": {
+    "honmei": 7,
+    "taikou": 5,
+    "tanana": 11,
+    "renka": [
+      12,
+      10
+    ]
+  },
+  "confidence": 0.55,
+  "rationale": "当日馬場は重発表。阪神芝1600m重馬場は逃げ・先行有利（逃げ複勝率44%）。◎キープカルムは前年しらさぎS覇者で坂井瑠星続投、キングマンボ系パワー型で道悪巧者、4枠好枠。○ファーヴェントは父ロードカナロア（当コースNo.1種牡馬・道悪マイル複勝率25.8%）で3枠好枠、稍重京都金杯2着。▲エコロアルバは53kg軽斤量と能力で推すが差し脚質が重馬場で減点。",
+  "data_used": [
+    "race.weather.track_condition",
+    "pedigree",
+    "odds",
+    "gate",
+    "track_bias_hanshin_turf_1600m"
+  ],
+  "warnings": [
+    "全馬のpast_racesが空配列のため脚質判定は血統・一般傾向からの推測に依存",
+    "血統情報が馬番2,4,9,11,13,14,16,18で欠損（null）",
+    "当日午前の重発表確認済みだが15:30発走時に稍重へ回復の可能性あり（晴天継続）"
+  ]
+}

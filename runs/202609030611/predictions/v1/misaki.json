@@ -1,0 +1,109 @@
+{
+  "expert_id": "misaki",
+  "expert_name": "美咲",
+  "school": "展開",
+  "backend": "claude-opus",
+  "effort": "medium",
+  "race_id": "202609030611",
+  "pack_version": "v1",
+  "predicted_ranking": [
+    {
+      "horse_num": 11,
+      "rank": 1
+    },
+    {
+      "horse_num": 5,
+      "rank": 2
+    },
+    {
+      "horse_num": 8,
+      "rank": 3
+    },
+    {
+      "horse_num": 14,
+      "rank": 4
+    },
+    {
+      "horse_num": 9,
+      "rank": 5
+    },
+    {
+      "horse_num": 10,
+      "rank": 6
+    },
+    {
+      "horse_num": 17,
+      "rank": 7
+    },
+    {
+      "horse_num": 12,
+      "rank": 8
+    }
+  ],
+  "win_prob": [
+    {
+      "horse_num": 11,
+      "prob": 0.19
+    },
+    {
+      "horse_num": 5,
+      "prob": 0.14
+    },
+    {
+      "horse_num": 8,
+      "prob": 0.12
+    },
+    {
+      "horse_num": 14,
+      "prob": 0.11
+    },
+    {
+      "horse_num": 9,
+      "prob": 0.09
+    },
+    {
+      "horse_num": 10,
+      "prob": 0.08
+    },
+    {
+      "horse_num": 17,
+      "prob": 0.06
+    },
+    {
+      "horse_num": 12,
+      "prob": 0.06
+    },
+    {
+      "horse_num": 7,
+      "prob": 0.05
+    },
+    {
+      "horse_num": 1,
+      "prob": 0.05
+    }
+  ],
+  "marks": {
+    "honmei": 11,
+    "taikou": 5,
+    "tanana": 8,
+    "renka": [
+      14,
+      9,
+      10,
+      17
+    ]
+  },
+  "confidence": 0.32,
+  "rationale": "阪神1600m外・重馬場想定。重で前半緩みにくく全体95秒台後半（12.4-11.0-11.6-11.8-11.8-11.6-11.9-12.4級）、4角好位を取れるタフな先行〜好位差しが有利、極端な追込は届かずと読む。よって斤量53kgで好位を取りやすいエコロアルバ(11)を本命、好位力のファーヴェント(5)・サイルーン(8)・ミニトランザット(14)を上位。脚質一次データ皆無のため通過順は推定、市場オッズ(事実)を主軸に補正。",
+  "data_used": [
+    "odds.win",
+    "race.course",
+    "race.weather.track_condition",
+    "horse.weight_kg"
+  ],
+  "warnings": [
+    "ペルソナ指示(阪神2200m内回り宝塚記念)と実パック(阪神1600m外回りしらさぎS・重馬場)が不一致。実レース条件に合わせて分析した。",
+    "全頭past_racesが空で脚質・通過順位・上がり3Fの一次データが取得できず、展開推定は一般傾向とオッズ依存。信頼度を大幅に低下させた。",
+    "個別の逃げ・先行馬を成績データで特定できないため、想定ラップの確度が低い。"
+  ]
+}

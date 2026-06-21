@@ -1,0 +1,129 @@
+{
+  "expert_id": "goro",
+  "expert_name": "吾郎",
+  "school": "馬場",
+  "backend": "claude-opus-4-6",
+  "effort": "high",
+  "race_id": "202609030611",
+  "pack_version": "v1",
+  "predicted_ranking": [
+    {
+      "horse_num": 11,
+      "rank": 1
+    },
+    {
+      "horse_num": 14,
+      "rank": 2
+    },
+    {
+      "horse_num": 9,
+      "rank": 3
+    },
+    {
+      "horse_num": 12,
+      "rank": 4
+    },
+    {
+      "horse_num": 10,
+      "rank": 5
+    }
+  ],
+  "win_prob": [
+    {
+      "horse_num": 11,
+      "prob": 0.22
+    },
+    {
+      "horse_num": 14,
+      "prob": 0.15
+    },
+    {
+      "horse_num": 9,
+      "prob": 0.12
+    },
+    {
+      "horse_num": 12,
+      "prob": 0.10
+    },
+    {
+      "horse_num": 10,
+      "prob": 0.09
+    },
+    {
+      "horse_num": 5,
+      "prob": 0.07
+    },
+    {
+      "horse_num": 8,
+      "prob": 0.06
+    },
+    {
+      "horse_num": 7,
+      "prob": 0.05
+    },
+    {
+      "horse_num": 17,
+      "prob": 0.03
+    },
+    {
+      "horse_num": 4,
+      "prob": 0.03
+    },
+    {
+      "horse_num": 1,
+      "prob": 0.03
+    },
+    {
+      "horse_num": 15,
+      "prob": 0.02
+    },
+    {
+      "horse_num": 2,
+      "prob": 0.01
+    },
+    {
+      "horse_num": 3,
+      "prob": 0.01
+    },
+    {
+      "horse_num": 6,
+      "prob": 0.005
+    },
+    {
+      "horse_num": 13,
+      "prob": 0.005
+    },
+    {
+      "horse_num": 16,
+      "prob": 0.005
+    },
+    {
+      "horse_num": 18,
+      "prob": 0.005
+    }
+  ],
+  "marks": {
+    "honmei": 11,
+    "taikou": 14,
+    "tanana": 9,
+    "renka": [
+      12,
+      10,
+      5
+    ]
+  },
+  "confidence": 0.50,
+  "rationale": "馬場:重確定。阪神芝外1600mBコース、重馬場ではパワー型血統・先行脚質が有利。◎エコロアルバはFrankel系×フレンチデピュティ母父のパワー配合に3歳53kgの斤量利。○ミニトランザットはエピファネイア(Roberto系)で道悪王道。▲ファンダムは母父ジャスタウェイ(ハーツクライ系)で道悪適性高。2番人気ファーヴェントはカナロア産駒で重馬場成績低下が一次データで確認済、割引。",
+  "data_used": [
+    "weather",
+    "track_condition",
+    "pedigree",
+    "odds",
+    "gate"
+  ],
+  "warnings": [
+    "past_racesデータが全馬空のため馬場別パフォーマンス実績を直接確認不可。血統・オッズ・斤量で代用",
+    "当週阪神芝の内外バイアス実データ（土曜結果の脚質別成績）の取得に失敗。一般的な重馬場傾向で推定",
+    "血統情報が取得不能の馬(2,4,9,11,13,16,18)はWeb補完を試みたが一部のみ成功"
+  ]
+}

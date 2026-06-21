@@ -1,0 +1,164 @@
+{
+  "method": "portfolio averaging over 3 bettors (equal weight); dust<200 dropped",
+  "bettor_count": 3,
+  "bettors": [
+    {
+      "bettor": "剛",
+      "backend": "claude-opus",
+      "philosophy": "◎軸の三連複フォーメーションで面を取る攻撃派。確率の裏付けがある中穴まで攻め、闇雲な大穴は買わない。",
+      "total_stake_jpy": 9000,
+      "ticket_count": 10
+    },
+    {
+      "bettor": "一徹",
+      "backend": "codex-gpt-5.5",
+      "philosophy": "期待値プラスでも賭け金が規律に届かなければ買わない。見送りも投資判断。",
+      "total_stake_jpy": 300,
+      "ticket_count": 1
+    },
+    {
+      "bettor": "さゆり",
+      "backend": "claude-haiku",
+      "philosophy": "複勝圏確率最優先。複勝・ワイドで固め、トリガミを回避する堅実派。5点以内の堅い構成。",
+      "total_stake_jpy": 2100,
+      "ticket_count": 5
+    }
+  ],
+  "aggregated_tickets": [
+    {
+      "bet_type": "三連複",
+      "selection": "5-11-14",
+      "stake_jpy": 500,
+      "consensus": "1/3",
+      "backers": [
+        "剛"
+      ],
+      "rationales": [
+        "剛: undefined"
+      ]
+    },
+    {
+      "bet_type": "三連複",
+      "selection": "5-8-14",
+      "stake_jpy": 400,
+      "consensus": "1/3",
+      "backers": [
+        "剛"
+      ],
+      "rationales": [
+        "剛: undefined"
+      ]
+    },
+    {
+      "bet_type": "三連複",
+      "selection": "5-8-11",
+      "stake_jpy": 400,
+      "consensus": "1/3",
+      "backers": [
+        "剛"
+      ],
+      "rationales": [
+        "剛: undefined"
+      ]
+    },
+    {
+      "bet_type": "三連複",
+      "selection": "5-10-14",
+      "stake_jpy": 300,
+      "consensus": "1/3",
+      "backers": [
+        "剛"
+      ],
+      "rationales": [
+        "剛: undefined"
+      ]
+    },
+    {
+      "bet_type": "三連複",
+      "selection": "5-10-11",
+      "stake_jpy": 300,
+      "consensus": "1/3",
+      "backers": [
+        "剛"
+      ],
+      "rationales": [
+        "剛: undefined"
+      ]
+    },
+    {
+      "bet_type": "三連複",
+      "selection": "5-9-14",
+      "stake_jpy": 300,
+      "consensus": "1/3",
+      "backers": [
+        "剛"
+      ],
+      "rationales": [
+        "剛: undefined"
+      ]
+    },
+    {
+      "bet_type": "三連複",
+      "selection": "5-8-10",
+      "stake_jpy": 300,
+      "consensus": "1/3",
+      "backers": [
+        "剛"
+      ],
+      "rationales": [
+        "剛: undefined"
+      ]
+    },
+    {
+      "bet_type": "三連複",
+      "selection": "5-9-11",
+      "stake_jpy": 200,
+      "consensus": "1/3",
+      "backers": [
+        "剛"
+      ],
+      "rationales": [
+        "剛: undefined"
+      ]
+    },
+    {
+      "bet_type": "三連複",
+      "selection": "5-8-9",
+      "stake_jpy": 200,
+      "consensus": "1/3",
+      "backers": [
+        "剛"
+      ],
+      "rationales": [
+        "剛: undefined"
+      ]
+    },
+    {
+      "bet_type": "複勝",
+      "selection": "5",
+      "stake_jpy": 200,
+      "consensus": "1/3",
+      "backers": [
+        "さゆり"
+      ],
+      "rationales": [
+        "さゆり: undefined"
+      ]
+    },
+    {
+      "bet_type": "複勝",
+      "selection": "14",
+      "stake_jpy": 200,
+      "consensus": "1/3",
+      "backers": [
+        "さゆり"
+      ],
+      "rationales": [
+        "さゆり: undefined"
+      ]
+    }
+  ],
+  "total_stake_jpy": 3300,
+  "pass_jpy": 6700,
+  "pass_note": "pass = 集合的な見送り額（各自が使わなかった予算とダスト切捨ての平均）"
+}

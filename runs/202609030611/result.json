@@ -1,0 +1,25 @@
+{
+  "race_id": "202609030611",
+  "race_name": "しらさぎステークス",
+  "winner": 10,
+  "place3": [10, 7, 11],
+  "finish_order_complete": true,
+  "payouts": {
+    "tansho": [{ "horse_num": 10, "payout": 1290, "popularity": 7 }],
+    "fukusho": [
+      { "horse_num": 10, "payout": 340, "popularity": 4 },
+      { "horse_num": 7,  "payout": 380, "popularity": 7 },
+      { "horse_num": 11, "payout": 160, "popularity": 1 }
+    ],
+    "wakuren": [{ "selection": "4-5", "payout": 1870, "popularity": 10 }],
+    "umaren":  [{ "selection": "7-10", "payout": 6400, "popularity": 27 }],
+    "wide": [
+      { "selection": "7-10",  "payout": 1920, "popularity": 24 },
+      { "selection": "10-11", "payout": 1050, "popularity": 7 },
+      { "selection": "7-11",  "payout": 1040, "popularity": 6 }
+    ],
+    "umatan":   [{ "selection": "10-7", "payout": 13920, "popularity": 57 }],
+    "sanrenpuku": [{ "selection": "7-10-11", "payout": 10320, "popularity": 26 }],
+    "sanrentan": [{ "selection": "10-7-11", "payout": 90760, "popularity": 297 }]
+  }
+}

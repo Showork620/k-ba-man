@@ -1,0 +1,119 @@
+{
+  "expert_id": "yuko",
+  "expert_name": "優子",
+  "school": "本命",
+  "backend": "gemini-2.5-flash",
+  "effort": "low",
+  "race_id": "202609030611",
+  "pack_version": "v1",
+  "predicted_ranking": [
+    {
+      "horse_num": 11,
+      "rank": 1
+    },
+    {
+      "horse_num": 5,
+      "rank": 2
+    },
+    {
+      "horse_num": 14,
+      "rank": 3
+    },
+    {
+      "horse_num": 8,
+      "rank": 4
+    },
+    {
+      "horse_num": 9,
+      "rank": 5
+    }
+  ],
+  "win_prob": [
+    {
+      "horse_num": 11,
+      "prob": 0.35
+    },
+    {
+      "horse_num": 5,
+      "prob": 0.25
+    },
+    {
+      "horse_num": 14,
+      "prob": 0.15
+    },
+    {
+      "horse_num": 8,
+      "prob": 0.10
+    },
+    {
+      "horse_num": 9,
+      "prob": 0.06
+    },
+    {
+      "horse_num": 10,
+      "prob": 0.04
+    },
+    {
+      "horse_num": 17,
+      "prob": 0.03
+    },
+    {
+      "horse_num": 12,
+      "prob": 0.02
+    }
+  ],
+  "place_prob": [
+    {
+      "horse_num": 11,
+      "prob": 0.65
+    },
+    {
+      "horse_num": 5,
+      "prob": 0.55
+    },
+    {
+      "horse_num": 14,
+      "prob": 0.42
+    },
+    {
+      "horse_num": 8,
+      "prob": 0.32
+    },
+    {
+      "horse_num": 9,
+      "prob": 0.22
+    },
+    {
+      "horse_num": 10,
+      "prob": 0.16
+    },
+    {
+      "horse_num": 17,
+      "prob": 0.12
+    },
+    {
+      "horse_num": 12,
+      "prob": 0.08
+    }
+  ],
+  "marks": {
+    "honmei": 11,
+    "taikou": 5,
+    "tanana": 14,
+    "renka": [
+      8,
+      9,
+      10
+    ]
+  },
+  "confidence": 0.72,
+  "rationale": "単勝1番人気のエコロアルバを最上位に評価する。3歳馬で斤量53.0kgは極めて有利。2番人気のファーヴェント、3番人気のミニトランザットが相手。梅雨時期の重馬場だが、能力上位の人気馬を素真に評価すべき。私の流儀は複勝圏。エコロアルバ、ファーヴェント、ミニトランザットの3頭は複勝圏内としての安定感が非常に高いと見ている。連下にはサイルーン、ファンダム、エルトンバローズまでを押さえる。",
+  "data_used": [
+    "odds",
+    "jockey_information"
+  ],
+  "warnings": [
+    "重馬場発表だが当日の晴天による乾き具合に注意が必要",
+    "詳細な過去走実績データが不足しているためオッズの支持率に依存"
+  ]
+}

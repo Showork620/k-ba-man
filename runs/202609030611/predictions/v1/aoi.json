@@ -1,0 +1,78 @@
+{
+  "expert_id": "aoi",
+  "expert_name": "葵",
+  "school": "騎手",
+  "backend": "claude-sonnet",
+  "effort": "medium",
+  "race_id": "202609030611",
+  "pack_version": "v1",
+  "predicted_ranking": [
+    {
+      "horse_num": 1,
+      "rank": 1
+    },
+    {
+      "horse_num": 14,
+      "rank": 2
+    },
+    {
+      "horse_num": 7,
+      "rank": 3
+    },
+    {
+      "horse_num": 10,
+      "rank": 4
+    },
+    {
+      "horse_num": 5,
+      "rank": 5
+    }
+  ],
+  "win_prob": [
+    {
+      "horse_num": 1,
+      "prob": 0.30
+    },
+    {
+      "horse_num": 14,
+      "prob": 0.27
+    },
+    {
+      "horse_num": 7,
+      "prob": 0.18
+    },
+    {
+      "horse_num": 10,
+      "prob": 0.12
+    },
+    {
+      "horse_num": 5,
+      "prob": 0.09
+    }
+  ],
+  "marks": {
+    "honmei": 1,
+    "taikou": 14,
+    "tanana": 7,
+    "renka": [
+      10,
+      5
+    ]
+  },
+  "confidence": 0.50,
+  "rationale": "川田将雅（2026年JRAリーディング1位・88勝）が本命スマートワイス（大久保龍志厩舎・栗東）に騎乗。最上位騎手×栗東地の利で最大加点。対抗はJRAリーディング2位・松山弘平（69勝）騎乗のミニトランザット（杉山佳明厩舎・栗東）。3番手は坂井瑠星（G1勝利実績・若手エース）起用のキープカルム（中竹和也栗東）。エルトンバローズは馬のG1実績（マイルCS4着歴）を加点。重馬場・阪神外回りは栗東勢有利、美浦4頭（サイルーン/堀宣行・ファンダム・エコロアルバ・メタルスピード）は遠征で地の利マイナス評価。",
+  "data_used": [
+    "jockey_name",
+    "trainer_name",
+    "trainer_stable",
+    "odds_win",
+    "jockey_leading_jra_2026",
+    "race_condition_heavy",
+    "horse_g1_history_search"
+  ],
+  "warnings": [
+    "pack の past_races が全18頭空のためコンビ実績・乗り替わり前後騎手比較の定量評価を実施できなかった。信頼度を低めに設定",
+    "スマートワイスの血統: pack は sire=ディープインパクトだが外部検索でロードカナロアとの情報あり（血統不一致）。騎手分析には影響なし",
+    "重馬場適性は各馬の過去成績データがないため騎手実績のみで代替評価"
+  ]
+}

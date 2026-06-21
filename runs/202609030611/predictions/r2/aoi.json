@@ -1,0 +1,78 @@
+{
+  "expert_id": "aoi",
+  "expert_name": "葵",
+  "school": "騎手",
+  "backend": "claude-sonnet",
+  "effort": "medium",
+  "race_id": "202609030611",
+  "pack_version": "v1",
+  "predicted_ranking": [
+    {
+      "horse_num": 1,
+      "rank": 1
+    },
+    {
+      "horse_num": 14,
+      "rank": 2
+    },
+    {
+      "horse_num": 5,
+      "rank": 3
+    },
+    {
+      "horse_num": 8,
+      "rank": 4
+    },
+    {
+      "horse_num": 7,
+      "rank": 5
+    }
+  ],
+  "win_prob": [
+    {
+      "horse_num": 1,
+      "prob": 0.26
+    },
+    {
+      "horse_num": 14,
+      "prob": 0.24
+    },
+    {
+      "horse_num": 5,
+      "prob": 0.22
+    },
+    {
+      "horse_num": 8,
+      "prob": 0.17
+    },
+    {
+      "horse_num": 7,
+      "prob": 0.11
+    }
+  ],
+  "marks": {
+    "honmei": 1,
+    "taikou": 14,
+    "tanana": 5,
+    "renka": [
+      8,
+      7
+    ]
+  },
+  "confidence": 0.52,
+  "rationale": "◎1川田将雅（関西リーディング4位52勝）はG1実績国内最高峰クラス。大久保龍志栗東厩舎の地の利。オッズ19.3は騎手評価として過小で穴馬価値あり。○14松山弘平（リーディング3位58勝）×杉山佳明栗東は阪神マイルへの適性高く安定軸。▲5高杉和也（リーディング10位31勝）は関西リーディング内の中堅で、藤原英昭名門栗東厩舎（G1多数輩出）が後押し。△8岩田望来（リーディング2位69勝）は騎手単体では今回最高位だが堀宣行美浦厩舎の遠征がマイナス。△7坂井瑠星（リーディング6位38勝）×中竹和也栗東も圏内。past_races全空でコンビ成績・乗り替わり判定は不能。",
+  "data_used": [
+    "jockey_name",
+    "trainer_stable",
+    "odds_win",
+    "jockey_leading_2026_kansai_web",
+    "pedigree",
+    "track_condition"
+  ],
+  "warnings": [
+    "past_races が全馬空配列のため乗り替わり評価・コンビ成績・馬の実力値を算出不能。騎手・厩舎指標のみで採点",
+    "騎手リーディングデータはサードパーティサイト(db-keiba.com)フェッチ値（6/15時点）。精度要確認",
+    "重馬場（当日午前確認）。馬場が回復した場合は評価軸変化の可能性あり",
+    "pack_meta errata: 複数馬の血統 null のため重馬場適性の血統面評価が部分的に不能"
+  ]
+}

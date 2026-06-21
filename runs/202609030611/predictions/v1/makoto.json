@@ -1,0 +1,182 @@
+{
+  "expert_id": "makoto",
+  "expert_name": "誠",
+  "school": "統計",
+  "backend": "codex-gpt-5.5",
+  "effort": "high",
+  "race_id": "202609030611",
+  "pack_version": "v1",
+  "predicted_ranking": [
+    {
+      "horse_num": 5,
+      "rank": 1
+    },
+    {
+      "horse_num": 14,
+      "rank": 2
+    },
+    {
+      "horse_num": 11,
+      "rank": 3
+    },
+    {
+      "horse_num": 9,
+      "rank": 4
+    },
+    {
+      "horse_num": 12,
+      "rank": 5
+    },
+    {
+      "horse_num": 7,
+      "rank": 6
+    },
+    {
+      "horse_num": 8,
+      "rank": 7
+    },
+    {
+      "horse_num": 17,
+      "rank": 8
+    },
+    {
+      "horse_num": 10,
+      "rank": 9
+    },
+    {
+      "horse_num": 1,
+      "rank": 10
+    },
+    {
+      "horse_num": 18,
+      "rank": 11
+    },
+    {
+      "horse_num": 4,
+      "rank": 12
+    },
+    {
+      "horse_num": 16,
+      "rank": 13
+    },
+    {
+      "horse_num": 15,
+      "rank": 14
+    },
+    {
+      "horse_num": 2,
+      "rank": 15
+    },
+    {
+      "horse_num": 13,
+      "rank": 16
+    },
+    {
+      "horse_num": 6,
+      "rank": 17
+    },
+    {
+      "horse_num": 3,
+      "rank": 18
+    }
+  ],
+  "win_prob": [
+    {
+      "horse_num": 5,
+      "prob": 0.134
+    },
+    {
+      "horse_num": 14,
+      "prob": 0.124
+    },
+    {
+      "horse_num": 11,
+      "prob": 0.114
+    },
+    {
+      "horse_num": 9,
+      "prob": 0.089
+    },
+    {
+      "horse_num": 12,
+      "prob": 0.074
+    },
+    {
+      "horse_num": 7,
+      "prob": 0.061
+    },
+    {
+      "horse_num": 8,
+      "prob": 0.059
+    },
+    {
+      "horse_num": 17,
+      "prob": 0.057
+    },
+    {
+      "horse_num": 10,
+      "prob": 0.048
+    },
+    {
+      "horse_num": 1,
+      "prob": 0.042
+    },
+    {
+      "horse_num": 18,
+      "prob": 0.042
+    },
+    {
+      "horse_num": 4,
+      "prob": 0.032
+    },
+    {
+      "horse_num": 16,
+      "prob": 0.032
+    },
+    {
+      "horse_num": 15,
+      "prob": 0.031
+    },
+    {
+      "horse_num": 2,
+      "prob": 0.022
+    },
+    {
+      "horse_num": 13,
+      "prob": 0.018
+    },
+    {
+      "horse_num": 6,
+      "prob": 0.014
+    },
+    {
+      "horse_num": 3,
+      "prob": 0.007
+    }
+  ],
+  "marks": {
+    "honmei": 5,
+    "taikou": 14,
+    "tanana": 11,
+    "renka": [
+      9,
+      12,
+      7,
+      8,
+      17
+    ]
+  },
+  "confidence": 0.31,
+  "rationale": "S=0.75*log(1/単勝)+年齢+枠+斤量。年齢4-5+.35、8枠+.25、1枠-.30。P上位:5=.134,14=.124,11=.114,9=.089,12=.074。",
+  "data_used": [
+    "RaceDataPack v1: 出走馬18頭、枠、年齢、斤量、単勝オッズ、阪神芝1600m外B、重馬場",
+    "web GET: https://race.netkeiba.com/race/shutuba.html?race_id=202609030611 出馬表・天候馬場確認",
+    "web検索: 宝塚記念過去10年の年齢別・枠別・前走別3着内率を確認試行"
+  ],
+  "warnings": [
+    "宝塚記念過去10年の具体表は一次表に到達できず、数値は直接投入せず傾向符号のみ使用した",
+    "RaceDataPackのpast_races/trainingが空で、前走G1・前走着順・スピード指数は全馬欠損として0扱い",
+    "対象はしらさぎS（阪神芝1600m）で、宝塚記念（阪神芝2200m内回り）とは条件が異なる",
+    "出馬表ページ内のAI予測・印・調教評価など第三者判断は使用していない"
+  ]
+}

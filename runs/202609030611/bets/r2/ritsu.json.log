@@ -1,0 +1,30 @@
+Ripgrep is not available. Falling back to GrepTool.
+Error when talking to Gemini API Full report available at: /var/folders/g4/wvyh1vsn0ygddns79p2k50gm0000gn/T/gemini-client-error-Turn.run-sendMessageStream-2026-06-21T02-49-53-706Z.json TerminalQuotaError: You have exhausted your daily quota on this model.
+    at classifyGoogleError (file:///Users/rhyolite/.nodenv/versions/22.22.2/lib/node_modules/@google/gemini-cli/bundle/chunk-RCJSF5RP.js:304189:16)
+    at retryWithBackoff (file:///Users/rhyolite/.nodenv/versions/22.22.2/lib/node_modules/@google/gemini-cli/bundle/chunk-RCJSF5RP.js:304874:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async GeminiChat.makeApiCallAndProcessStream (file:///Users/rhyolite/.nodenv/versions/22.22.2/lib/node_modules/@google/gemini-cli/bundle/chunk-RCJSF5RP.js:328315:28)
+    at async GeminiChat.streamWithRetries (file:///Users/rhyolite/.nodenv/versions/22.22.2/lib/node_modules/@google/gemini-cli/bundle/chunk-RCJSF5RP.js:328133:29)
+    at async Turn.run (file:///Users/rhyolite/.nodenv/versions/22.22.2/lib/node_modules/@google/gemini-cli/bundle/chunk-RCJSF5RP.js:328879:24)
+    at async GeminiClient.processTurn (file:///Users/rhyolite/.nodenv/versions/22.22.2/lib/node_modules/@google/gemini-cli/bundle/chunk-RCJSF5RP.js:342369:22)
+    at async GeminiClient.sendMessageStream (file:///Users/rhyolite/.nodenv/versions/22.22.2/lib/node_modules/@google/gemini-cli/bundle/chunk-RCJSF5RP.js:342466:14)
+    at async file:///Users/rhyolite/.nodenv/versions/22.22.2/lib/node_modules/@google/gemini-cli/bundle/gemini-YXO2QQ66.js:10882:26
+    at async main (file:///Users/rhyolite/.nodenv/versions/22.22.2/lib/node_modules/@google/gemini-cli/bundle/gemini-YXO2QQ66.js:16290:5) {
+  cause: {
+    code: 429,
+    message: 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n' +
+      '* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.5-flash\n' +
+      'Please retry in 6.319120477s.',
+    details: [ [Object], [Object], [Object] ]
+  },
+  retryDelayMs: undefined,
+  reason: undefined
+}
+{
+  "session_id": "8f8f85ca-80ca-4dd0-9f35-c169c5b2347b",
+  "error": {
+    "type": "Error",
+    "message": "You have exhausted your daily quota on this model.",
+    "code": 1
+  }
+}

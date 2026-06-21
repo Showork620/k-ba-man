@@ -1,0 +1,75 @@
+{
+  "expert_id": "hina",
+  "expert_name": "陽菜",
+  "school": "穴党",
+  "backend": "gemini-2.5-flash",
+  "effort": "low",
+  "race_id": "202609030611",
+  "pack_version": "v1",
+  "predicted_ranking": [
+    {
+      "horse_num": 12,
+      "rank": 1
+    },
+    {
+      "horse_num": 10,
+      "rank": 2
+    },
+    {
+      "horse_num": 5,
+      "rank": 3
+    },
+    {
+      "horse_num": 1,
+      "rank": 4
+    },
+    {
+      "horse_num": 17,
+      "rank": 5
+    }
+  ],
+  "win_prob": [
+    {
+      "horse_num": 12,
+      "prob": 0.35
+    },
+    {
+      "horse_num": 10,
+      "prob": 0.25
+    },
+    {
+      "horse_num": 5,
+      "prob": 0.20
+    },
+    {
+      "horse_num": 1,
+      "prob": 0.08
+    },
+    {
+      "horse_num": 17,
+      "prob": 0.07
+    },
+    {
+      "horse_num": 18,
+      "prob": 0.05
+    }
+  ],
+  "marks": {
+    "honmei": 12,
+    "taikou": 10,
+    "tanana": 5,
+    "renka": [
+      1,
+      17,
+      18
+    ]
+  },
+  "confidence": 0.35,
+  "rationale": "みんなが見落としてるけど、重馬場の阪神マイルなら12番カズミクラーシュが本命！前走は良馬場の瞬発力勝負で負けただけで、モーリス×キングマンボのタフな血統は重馬場でこそ輝くよ。1番人気11番エコロアルバは3歳53kgで過剰人気。初のタフな阪神重馬場では若さが裏目に出るはずだからバッサリ消し。対抗は母父にブライアンズタイムを持つ10番エルトンバローズ。連下には10番人気以下から、重馬場で不気味な川田騎手騎乗の1番スマートワイスを拾っておくよ！",
+  "data_used": [
+    "pedigree",
+    "odds",
+    "weather"
+  ],
+  "warnings": []
+}

@@ -1,0 +1,221 @@
+{
+  "meta": {
+    "purpose": "資金配分専門家への共通入力。10人のAI予想専門家の【集約結果のみ】を含む（個別予想・印・信頼度は含まない＝リーク防止 §3.3）",
+    "generated_by": "scripts/build-betting-input.mjs（aggregated-r2 ＋ pack）",
+    "race_id": "202609030611",
+    "race": "しらさぎステークス 2026-06-21 阪神 芝1600m外回り 18頭 15:30発走",
+    "track_assumption": "良馬場前提。馬場急変時はこのポートフォリオを無効とする。",
+    "budget_jpy": 10000,
+    "odds_note": "odds_win は pack の事前オッズ（2026-06-21T09:44:00+09:00 / race.netkeiba.com/race/shutuba.html?race_id=202609030611, db.netkeiba.com/horse/ped/{horse_id}/）。当日オッズ未反映 — 当日朝に --odds で再生成推奨。odds_place は当日オッズ未取得のため null。",
+    "takeout": {
+      "単勝複勝": 0.2,
+      "馬連ワイド": 0.225,
+      "三連複": 0.25,
+      "三連単": 0.275
+    },
+    "field_glossary": {
+      "win_prob": "集約勝率（正規化 log pooling）。Kelly の p の入力（§7.2）",
+      "win_prob_linear": "線形プール（単純平均・参考）",
+      "place_prob": "複勝圏(3着内)確率の集約。未列挙馬を0扱いした下限近似（aggregated の place_prob_lb）",
+      "breakeven_odds": "損益分岐オッズ = 1 / win_prob（単勝専用）。これ×安全マージンを市場オッズが上回るかで判定（律・一徹）。複勝・組合せ券は place_prob/Harville から各自再計算",
+      "odds_win": "単勝オッズ（当日 or 事前。odds_note 参照）",
+      "odds_place": "複勝オッズ [下限,上限] or 単一値。当日オッズ未取得なら null（ワイド/複勝の自前推定が必要）"
+    }
+  },
+  "constraints": {
+    "budget_jpy": 10000,
+    "min_stake_jpy": 300,
+    "unit_jpy": 100,
+    "max_tickets": 12,
+    "bet_types_allowed": [
+      "単勝",
+      "複勝",
+      "ワイド",
+      "馬連",
+      "三連複",
+      "三連単"
+    ]
+  },
+  "horses": [
+    {
+      "horse_num": 5,
+      "name": "ファーヴェント",
+      "win_prob": 0.2893,
+      "win_prob_linear": 0.179,
+      "place_prob": 0.0667,
+      "breakeven_odds": 3.46,
+      "odds_win": 6.1,
+      "odds_place": null
+    },
+    {
+      "horse_num": 14,
+      "name": "ミニトランザット",
+      "win_prob": 0.128,
+      "win_prob_linear": 0.1162,
+      "place_prob": 0.0556,
+      "breakeven_odds": 7.81,
+      "odds_win": 7.5,
+      "odds_place": null
+    },
+    {
+      "horse_num": 11,
+      "name": "エコロアルバ",
+      "win_prob": 0.1236,
+      "win_prob_linear": 0.1612,
+      "place_prob": 0.0778,
+      "breakeven_odds": 8.09,
+      "odds_win": 4,
+      "odds_place": null
+    },
+    {
+      "horse_num": 8,
+      "name": "サイルーン",
+      "win_prob": 0.0954,
+      "win_prob_linear": 0.0793,
+      "place_prob": 0.0444,
+      "breakeven_odds": 10.48,
+      "odds_win": 8.1,
+      "odds_place": null
+    },
+    {
+      "horse_num": 10,
+      "name": "エルトンバローズ",
+      "win_prob": 0.076,
+      "win_prob_linear": 0.1166,
+      "place_prob": 0,
+      "breakeven_odds": 13.16,
+      "odds_win": 12.1,
+      "odds_place": null
+    },
+    {
+      "horse_num": 9,
+      "name": "ファンダム",
+      "win_prob": 0.0557,
+      "win_prob_linear": 0.0519,
+      "place_prob": 0.0389,
+      "breakeven_odds": 17.95,
+      "odds_win": 10.6,
+      "odds_place": null
+    },
+    {
+      "horse_num": 12,
+      "name": "カズミクラーシュ",
+      "win_prob": 0.0452,
+      "win_prob_linear": 0.0693,
+      "place_prob": 0,
+      "breakeven_odds": 22.12,
+      "odds_win": 15.1,
+      "odds_place": null
+    },
+    {
+      "horse_num": 1,
+      "name": "スマートワイス",
+      "win_prob": 0.0412,
+      "win_prob_linear": 0.0641,
+      "place_prob": 0,
+      "breakeven_odds": 24.27,
+      "odds_win": 19.3,
+      "odds_place": null
+    },
+    {
+      "horse_num": 7,
+      "name": "キープカルム",
+      "win_prob": 0.0384,
+      "win_prob_linear": 0.062,
+      "place_prob": 0,
+      "breakeven_odds": 26.04,
+      "odds_win": 16.2,
+      "odds_place": null
+    },
+    {
+      "horse_num": 17,
+      "name": "スイープアワーズ",
+      "win_prob": 0.0278,
+      "win_prob_linear": 0.0354,
+      "place_prob": 0,
+      "breakeven_odds": 35.97,
+      "odds_win": 14.5,
+      "odds_place": null
+    },
+    {
+      "horse_num": 15,
+      "name": "ショウナンアデイブ",
+      "win_prob": 0.0143,
+      "win_prob_linear": 0.0196,
+      "place_prob": 0,
+      "breakeven_odds": 69.93,
+      "odds_win": 26.6,
+      "odds_place": null
+    },
+    {
+      "horse_num": 4,
+      "name": "ブエナオンダ",
+      "win_prob": 0.0118,
+      "win_prob_linear": 0.0097,
+      "place_prob": 0,
+      "breakeven_odds": 84.75,
+      "odds_win": 37.4,
+      "odds_place": null
+    },
+    {
+      "horse_num": 18,
+      "name": "タガノエルピーダ",
+      "win_prob": 0.0095,
+      "win_prob_linear": 0.007,
+      "place_prob": 0,
+      "breakeven_odds": 105.26,
+      "odds_win": 43.8,
+      "odds_place": null
+    },
+    {
+      "horse_num": 2,
+      "name": "ファインライン",
+      "win_prob": 0.0091,
+      "win_prob_linear": 0.0062,
+      "place_prob": 0,
+      "breakeven_odds": 109.89,
+      "odds_win": 46.5,
+      "odds_place": null
+    },
+    {
+      "horse_num": 16,
+      "name": "スリールミニョン",
+      "win_prob": 0.0091,
+      "win_prob_linear": 0.0062,
+      "place_prob": 0,
+      "breakeven_odds": 109.89,
+      "odds_win": 61.5,
+      "odds_place": null
+    },
+    {
+      "horse_num": 13,
+      "name": "メタルスピード",
+      "win_prob": 0.009,
+      "win_prob_linear": 0.006,
+      "place_prob": 0,
+      "breakeven_odds": 111.11,
+      "odds_win": 53.1,
+      "odds_place": null
+    },
+    {
+      "horse_num": 6,
+      "name": "シンフォーエバー",
+      "win_prob": 0.0084,
+      "win_prob_linear": 0.0052,
+      "place_prob": 0,
+      "breakeven_odds": 119.05,
+      "odds_win": 121.3,
+      "odds_place": null
+    },
+    {
+      "horse_num": 3,
+      "name": "メイショウシンタケ",
+      "win_prob": 0.0082,
+      "win_prob_linear": 0.0051,
+      "place_prob": 0,
+      "breakeven_odds": 121.95,
+      "odds_win": 112.1,
+      "odds_place": null
+    }
+  ]
+}

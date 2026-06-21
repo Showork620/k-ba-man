@@ -1,0 +1,46 @@
+{
+  "expert_id": "yuko",
+  "expert_name": "優子",
+  "school": "本命",
+  "backend": "gemini-2.5-flash",
+  "effort": "low",
+  "race_id": "202609030611",
+  "pack_version": "v1",
+  "predicted_ranking": [
+    { "horse_num": 11, "rank": 1 },
+    { "horse_num": 5, "rank": 2 },
+    { "horse_num": 14, "rank": 3 },
+    { "horse_num": 8, "rank": 4 },
+    { "horse_num": 9, "rank": 5 }
+  ],
+  "win_prob": [
+    { "horse_num": 11, "prob": 0.35 },
+    { "horse_num": 5, "prob": 0.25 },
+    { "horse_num": 14, "prob": 0.18 },
+    { "horse_num": 8, "prob": 0.12 },
+    { "horse_num": 9, "prob": 0.10 }
+  ],
+  "place_prob": [
+    { "horse_num": 11, "prob": 0.70 },
+    { "horse_num": 5, "prob": 0.60 },
+    { "horse_num": 14, "prob": 0.50 },
+    { "horse_num": 8, "prob": 0.40 },
+    { "horse_num": 9, "prob": 0.35 }
+  ],
+  "marks": {
+    "honmei": 11,
+    "taikou": 5,
+    "tanana": 14,
+    "renka": [8, 9]
+  },
+  "confidence": 0.7,
+  "rationale": "しらさぎステークスは重馬場ですが、オッズ順位を信頼し、上位馬の安定性を高く評価します。本命はエコロアルバ。3歳馬で斤量53kgも魅力、単勝4.0倍の1番人気として実力通り信頼できます。対抗にはファーヴェント、単穴にはミニトランザットを。無謀な穴狙いはせず、堅実に複勝圏内を確保できる上位能力馬から組み立てます。",
+  "data_used": [
+    "odds",
+    "weather",
+    "weight_kg"
+  ],
+  "warnings": [
+    "梅雨時期の影響による重馬場ですが、人気上位馬の基礎能力を重視します。"
+  ]
+}

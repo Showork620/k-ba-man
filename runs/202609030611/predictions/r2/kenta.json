@@ -1,0 +1,76 @@
+{
+  "expert_id": "kenta",
+  "expert_name": "健太",
+  "school": "指数",
+  "backend": "claude-sonnet",
+  "effort": "low",
+  "race_id": "202609030611",
+  "pack_version": "v1",
+  "predicted_ranking": [
+    {
+      "horse_num": 11,
+      "rank": 1
+    },
+    {
+      "horse_num": 10,
+      "rank": 2
+    },
+    {
+      "horse_num": 5,
+      "rank": 3
+    },
+    {
+      "horse_num": 8,
+      "rank": 4
+    },
+    {
+      "horse_num": 9,
+      "rank": 5
+    }
+  ],
+  "win_prob": [
+    {
+      "horse_num": 11,
+      "prob": 0.35
+    },
+    {
+      "horse_num": 10,
+      "prob": 0.25
+    },
+    {
+      "horse_num": 5,
+      "prob": 0.20
+    },
+    {
+      "horse_num": 8,
+      "prob": 0.10
+    },
+    {
+      "horse_num": 9,
+      "prob": 0.06
+    }
+  ],
+  "marks": {
+    "honmei": 11,
+    "taikou": 10,
+    "tanana": 5,
+    "renka": [
+      8,
+      9
+    ]
+  },
+  "confidence": 0.40,
+  "rationale": "指数最高値: ◎エコロアルバ推定100(朝日杯FS重4着G1/阪神芝1600m・重良換算1:32.0)、○エルトンバローズ推定101(マイルCS2024 2着G1/1:32.0)、▲ファーヴェント推定95(マイラーズC6着G2/1:32.0)。総合スコアはエコロ5.60、エルトン5.44の横一線。道悪補正で阪神重馬場1600m実績（朝日杯）のエコロアルバを◎。3歳53kg斤量利は+4pt相当。エルトンバローズは安田記念2026(6/7)からの2週ローテかつ重適性未知でリスク折込。ファーヴェントは平均指数91・稍重3着あり安定。",
+  "data_used": [
+    "web_search: 各馬重賞成績・走破時計(JRA公式/netkeiba/keibalab)",
+    "odds: pack-v1 netkeiba単勝オッズ",
+    "pack_meta: 馬番・斤量・騎手・厩舎・血統情報"
+  ],
+  "warnings": [
+    "pack-v1の全馬past_racesが空のため全指数値は外部webデータからの推定値",
+    "エルトンバローズ安田記念2026(6/7)の着順未確認―2週間前G1から直行の可能性",
+    "エコロアルバのNHKマイルC2026 9着(直前走)の敗因未分析",
+    "重馬場での指数落ち幅データ不足(エルトンバローズ・ファンダム等で道悪実績なし)",
+    "血統情報9頭取得不能(pack_meta errata参照: 2,4,9,11,13,14,16,18番)"
+  ]
+}

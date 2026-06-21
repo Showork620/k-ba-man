@@ -1,0 +1,101 @@
+{
+  "expert_id": "tatsunosuke",
+  "expert_name": "龍之介",
+  "school": "血統",
+  "backend": "claude-opus",
+  "effort": "high",
+  "race_id": "202609030611",
+  "pack_version": "v1",
+  "predicted_ranking": [
+    {
+      "horse_num": 11,
+      "rank": 1
+    },
+    {
+      "horse_num": 14,
+      "rank": 2
+    },
+    {
+      "horse_num": 5,
+      "rank": 3
+    },
+    {
+      "horse_num": 10,
+      "rank": 4
+    },
+    {
+      "horse_num": 8,
+      "rank": 5
+    },
+    {
+      "horse_num": 9,
+      "rank": 6
+    },
+    {
+      "horse_num": 12,
+      "rank": 7
+    },
+    {
+      "horse_num": 17,
+      "rank": 8
+    }
+  ],
+  "win_prob": [
+    {
+      "horse_num": 11,
+      "prob": 0.24
+    },
+    {
+      "horse_num": 14,
+      "prob": 0.16
+    },
+    {
+      "horse_num": 5,
+      "prob": 0.15
+    },
+    {
+      "horse_num": 10,
+      "prob": 0.11
+    },
+    {
+      "horse_num": 8,
+      "prob": 0.10
+    },
+    {
+      "horse_num": 9,
+      "prob": 0.08
+    },
+    {
+      "horse_num": 12,
+      "prob": 0.06
+    },
+    {
+      "horse_num": 17,
+      "prob": 0.05
+    }
+  ],
+  "marks": {
+    "honmei": 11,
+    "taikou": 14,
+    "tanana": 5,
+    "renka": [
+      10,
+      8,
+      9
+    ]
+  },
+  "confidence": 0.55,
+  "rationale": "重馬場マイル。本命11エコロアルバはモズアスコット(Frankel)×フレンチデピュティで、Deputy Minister由来のパワーと湿り適性が秀逸。対抗14ミニトランザットはエピファネイア=Roberto系×ゼンノロブロイで道悪の粘りが武器。3番手5ファーヴェントはロードカナロア×ディープのマイル即効力を評価。10エルトンバローズは母父ブライアンズタイム(Roberto)で渋った馬場が向く。",
+  "data_used": [
+    "pedigree.sire",
+    "pedigree.broodmare_sire",
+    "odds.win",
+    "race.track_condition",
+    "web:血統事実確認"
+  ],
+  "warnings": [
+    "pack内の血統が errata により null の馬が多数（2,4,9,11,13,14,16,18番）。11/14/9番は web で父・母父を事実確認して補完した（エコロアルバ=モズアスコット×フレンチデピュティ、ミニトランザット=エピファネイア×ゼンノロブロイ、ファンダム=サートゥルナーリア×ジャスタウェイ）",
+    "past_races が全頭空のため距離・馬場別実績による血統検証ができず、配合理論のみの評価",
+    "本pack の対象レースは しらさぎS(阪神芝1600m外回り・重) であり、指示文の宝塚記念(2200m内回り)とは異なる。実データに即しマイル道悪適性で評価した"
+  ]
+}

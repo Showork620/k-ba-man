@@ -1,0 +1,368 @@
+{
+  "race_id": "202609030611",
+  "method": "borda_count + normalized log pooling (confidence-weighted geometric mean); tiebreak: avg_rank → win_prob → borda → horse_num",
+  "probability_notes": {
+    "win_prob": "正規化 log pooling（Σ重み=1 の信頼度加重幾何平均）",
+    "win_prob_linear": "線形プール（単純平均・参考）",
+    "place_prob_lb": "place_prob の線形平均。未列挙馬を0扱いした下限近似"
+  },
+  "expert_count": 10,
+  "experts_used": [
+    "葵",
+    "吾郎",
+    "陽菜",
+    "健太",
+    "誠",
+    "美咲",
+    "さくら",
+    "龍之介",
+    "鉄平",
+    "優子"
+  ],
+  "aggregated_ranking": [
+    {
+      "rank": 1,
+      "horse_num": 5,
+      "horse_name": "ファーヴェント",
+      "borda_score": 53,
+      "win_prob": 0.2218,
+      "win_prob_linear": 0.1541,
+      "place_prob_lb": 0.055,
+      "borda_rank": 1,
+      "prob_rank": 1
+    },
+    {
+      "rank": 2,
+      "horse_num": 14,
+      "horse_name": "ミニトランザット",
+      "borda_score": 50,
+      "win_prob": 0.1691,
+      "win_prob_linear": 0.1337,
+      "place_prob_lb": 0.042,
+      "borda_rank": 3,
+      "prob_rank": 2
+    },
+    {
+      "rank": 3,
+      "horse_num": 11,
+      "horse_name": "エコロアルバ",
+      "borda_score": 50,
+      "win_prob": 0.1303,
+      "win_prob_linear": 0.1665,
+      "place_prob_lb": 0.065,
+      "borda_rank": 2,
+      "prob_rank": 3
+    },
+    {
+      "rank": 4,
+      "horse_num": 10,
+      "horse_name": "エルトンバローズ",
+      "borda_score": 28,
+      "win_prob": 0.1213,
+      "win_prob_linear": 0.0964,
+      "place_prob_lb": 0.016,
+      "borda_rank": 4,
+      "prob_rank": 4
+    },
+    {
+      "rank": 5,
+      "horse_num": 8,
+      "horse_name": "サイルーン",
+      "borda_score": 27,
+      "win_prob": 0.0664,
+      "win_prob_linear": 0.073,
+      "place_prob_lb": 0.032,
+      "borda_rank": 5,
+      "prob_rank": 5
+    },
+    {
+      "rank": 6,
+      "horse_num": 12,
+      "horse_name": "カズミクラーシュ",
+      "borda_score": 27,
+      "win_prob": 0.0553,
+      "win_prob_linear": 0.0818,
+      "place_prob_lb": 0.008,
+      "borda_rank": 7,
+      "prob_rank": 6
+    },
+    {
+      "rank": 7,
+      "horse_num": 9,
+      "horse_name": "ファンダム",
+      "borda_score": 27,
+      "win_prob": 0.0457,
+      "win_prob_linear": 0.0568,
+      "place_prob_lb": 0.022,
+      "borda_rank": 6,
+      "prob_rank": 7
+    },
+    {
+      "rank": 8,
+      "horse_num": 1,
+      "horse_name": "スマートワイス",
+      "borda_score": 18,
+      "win_prob": 0.0379,
+      "win_prob_linear": 0.0632,
+      "place_prob_lb": 0,
+      "borda_rank": 9,
+      "prob_rank": 8
+    },
+    {
+      "rank": 9,
+      "horse_num": 7,
+      "horse_name": "キープカルム",
+      "borda_score": 19,
+      "win_prob": 0.0323,
+      "win_prob_linear": 0.0509,
+      "place_prob_lb": 0,
+      "borda_rank": 8,
+      "prob_rank": 10
+    },
+    {
+      "rank": 10,
+      "horse_num": 17,
+      "horse_name": "スイープアワーズ",
+      "borda_score": 18,
+      "win_prob": 0.0345,
+      "win_prob_linear": 0.0425,
+      "place_prob_lb": 0.012,
+      "borda_rank": 10,
+      "prob_rank": 9
+    },
+    {
+      "rank": 11,
+      "horse_num": 18,
+      "horse_name": "タガノエルピーダ",
+      "borda_score": 9,
+      "win_prob": 0.0147,
+      "win_prob_linear": 0.0214,
+      "place_prob_lb": 0,
+      "borda_rank": 11,
+      "prob_rank": 11
+    },
+    {
+      "rank": 12,
+      "horse_num": 4,
+      "horse_name": "ブエナオンダ",
+      "borda_score": 7,
+      "win_prob": 0.0123,
+      "win_prob_linear": 0.0119,
+      "place_prob_lb": 0,
+      "borda_rank": 12,
+      "prob_rank": 12
+    },
+    {
+      "rank": 13,
+      "horse_num": 15,
+      "horse_name": "ショウナンアデイブ",
+      "borda_score": 5,
+      "win_prob": 0.0122,
+      "win_prob_linear": 0.0116,
+      "place_prob_lb": 0,
+      "borda_rank": 14,
+      "prob_rank": 13
+    },
+    {
+      "rank": 14,
+      "horse_num": 16,
+      "horse_name": "スリールミニョン",
+      "borda_score": 6,
+      "win_prob": 0.0096,
+      "win_prob_linear": 0.0086,
+      "place_prob_lb": 0,
+      "borda_rank": 13,
+      "prob_rank": 15
+    },
+    {
+      "rank": 15,
+      "horse_num": 2,
+      "horse_name": "ファインライン",
+      "borda_score": 4,
+      "win_prob": 0.0103,
+      "win_prob_linear": 0.0084,
+      "place_prob_lb": 0,
+      "borda_rank": 15,
+      "prob_rank": 14
+    },
+    {
+      "rank": 16,
+      "horse_num": 13,
+      "horse_name": "メタルスピード",
+      "borda_score": 3,
+      "win_prob": 0.0093,
+      "win_prob_linear": 0.0073,
+      "place_prob_lb": 0,
+      "borda_rank": 16,
+      "prob_rank": 16
+    },
+    {
+      "rank": 17,
+      "horse_num": 3,
+      "horse_name": "メイショウシンタケ",
+      "borda_score": 1,
+      "win_prob": 0.0087,
+      "win_prob_linear": 0.0059,
+      "place_prob_lb": 0,
+      "borda_rank": 18,
+      "prob_rank": 17
+    },
+    {
+      "rank": 18,
+      "horse_num": 6,
+      "horse_name": "シンフォーエバー",
+      "borda_score": 2,
+      "win_prob": 0.0083,
+      "win_prob_linear": 0.006,
+      "place_prob_lb": 0,
+      "borda_rank": 17,
+      "prob_rank": 18
+    }
+  ],
+  "marks": {
+    "◎ 本命": "5 ファーヴェント",
+    "○ 対抗": "14 ミニトランザット",
+    "▲ 単穴": "11 エコロアルバ",
+    "△ 連下": [
+      "10 エルトンバローズ",
+      "8 サイルーン",
+      "12 カズミクラーシュ"
+    ]
+  },
+  "expert_predictions": [
+    {
+      "expert": "葵（騎手/claude-sonnet）",
+      "honmei": "◎ スマートワイス",
+      "taikou": "○ ミニトランザット",
+      "tanana": "▲ キープカルム",
+      "renka": "△ エルトンバローズ △ ファーヴェント",
+      "confidence": 0.5
+    },
+    {
+      "expert": "吾郎（馬場/claude-opus-4-6）",
+      "honmei": "◎ エコロアルバ",
+      "taikou": "○ ミニトランザット",
+      "tanana": "▲ ファンダム",
+      "renka": "△ カズミクラーシュ △ エルトンバローズ △ ファーヴェント",
+      "confidence": 0.5
+    },
+    {
+      "expert": "陽菜（穴党/gemini-2.5-flash）",
+      "honmei": "◎ カズミクラーシュ",
+      "taikou": "○ エルトンバローズ",
+      "tanana": "▲ ファーヴェント",
+      "renka": "△ スマートワイス △ スイープアワーズ △ タガノエルピーダ",
+      "confidence": 0.35
+    },
+    {
+      "expert": "健太（指数/claude-sonnet）",
+      "honmei": "◎ エコロアルバ",
+      "taikou": "○ ファーヴェント",
+      "tanana": "▲ サイルーン",
+      "renka": "△ ミニトランザット △ エルトンバローズ",
+      "confidence": 0.45
+    },
+    {
+      "expert": "誠（統計/codex-gpt-5.5）",
+      "honmei": "◎ ファーヴェント",
+      "taikou": "○ ミニトランザット",
+      "tanana": "▲ エコロアルバ",
+      "renka": "△ ファンダム △ カズミクラーシュ △ キープカルム △ サイルーン △ スイープアワーズ",
+      "confidence": 0.31
+    },
+    {
+      "expert": "美咲（展開/claude-opus）",
+      "honmei": "◎ エコロアルバ",
+      "taikou": "○ ファーヴェント",
+      "tanana": "▲ サイルーン",
+      "renka": "△ ミニトランザット △ ファンダム △ エルトンバローズ △ スイープアワーズ",
+      "confidence": 0.32
+    },
+    {
+      "expert": "さくら（オッズ/claude-haiku）",
+      "honmei": "◎ エコロアルバ",
+      "taikou": "○ ファーヴェント",
+      "tanana": "▲ ミニトランザット",
+      "renka": "△ サイルーン △ ファンダム △ エルトンバローズ",
+      "confidence": 0.48
+    },
+    {
+      "expert": "龍之介（血統/claude-opus）",
+      "honmei": "◎ エコロアルバ",
+      "taikou": "○ ミニトランザット",
+      "tanana": "▲ ファーヴェント",
+      "renka": "△ ファンダム △ サイルーン △ エルトンバローズ",
+      "confidence": 0.5
+    },
+    {
+      "expert": "鉄平（調教/codex-gpt-5.5）",
+      "honmei": "◎ ファーヴェント",
+      "taikou": "○ ミニトランザット",
+      "tanana": "▲ エルトンバローズ",
+      "renka": "△ カズミクラーシュ △ スイープアワーズ △ キープカルム △ スマートワイス",
+      "confidence": 0.32
+    },
+    {
+      "expert": "優子（本命/gemini-2.5-flash）",
+      "honmei": "◎ エコロアルバ",
+      "taikou": "○ ファーヴェント",
+      "tanana": "▲ ミニトランザット",
+      "renka": "△ サイルーン △ ファンダム △ エルトンバローズ",
+      "confidence": 0.72
+    }
+  ],
+  "quality_level": "L1",
+  "degraded_experts": [
+    "sakura (stale odds)",
+    "yuko (stale odds)",
+    "hina (stale odds)",
+    "goro (stale track)",
+    "misaki (stale track)",
+    "kenta (stale track)"
+  ],
+  "source_dirs": [
+    "runs/202609030611/predictions/v1"
+  ],
+  "generations": [
+    {
+      "expert_id": "aoi",
+      "pack_version": "v1"
+    },
+    {
+      "expert_id": "goro",
+      "pack_version": "v1"
+    },
+    {
+      "expert_id": "hina",
+      "pack_version": "v1"
+    },
+    {
+      "expert_id": "kenta",
+      "pack_version": "v1"
+    },
+    {
+      "expert_id": "makoto",
+      "pack_version": "v1"
+    },
+    {
+      "expert_id": "misaki",
+      "pack_version": "v1"
+    },
+    {
+      "expert_id": "sakura",
+      "pack_version": "v1"
+    },
+    {
+      "expert_id": "tatsunosuke",
+      "pack_version": "v1"
+    },
+    {
+      "expert_id": "teppei",
+      "pack_version": "v1"
+    },
+    {
+      "expert_id": "yuko",
+      "pack_version": "v1"
+    }
+  ]
+}

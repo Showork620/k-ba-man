@@ -1,0 +1,86 @@
+{
+  "expert_id": "tatsunosuke",
+  "expert_name": "龍之介",
+  "school": "血統",
+  "backend": "claude-opus",
+  "effort": "high",
+  "race_id": "202609030611",
+  "pack_version": "v1",
+  "predicted_ranking": [
+    {
+      "horse_num": 11,
+      "rank": 1
+    },
+    {
+      "horse_num": 14,
+      "rank": 2
+    },
+    {
+      "horse_num": 5,
+      "rank": 3
+    },
+    {
+      "horse_num": 9,
+      "rank": 4
+    },
+    {
+      "horse_num": 8,
+      "rank": 5
+    }
+  ],
+  "win_prob": [
+    {
+      "horse_num": 11,
+      "prob": 0.27
+    },
+    {
+      "horse_num": 14,
+      "prob": 0.18
+    },
+    {
+      "horse_num": 5,
+      "prob": 0.15
+    },
+    {
+      "horse_num": 9,
+      "prob": 0.12
+    },
+    {
+      "horse_num": 8,
+      "prob": 0.10
+    },
+    {
+      "horse_num": 10,
+      "prob": 0.08
+    },
+    {
+      "horse_num": 12,
+      "prob": 0.05
+    }
+  ],
+  "marks": {
+    "honmei": 11,
+    "taikou": 14,
+    "tanana": 5,
+    "renka": [
+      9,
+      8,
+      10
+    ]
+  },
+  "confidence": 0.5,
+  "rationale": "本レースは阪神芝1600m外回り・重馬場のマイル戦。エコロアルバはモズアスコット（Frankel系）×フレンチデピュティ（Deputy Minister系）でスピードとパワーを併せ持つ道悪マイラー配合、3歳53kgも軽い。ミニトランザットはエピファネイア×ゼンノロブロイのロベルト系で渋った馬場の粘りに分。ファーヴェントはロードカナロア×ディープのマイル王道で阪神コースに好適。",
+  "data_used": [
+    "pedigree(sire/broodmare_sire)",
+    "web血統補完(エコロアルバ・ミニトランザット・ファンダム・タガノエルピーダ)",
+    "odds(win)",
+    "course(阪神芝1600m外回りBコース)",
+    "track_condition(重)"
+  ],
+  "warnings": [
+    "ペルソナ前提（宝塚記念2200m内回り）と実レースが不一致。実データに従い阪神芝1600m外回り・重馬場のマイル戦として血統評価した",
+    "errata該当馬（2,4,9,11,13,14,16,18）の血統はpack値null。うち有力馬の父母父はweb一次情報で補完（11=モズアスコット×フレンチデピュティ、14=エピファネイア×ゼンノロブロイ、9=サートゥルナーリア×ジャスタウェイ、18=キズナ×キングカメハメハ）",
+    "全馬past_racesが空でフォーム・距離馬場別実績が未確認。評価は血統配合とコース適性に依存し不確実性が高い",
+    "10番エルトンバローズの父はpack知識補完値（サトノダイヤモンド）でweb未確認"
+  ]
+}

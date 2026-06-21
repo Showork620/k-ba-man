@@ -1,0 +1,99 @@
+{
+  "expert_id": "teppei",
+  "expert_name": "鉄平",
+  "school": "調教",
+  "backend": "codex-gpt-5.5",
+  "effort": "medium",
+  "race_id": "202609030611",
+  "pack_version": "v1",
+  "predicted_ranking": [
+    {
+      "horse_num": 5,
+      "rank": 1
+    },
+    {
+      "horse_num": 14,
+      "rank": 2
+    },
+    {
+      "horse_num": 10,
+      "rank": 3
+    },
+    {
+      "horse_num": 12,
+      "rank": 4
+    },
+    {
+      "horse_num": 17,
+      "rank": 5
+    },
+    {
+      "horse_num": 7,
+      "rank": 6
+    },
+    {
+      "horse_num": 1,
+      "rank": 7
+    },
+    {
+      "horse_num": 18,
+      "rank": 8
+    }
+  ],
+  "win_prob": [
+    {
+      "horse_num": 5,
+      "prob": 0.18
+    },
+    {
+      "horse_num": 14,
+      "prob": 0.15
+    },
+    {
+      "horse_num": 10,
+      "prob": 0.14
+    },
+    {
+      "horse_num": 12,
+      "prob": 0.13
+    },
+    {
+      "horse_num": 17,
+      "prob": 0.12
+    },
+    {
+      "horse_num": 7,
+      "prob": 0.11
+    },
+    {
+      "horse_num": 1,
+      "prob": 0.09
+    },
+    {
+      "horse_num": 18,
+      "prob": 0.08
+    }
+  ],
+  "marks": {
+    "honmei": 5,
+    "taikou": 14,
+    "tanana": 10,
+    "renka": [
+      12,
+      17,
+      7,
+      1
+    ]
+  },
+  "confidence": 0.32,
+  "rationale": "追切時計は取得不能。栗東補正込みで5ファーヴェントB、14ミニトランザットB、10エルトンバローズB、12カズミクラーシュBを上位。時計・本数不明のためA評価は置かない。",
+  "data_used": [
+    "RaceDataPack v1 出走馬、所属厩舎、単勝オッズ、阪神芝1600m重馬場情報",
+    "web検索: しらさぎステークス2026追い切り時計を確認試行したが一次時計データを取得できず"
+  ],
+  "warnings": [
+    "RaceDataPackにtraining配列が空で、最終追切時計・上がり1F・併走位置・追切本数を確認できない",
+    "web検索で生の調教時計に到達できず、第三者の調教評価・印・格付けは参照していない",
+    "調教専門としての信頼度は低く、栗東所属補正と当日オッズを補助情報として暫定順位化した"
+  ]
+}

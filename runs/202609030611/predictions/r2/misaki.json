@@ -1,0 +1,115 @@
+{
+  "expert_id": "misaki",
+  "expert_name": "美咲",
+  "school": "展開",
+  "backend": "claude-opus",
+  "effort": "medium",
+  "race_id": "202609030611",
+  "pack_version": "v1",
+  "predicted_ranking": [
+    {
+      "horse_num": 11,
+      "rank": 1
+    },
+    {
+      "horse_num": 5,
+      "rank": 2
+    },
+    {
+      "horse_num": 14,
+      "rank": 3
+    },
+    {
+      "horse_num": 8,
+      "rank": 4
+    },
+    {
+      "horse_num": 10,
+      "rank": 5
+    },
+    {
+      "horse_num": 9,
+      "rank": 6
+    },
+    {
+      "horse_num": 17,
+      "rank": 7
+    },
+    {
+      "horse_num": 12,
+      "rank": 8
+    }
+  ],
+  "win_prob": [
+    {
+      "horse_num": 11,
+      "prob": 0.205
+    },
+    {
+      "horse_num": 5,
+      "prob": 0.145
+    },
+    {
+      "horse_num": 14,
+      "prob": 0.115
+    },
+    {
+      "horse_num": 8,
+      "prob": 0.105
+    },
+    {
+      "horse_num": 10,
+      "prob": 0.085
+    },
+    {
+      "horse_num": 9,
+      "prob": 0.078
+    },
+    {
+      "horse_num": 17,
+      "prob": 0.058
+    },
+    {
+      "horse_num": 12,
+      "prob": 0.053
+    },
+    {
+      "horse_num": 7,
+      "prob": 0.050
+    },
+    {
+      "horse_num": 1,
+      "prob": 0.042
+    },
+    {
+      "horse_num": 15,
+      "prob": 0.025
+    }
+  ],
+  "marks": {
+    "honmei": 11,
+    "taikou": 5,
+    "tanana": 14,
+    "renka": [
+      8,
+      10,
+      9,
+      17
+    ]
+  },
+  "confidence": 0.40,
+  "rationale": "想定: 阪神マイル外回りはスタート後に長い向正面でペースが緩みやすく、馬場重で上がりがかかる消耗戦。前半45.5-46.0/中盤緩み/3角からのロングスパート気味と読む。脚質一次データ欠落のためオッズと斤量で補完。3-4角で好位を取れる脚を重視。本命11エコロアルバは3歳53kgの斤量利が重馬場で効き好位差し可、対抗5ファーヴェントは末脚の確実性。14ミニトランザットは前々で粘れる。8サイルーン・10エルトンバローズは展開不問のロバスト枠。",
+  "data_used": [
+    "odds.win",
+    "race.course",
+    "weather.track_condition(重)",
+    "horses.weight_kg",
+    "horses.age/sex"
+  ],
+  "warnings": [
+    "全馬の past_races が空配列のため、脚質分類・想定ラップ導出の一次データが欠如。脚質推定はオッズ・コース・斤量からの補完であり信頼度は低い。",
+    "対象レースは阪神芝1600m外回り(しらさぎS)であり、ペルソナ指定の宝塚記念2200m内回りと異なる。実レースに合わせて分析した。",
+    "血統データの多くが errata で null/誤読リスクあり、適性評価には未使用。",
+    "馬場が重のため上がり性能より持続力・好位適性を重視したが、実走前ラップは未確認。"
+  ]
+}

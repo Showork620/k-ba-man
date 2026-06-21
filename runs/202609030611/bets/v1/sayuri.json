@@ -1,0 +1,71 @@
+{
+  "bettor_id": "sayuri",
+  "bettor_name": "さゆり",
+  "backend": "claude-haiku",
+  "philosophy": "複勝圏確率最優先。複勝・ワイドで固め、トリガミを回避する堅実派。5点以内の堅い構成。",
+  "race_id": "202609030611",
+  "race": "しらさぎステークス 2026-06-21 阪神 芝1600m外回り 18頭 15:30発走",
+  "timestamp": "2026-06-21T10:00:00+09:00",
+  "tickets": [
+    {
+      "seq": 1,
+      "bet_type": "複勝",
+      "selection": "5",
+      "horse_num": 5,
+      "horse_name": "ファーヴェント",
+      "stake_jpy": 1000,
+      "expected_odds": 2.8,
+      "expected_payout_jpy": 2800
+    },
+    {
+      "seq": 2,
+      "bet_type": "複勝",
+      "selection": "14",
+      "horse_num": 14,
+      "horse_name": "ミニトランザット",
+      "stake_jpy": 1000,
+      "expected_odds": 2.6,
+      "expected_payout_jpy": 2600
+    },
+    {
+      "seq": 3,
+      "bet_type": "ワイド",
+      "selection": "5-11",
+      "horse_num_a": 5,
+      "horse_name_a": "ファーヴェント",
+      "horse_num_b": 11,
+      "horse_name_b": "エコロアルバ",
+      "stake_jpy": 800,
+      "expected_odds": 1.5,
+      "expected_payout_jpy": 1200
+    },
+    {
+      "seq": 4,
+      "bet_type": "ワイド",
+      "selection": "5-10",
+      "horse_num_a": 5,
+      "horse_name_a": "ファーヴェント",
+      "horse_num_b": 10,
+      "horse_name_b": "エルトンバローズ",
+      "stake_jpy": 800,
+      "expected_odds": 1.5,
+      "expected_payout_jpy": 1200
+    },
+    {
+      "seq": 5,
+      "bet_type": "ワイド",
+      "selection": "11-14",
+      "horse_num_a": 11,
+      "horse_name_a": "エコロアルバ",
+      "horse_num_b": 14,
+      "horse_name_b": "ミニトランザット",
+      "stake_jpy": 600,
+      "expected_odds": 1.4,
+      "expected_payout_jpy": 840
+    }
+  ],
+  "total_stake_jpy": 4200,
+  "skipped_budget_jpy": 5800,
+  "rationale_short": "win_prob上位4馬（5・14・11・10番）に複勝・ワイドで集約。11番の複勝オッズ[1.9-2.2倍]はトリガミ危険。",
+  "notes": "【複勝オッズ推定】当日データ odds_place=[下限,上限] より中央値を使用。5番:2.8倍、14番:2.6倍。\n【ワイドオッズ推定】入力に meta.wide_odds なし。単勝オッズベースから 1.4-1.5倍を概算（馬連ワイド takeout 22.5% 想定）。\n【place_prob の解釈】入力の place_prob は「未列挙馬を0扱いした下限近似」。実際の複勝圏確率はより高い可能性が高い。win_prob を重視。\n【11番の扱い】win_prob 13.03%は有力だが、複勝配当が1.9-2.2倍と極度に低い→複勝では購入せず、ワイド 5-11・11-14 に絞り、トリガミリスク回避。\n【予算温存】5,800円は低信度馬（place_prob≈0）への無理な投資を避け、保守余裕として確保。"
+}

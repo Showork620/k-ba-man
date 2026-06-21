@@ -1,0 +1,22 @@
+Ripgrep is not available. Falling back to GrepTool.
+[ERROR] [IDEConnectionUtils] IDE fetch failed for http://127.0.0.1:49483/mcp TypeError: fetch failed
+    at Object.processResponse (file:///Users/rhyolite/.nodenv/versions/22.22.2/lib/node_modules/@google/gemini-cli/bundle/chunk-RCJSF5RP.js:221996:21)
+    at file:///Users/rhyolite/.nodenv/versions/22.22.2/lib/node_modules/@google/gemini-cli/bundle/chunk-RCJSF5RP.js:222377:23
+    at node:internal/process/task_queues:149:7
+    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+    at AsyncResource.runMicrotask (node:internal/process/task_queues:146:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  [cause]: Error: connect EPERM 127.0.0.1:49483 - Local (0.0.0.0:0)
+      at internalConnect (node:net:1110:16)
+      at defaultTriggerAsyncIdScope (node:internal/async_hooks:472:18)
+      at node:net:1356:9
+      at process.processTicksAndRejections (node:internal/process/task_queues:84:11) {
+    errno: -1,
+    code: 'EPERM',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 49483
+  }
+}
+[ERROR] [IDEClient] Failed to connect to IDE companion extension in VS Code. Please ensure the extension is running. To install the extension, run /ide install.
+Error discovering skills in /Users/rhyolite/.agents/skills:

@@ -1,0 +1,196 @@
+{
+  "method": "portfolio averaging over 5 bettors (equal weight); dust<200 dropped",
+  "bettor_count": 5,
+  "bettors": [
+    {
+      "bettor": "剛",
+      "backend": "claude-opus",
+      "philosophy": "◎軸の三連複フォーメーションで面を取る攻撃派。確率の裏付けがある中穴まで攻め、闇雲な大穴は買わない。",
+      "total_stake_jpy": 6400,
+      "ticket_count": 10
+    },
+    {
+      "bettor": "一徹",
+      "backend": "codex-gpt-5.5",
+      "philosophy": "期待値プラスでも賭け金が規律に届かなければ買わない。見送りも投資判断。",
+      "total_stake_jpy": 0,
+      "ticket_count": 0
+    },
+    {
+      "bettor": "楓",
+      "backend": "claude-sonnet",
+      "philosophy": "単勝・複勝・ワイド・三連複を複数シナリオに分散し、どの決着でも壊滅しないポートフォリオを組む。",
+      "total_stake_jpy": 5600,
+      "ticket_count": 12
+    },
+    {
+      "bettor": "律",
+      "backend": "gemini-2.5-flash",
+      "philosophy": "損益分岐オッズ×1.05 を下回る賭けを拒否する回収率規律派。",
+      "total_stake_jpy": 7000,
+      "ticket_count": 3
+    },
+    {
+      "bettor": "さゆり",
+      "backend": "claude-haiku",
+      "philosophy": "複勝圏確率最優先。複勝・ワイドで固め、トリガミを回避する堅実派。5点以内の堅い構成。",
+      "total_stake_jpy": 4200,
+      "ticket_count": 5
+    }
+  ],
+  "aggregated_tickets": [
+    {
+      "bet_type": "単勝",
+      "selection": "5",
+      "stake_jpy": 700,
+      "consensus": "2/5",
+      "backers": [
+        "楓",
+        "律"
+      ],
+      "rationales": [
+        "楓: EV1.35。odds6.1倍 vs 損益分岐4.51倍。win_prob22.2%最有力、6.1倍は明確に割安。本命決着の主軸。",
+        "律: 勝率22.18%で損益分岐オッズ4.51に対し、当日単勝オッズ6.1倍と安全マージン5%超をクリア。"
+      ]
+    },
+    {
+      "bet_type": "単勝",
+      "selection": "10",
+      "stake_jpy": 600,
+      "consensus": "2/5",
+      "backers": [
+        "楓",
+        "律"
+      ],
+      "rationales": [
+        "楓: EV最大1.47。odds12.1倍 vs 損益分岐8.24倍で最大オーバーレイ。win_prob12.1%を市場が過小評価（市場含意8.3%）。",
+        "律: 勝率12.13%で損益分岐オッズ8.24に対し、当日単勝オッズ12.1倍と安全マージン5%超をクリア。"
+      ]
+    },
+    {
+      "bet_type": "単勝",
+      "selection": "14",
+      "stake_jpy": 500,
+      "consensus": "2/5",
+      "backers": [
+        "楓",
+        "律"
+      ],
+      "rationales": [
+        "楓: EV1.27。odds7.5倍 vs 損益分岐5.91倍。win_prob16.9%に対し市場が軽視。5飛び時の主役候補。",
+        "律: 勝率16.91%で損益分岐オッズ5.91に対し、当日単勝オッズ7.5倍と安全マージン5%超をクリア。"
+      ]
+    },
+    {
+      "bet_type": "三連複",
+      "selection": "5-11-14",
+      "stake_jpy": 300,
+      "consensus": "2/5",
+      "backers": [
+        "剛",
+        "楓"
+      ],
+      "rationales": [
+        "剛: 軸5×上位2頭の背骨。Harville P≈5.5%/最高的中率。推定配当≈13.7倍→1点13,710円で全額超過回収。",
+        "楓: Harville P≈5.5%、控除後期待配当≈13.7倍。11は単勝EV低いが複勝圏期待大。11絡み波乱カバー。"
+      ]
+    },
+    {
+      "bet_type": "三連複",
+      "selection": "5-10-14",
+      "stake_jpy": 300,
+      "consensus": "2/5",
+      "backers": [
+        "剛",
+        "楓"
+      ],
+      "rationales": [
+        "剛: 軸5×14×中穴10(12.1倍)。P≈5.0%、推定配当≈14.9倍→14,880円。面の主力。",
+        "楓: Harville P≈5.1%、控除後期待配当≈14.8倍。バリュー3頭ワンツースリー。中心シナリオ最高配当狙い。"
+      ]
+    },
+    {
+      "bet_type": "複勝",
+      "selection": "5",
+      "stake_jpy": 300,
+      "consensus": "2/5",
+      "backers": [
+        "楓",
+        "さゆり"
+      ],
+      "rationales": [
+        "楓: Harville推定複勝確率46%、odds中央値2.8倍→EV≈1.29。単勝不的中でも複勝圏確保の安定回収源。",
+        "さゆり: undefined"
+      ]
+    },
+    {
+      "bet_type": "ワイド",
+      "selection": "5-10",
+      "stake_jpy": 300,
+      "consensus": "2/5",
+      "backers": [
+        "楓",
+        "さゆり"
+      ],
+      "rationales": [
+        "楓: EV上位2頭が同時入着。Harville推定同時複勝圏確率14%、fair odds≈5.4倍以上で正EV圏。",
+        "さゆり: undefined"
+      ]
+    },
+    {
+      "bet_type": "三連複",
+      "selection": "5-10-11",
+      "stake_jpy": 200,
+      "consensus": "2/5",
+      "backers": [
+        "剛",
+        "楓"
+      ],
+      "rationales": [
+        "剛: 軸5×11×10。P≈3.7%、推定配当≈20.4倍→16,296円。上位3頭絡みの本線。",
+        "楓: Harville P≈3.7%、控除後期待配当≈20.4倍。10と11が共存し14が飛ぶシナリオ。上位混戦カバー。"
+      ]
+    },
+    {
+      "bet_type": "三連複",
+      "selection": "5-8-14",
+      "stake_jpy": 200,
+      "consensus": "2/5",
+      "backers": [
+        "剛",
+        "楓"
+      ],
+      "rationales": [
+        "剛: 軸5×14×中穴8(8.1倍/6.6%)。P≈2.6%、推定配当≈29倍→20,328円。",
+        "楓: Harville P≈2.6%、控除後期待配当≈29倍。穴馬8(win_prob6.6%)絡み中穴シナリオ。最小額で波乱保険。"
+      ]
+    },
+    {
+      "bet_type": "複勝",
+      "selection": "14",
+      "stake_jpy": 200,
+      "consensus": "1/5",
+      "backers": [
+        "さゆり"
+      ],
+      "rationales": [
+        "さゆり: undefined"
+      ]
+    },
+    {
+      "bet_type": "ワイド",
+      "selection": "5-11",
+      "stake_jpy": 200,
+      "consensus": "1/5",
+      "backers": [
+        "さゆり"
+      ],
+      "rationales": [
+        "さゆり: undefined"
+      ]
+    }
+  ],
+  "total_stake_jpy": 3800,
+  "pass_jpy": 6200,
+  "pass_note": "pass = 集合的な見送り額（各自が使わなかった予算とダスト切捨ての平均）"
+}

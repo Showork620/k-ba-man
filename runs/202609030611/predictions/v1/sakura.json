@@ -1,0 +1,133 @@
+{
+  "expert_id": "sakura",
+  "expert_name": "さくら",
+  "school": "オッズ",
+  "backend": "claude-haiku",
+  "effort": "medium",
+  "race_id": "202609030611",
+  "pack_version": "v1",
+  "predicted_ranking": [
+    {
+      "horse_num": 11,
+      "rank": 1
+    },
+    {
+      "horse_num": 5,
+      "rank": 2
+    },
+    {
+      "horse_num": 14,
+      "rank": 3
+    },
+    {
+      "horse_num": 8,
+      "rank": 4
+    },
+    {
+      "horse_num": 9,
+      "rank": 5
+    },
+    {
+      "horse_num": 10,
+      "rank": 6
+    }
+  ],
+  "win_prob": [
+    {
+      "horse_num": 11,
+      "prob": 0.163
+    },
+    {
+      "horse_num": 5,
+      "prob": 0.107
+    },
+    {
+      "horse_num": 14,
+      "prob": 0.087
+    },
+    {
+      "horse_num": 8,
+      "prob": 0.081
+    },
+    {
+      "horse_num": 9,
+      "prob": 0.061
+    },
+    {
+      "horse_num": 10,
+      "prob": 0.054
+    },
+    {
+      "horse_num": 17,
+      "prob": 0.045
+    },
+    {
+      "horse_num": 12,
+      "prob": 0.043
+    },
+    {
+      "horse_num": 7,
+      "prob": 0.040
+    },
+    {
+      "horse_num": 1,
+      "prob": 0.034
+    },
+    {
+      "horse_num": 15,
+      "prob": 0.025
+    },
+    {
+      "horse_num": 4,
+      "prob": 0.018
+    },
+    {
+      "horse_num": 18,
+      "prob": 0.015
+    },
+    {
+      "horse_num": 2,
+      "prob": 0.014
+    },
+    {
+      "horse_num": 13,
+      "prob": 0.012
+    },
+    {
+      "horse_num": 16,
+      "prob": 0.011
+    },
+    {
+      "horse_num": 3,
+      "prob": 0.006
+    },
+    {
+      "horse_num": 6,
+      "prob": 0.005
+    }
+  ],
+  "marks": {
+    "honmei": 11,
+    "taikou": 5,
+    "tanana": 14,
+    "renka": [
+      8,
+      9,
+      10
+    ]
+  },
+  "confidence": 0.48,
+  "rationale": "市場単勝オッズからの逆算分析。最人気エコロアルバ(4.0倍/推定163%)が圧倒的投票集中を示す。次点ファーヴェント(6.1倍/107%)との落差38%が顕著で、2強構図が明確。3-4番人気(ミニトランザット14番7.5倍・サイルーン8番8.1倍)は堅い支持。複勝オッズ・ファン投票は取得失敗のため、単勝のみからの推定。新設レース(サマーマイルシリーズ第1戦)で過去波乱傾向が利用不可のため、自信0.48に抑制。",
+  "data_used": [
+    "race_odds_win",
+    "horse_info",
+    "pedigree"
+  ],
+  "warnings": [
+    "複勝オッズ取得失敗: netkeiba が JavaScript 動的読み込みのため HTML 抽出不可",
+    "ファン投票データ: 対象外またはプレミアム要素",
+    "血統情報: 8頭分(馬番2,4,9,11,13,14,16,18)が web 誤読のため null",
+    "新設レース(サマーマイルシリーズ第1戦)で過去データ利用不可",
+    "単勝インプライド確率のみからの推定のため、複勝乖離の検出不可"
+  ]
+}

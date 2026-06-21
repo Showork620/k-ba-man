@@ -3,7 +3,8 @@
   "rule": "初期は等重み。w_i は cutoff 後の実レースのみで較正（§7.3）。rolling window 20レースの Brier/LogLoss が貯まるまで等重みを維持し、それまでは scores を蓄積するのみ（n が小さい段階での重み付けは過学習）。",
   "min_races_before_weighting": 20,
   "races_recorded": [
-    "202609030411"
+    "202609030411",
+    "202609030611"
   ],
   "cumulative": {
     "aoi": {
@@ -14,11 +15,17 @@
           "win_brier": 0.7806,
           "win_logloss": 1.6094,
           "honmei_in_place3": true
+        },
+        {
+          "race_id": "202609030611",
+          "win_brier": 0.9735,
+          "win_logloss": 2.145,
+          "honmei_in_place3": false
         }
       ],
-      "races": 1,
-      "mean_win_brier": 0.7806,
-      "mean_win_logloss": 1.6094,
+      "races": 2,
+      "mean_win_brier": 0.8771,
+      "mean_win_logloss": 1.8772,
       "honmei_in_place3_count": 1
     },
     "goro": {
@@ -29,12 +36,18 @@
           "win_brier": 0.9843,
           "win_logloss": 2.4079,
           "honmei_in_place3": true
+        },
+        {
+          "race_id": "202609030611",
+          "win_brier": 0.9373,
+          "win_logloss": 2.4179,
+          "honmei_in_place3": true
         }
       ],
-      "races": 1,
-      "mean_win_brier": 0.9843,
-      "mean_win_logloss": 2.4079,
-      "honmei_in_place3_count": 1
+      "races": 2,
+      "mean_win_brier": 0.9608,
+      "mean_win_logloss": 2.4129,
+      "honmei_in_place3_count": 2
     },
     "hina": {
       "expert_name": "陽菜",
@@ -44,11 +57,17 @@
           "win_brier": 0.9395,
           "win_logloss": 2.1691,
           "honmei_in_place3": false
+        },
+        {
+          "race_id": "202609030611",
+          "win_brier": 0.7411,
+          "win_logloss": 1.4446,
+          "honmei_in_place3": false
         }
       ],
-      "races": 1,
-      "mean_win_brier": 0.9395,
-      "mean_win_logloss": 2.1691,
+      "races": 2,
+      "mean_win_brier": 0.8403,
+      "mean_win_logloss": 1.8069,
       "honmei_in_place3_count": 0
     },
     "kenta": {
@@ -59,12 +78,18 @@
           "win_brier": 0.7879,
           "win_logloss": 1.5141,
           "honmei_in_place3": true
+        },
+        {
+          "race_id": "202609030611",
+          "win_brier": 1.0605,
+          "win_logloss": 2.5601,
+          "honmei_in_place3": true
         }
       ],
-      "races": 1,
-      "mean_win_brier": 0.7879,
-      "mean_win_logloss": 1.5141,
-      "honmei_in_place3_count": 1
+      "races": 2,
+      "mean_win_brier": 0.9242,
+      "mean_win_logloss": 2.0371,
+      "honmei_in_place3_count": 2
     },
     "makoto": {
       "expert_name": "誠",
@@ -74,11 +99,17 @@
           "win_brier": 0.8346,
           "win_logloss": 1.7148,
           "honmei_in_place3": true
+        },
+        {
+          "race_id": "202609030611",
+          "win_brier": 0.9841,
+          "win_logloss": 3.0366,
+          "honmei_in_place3": false
         }
       ],
-      "races": 1,
-      "mean_win_brier": 0.8346,
-      "mean_win_logloss": 1.7148,
+      "races": 2,
+      "mean_win_brier": 0.9094,
+      "mean_win_logloss": 2.3757,
       "honmei_in_place3_count": 1
     },
     "misaki": {
@@ -89,12 +120,18 @@
           "win_brier": 0.8238,
           "win_logloss": 1.772,
           "honmei_in_place3": true
+        },
+        {
+          "race_id": "202609030611",
+          "win_brier": 0.9492,
+          "win_logloss": 2.5257,
+          "honmei_in_place3": true
         }
       ],
-      "races": 1,
-      "mean_win_brier": 0.8238,
-      "mean_win_logloss": 1.772,
-      "honmei_in_place3_count": 1
+      "races": 2,
+      "mean_win_brier": 0.8865,
+      "mean_win_logloss": 2.1489,
+      "honmei_in_place3_count": 2
     },
     "sakura": {
       "expert_name": "さくら",
@@ -104,12 +141,18 @@
           "win_brier": 0.8991,
           "win_logloss": 2.0005,
           "honmei_in_place3": true
+        },
+        {
+          "race_id": "202609030611",
+          "win_brier": 0.968,
+          "win_logloss": 2.7215,
+          "honmei_in_place3": true
         }
       ],
-      "races": 1,
-      "mean_win_brier": 0.8991,
-      "mean_win_logloss": 2.0005,
-      "honmei_in_place3_count": 1
+      "races": 2,
+      "mean_win_brier": 0.9336,
+      "mean_win_logloss": 2.361,
+      "honmei_in_place3_count": 2
     },
     "tatsunosuke": {
       "expert_name": "龍之介",
@@ -119,12 +162,18 @@
           "win_brier": 0.6997,
           "win_logloss": 1.529,
           "honmei_in_place3": true
+        },
+        {
+          "race_id": "202609030611",
+          "win_brier": 1.0006,
+          "win_logloss": 2.5307,
+          "honmei_in_place3": true
         }
       ],
-      "races": 1,
-      "mean_win_brier": 0.6997,
-      "mean_win_logloss": 1.529,
-      "honmei_in_place3_count": 1
+      "races": 2,
+      "mean_win_brier": 0.8502,
+      "mean_win_logloss": 2.0298,
+      "honmei_in_place3_count": 2
     },
     "teppei": {
       "expert_name": "鉄平",
@@ -134,11 +183,17 @@
           "win_brier": 0.7749,
           "win_logloss": 1.7148,
           "honmei_in_place3": true
+        },
+        {
+          "race_id": "202609030611",
+          "win_brier": 0.8537,
+          "win_logloss": 2.0149,
+          "honmei_in_place3": false
         }
       ],
-      "races": 1,
-      "mean_win_brier": 0.7749,
-      "mean_win_logloss": 1.7148,
+      "races": 2,
+      "mean_win_brier": 0.8143,
+      "mean_win_logloss": 1.8649,
       "honmei_in_place3_count": 1
     },
     "yuko": {
@@ -149,12 +204,18 @@
           "win_brier": 0.9898,
           "win_logloss": 2.0197,
           "honmei_in_place3": true
+        },
+        {
+          "race_id": "202609030611",
+          "win_brier": 1.1272,
+          "win_logloss": 3.2677,
+          "honmei_in_place3": true
         }
       ],
-      "races": 1,
-      "mean_win_brier": 0.9898,
-      "mean_win_logloss": 2.0197,
-      "honmei_in_place3_count": 1
+      "races": 2,
+      "mean_win_brier": 1.0585,
+      "mean_win_logloss": 2.6437,
+      "honmei_in_place3_count": 2
     }
   },
   "current_weights": {

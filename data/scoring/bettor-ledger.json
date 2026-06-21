@@ -1,0 +1,323 @@
+{
+  "version": "v1",
+  "note": "配分専門家（haibun-*）の収支台帳。bets/v1/ のみ対象（r2 はダブルチェック専用・記録対象外）。",
+  "races_recorded": [
+    "202609030411",
+    "202609030611"
+  ],
+  "cumulative": {
+    "go": {
+      "bettor_name": "剛",
+      "backend": "claude-opus",
+      "per_race": [
+        {
+          "race_id": "202609030411",
+          "race_name": "第67回宝塚記念",
+          "stake_jpy": 7200,
+          "return_jpy": 14390,
+          "profit_jpy": 7190,
+          "roi": 1.9986,
+          "hit_count": 3,
+          "hits": [
+            {
+              "bet_type": "単勝",
+              "selection": "16",
+              "stake_jpy": 600,
+              "payout_per_100": 390,
+              "return_jpy": 2340
+            },
+            {
+              "bet_type": "三連複",
+              "selection": "1-5-16",
+              "stake_jpy": 900,
+              "payout_per_100": 1230,
+              "return_jpy": 11070
+            },
+            {
+              "bet_type": "複勝",
+              "selection": "16",
+              "stake_jpy": 700,
+              "payout_per_100": 140,
+              "return_jpy": 980
+            }
+          ]
+        },
+        {
+          "race_id": "202609030611",
+          "race_name": "しらさぎステークス",
+          "stake_jpy": 6400,
+          "return_jpy": 0,
+          "profit_jpy": -6400,
+          "roi": 0,
+          "hit_count": 0,
+          "hits": []
+        }
+      ],
+      "races": 2,
+      "total_stake_jpy": 13600,
+      "total_return_jpy": 14390,
+      "total_profit_jpy": 790,
+      "cumulative_roi": 1.0581
+    },
+    "ittetsu": {
+      "bettor_name": "一徹",
+      "backend": "codex-gpt-5.5",
+      "per_race": [
+        {
+          "race_id": "202609030411",
+          "race_name": "第67回宝塚記念",
+          "stake_jpy": 0,
+          "return_jpy": 0,
+          "profit_jpy": 0,
+          "roi": null,
+          "hit_count": 0,
+          "hits": []
+        },
+        {
+          "race_id": "202609030611",
+          "race_name": "しらさぎステークス",
+          "stake_jpy": 0,
+          "return_jpy": 0,
+          "profit_jpy": 0,
+          "roi": null,
+          "hit_count": 0,
+          "hits": []
+        }
+      ],
+      "races": 2,
+      "total_stake_jpy": 0,
+      "total_return_jpy": 0,
+      "total_profit_jpy": 0,
+      "cumulative_roi": null
+    },
+    "kaede": {
+      "bettor_name": "楓",
+      "backend": "claude-sonnet",
+      "per_race": [
+        {
+          "race_id": "202609030411",
+          "race_name": "第67回宝塚記念",
+          "stake_jpy": 7900,
+          "return_jpy": 9870,
+          "profit_jpy": 1970,
+          "roi": 1.2494,
+          "hit_count": 4,
+          "hits": [
+            {
+              "bet_type": "複勝",
+              "selection": "5",
+              "stake_jpy": 1000,
+              "payout_per_100": 120,
+              "return_jpy": 1200
+            },
+            {
+              "bet_type": "複勝",
+              "selection": "16",
+              "stake_jpy": 500,
+              "payout_per_100": 140,
+              "return_jpy": 700
+            },
+            {
+              "bet_type": "ワイド",
+              "selection": "5-16",
+              "stake_jpy": 700,
+              "payout_per_100": 260,
+              "return_jpy": 1820
+            },
+            {
+              "bet_type": "三連複",
+              "selection": "1-5-16",
+              "stake_jpy": 500,
+              "payout_per_100": 1230,
+              "return_jpy": 6150
+            }
+          ]
+        },
+        {
+          "race_id": "202609030611",
+          "race_name": "しらさぎステークス",
+          "stake_jpy": 5600,
+          "return_jpy": 14260,
+          "profit_jpy": 8660,
+          "roi": 2.5464,
+          "hit_count": 2,
+          "hits": [
+            {
+              "bet_type": "単勝",
+              "selection": "10",
+              "stake_jpy": 1000,
+              "payout_per_100": 1290,
+              "return_jpy": 12900
+            },
+            {
+              "bet_type": "複勝",
+              "selection": "10",
+              "stake_jpy": 400,
+              "payout_per_100": 340,
+              "return_jpy": 1360
+            }
+          ]
+        }
+      ],
+      "races": 2,
+      "total_stake_jpy": 13500,
+      "total_return_jpy": 24130,
+      "total_profit_jpy": 10630,
+      "cumulative_roi": 1.7874
+    },
+    "ritsu": {
+      "bettor_name": "律",
+      "backend": "gemini-2.5-flash",
+      "per_race": [
+        {
+          "race_id": "202609030411",
+          "race_name": "第67回宝塚記念",
+          "stake_jpy": 0,
+          "return_jpy": 0,
+          "profit_jpy": 0,
+          "roi": null,
+          "hit_count": 0,
+          "hits": []
+        },
+        {
+          "race_id": "202609030611",
+          "race_name": "しらさぎステークス",
+          "stake_jpy": 7000,
+          "return_jpy": 25800,
+          "profit_jpy": 18800,
+          "roi": 3.6857,
+          "hit_count": 1,
+          "hits": [
+            {
+              "bet_type": "単勝",
+              "selection": "10",
+              "stake_jpy": 2000,
+              "payout_per_100": 1290,
+              "return_jpy": 25800
+            }
+          ]
+        }
+      ],
+      "races": 2,
+      "total_stake_jpy": 7000,
+      "total_return_jpy": 25800,
+      "total_profit_jpy": 18800,
+      "cumulative_roi": 3.6857
+    },
+    "sayuri": {
+      "bettor_name": "さゆり",
+      "backend": "claude-haiku",
+      "per_race": [
+        {
+          "race_id": "202609030411",
+          "race_name": "第67回宝塚記念",
+          "stake_jpy": 8000,
+          "return_jpy": 6000,
+          "profit_jpy": -2000,
+          "roi": 0.75,
+          "hit_count": 2,
+          "hits": [
+            {
+              "bet_type": "複勝",
+              "selection": "16",
+              "stake_jpy": 1500,
+              "payout_per_100": 140,
+              "return_jpy": 2100
+            },
+            {
+              "bet_type": "ワイド",
+              "selection": "5-16",
+              "stake_jpy": 1500,
+              "payout_per_100": 260,
+              "return_jpy": 3900
+            }
+          ]
+        },
+        {
+          "race_id": "202609030611",
+          "race_name": "しらさぎステークス",
+          "stake_jpy": 4200,
+          "return_jpy": 0,
+          "profit_jpy": -4200,
+          "roi": 0,
+          "hit_count": 0,
+          "hits": []
+        }
+      ],
+      "races": 2,
+      "total_stake_jpy": 12200,
+      "total_return_jpy": 6000,
+      "total_profit_jpy": -6200,
+      "cumulative_roi": 0.4918
+    }
+  },
+  "aggregated": {
+    "bettor_name": "集約（5人平均）",
+    "per_race": [
+      {
+        "race_id": "202609030411",
+        "race_name": "第67回宝塚記念",
+        "stake_jpy": 3900,
+        "return_jpy": 5670,
+        "profit_jpy": 1770,
+        "roi": 1.4538,
+        "hit_count": 4,
+        "hits": [
+          {
+            "bet_type": "複勝",
+            "selection": "16",
+            "stake_jpy": 500,
+            "payout_per_100": 140,
+            "return_jpy": 700
+          },
+          {
+            "bet_type": "ワイド",
+            "selection": "5-16",
+            "stake_jpy": 400,
+            "payout_per_100": 260,
+            "return_jpy": 1040
+          },
+          {
+            "bet_type": "三連複",
+            "selection": "1-5-16",
+            "stake_jpy": 300,
+            "payout_per_100": 1230,
+            "return_jpy": 3690
+          },
+          {
+            "bet_type": "複勝",
+            "selection": "5",
+            "stake_jpy": 200,
+            "payout_per_100": 120,
+            "return_jpy": 240
+          }
+        ],
+        "bettor_count": 5
+      },
+      {
+        "race_id": "202609030611",
+        "race_name": "しらさぎステークス",
+        "stake_jpy": 3800,
+        "return_jpy": 7740,
+        "profit_jpy": 3940,
+        "roi": 2.0368,
+        "hit_count": 1,
+        "hits": [
+          {
+            "bet_type": "単勝",
+            "selection": "10",
+            "stake_jpy": 600,
+            "payout_per_100": 1290,
+            "return_jpy": 7740
+          }
+        ],
+        "bettor_count": 5
+      }
+    ],
+    "races": 2,
+    "total_stake_jpy": 7700,
+    "total_return_jpy": 13410,
+    "total_profit_jpy": 5710,
+    "cumulative_roi": 1.7416
+  }
+}
