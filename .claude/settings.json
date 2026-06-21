@@ -8,7 +8,7 @@
     "enabled": true,
     "filesystem": {
       "denyRead": ["~/"],
-      "allowRead": [".", "~/.nodenv", "~/.bun", "~/.local", "~/.codex", "~/.gemini", "~/.gitconfig"],
+      "allowRead": [".", "~/.nodenv", "~/.bun", "~/.local", "~/.codex", "~/.gemini", "~/.gitconfig", "~/.claude/projects"],
       "allowWrite": [".", "~/.codex", "~/.gemini"]
     },
     "network": { "allowedDomains": ["*"] }
