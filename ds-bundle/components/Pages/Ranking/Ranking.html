@@ -1,0 +1,57 @@
+<!-- @dsCard group="Pages" -->
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+<body>
+<section class="page-intro">
+  <p class="eyebrow">Ranking</p>
+  <h1>いま誰の成績がいいか</h1>
+  <p class="lead">第67回宝塚記念までの採点をもとにした暫定ランキングです。主指標は1着確率分布のBrierで、低いほど精度が高い評価になります。</p>
+  <p class="notice">現在は1レースのみ。20レース未満では重み学習を始めず、ランキングも物語上の暫定席次として扱います。</p>
+  <div class="segmented" role="group" aria-label="ランキング並び替え">
+    <button type="button" class="is-selected">暫定席次</button>
+    <button type="button">Brier</button>
+    <button type="button">◎結果</button>
+    <button type="button">LogLoss</button>
+  </div>
+</section>
+<section class="leaderboard">
+  <article class="rank-row" style="--accent:#7f1d1d">
+    <div class="rank-position">1</div>
+    <a class="rank-person" href="#">
+      <img src="../../../assets/characters/tatsunosuke/mini.png" alt="" loading="lazy">
+      <span><strong>龍之介</strong><small>血筋の語り部</small></span>
+    </a>
+    <div class="rank-metric"><span>暫定席次</span><strong>72.7</strong></div>
+    <div class="rank-metric"><span>Brier</span><strong>0.6997</strong></div>
+    <div class="rank-metric"><span>最新◎</span><strong>◎1着</strong><small>16 メイショウタバル</small></div>
+    <div class="rank-metric"><span>3着内網羅</span><strong>3/3</strong></div>
+  </article>
+  <article class="rank-row" style="--accent:#a16207">
+    <div class="rank-position">2</div>
+    <a class="rank-person" href="#">
+      <img src="../../../assets/characters/teppei/mini.png" alt="" loading="lazy">
+      <span><strong>鉄平</strong><small>早朝の坂路職人</small></span>
+    </a>
+    <div class="rank-metric"><span>暫定席次</span><strong>66.9</strong></div>
+    <div class="rank-metric"><span>Brier</span><strong>0.7749</strong></div>
+    <div class="rank-metric"><span>最新◎</span><strong>◎3着内</strong><small>1 ダノンデサイル</small></div>
+    <div class="rank-metric"><span>3着内網羅</span><strong>3/3</strong></div>
+  </article>
+  <article class="rank-row" style="--accent:#15803d">
+    <div class="rank-position">3</div>
+    <a class="rank-person" href="#">
+      <img src="../../../assets/characters/kenta/mini.png" alt="" loading="lazy">
+      <span><strong>健太</strong><small>八重歯の指数バカ</small></span>
+    </a>
+    <div class="rank-metric"><span>暫定席次</span><strong>66.3</strong></div>
+    <div class="rank-metric"><span>Brier</span><strong>0.7879</strong></div>
+    <div class="rank-metric"><span>最新◎</span><strong>◎3着内</strong><small>5 クロワデュノール</small></div>
+    <div class="rank-metric"><span>3着内網羅</span><strong>3/3</strong></div>
+  </article>
+</section>
+</body>
+</html>

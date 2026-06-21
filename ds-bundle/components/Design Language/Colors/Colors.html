@@ -1,0 +1,61 @@
+<!-- @dsCard group="Design Language" -->
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../../styles.css">
+<style>
+  body { padding: 28px; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 24px; }
+  .sc { height: 56px; border-radius: var(--radius); border: 1px solid var(--border); }
+  .si { margin-top: 7px; font-family: var(--f-mono); font-size: 0.65rem; color: var(--text); }
+  .si strong { display: block; color: var(--ink); font-size: 0.68rem; margin-bottom: 1px; }
+  h3 { font-family: var(--f-mono); font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: var(--muted); margin: 0 0 12px; }
+  .sec { margin-bottom: 24px; }
+</style>
+</head>
+<body>
+<div class="sec">
+  <h3>Background / Surface</h3>
+  <div class="grid">
+    <div><div class="sc" style="background:var(--bg)"></div><div class="si"><strong>--bg</strong>#0b0c11</div></div>
+    <div><div class="sc" style="background:var(--surface)"></div><div class="si"><strong>--surface</strong>#111319</div></div>
+    <div><div class="sc" style="background:var(--surface-2)"></div><div class="si"><strong>--surface-2</strong>#181a24</div></div>
+    <div><div class="sc" style="background:var(--surface-3)"></div><div class="si"><strong>--surface-3</strong>#20222e</div></div>
+  </div>
+</div>
+<div class="sec">
+  <h3>Ink / Text</h3>
+  <div class="grid">
+    <div><div class="sc" style="background:var(--ink)"></div><div class="si"><strong>--ink</strong>#edeae0</div></div>
+    <div><div class="sc" style="background:var(--text)"></div><div class="si"><strong>--text</strong>#a8a59c</div></div>
+    <div><div class="sc" style="background:var(--muted)"></div><div class="si"><strong>--muted</strong>#62647a</div></div>
+    <div><div class="sc" style="background:var(--faint)"></div><div class="si"><strong>--faint</strong>#3a3b4e</div></div>
+  </div>
+</div>
+<div class="sec">
+  <h3>Gold Accent</h3>
+  <div class="grid">
+    <div><div class="sc" style="background:var(--gold)"></div><div class="si"><strong>--gold</strong>#c9a840</div></div>
+    <div><div class="sc" style="background:var(--gold-light)"></div><div class="si"><strong>--gold-light</strong>#dfc060</div></div>
+    <div><div class="sc" style="background:var(--gold-dim)"></div><div class="si"><strong>--gold-dim</strong>gold 10%</div></div>
+    <div><div class="sc" style="background:var(--gold-glow)"></div><div class="si"><strong>--gold-glow</strong>gold 18%</div></div>
+  </div>
+</div>
+<div class="sec">
+  <h3>Border</h3>
+  <div class="grid">
+    <div><div class="sc" style="background:var(--border)"></div><div class="si"><strong>--border</strong>#1c1e2c</div></div>
+    <div><div class="sc" style="background:var(--border-mid)"></div><div class="si"><strong>--border-mid</strong>#252738</div></div>
+  </div>
+</div>
+<div class="sec">
+  <h3>Semantic</h3>
+  <div class="grid">
+    <div><div class="sc" style="background:var(--green)"></div><div class="si"><strong>--green</strong>#26845a</div></div>
+    <div><div class="sc" style="background:var(--amber)"></div><div class="si"><strong>--amber</strong>#b87400</div></div>
+    <div><div class="sc" style="background:var(--red)"></div><div class="si"><strong>--red</strong>#be3636</div></div>
+  </div>
+</div>
+</body>
+</html>
