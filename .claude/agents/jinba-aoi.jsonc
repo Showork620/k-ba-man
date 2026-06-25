@@ -1,0 +1,76 @@
+// jinba-aoi が追加でインターネット取得すべき「事実データ」一覧。
+// 予想家の印・評価・コラムは入れず、RaceDataPack を補強する一次データだけを扱う。
+{
+  "agent": "jinba-aoi",
+  "expert_id": "aoi",
+  "expert_name": "葵",
+  "school": "騎手・厩舎",
+  "timing": "T-1日夜。騎手・厩舎情報と枠順が確定してから取得する。",
+  "minimum_before_run": [
+    "全出走馬の騎手名、調教師名、所属（栗東/美浦）",
+    "今回が継続騎乗、主戦復帰、乗り替わり、初コンビのどれか",
+    "馬と騎手の過去コンビ成績"
+  ],
+  "fetch_items": [
+    {
+      "id": "jockey_course_record",
+      "priority": "high",
+      "data": [
+        "騎手ごとの阪神芝成績",
+        "可能なら阪神芝2000-2400m、内回り、G1/重賞での勝率・連対率・複勝率",
+        "直近1年または当年の騎手成績"
+      ],
+      "source_candidates": ["JRA公式成績", "netkeibaの騎手成績ページ", "JRA-VAN系の成績表"],
+      "use_for": "阪神コース巧者と重賞で信頼できる騎手の加点"
+    },
+    {
+      "id": "trainer_record",
+      "priority": "high",
+      "data": [
+        "調教師ごとの当年成績、重賞成績、G1成績",
+        "阪神芝・中距離での厩舎成績",
+        "栗東/美浦の所属"
+      ],
+      "source_candidates": ["JRA公式成績", "netkeibaの調教師成績ページ"],
+      "use_for": "厩舎力、栗東地の利、G1仕上げの信頼度"
+    },
+    {
+      "id": "horse_jockey_pair",
+      "priority": "high",
+      "data": [
+        "対象馬と今回騎手の過去騎乗回数",
+        "その組み合わせでの着順、距離、馬場、クラス",
+        "乗り替わりの場合は前走騎手との比較用成績"
+      ],
+      "source_candidates": ["JRA公式レース結果", "netkeibaの馬成績ページ"],
+      "use_for": "コンビ実績と乗り替わりのプラス/マイナス判定"
+    },
+    {
+      "id": "recent_jockey_trainer_form",
+      "priority": "medium",
+      "data": [
+        "直近4-8週の騎手・厩舎の出走数、勝利数、複勝数",
+        "同開催場での直近成績"
+      ],
+      "source_candidates": ["JRA公式開催成績", "netkeibaの成績集計"],
+      "use_for": "短期的な好不調の補助材料"
+    }
+  ],
+  "write_to_pack_or_notes": [
+    "horses[].jockey",
+    "horses[].trainer",
+    "horses[].past_races",
+    "data_used に jockey_record / trainer_record / combo_record を残す"
+  ],
+  "disallowed": [
+    "騎手・厩舎を評価した予想コラム",
+    "第三者の騎手ランク、厩舎ランク、買い/消し評価",
+    "他の jinba/haibun の出力",
+    "data/experts/ 配下の人間予想家データ"
+  ],
+  "warnings_if_missing": [
+    "コンビ成績が取得できない馬がいる",
+    "騎手変更が直前で反映できていない可能性がある",
+    "阪神芝2200mに絞った成績が不足し、阪神芝中距離で代用した"
+  ]
+}

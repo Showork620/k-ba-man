@@ -1,0 +1,68 @@
+// jinba-makoto が追加でインターネット取得すべき「事実データ」一覧。
+// 傾向記事の数字を鵜呑みにせず、過去結果表から自分で集計する。
+{
+  "agent": "jinba-makoto",
+  "expert_id": "makoto",
+  "expert_name": "誠",
+  "school": "データ・統計",
+  "timing": "T-1日夜。枠順と出走馬が確定してから、過去結果と現出走馬情報を取得する。",
+  "minimum_before_run": [
+    "対象レース過去10-15年の全着順または少なくとも1-3着",
+    "各年の人気、枠番、馬番、年齢、性別、前走、前走着順",
+    "今回出走馬の年齢、性別、枠番、前走、前走着順、間隔"
+  ],
+  "fetch_items": [
+    {
+      "id": "historical_results_raw",
+      "priority": "high",
+      "data": [
+        "過去10-15年のレース結果",
+        "着順、馬名、馬番、枠番、人気、単勝オッズ",
+        "年齢、性別、斤量、騎手、前走レース、前走着順"
+      ],
+      "source_candidates": ["JRA公式レース結果", "netkeibaの過去結果表"],
+      "use_for": "年齢・枠・前走・人気などを自前集計してファクター化"
+    },
+    {
+      "id": "current_entries_features",
+      "priority": "high",
+      "data": [
+        "今回の出走馬、馬番、枠番",
+        "年齢、性別、斤量、所属",
+        "前走レース、前走着順、着差、前走クラス",
+        "前走からの間隔"
+      ],
+      "source_candidates": ["JRA公式出馬表", "netkeibaの出馬表"],
+      "use_for": "過去傾向ファクターを現出走馬に適用"
+    },
+    {
+      "id": "course_distance_baseline",
+      "priority": "medium",
+      "data": [
+        "阪神芝2200mまたは同条件に近いレースの結果",
+        "枠番別・脚質別の成績を自前集計できる元データ",
+        "開催時期が近い芝中距離の時計"
+      ],
+      "source_candidates": ["JRA公式レース結果", "netkeibaの条件別結果"],
+      "use_for": "対象レース固有傾向がサンプル不足のときの補助"
+    }
+  ],
+  "write_to_pack_or_notes": [
+    "race",
+    "horses[].age",
+    "horses[].sex",
+    "horses[].past_races",
+    "data_used に historical_results_raw / current_entries_features を残す"
+  ],
+  "disallowed": [
+    "競馬メディアの過去傾向まとめ記事を根拠数字として引用すること",
+    "第三者の予想印、指数ランク、買い目",
+    "他の jinba/haibun の出力",
+    "data/experts/ 配下の人間予想家データ"
+  ],
+  "warnings_if_missing": [
+    "過去データの一部年が欠けている",
+    "前走情報の表記ゆれを完全に正規化できていない",
+    "サンプル数が少ないため傾向の信頼度が低い"
+  ]
+}

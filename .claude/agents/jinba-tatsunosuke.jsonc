@@ -1,0 +1,77 @@
+// jinba-tatsunosuke が追加でインターネット取得すべき「事実データ」一覧。
+// 血統評論や配合評価ではなく、血統表・産駒成績・過去結果を生データとして使う。
+{
+  "agent": "jinba-tatsunosuke",
+  "expert_id": "tatsunosuke",
+  "expert_name": "龍之介",
+  "school": "血統・配合",
+  "timing": "T-1日夜。出走馬確定後に取得する。血統自体は静的なので当日再取得は原則不要。",
+  "minimum_before_run": [
+    "全出走馬の父、母、母父、可能なら5代血統表",
+    "各馬の距離別・馬場別成績",
+    "過去の対象レース上位馬の血統"
+  ],
+  "fetch_items": [
+    {
+      "id": "pedigree_table",
+      "priority": "high",
+      "data": [
+        "父、母、母父",
+        "5代血統表",
+        "サイアーライン、牝系",
+        "近親のG1/重賞実績"
+      ],
+      "source_candidates": ["JBISサーチ", "netkeibaの血統ページ", "JRA-VAN系の血統表"],
+      "use_for": "スタミナ血統、道悪血統、阪神内回り向き配合の判定"
+    },
+    {
+      "id": "sire_and_bms_records",
+      "priority": "medium",
+      "data": [
+        "父・母父の芝中距離産駒成績",
+        "阪神芝または右回り内回りでの産駒成績",
+        "稍重・重・不良での産駒成績"
+      ],
+      "source_candidates": ["JBISサーチ", "netkeibaの種牡馬成績", "JRA公式レース結果からの自前集計"],
+      "use_for": "個馬の血統仮説を産駒成績で補強"
+    },
+    {
+      "id": "historical_podium_pedigree",
+      "priority": "medium",
+      "data": [
+        "対象レース過去10-15年の1-3着馬",
+        "各上位馬の父・母父・系統",
+        "馬場状態、勝ち時計、開催場"
+      ],
+      "source_candidates": ["JRA公式レース結果", "JBISサーチ", "netkeibaの過去結果表"],
+      "use_for": "対象レースで繰り返し好走する血統パターンの自前確認"
+    },
+    {
+      "id": "horse_condition_fit",
+      "priority": "medium",
+      "data": [
+        "各馬の芝2000-2500m成績",
+        "良/稍重/重/不良の馬場別成績",
+        "阪神または急坂コースでの成績"
+      ],
+      "source_candidates": ["JRA公式レース結果", "netkeibaの馬成績ページ"],
+      "use_for": "血統上の適性が実走で出ているかの確認"
+    }
+  ],
+  "write_to_pack_or_notes": [
+    "horses[].pedigree",
+    "horses[].past_races",
+    "data_used に pedigree / sire_records / historical_podium_pedigree を残す"
+  ],
+  "disallowed": [
+    "血統評論家の配合評価、ランク、推奨馬",
+    "予想印、買い目、予想コラム",
+    "他の jinba/haibun の出力",
+    "data/experts/ 配下の人間予想家データ"
+  ],
+  "warnings_if_missing": [
+    "母系または5代血統表が欠けている",
+    "産駒成績が少なく血統傾向のサンプルが薄い",
+    "過去レースの開催場変更により血統傾向の比較が難しい"
+  ]
+}

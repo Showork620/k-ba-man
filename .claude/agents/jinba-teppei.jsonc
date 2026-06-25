@@ -1,0 +1,77 @@
+// jinba-teppei が追加でインターネット取得すべき「事実データ」一覧。
+// 調教評価A/B/Cは第三者評価を読まず、時計・本数・併せ結果から自分で付ける。
+{
+  "agent": "jinba-teppei",
+  "expert_id": "teppei",
+  "expert_name": "鉄平",
+  "school": "調教・仕上がり",
+  "timing": "T-1日夜。最終追切と週中追切の時計が揃ってから取得する。",
+  "minimum_before_run": [
+    "全出走馬の最終追切時計",
+    "追切コース、日付、ラップ、上がり1F",
+    "レース前2-4週の追切本数"
+  ],
+  "fetch_items": [
+    {
+      "id": "final_workout_clock",
+      "priority": "high",
+      "data": [
+        "最終追切の日付、場所（栗東坂路/CW、美浦坂路/Wなど）",
+        "4F/5F/6F時計、上がり1F",
+        "馬場状態、単走/併せ馬",
+        "併せ馬の先着/同入/遅れという事実"
+      ],
+      "source_candidates": ["JRA公式調教情報", "JRA-VAN系調教時計", "netkeibaの調教タイム"],
+      "use_for": "仕上がり度を自前でA/B/C化"
+    },
+    {
+      "id": "workout_volume",
+      "priority": "high",
+      "data": [
+        "レース前2-4週の追切本数",
+        "強め/馬なり等の負荷表記がある場合は事実として記録",
+        "坂路とコース追いの組み合わせ"
+      ],
+      "source_candidates": ["JRA公式調教情報", "JRA-VAN系調教時計", "netkeibaの調教タイム"],
+      "use_for": "G1前として十分な負荷がかかっているか"
+    },
+    {
+      "id": "stable_training_base",
+      "priority": "medium",
+      "data": [
+        "厩舎所属（栗東/美浦）",
+        "主な調教場所",
+        "阪神輸送の有無を推定できる所在地"
+      ],
+      "source_candidates": ["JRA公式出馬表", "netkeibaの調教師ページ"],
+      "use_for": "栗東所属補正と輸送負担の補助"
+    },
+    {
+      "id": "prior_good_workout_patterns",
+      "priority": "low",
+      "data": [
+        "同馬が好走した過去レース前の追切時計",
+        "今回の時計との比較",
+        "過去の休み明け/叩き2走目の調教本数"
+      ],
+      "source_candidates": ["JRA-VAN系調教時計", "netkeibaの調教タイム"],
+      "use_for": "その馬自身の好走時パターンとの照合"
+    }
+  ],
+  "write_to_pack_or_notes": [
+    "horses[].training",
+    "horses[].trainer.stable",
+    "data_used に workout_clock / workout_volume / stable_base を残す"
+  ],
+  "disallowed": [
+    "新聞・メディアの調教評価A/B/C、追切ランク、推奨コメント",
+    "予想印、買い目、評価スコア",
+    "他の jinba/haibun の出力",
+    "data/experts/ 配下の人間予想家データ"
+  ],
+  "warnings_if_missing": [
+    "一部馬の追切時計が非公開または欠落",
+    "上がり1Fが取得できず全体時計のみで評価した",
+    "調教馬場状態が不明で時計比較の精度が落ちる"
+  ]
+}

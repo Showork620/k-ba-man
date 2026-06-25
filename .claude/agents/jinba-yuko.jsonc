@@ -1,0 +1,75 @@
+// jinba-yuko が追加でインターネット取得すべき「事実データ」一覧。
+// 本命派として人気上位と安定実績を確認するが、予想印・コラムは使わない。
+{
+  "agent": "jinba-yuko",
+  "expert_id": "yuko",
+  "expert_name": "優子",
+  "school": "堅実本命",
+  "timing": "当日朝。pack-v2-odds 用に、人気順と複勝オッズが取れる時点で取得する。",
+  "minimum_before_run": [
+    "単勝1-3番人気と単勝オッズ",
+    "複勝オッズ",
+    "人気上位馬の直近G1/G2成績と3着内実績"
+  ],
+  "fetch_items": [
+    {
+      "id": "top_popularity",
+      "priority": "high",
+      "data": [
+        "単勝オッズ、人気順",
+        "複勝オッズ下限・上限",
+        "取得時刻"
+      ],
+      "source_candidates": ["JRA公式オッズ", "netkeibaのオッズ表"],
+      "use_for": "1-3番人気を素直に評価し、place_prob を直接考える"
+    },
+    {
+      "id": "recent_g1_stability",
+      "priority": "high",
+      "data": [
+        "直近5走のレース格、着順、着差",
+        "G1/G2での3着内回数",
+        "同距離帯・同コースに近い条件での安定度"
+      ],
+      "source_candidates": ["JRA公式レース結果", "netkeibaの馬成績ページ"],
+      "use_for": "人気馬の信頼度と降格条件の確認"
+    },
+    {
+      "id": "risk_flags",
+      "priority": "medium",
+      "data": [
+        "休養期間、前走からの間隔",
+        "直近で大きく着順を落としたレースの事実",
+        "初コース、距離延長/短縮、道悪実績の有無"
+      ],
+      "source_candidates": ["JRA公式出馬表", "JRA公式レース結果", "netkeibaの馬成績ページ"],
+      "use_for": "1番人気を2番手へ下げてよい条件の確認"
+    },
+    {
+      "id": "historical_favorite_place_rate",
+      "priority": "low",
+      "data": [
+        "対象レース過去10年の1-3番人気の着順",
+        "複勝圏入線率を自前集計できる元データ"
+      ],
+      "source_candidates": ["JRA公式レース結果", "netkeibaの過去結果表"],
+      "use_for": "本命寄り確率の補正。まとめ記事ではなく元データから集計する。"
+    }
+  ],
+  "write_to_pack_or_notes": [
+    "horses[].odds",
+    "horses[].past_races",
+    "data_used に odds / recent_g1_stability / risk_flags を残す"
+  ],
+  "disallowed": [
+    "本命推奨記事、堅軸評価、買い目記事",
+    "第三者の印・ランク・予想スコア",
+    "他の jinba/haibun の出力",
+    "data/experts/ 配下の人間予想家データ"
+  ],
+  "warnings_if_missing": [
+    "オッズ取得時刻が早く1-3番人気が入れ替わる可能性がある",
+    "人気上位馬の近走が条件違いで安定度比較が難しい",
+    "複勝オッズがレンジのみで place_prob の校正が粗い"
+  ]
+}

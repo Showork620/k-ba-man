@@ -1,0 +1,79 @@
+// jinba-goro が追加でインターネット取得すべき「事実データ」一覧。
+// 馬場・天候・当週レース結果だけを扱い、予想家の馬場読み記事は使わない。
+{
+  "agent": "jinba-goro",
+  "expert_id": "goro",
+  "expert_name": "吾郎",
+  "school": "馬場・トラックバイアス",
+  "timing": "発走3時間前。pack-v2-baba 用に、馬場・天気・当日芝レース結果のみを更新する。",
+  "minimum_before_run": [
+    "JRA公式の馬場状態",
+    "芝のクッション値・含水率・使用コース・芝の状態コメント",
+    "当日午前から直前までの阪神芝レース結果と通過順"
+  ],
+  "fetch_items": [
+    {
+      "id": "official_going",
+      "priority": "high",
+      "data": [
+        "芝の公式馬場状態（良/稍重/重/不良）",
+        "クッション値、含水率",
+        "使用コース（A/B/Cなど）と芝の傷み情報",
+        "馬場情報の発表時刻"
+      ],
+      "source_candidates": ["JRA公式 馬場情報", "JRA公式 開催情報"],
+      "use_for": "良馬場想定/稍重・重想定の分岐"
+    },
+    {
+      "id": "weather_actual_forecast",
+      "priority": "high",
+      "data": [
+        "阪神競馬場周辺の当日降水量、降雨開始/終了時刻",
+        "気温、風向、風速",
+        "発走時刻までの短時間予報"
+      ],
+      "source_candidates": ["気象庁", "tenki.jp", "Weathernews"],
+      "use_for": "馬場悪化・乾き具合・風の影響の補正"
+    },
+    {
+      "id": "same_day_turf_results",
+      "priority": "high",
+      "data": [
+        "当日阪神芝レースの距離、勝ち時計、上がり3F",
+        "勝ち馬と上位馬の通過順、枠番、馬番、脚質",
+        "人気ではなく実際の入線結果"
+      ],
+      "source_candidates": ["JRA公式レース結果", "netkeibaの結果表"],
+      "use_for": "前残り/差し有利、内外、時計の出方の推定"
+    },
+    {
+      "id": "horse_wet_track_history",
+      "priority": "medium",
+      "data": [
+        "各馬の稍重・重・不良での着順、勝ち時計差、上がり3F",
+        "道悪時の先行/差しの成否",
+        "同距離帯または阪神での馬場別実績"
+      ],
+      "source_candidates": ["JRA公式レース結果", "netkeibaの馬成績ページ"],
+      "use_for": "個馬の道悪適性の確認"
+    }
+  ],
+  "write_to_pack_or_notes": [
+    "race.weather",
+    "track_bias.this_week_observations",
+    "horses[].past_races[].track_condition",
+    "data_used に official_going / weather / same_day_turf_results を残す"
+  ],
+  "disallowed": [
+    "馬場読み予想記事、トラックバイアス予想コラム",
+    "各社の印、買い目、推奨馬",
+    "当日オッズ（pack-v2-baba には混ぜない）",
+    "他の jinba/haibun の出力",
+    "data/experts/ 配下の人間予想家データ"
+  ],
+  "warnings_if_missing": [
+    "当日芝レースが少なくバイアス推定が弱い",
+    "馬場情報の発表時刻が古い",
+    "降雨予報が直前で大きく変わる可能性がある"
+  ]
+}

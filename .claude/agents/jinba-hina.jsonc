@@ -1,0 +1,68 @@
+// jinba-hina が追加でインターネット取得すべき「事実データ」一覧。
+// 人気の盲点を探すため、オッズと過去走の生データだけを扱う。
+{
+  "agent": "jinba-hina",
+  "expert_id": "hina",
+  "expert_name": "陽菜",
+  "school": "穴党・逆張り",
+  "timing": "当日朝。pack-v2-odds 用に、人気順とオッズが意味を持ち始めてから取得する。",
+  "minimum_before_run": [
+    "単勝人気順と単勝オッズ",
+    "5-9番人気、10番人気以下の該当馬",
+    "各馬の直近3-5走の着順、着差、通過順、馬場、距離、騎手"
+  ],
+  "fetch_items": [
+    {
+      "id": "live_popularity_band",
+      "priority": "high",
+      "data": [
+        "単勝オッズ、人気順",
+        "複勝オッズ",
+        "5-9番人気候補と10番人気以下候補"
+      ],
+      "source_candidates": ["JRA公式オッズ", "netkeibaのオッズ表"],
+      "use_for": "上位3頭に中穴を混ぜ、連下に大穴を拾うための人気帯判定"
+    },
+    {
+      "id": "last_race_hidden_context",
+      "priority": "high",
+      "data": [
+        "前走の着順、着差、通過順、上がり3F",
+        "前走の距離、馬場状態、枠番、馬体重増減",
+        "前走から今回への距離変更、馬場変更、騎手変更、間隔"
+      ],
+      "source_candidates": ["JRA公式レース結果", "netkeibaの馬成績ページ"],
+      "use_for": "前走が地味に見える理由が今回覆るかの検証"
+    },
+    {
+      "id": "condition_change",
+      "priority": "medium",
+      "data": [
+        "今回の馬場状態・天気",
+        "枠順",
+        "斤量、馬体重発表前なら前走馬体重と増減傾向",
+        "休み明け・叩き2走目・ローテーション変更"
+      ],
+      "source_candidates": ["JRA公式出馬表", "JRA公式馬場情報", "JRA公式レース結果"],
+      "use_for": "人気薄の消し理由が条件替わりで反転するかを見る"
+    }
+  ],
+  "write_to_pack_or_notes": [
+    "horses[].odds",
+    "horses[].past_races",
+    "race.weather",
+    "track_bias.this_week_observations",
+    "data_used に odds / past_races / condition_change を残す"
+  ],
+  "disallowed": [
+    "穴馬推奨記事、爆穴候補、買い目記事",
+    "第三者の評価・格付け・印",
+    "他の jinba/haibun の出力",
+    "data/experts/ 配下の人間予想家データ"
+  ],
+  "warnings_if_missing": [
+    "オッズ取得時刻が早く人気順が不安定",
+    "前走敗因を生データから十分に説明できない",
+    "10番人気以下の候補が能力面で拾いにくい"
+  ]
+}

@@ -1,0 +1,77 @@
+// jinba-kenta が追加でインターネット取得すべき「事実データ」一覧。
+// 既製の第三者指数ではなく、走破時計・ラップ・馬場差から自前で指数化する。
+{
+  "agent": "jinba-kenta",
+  "expert_id": "kenta",
+  "expert_name": "健太",
+  "school": "スピード指数",
+  "timing": "発走3時間前。pack-v2-baba 側の馬場情報も使い、当日馬場差を補正する。",
+  "minimum_before_run": [
+    "各馬直近5走の走破時計、距離、競馬場、馬場状態、着差",
+    "上がり3F、可能ならラップ",
+    "同日・同開催の芝レース時計から見た馬場差"
+  ],
+  "fetch_items": [
+    {
+      "id": "raw_race_times",
+      "priority": "high",
+      "data": [
+        "各馬直近5走の走破時計",
+        "距離、競馬場、芝/ダート、馬場状態、斤量、着差",
+        "上がり3F、通過順"
+      ],
+      "source_candidates": ["JRA公式レース結果", "netkeibaの馬成績ページ"],
+      "use_for": "最高指数、平均指数、類似条件指数の計算"
+    },
+    {
+      "id": "pace_and_lap",
+      "priority": "medium",
+      "data": [
+        "レースごとの前半3F、後半3F、可能なら区間ラップ",
+        "同距離帯の標準的な勝ち時計",
+        "レースレベルを推定するための上位馬着差"
+      ],
+      "source_candidates": ["JRA公式レース結果", "netkeibaの結果表"],
+      "use_for": "時計の速さがペース由来か能力由来かを補正"
+    },
+    {
+      "id": "track_variant",
+      "priority": "high",
+      "data": [
+        "当日または同開催の芝レース勝ち時計",
+        "公式馬場状態、クッション値、含水率",
+        "同日の平均上がり"
+      ],
+      "source_candidates": ["JRA公式レース結果", "JRA公式馬場情報"],
+      "use_for": "馬場差を簡易推定し、良/稍重/重の指数落ち幅を見る"
+    },
+    {
+      "id": "similar_course_history",
+      "priority": "medium",
+      "data": [
+        "阪神芝2200mまたは阪神/中山など内回り中距離での走破時計",
+        "2000-2500mの中距離実績",
+        "道悪時の時計低下幅"
+      ],
+      "source_candidates": ["JRA公式レース結果", "netkeibaの馬成績ページ"],
+      "use_for": "今回条件への指数適性"
+    }
+  ],
+  "write_to_pack_or_notes": [
+    "horses[].past_races[].time",
+    "horses[].past_races[].last_3f",
+    "horses[].past_races[].track_condition",
+    "data_used に raw_times / lap / track_variant を残す"
+  ],
+  "disallowed": [
+    "第三者が作ったスピード指数、指数順位、指数評価をそのまま使うこと",
+    "予想印、買い目、各社評価",
+    "他の jinba/haibun の出力",
+    "data/experts/ 配下の人間予想家データ"
+  ],
+  "warnings_if_missing": [
+    "ラップが取得できず走破時計と上がり3Fのみで推定した",
+    "馬場差の推定に使える同日芝レースが少ない",
+    "直近5走に類似条件が少ない"
+  ]
+}

@@ -1,0 +1,78 @@
+// jinba-misaki が追加でインターネット取得すべき「事実データ」一覧。
+// 展開予想記事は使わず、通過順・ラップ・馬場から自分で展開を組む。
+{
+  "agent": "jinba-misaki",
+  "expert_id": "misaki",
+  "expert_name": "美咲",
+  "school": "展開・ペース",
+  "timing": "発走3時間前。pack-v2-baba の馬場傾向を見て最終展開を更新する。",
+  "minimum_before_run": [
+    "各馬直近3-5走の通過順、上がり3F、距離、馬場",
+    "過去の対象レースまたは阪神芝2200mのラップ",
+    "当日阪神芝レースの通過順と上がり傾向"
+  ],
+  "fetch_items": [
+    {
+      "id": "running_style_evidence",
+      "priority": "high",
+      "data": [
+        "直近3-5走の1角/2角/3角/4角通過順",
+        "出遅れや逃げ・先行・差し・追込を推定できる位置取り",
+        "上がり3Fと着差"
+      ],
+      "source_candidates": ["JRA公式レース結果", "netkeibaの馬成績ページ"],
+      "use_for": "脚質分類と3-4角の想定位置"
+    },
+    {
+      "id": "historical_laps",
+      "priority": "high",
+      "data": [
+        "過去10年程度の対象レースの前半3F、1000m通過、後半3F",
+        "可能なら各ハロンラップ",
+        "馬場状態と勝ち時計"
+      ],
+      "source_candidates": ["JRA公式レース結果", "netkeibaの結果表"],
+      "use_for": "固定値ではなく当年メンバーに合わせた想定ラップ導出"
+    },
+    {
+      "id": "same_day_pace_bias",
+      "priority": "high",
+      "data": [
+        "当日阪神芝レースの通過順、上位馬脚質、上がり順位",
+        "距離ごとの勝ち時計と馬場状態",
+        "前残り/差し届くの実測材料"
+      ],
+      "source_candidates": ["JRA公式レース結果", "netkeibaの結果表"],
+      "use_for": "想定ペースが速い/遅い場合のロバスト性確認"
+    },
+    {
+      "id": "course_shape_facts",
+      "priority": "medium",
+      "data": [
+        "阪神芝2200m内回りのスタート地点、坂、コーナー数",
+        "直線距離と高低差"
+      ],
+      "source_candidates": ["JRA公式競馬場コース紹介"],
+      "use_for": "ポジション取りとロングスパート開始地点の前提"
+    }
+  ],
+  "write_to_pack_or_notes": [
+    "horses[].past_races[].corner_positions",
+    "horses[].past_races[].last_3f",
+    "race.course",
+    "track_bias.this_week_observations",
+    "data_used に running_style / historical_laps / same_day_pace_bias を残す"
+  ],
+  "disallowed": [
+    "展開予想、ペース予想、逃げ馬予想の記事",
+    "予想家の印や評価",
+    "当日オッズ（展開判断の主材料にしない）",
+    "他の jinba/haibun の出力",
+    "data/experts/ 配下の人間予想家データ"
+  ],
+  "warnings_if_missing": [
+    "通過順データが不足して脚質推定が粗い",
+    "当日芝レース数が少なく馬場込みの展開補正が弱い",
+    "逃げ候補が複数いて隊列の不確実性が高い"
+  ]
+}

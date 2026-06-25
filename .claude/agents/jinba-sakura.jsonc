@@ -1,0 +1,77 @@
+// jinba-sakura が追加でインターネット取得すべき「事実データ」一覧。
+// さくらだけは市場データを主材料にするが、予想印・コラムは使わない。
+{
+  "agent": "jinba-sakura",
+  "expert_id": "sakura",
+  "expert_name": "さくら",
+  "school": "オッズ・市場分析",
+  "timing": "当日朝。pack-v2-odds 用に、単勝・複勝オッズと人気順が安定し始めてから取得する。",
+  "minimum_before_run": [
+    "全出走馬の単勝オッズと人気順",
+    "全出走馬の複勝オッズレンジ",
+    "ファン投票順位または投票数"
+  ],
+  "fetch_items": [
+    {
+      "id": "win_place_odds",
+      "priority": "high",
+      "data": [
+        "単勝オッズ、単勝人気順",
+        "複勝オッズ下限・上限",
+        "取得時刻"
+      ],
+      "source_candidates": ["JRA公式オッズ", "netkeibaのオッズ表"],
+      "use_for": "単複乖離、人気帯別の best 1、過小評価候補の抽出"
+    },
+    {
+      "id": "odds_movement",
+      "priority": "medium",
+      "data": [
+        "前日夜、当日朝、発走数時間前の単勝・複勝オッズ",
+        "人気順の変化",
+        "急落・急騰した馬"
+      ],
+      "source_candidates": ["JRA公式オッズ", "netkeibaのオッズ推移"],
+      "use_for": "市場の温度変化と直前支持の偏り"
+    },
+    {
+      "id": "fan_vote",
+      "priority": "high",
+      "data": [
+        "ファン投票順位",
+        "投票数",
+        "出走馬との対応"
+      ],
+      "source_candidates": ["JRA公式ファン投票結果"],
+      "use_for": "ファン投票人気と馬券市場評価の乖離"
+    },
+    {
+      "id": "historical_popularity_results",
+      "priority": "medium",
+      "data": [
+        "対象レース過去10年の人気順と着順",
+        "3-4番人気、5番人気以下、10番人気以下の入線実績",
+        "配当レンジ"
+      ],
+      "source_candidates": ["JRA公式レース結果", "netkeibaの過去結果表"],
+      "use_for": "人気帯別の補正。ただし元データから自前集計する。"
+    }
+  ],
+  "write_to_pack_or_notes": [
+    "horses[].odds.win",
+    "horses[].odds.place",
+    "race.fan_vote",
+    "data_used に odds / odds_movement / fan_vote を残す"
+  ],
+  "disallowed": [
+    "予想家の印、買い目、推奨穴馬",
+    "オッズを解釈した第三者コラム",
+    "他の jinba/haibun の出力",
+    "data/experts/ 配下の人間予想家データ"
+  ],
+  "warnings_if_missing": [
+    "オッズ取得時刻が早く市場が薄い",
+    "複勝オッズがレンジのみで支持率を厳密に推定できない",
+    "ファン投票データが未反映または対象外"
+  ]
+}
