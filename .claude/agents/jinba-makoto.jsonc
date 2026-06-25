@@ -30,6 +30,7 @@
         "今回の出走馬、馬番、枠番",
         "年齢、性別、斤量、所属",
         "前走レース、前走着順、着差、前走クラス",
+        "直近3-5走の走破時計、上がり3F、通過順、馬場状態",
         "前走からの間隔"
       ],
       "source_candidates": ["JRA公式出馬表", "netkeibaの出馬表"],
@@ -48,10 +49,10 @@
     }
   ],
   "write_to_pack_or_notes": [
-    "race",
-    "horses[].age",
-    "horses[].sex",
-    "horses[].past_races",
+    "pack正規書き込み: race.name / race.date / race.course（対象レース基礎情報）",
+    "pack正規書き込み: horses[].age",
+    "pack正規書き込み: horses[].sex",
+    "pack正規書き込み: horses[].past_races（基本成績・前走情報の構造化）",
     "data_used に historical_results_raw / current_entries_features を残す"
   ],
   "disallowed": [

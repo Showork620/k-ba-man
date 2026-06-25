@@ -4,7 +4,7 @@
   "agent": "jinba-misaki",
   "expert_id": "misaki",
   "expert_name": "美咲",
-  "school": "展開・ペース",
+  "school": "展開・ペース読み",
   "timing": "発走3時間前。pack-v2-baba の馬場傾向を見て最終展開を更新する。",
   "minimum_before_run": [
     "各馬直近3-5走の通過順、上がり3F、距離、馬場",
@@ -57,10 +57,9 @@
     }
   ],
   "write_to_pack_or_notes": [
-    "horses[].past_races[].corner_positions",
-    "horses[].past_races[].last_3f",
-    "race.course",
-    "track_bias.this_week_observations",
+    "packには書かない: horses[].past_races は makoto の正規値を参照し、脚質・通過順推定は data_used / rationale に残す",
+    "packには書かない: race.course は RaceDataPack の基礎値を参照のみ",
+    "notes用サブキー: track_bias.pace_observations（track_bias.this_week_observations は goro が正）",
     "data_used に running_style / historical_laps / same_day_pace_bias を残す"
   ],
   "disallowed": [

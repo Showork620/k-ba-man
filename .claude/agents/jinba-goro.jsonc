@@ -4,7 +4,7 @@
   "agent": "jinba-goro",
   "expert_id": "goro",
   "expert_name": "吾郎",
-  "school": "馬場・トラックバイアス",
+  "school": "馬場読み・トラックバイアス",
   "timing": "発走3時間前。pack-v2-baba 用に、馬場・天気・当日芝レース結果のみを更新する。",
   "minimum_before_run": [
     "JRA公式の馬場状態",
@@ -59,9 +59,9 @@
     }
   ],
   "write_to_pack_or_notes": [
-    "race.weather",
-    "track_bias.this_week_observations",
-    "horses[].past_races[].track_condition",
+    "pack-v2-baba正規書き込み: race.weather",
+    "pack-v2-baba正規書き込み: track_bias.this_week_observations",
+    "packには書かない: horses[].past_races は参照のみ。馬場別適性は data_used / rationale に残す",
     "data_used に official_going / weather / same_day_turf_results を残す"
   ],
   "disallowed": [

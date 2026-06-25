@@ -58,9 +58,9 @@
     }
   ],
   "write_to_pack_or_notes": [
-    "horses[].odds.win",
-    "horses[].odds.place",
-    "race.fan_vote",
+    "pack-v2-odds正規書き込み: horses[].odds.win",
+    "pack-v2-odds正規書き込み: horses[].odds.place",
+    "pack正規書き込み: race.fan_vote",
     "data_used に odds / odds_movement / fan_vote を残す"
   ],
   "disallowed": [

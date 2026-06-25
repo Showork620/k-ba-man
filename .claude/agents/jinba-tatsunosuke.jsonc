@@ -59,8 +59,8 @@
     }
   ],
   "write_to_pack_or_notes": [
-    "horses[].pedigree",
-    "horses[].past_races",
+    "pack正規書き込み: horses[].pedigree",
+    "packには書かない: horses[].past_races は makoto の正規値を参照し、距離・馬場適性の血統解釈は data_used / rationale に残す",
     "data_used に pedigree / sire_records / historical_podium_pedigree を残す"
   ],
   "disallowed": [

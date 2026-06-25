@@ -58,14 +58,14 @@
     }
   ],
   "write_to_pack_or_notes": [
-    "horses[].past_races[].time",
-    "horses[].past_races[].last_3f",
-    "horses[].past_races[].track_condition",
+    "packには書かない: horses[].past_races は makoto の正規値を参照し、指数計算結果は data_used / rationale に残す",
+    "pack-v2-baba参照: race.weather / track_bias.this_week_observations（書き込みは goro）",
     "data_used に raw_times / lap / track_variant を残す"
   ],
   "disallowed": [
     "第三者が作ったスピード指数、指数順位、指数評価をそのまま使うこと",
     "予想印、買い目、各社評価",
+    "当日オッズ（pack-v2-baba には混ぜない）",
     "他の jinba/haibun の出力",
     "data/experts/ 配下の人間予想家データ"
   ],

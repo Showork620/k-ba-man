@@ -57,9 +57,9 @@
     }
   ],
   "write_to_pack_or_notes": [
-    "horses[].jockey",
-    "horses[].trainer",
-    "horses[].past_races",
+    "pack正規書き込み: horses[].jockey",
+    "pack正規書き込み: horses[].trainer",
+    "packには書かない: horse_jockey_pair / recent_jockey_trainer_form は data_used と rationale の根拠に残す",
     "data_used に jockey_record / trainer_record / combo_record を残す"
   ],
   "disallowed": [

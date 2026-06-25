@@ -57,8 +57,8 @@
     }
   ],
   "write_to_pack_or_notes": [
-    "horses[].odds",
-    "horses[].past_races",
+    "packには書かない: horses[].odds は sakura / pack-v2-odds の正規値を参照のみ",
+    "packには書かない: horses[].past_races は makoto の正規値を参照のみ",
     "data_used に odds / recent_g1_stability / risk_flags を残す"
   ],
   "disallowed": [

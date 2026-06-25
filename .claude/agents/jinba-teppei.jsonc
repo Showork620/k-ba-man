@@ -59,8 +59,8 @@
     }
   ],
   "write_to_pack_or_notes": [
-    "horses[].training",
-    "horses[].trainer.stable",
+    "pack正規書き込み: horses[].training",
+    "packには書かない: horses[].trainer.stable は aoi / RaceDataPack の正規値を参照のみ",
     "data_used に workout_clock / workout_volume / stable_base を残す"
   ],
   "disallowed": [

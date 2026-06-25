@@ -48,10 +48,9 @@
     }
   ],
   "write_to_pack_or_notes": [
-    "horses[].odds",
-    "horses[].past_races",
-    "race.weather",
-    "track_bias.this_week_observations",
+    "packには書かない: horses[].odds は sakura / pack-v2-odds の正規値を参照のみ",
+    "packには書かない: horses[].past_races は makoto の正規値を参照のみ",
+    "packには書かない: race.weather / track_bias.this_week_observations は goro の正規値を参照のみ",
     "data_used に odds / past_races / condition_change を残す"
   ],
   "disallowed": [
