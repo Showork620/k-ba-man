@@ -1,0 +1,339 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://k-ba-man.local/schema/race-history.v1.schema.json",
+  "title": "KBaManRaceHistory",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "source", "races"],
+  "properties": {
+    "schema_version": { "const": "race-history.v1" },
+    "generated_at": { "type": "string" },
+    "source": {
+      "type": "object",
+      "required": ["kind", "canonical_inputs", "note"],
+      "properties": {
+        "kind": { "type": "string" },
+        "canonical_inputs": { "type": "array", "items": { "type": "string" } },
+        "note": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "races": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/race" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "race": {
+      "type": "object",
+      "required": [
+        "id",
+        "race_id",
+        "name",
+        "race_name",
+        "date",
+        "course",
+        "sampleLabel",
+        "horses",
+        "horse_list",
+        "result",
+        "betting",
+        "collective",
+        "experts"
+      ],
+      "properties": {
+        "id": { "type": "string" },
+        "race_id": { "type": "string" },
+        "name": { "type": "string" },
+        "race_name": { "type": "string" },
+        "grade": { "type": ["string", "null"] },
+        "date": { "type": "string" },
+        "post_time": { "type": ["string", "null"] },
+        "course": { "type": "string" },
+        "course_detail": { "type": "object" },
+        "weather": { "type": "object" },
+        "sampleLabel": { "type": "string" },
+        "sample_label": { "type": "string" },
+        "horses": {
+          "type": "object",
+          "propertyNames": { "pattern": "^[0-9]+$" },
+          "additionalProperties": { "type": "string" }
+        },
+        "horse_list": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/horse" }
+        },
+        "result": { "$ref": "#/$defs/result" },
+        "betting": { "$ref": "#/$defs/betting" },
+        "investment": { "type": "number" },
+        "payout": { "type": "number" },
+        "profit": { "type": "number" },
+        "roi": { "type": "number" },
+        "hitTickets": { "type": "integer" },
+        "totalTickets": { "type": "integer" },
+        "collective": { "$ref": "#/$defs/collective" },
+        "experts": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/expertRaceRecord" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "horse": {
+      "type": "object",
+      "required": ["horse_num", "name", "gate", "jockey", "trainer", "odds_win"],
+      "properties": {
+        "horse_num": { "type": "integer", "minimum": 1 },
+        "name": { "type": "string" },
+        "gate": { "type": ["integer", "null"] },
+        "jockey": { "type": ["string", "null"] },
+        "trainer": { "type": ["string", "null"] },
+        "odds_win": { "type": ["number", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "result": {
+      "type": "object",
+      "required": ["winner", "place3", "finish_order_known", "finish_order_complete", "popularity", "payouts", "payout_list", "source", "note"],
+      "properties": {
+        "winner": { "type": "integer" },
+        "place3": { "type": "array", "items": { "type": "integer" }, "minItems": 3, "maxItems": 3 },
+        "finish_order_known": { "type": "array", "items": { "type": "integer" } },
+        "finish_order_complete": { "type": "boolean" },
+        "popularity": { "type": "object" },
+        "payouts": { "type": "object" },
+        "payout_list": { "type": "array", "items": { "$ref": "#/$defs/payoutEntry" } },
+        "source": { "type": ["string", "null"] },
+        "note": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "betting": {
+      "type": "object",
+      "required": [
+        "investment_jpy",
+        "payout_jpy",
+        "profit_jpy",
+        "roi_percent",
+        "hit_tickets",
+        "total_tickets",
+        "source_files",
+        "tickets",
+        "hits",
+        "how_won"
+      ],
+      "properties": {
+        "investment_jpy": { "type": "number" },
+        "payout_jpy": { "type": "number" },
+        "profit_jpy": { "type": "number" },
+        "roi_percent": { "type": "number" },
+        "hit_tickets": { "type": "integer" },
+        "total_tickets": { "type": "integer" },
+        "source_files": { "type": "array", "items": { "type": "string" } },
+        "tickets": { "type": "array", "items": { "$ref": "#/$defs/bettingTicket" } },
+        "hits": { "type": "array", "items": { "$ref": "#/$defs/bettingTicket" } },
+        "how_won": { "$ref": "#/$defs/howWon" }
+      },
+      "additionalProperties": false
+    },
+    "collective": {
+      "type": "object",
+      "required": ["method", "probability_notes", "ranking", "marks", "honmei", "taikou", "tanana", "renka", "brier", "pWinner", "winLogloss", "note"],
+      "properties": {
+        "method": { "type": "string" },
+        "probability_notes": { "type": "object" },
+        "ranking": { "type": "array", "items": { "$ref": "#/$defs/rankedHorse" } },
+        "marks": { "$ref": "#/$defs/marks" },
+        "honmei": { "type": "integer" },
+        "taikou": { "type": "integer" },
+        "tanana": { "type": "integer" },
+        "renka": { "type": "array", "items": { "type": "integer" } },
+        "brier": { "type": ["number", "null"] },
+        "pWinner": { "type": ["number", "null"] },
+        "winLogloss": { "type": ["number", "null"] },
+        "note": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "expertRaceRecord": {
+      "type": "object",
+      "required": [
+        "id",
+        "expert_id",
+        "expert_name",
+        "school",
+        "backend",
+        "effort",
+        "pack_version",
+        "confidence",
+        "pWinner",
+        "winBrier",
+        "winLogloss",
+        "honmei",
+        "honmeiStatus",
+        "coverage",
+        "placedMeanRank",
+        "specOk",
+        "specSum",
+        "prediction",
+        "score"
+      ],
+      "properties": {
+        "id": { "type": "string" },
+        "expert_id": { "type": "string" },
+        "expert_name": { "type": "string" },
+        "school": { "type": "string" },
+        "backend": { "type": "string" },
+        "effort": { "type": "string", "enum": ["high", "medium", "low"] },
+        "pack_version": { "type": "string" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "pWinner": { "type": "number", "minimum": 0, "maximum": 1 },
+        "winBrier": { "type": "number" },
+        "winLogloss": { "type": "number" },
+        "honmei": { "type": "integer" },
+        "honmeiStatus": { "type": "string", "enum": ["win", "place", "out"] },
+        "coverage": { "type": "integer", "minimum": 0, "maximum": 3 },
+        "placedMeanRank": { "type": "number" },
+        "specOk": { "type": "boolean" },
+        "specSum": { "type": "number" },
+        "prediction": { "$ref": "#/$defs/prediction" },
+        "score": { "$ref": "#/$defs/score" }
+      },
+      "additionalProperties": false
+    },
+    "prediction": {
+      "type": "object",
+      "required": ["predicted_ranking", "win_prob", "place_prob", "marks", "confidence", "rationale", "data_used", "warnings"],
+      "properties": {
+        "predicted_ranking": { "type": "array", "items": { "$ref": "#/$defs/rankedHorse" } },
+        "win_prob": { "type": "array", "items": { "$ref": "#/$defs/probabilityHorse" } },
+        "place_prob": { "type": "array", "items": { "$ref": "#/$defs/probabilityHorse" } },
+        "marks": { "$ref": "#/$defs/marks" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "rationale": { "type": "string" },
+        "data_used": { "type": "array", "items": { "type": "string" } },
+        "warnings": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "payoutEntry": {
+      "type": "object",
+      "required": ["bet_type", "selection", "selection_horses", "selection_label", "payout_per_100", "popularity"],
+      "properties": {
+        "bet_type": { "type": "string" },
+        "selection": { "type": "string" },
+        "selection_horses": { "type": "array", "items": { "type": "integer" } },
+        "selection_label": { "type": "string" },
+        "payout_per_100": { "type": "number" },
+        "popularity": { "type": ["integer", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "bettingTicket": {
+      "type": "object",
+      "required": [
+        "bet_type",
+        "selection",
+        "selection_horses",
+        "selection_label",
+        "stake_jpy",
+        "hit",
+        "result",
+        "payout_per_100",
+        "return_jpy"
+      ],
+      "properties": {
+        "bet_type": { "type": "string" },
+        "selection": { "type": "string" },
+        "selection_horses": { "type": "array", "items": { "type": "integer" } },
+        "selection_label": { "type": "string" },
+        "stake_jpy": { "type": "number" },
+        "hit": { "type": "boolean" },
+        "result": { "type": "string", "enum": ["hit", "miss"] },
+        "payout_per_100": { "type": ["number", "null"] },
+        "return_jpy": { "type": "number" }
+      },
+      "additionalProperties": false
+    },
+    "howWon": {
+      "type": "object",
+      "required": ["headline", "key_ticket_selection", "key_ticket_return_jpy", "notes"],
+      "properties": {
+        "headline": { "type": "string" },
+        "key_ticket_selection": { "type": "string" },
+        "key_ticket_return_jpy": { "type": "number" },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "score": {
+      "type": "object",
+      "required": [
+        "p_winner",
+        "win_brier",
+        "win_logloss",
+        "honmei",
+        "honmei_won",
+        "honmei_in_place3",
+        "honmei_status",
+        "marks_place3_coverage",
+        "placed_in_ranking",
+        "placed_mean_pred_rank",
+        "spec_sum_ok",
+        "win_prob_listed_sum"
+      ],
+      "properties": {
+        "p_winner": { "type": "number" },
+        "win_brier": { "type": "number" },
+        "win_logloss": { "type": "number" },
+        "honmei": { "type": "integer" },
+        "honmei_won": { "type": "boolean" },
+        "honmei_in_place3": { "type": "boolean" },
+        "honmei_status": { "type": "string", "enum": ["win", "place", "out"] },
+        "marks_place3_coverage": { "type": "integer" },
+        "placed_in_ranking": { "type": ["integer", "null"] },
+        "placed_mean_pred_rank": { "type": "number" },
+        "spec_sum_ok": { "type": "boolean" },
+        "win_prob_listed_sum": { "type": "number" }
+      },
+      "additionalProperties": false
+    },
+    "marks": {
+      "type": "object",
+      "required": ["honmei", "taikou", "tanana", "renka"],
+      "properties": {
+        "honmei": { "type": "integer" },
+        "taikou": { "type": "integer" },
+        "tanana": { "type": "integer" },
+        "renka": { "type": "array", "items": { "type": "integer" } }
+      },
+      "additionalProperties": false
+    },
+    "rankedHorse": {
+      "type": "object",
+      "required": ["horse_num", "horse_name"],
+      "properties": {
+        "horse_num": { "type": "integer" },
+        "horse_name": { "type": "string" },
+        "rank": { "type": "integer" },
+        "borda_score": { "type": "number" },
+        "win_prob": { "type": "number" },
+        "win_prob_linear": { "type": "number" },
+        "place_prob_lb": { "type": "number" },
+        "borda_rank": { "type": "integer" },
+        "prob_rank": { "type": "integer" }
+      },
+      "additionalProperties": false
+    },
+    "probabilityHorse": {
+      "type": "object",
+      "required": ["horse_num", "horse_name", "prob"],
+      "properties": {
+        "horse_num": { "type": "integer" },
+        "horse_name": { "type": "string" },
+        "prob": { "type": "number", "minimum": 0, "maximum": 1 }
+      },
+      "additionalProperties": false
+    }
+  }
+}

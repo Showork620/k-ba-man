@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://k-ba-man.local/schema/live-race.v1.schema.json",
+  "title": "KBaManLiveRace",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "active_phase", "current_race_id", "source", "phases"],
+  "properties": {
+    "schema_version": { "const": "live-race.v1" },
+    "generated_at": { "type": "string" },
+    "active_phase": { "enum": ["announce", "predictions", "result"] },
+    "current_race_id": { "type": ["string", "null"] },
+    "source": {
+      "type": "object",
+      "required": ["kind", "race_history_dependency", "note"],
+      "properties": {
+        "kind": { "type": "string" },
+        "race_history_dependency": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "phases": {
+      "type": "array",
+      "minItems": 3,
+      "items": { "$ref": "#/$defs/phase" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "phase": {
+      "type": "object",
+      "required": ["id", "route", "label", "short_title", "title", "lead", "next_phase", "next_timing", "status"],
+      "properties": {
+        "id": { "enum": ["announce", "predictions", "result"] },
+        "route": { "type": "string" },
+        "label": { "type": "string" },
+        "short_title": { "type": "string" },
+        "title": { "type": "string" },
+        "lead": { "type": "string" },
+        "next_phase": { "enum": ["announce", "predictions", "result"] },
+        "next_timing": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

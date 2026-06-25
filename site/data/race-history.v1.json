@@ -1,0 +1,4959 @@
+{
+  "schema_version": "race-history.v1",
+  "generated_at": "2026-06-21T23:59:00+09:00",
+  "source": {
+    "kind": "site-static-copy",
+    "canonical_inputs": [
+      "runs/<race_id>/pack-v1.json",
+      "runs/<race_id>/result.json",
+      "runs/<race_id>/predictions/v1/*.json",
+      "runs/<race_id>/predictions/aggregated-v1.json",
+      "data/scoring/<race_id>.json"
+    ],
+    "note": "サイト表示用の静的スナップショット。将来DB化するまでは site/data 配下のこのコピーをAPIが読む。"
+  },
+  "races": [
+    {
+      "id": "202609030411",
+      "race_id": "202609030411",
+      "name": "第67回宝塚記念",
+      "race_name": "第67回宝塚記念",
+      "grade": "G1",
+      "date": "2026-06-14",
+      "post_time": "15:40",
+      "course": "阪神・芝2200m・内回り・良",
+      "course_detail": {
+        "track": "阪神",
+        "surface": "芝",
+        "distance": 2200,
+        "direction": "右",
+        "inner_outer": "内"
+      },
+      "weather": {
+        "forecast": "曇時々晴",
+        "track_condition_forecast": "良（前日時点予報。梅雨入り後のため当日変動注意）"
+      },
+      "sampleLabel": "n=1 / 初回ライブ運用",
+      "sample_label": "n=1 / 初回ライブ運用",
+      "horses": {
+        "1": "ダノンデサイル",
+        "2": "ミュージアムマイル",
+        "3": "シュガークン",
+        "4": "ミクニインスパイア",
+        "5": "クロワデュノール",
+        "6": "ビザンチンドリーム",
+        "7": "ファミリータイム",
+        "8": "タガノデュード",
+        "9": "コスモキュランダ",
+        "10": "ジューンテイク",
+        "11": "シンエンペラー",
+        "12": "マイネルエンペラー",
+        "13": "シェイクユアハート",
+        "14": "スティンガーグラス",
+        "15": "マイユニバース",
+        "16": "メイショウタバル",
+        "17": "レガレイラ",
+        "18": "ミステリーウェイ"
+      },
+      "horse_list": [
+        {
+          "horse_num": 1,
+          "name": "ダノンデサイル",
+          "gate": 1,
+          "jockey": "戸崎圭太",
+          "trainer": "安田翔伍",
+          "odds_win": 10
+        },
+        {
+          "horse_num": 2,
+          "name": "ミュージアムマイル",
+          "gate": 1,
+          "jockey": "D.レーン",
+          "trainer": "高柳大輔",
+          "odds_win": 4.5
+        },
+        {
+          "horse_num": 3,
+          "name": "シュガークン",
+          "gate": 2,
+          "jockey": "吉村誠之助",
+          "trainer": "清水久詞",
+          "odds_win": 101
+        },
+        {
+          "horse_num": 4,
+          "name": "ミクニインスパイア",
+          "gate": 2,
+          "jockey": "丹内祐次",
+          "trainer": "林徹",
+          "odds_win": 26
+        },
+        {
+          "horse_num": 5,
+          "name": "クロワデュノール",
+          "gate": 3,
+          "jockey": "北村友一",
+          "trainer": "斉藤崇史",
+          "odds_win": 2.4
+        },
+        {
+          "horse_num": 6,
+          "name": "ビザンチンドリーム",
+          "gate": 3,
+          "jockey": "西村淳也",
+          "trainer": "坂口智康",
+          "odds_win": 15
+        },
+        {
+          "horse_num": 7,
+          "name": "ファミリータイム",
+          "gate": 4,
+          "jockey": "幸英明",
+          "trainer": "石坂公一",
+          "odds_win": 71
+        },
+        {
+          "horse_num": 8,
+          "name": "タガノデュード",
+          "gate": 4,
+          "jockey": "高杉吏麒",
+          "trainer": "宮徹",
+          "odds_win": 101
+        },
+        {
+          "horse_num": 9,
+          "name": "コスモキュランダ",
+          "gate": 5,
+          "jockey": "横山武史",
+          "trainer": "加藤士津八",
+          "odds_win": 41
+        },
+        {
+          "horse_num": 10,
+          "name": "ジューンテイク",
+          "gate": 5,
+          "jockey": "松山弘平",
+          "trainer": "武英智",
+          "odds_win": 41
+        },
+        {
+          "horse_num": 11,
+          "name": "シンエンペラー",
+          "gate": 6,
+          "jockey": "坂井瑠星",
+          "trainer": "矢作芳人",
+          "odds_win": 101
+        },
+        {
+          "horse_num": 12,
+          "name": "マイネルエンペラー",
+          "gate": 6,
+          "jockey": "川田将雅",
+          "trainer": "清水久詞",
+          "odds_win": 51
+        },
+        {
+          "horse_num": 13,
+          "name": "シェイクユアハート",
+          "gate": 7,
+          "jockey": "古川吉洋",
+          "trainer": "宮徹",
+          "odds_win": 41
+        },
+        {
+          "horse_num": 14,
+          "name": "スティンガーグラス",
+          "gate": 7,
+          "jockey": "岩田望来",
+          "trainer": "友道康夫",
+          "odds_win": 31
+        },
+        {
+          "horse_num": 15,
+          "name": "マイユニバース",
+          "gate": 7,
+          "jockey": "横山典弘",
+          "trainer": "武幸四郎",
+          "odds_win": 15
+        },
+        {
+          "horse_num": 16,
+          "name": "メイショウタバル",
+          "gate": 8,
+          "jockey": "武豊",
+          "trainer": "石橋守",
+          "odds_win": 6
+        },
+        {
+          "horse_num": 17,
+          "name": "レガレイラ",
+          "gate": 8,
+          "jockey": "C.ルメール",
+          "trainer": "木村哲也",
+          "odds_win": 9
+        },
+        {
+          "horse_num": 18,
+          "name": "ミステリーウェイ",
+          "gate": 8,
+          "jockey": "松本大輝",
+          "trainer": "小林真也",
+          "odds_win": 151
+        }
+      ],
+      "result": {
+        "winner": 16,
+        "place3": [
+          16,
+          5,
+          1
+        ],
+        "finish_order_known": [
+          16,
+          5,
+          1
+        ],
+        "finish_order_complete": false,
+        "popularity": {
+          "1": 3,
+          "5": 1,
+          "16": 2
+        },
+        "payouts": {
+          "tansho": {
+            "16": 390
+          },
+          "fukusho": {
+            "1": 170,
+            "5": 120,
+            "16": 140
+          },
+          "wakuren": {
+            "3-8": 380
+          },
+          "umaren": {
+            "5-16": 620
+          },
+          "umatan": {
+            "16-5": 1360
+          },
+          "wide": {
+            "5-16": 260,
+            "1-16": 490,
+            "1-5": 290
+          },
+          "sanrenpuku": {
+            "1-5-16": 1230
+          },
+          "sanrentan": {
+            "16-5-1": 6040
+          }
+        },
+        "source": "JRA確定（payout スクリーンショット 2026-06-14）",
+        "note": "4着以下は未取得。採点は1着(win)と3着内(place)に基づく。完全着順が取れたら RPS / Spearman を追加可能。",
+        "payout_list": [
+          {
+            "bet_type": "単勝",
+            "selection": "16",
+            "selection_horses": [
+              16
+            ],
+            "selection_label": "16 メイショウタバル",
+            "payout_per_100": 390,
+            "popularity": 2
+          },
+          {
+            "bet_type": "複勝",
+            "selection": "1",
+            "selection_horses": [
+              1
+            ],
+            "selection_label": "1 ダノンデサイル",
+            "payout_per_100": 170,
+            "popularity": 3
+          },
+          {
+            "bet_type": "複勝",
+            "selection": "5",
+            "selection_horses": [
+              5
+            ],
+            "selection_label": "5 クロワデュノール",
+            "payout_per_100": 120,
+            "popularity": 1
+          },
+          {
+            "bet_type": "複勝",
+            "selection": "16",
+            "selection_horses": [
+              16
+            ],
+            "selection_label": "16 メイショウタバル",
+            "payout_per_100": 140,
+            "popularity": 2
+          },
+          {
+            "bet_type": "枠連",
+            "selection": "3-8",
+            "selection_horses": [],
+            "selection_label": "3-8",
+            "payout_per_100": 380,
+            "popularity": null
+          },
+          {
+            "bet_type": "馬連",
+            "selection": "5-16",
+            "selection_horses": [
+              5,
+              16
+            ],
+            "selection_label": "5 クロワデュノール - 16 メイショウタバル",
+            "payout_per_100": 620,
+            "popularity": null
+          },
+          {
+            "bet_type": "馬単",
+            "selection": "16-5",
+            "selection_horses": [
+              16,
+              5
+            ],
+            "selection_label": "16 メイショウタバル → 5 クロワデュノール",
+            "payout_per_100": 1360,
+            "popularity": null
+          },
+          {
+            "bet_type": "ワイド",
+            "selection": "5-16",
+            "selection_horses": [
+              5,
+              16
+            ],
+            "selection_label": "5 クロワデュノール - 16 メイショウタバル",
+            "payout_per_100": 260,
+            "popularity": null
+          },
+          {
+            "bet_type": "ワイド",
+            "selection": "1-16",
+            "selection_horses": [
+              1,
+              16
+            ],
+            "selection_label": "1 ダノンデサイル - 16 メイショウタバル",
+            "payout_per_100": 490,
+            "popularity": null
+          },
+          {
+            "bet_type": "ワイド",
+            "selection": "1-5",
+            "selection_horses": [
+              1,
+              5
+            ],
+            "selection_label": "1 ダノンデサイル - 5 クロワデュノール",
+            "payout_per_100": 290,
+            "popularity": null
+          },
+          {
+            "bet_type": "三連複",
+            "selection": "1-5-16",
+            "selection_horses": [
+              1,
+              5,
+              16
+            ],
+            "selection_label": "1 ダノンデサイル - 5 クロワデュノール - 16 メイショウタバル",
+            "payout_per_100": 1230,
+            "popularity": null
+          },
+          {
+            "bet_type": "三連単",
+            "selection": "16-5-1",
+            "selection_horses": [
+              16,
+              5,
+              1
+            ],
+            "selection_label": "16 メイショウタバル → 5 クロワデュノール → 1 ダノンデサイル",
+            "payout_per_100": 6040,
+            "popularity": null
+          }
+        ]
+      },
+      "betting": {
+        "investment_jpy": 3000,
+        "payout_jpy": 5150,
+        "profit_jpy": 2150,
+        "roi_percent": 171.7,
+        "hit_tickets": 4,
+        "total_tickets": 11,
+        "source_files": [
+          "runs/202609030411/betting-v2.md",
+          "runs/202609030411/result-v1.md",
+          "runs/202609030411/result.json"
+        ],
+        "tickets": [
+          {
+            "bet_type": "複勝",
+            "selection": "16",
+            "selection_horses": [
+              16
+            ],
+            "selection_label": "16 メイショウタバル",
+            "stake_jpy": 400,
+            "hit": true,
+            "result": "hit",
+            "payout_per_100": 140,
+            "return_jpy": 560
+          },
+          {
+            "bet_type": "ワイド",
+            "selection": "5-16",
+            "selection_horses": [
+              5,
+              16
+            ],
+            "selection_label": "5 クロワデュノール - 16 メイショウタバル",
+            "stake_jpy": 300,
+            "hit": true,
+            "result": "hit",
+            "payout_per_100": 260,
+            "return_jpy": 780
+          },
+          {
+            "bet_type": "三連複",
+            "selection": "1-5-16",
+            "selection_horses": [
+              1,
+              5,
+              16
+            ],
+            "selection_label": "1 ダノンデサイル - 5 クロワデュノール - 16 メイショウタバル",
+            "stake_jpy": 300,
+            "hit": true,
+            "result": "hit",
+            "payout_per_100": 1230,
+            "return_jpy": 3690
+          },
+          {
+            "bet_type": "複勝",
+            "selection": "5",
+            "selection_horses": [
+              5
+            ],
+            "selection_label": "5 クロワデュノール",
+            "stake_jpy": 100,
+            "hit": true,
+            "result": "hit",
+            "payout_per_100": 120,
+            "return_jpy": 120
+          },
+          {
+            "bet_type": "三連複",
+            "selection": "2-5-16",
+            "selection_horses": [
+              2,
+              5,
+              16
+            ],
+            "selection_label": "2 ミュージアムマイル - 5 クロワデュノール - 16 メイショウタバル",
+            "stake_jpy": 400,
+            "hit": false,
+            "result": "miss",
+            "payout_per_100": null,
+            "return_jpy": 0
+          },
+          {
+            "bet_type": "ワイド",
+            "selection": "2-16",
+            "selection_horses": [
+              2,
+              16
+            ],
+            "selection_label": "2 ミュージアムマイル - 16 メイショウタバル",
+            "stake_jpy": 400,
+            "hit": false,
+            "result": "miss",
+            "payout_per_100": null,
+            "return_jpy": 0
+          },
+          {
+            "bet_type": "複勝",
+            "selection": "2",
+            "selection_horses": [
+              2
+            ],
+            "selection_label": "2 ミュージアムマイル",
+            "stake_jpy": 300,
+            "hit": false,
+            "result": "miss",
+            "payout_per_100": null,
+            "return_jpy": 0
+          },
+          {
+            "bet_type": "ワイド",
+            "selection": "2-5",
+            "selection_horses": [
+              2,
+              5
+            ],
+            "selection_label": "2 ミュージアムマイル - 5 クロワデュノール",
+            "stake_jpy": 300,
+            "hit": false,
+            "result": "miss",
+            "payout_per_100": null,
+            "return_jpy": 0
+          },
+          {
+            "bet_type": "三連複",
+            "selection": "5-16-17",
+            "selection_horses": [
+              5,
+              16,
+              17
+            ],
+            "selection_label": "5 クロワデュノール - 16 メイショウタバル - 17 レガレイラ",
+            "stake_jpy": 300,
+            "hit": false,
+            "result": "miss",
+            "payout_per_100": null,
+            "return_jpy": 0
+          },
+          {
+            "bet_type": "三連複",
+            "selection": "2-5-17",
+            "selection_horses": [
+              2,
+              5,
+              17
+            ],
+            "selection_label": "2 ミュージアムマイル - 5 クロワデュノール - 17 レガレイラ",
+            "stake_jpy": 100,
+            "hit": false,
+            "result": "miss",
+            "payout_per_100": null,
+            "return_jpy": 0
+          },
+          {
+            "bet_type": "三連複",
+            "selection": "1-2-5",
+            "selection_horses": [
+              1,
+              2,
+              5
+            ],
+            "selection_label": "1 ダノンデサイル - 2 ミュージアムマイル - 5 クロワデュノール",
+            "stake_jpy": 100,
+            "hit": false,
+            "result": "miss",
+            "payout_per_100": null,
+            "return_jpy": 0
+          }
+        ],
+        "hits": [
+          {
+            "bet_type": "複勝",
+            "selection": "16",
+            "selection_horses": [
+              16
+            ],
+            "selection_label": "16 メイショウタバル",
+            "stake_jpy": 400,
+            "hit": true,
+            "result": "hit",
+            "payout_per_100": 140,
+            "return_jpy": 560
+          },
+          {
+            "bet_type": "ワイド",
+            "selection": "5-16",
+            "selection_horses": [
+              5,
+              16
+            ],
+            "selection_label": "5 クロワデュノール - 16 メイショウタバル",
+            "stake_jpy": 300,
+            "hit": true,
+            "result": "hit",
+            "payout_per_100": 260,
+            "return_jpy": 780
+          },
+          {
+            "bet_type": "三連複",
+            "selection": "1-5-16",
+            "selection_horses": [
+              1,
+              5,
+              16
+            ],
+            "selection_label": "1 ダノンデサイル - 5 クロワデュノール - 16 メイショウタバル",
+            "stake_jpy": 300,
+            "hit": true,
+            "result": "hit",
+            "payout_per_100": 1230,
+            "return_jpy": 3690
+          },
+          {
+            "bet_type": "複勝",
+            "selection": "5",
+            "selection_horses": [
+              5
+            ],
+            "selection_label": "5 クロワデュノール",
+            "stake_jpy": 100,
+            "hit": true,
+            "result": "hit",
+            "payout_per_100": 120,
+            "return_jpy": 120
+          }
+        ],
+        "how_won": {
+          "headline": "三連複1-5-16が勝負を決めた。",
+          "key_ticket_selection": "1-5-16",
+          "key_ticket_return_jpy": 3690,
+          "notes": [
+            "集約印の◎クロワデュノール、▲メイショウタバル、△ダノンデサイルで3着内を網羅した。",
+            "三連複1-5-16の300円が3,690円になり、払戻の中心になった。",
+            "複勝16、ワイド5-16、複勝5が下支えし、11点中4点的中でプラスになった。"
+          ]
+        }
+      },
+      "investment": 3000,
+      "payout": 5150,
+      "profit": 2150,
+      "roi": 171.7,
+      "hitTickets": 4,
+      "totalTickets": 11,
+      "collective": {
+        "method": "borda_count + normalized log pooling (confidence-weighted geometric mean); tiebreak: avg_rank → win_prob → borda → horse_num",
+        "probability_notes": {
+          "win_prob": "正規化 log pooling（Σ重み=1 の信頼度加重幾何平均）",
+          "win_prob_linear": "線形プール（単純平均・参考）",
+          "place_prob_lb": "place_prob の線形平均。未列挙馬を0扱いした下限近似"
+        },
+        "ranking": [
+          {
+            "rank": 1,
+            "horse_num": 5,
+            "horse_name": "クロワデュノール",
+            "borda_score": 47,
+            "win_prob": 0.2988,
+            "win_prob_linear": 0.2844,
+            "place_prob_lb": 0.588,
+            "borda_rank": 1,
+            "prob_rank": 1
+          },
+          {
+            "rank": 2,
+            "horse_num": 2,
+            "horse_name": "ミュージアムマイル",
+            "borda_score": 35,
+            "win_prob": 0.1789,
+            "win_prob_linear": 0.1658,
+            "place_prob_lb": 0.444,
+            "borda_rank": 3,
+            "prob_rank": 2
+          },
+          {
+            "rank": 3,
+            "horse_num": 16,
+            "horse_name": "メイショウタバル",
+            "borda_score": 37,
+            "win_prob": 0.1752,
+            "win_prob_linear": 0.1639,
+            "place_prob_lb": 0.443,
+            "borda_rank": 2,
+            "prob_rank": 3
+          },
+          {
+            "rank": 4,
+            "horse_num": 17,
+            "horse_name": "レガレイラ",
+            "borda_score": 20,
+            "win_prob": 0.0922,
+            "win_prob_linear": 0.1011,
+            "place_prob_lb": 0.29,
+            "borda_rank": 4,
+            "prob_rank": 4
+          },
+          {
+            "rank": 5,
+            "horse_num": 1,
+            "horse_name": "ダノンデサイル",
+            "borda_score": 18,
+            "win_prob": 0.0906,
+            "win_prob_linear": 0.0921,
+            "place_prob_lb": 0.289,
+            "borda_rank": 5,
+            "prob_rank": 5
+          },
+          {
+            "rank": 6,
+            "horse_num": 15,
+            "horse_name": "マイユニバース",
+            "borda_score": 5,
+            "win_prob": 0.0316,
+            "win_prob_linear": 0.0442,
+            "place_prob_lb": 0.137,
+            "borda_rank": 7,
+            "prob_rank": 6
+          },
+          {
+            "rank": 7,
+            "horse_num": 6,
+            "horse_name": "ビザンチンドリーム",
+            "borda_score": 7,
+            "win_prob": 0.03,
+            "win_prob_linear": 0.0373,
+            "place_prob_lb": 0.118,
+            "borda_rank": 6,
+            "prob_rank": 7
+          },
+          {
+            "rank": 8,
+            "horse_num": 14,
+            "horse_name": "スティンガーグラス",
+            "borda_score": 2,
+            "win_prob": 0.019,
+            "win_prob_linear": 0.0213,
+            "place_prob_lb": 0.053,
+            "borda_rank": 8,
+            "prob_rank": 8
+          },
+          {
+            "rank": 9,
+            "horse_num": 4,
+            "horse_name": "ミクニインスパイア",
+            "borda_score": 0,
+            "win_prob": 0.0103,
+            "win_prob_linear": 0.0122,
+            "place_prob_lb": 0.02,
+            "borda_rank": 10,
+            "prob_rank": 9
+          },
+          {
+            "rank": 10,
+            "horse_num": 9,
+            "horse_name": "コスモキュランダ",
+            "borda_score": 0,
+            "win_prob": 0.0091,
+            "win_prob_linear": 0.0092,
+            "place_prob_lb": 0.008,
+            "borda_rank": 13,
+            "prob_rank": 11
+          },
+          {
+            "rank": 11,
+            "horse_num": 7,
+            "horse_name": "ファミリータイム",
+            "borda_score": 0,
+            "win_prob": 0.0079,
+            "win_prob_linear": 0.0077,
+            "place_prob_lb": 0,
+            "borda_rank": 11,
+            "prob_rank": 13
+          },
+          {
+            "rank": 12,
+            "horse_num": 3,
+            "horse_name": "シュガークン",
+            "borda_score": 0,
+            "win_prob": 0.0074,
+            "win_prob_linear": 0.0072,
+            "place_prob_lb": 0,
+            "borda_rank": 9,
+            "prob_rank": 15
+          },
+          {
+            "rank": 13,
+            "horse_num": 12,
+            "horse_name": "マイネルエンペラー",
+            "borda_score": 0,
+            "win_prob": 0.0101,
+            "win_prob_linear": 0.0143,
+            "place_prob_lb": 0.031,
+            "borda_rank": 16,
+            "prob_rank": 10
+          },
+          {
+            "rank": 14,
+            "horse_num": 10,
+            "horse_name": "ジューンテイク",
+            "borda_score": 0,
+            "win_prob": 0.0079,
+            "win_prob_linear": 0.0077,
+            "place_prob_lb": 0,
+            "borda_rank": 14,
+            "prob_rank": 14
+          },
+          {
+            "rank": 15,
+            "horse_num": 8,
+            "horse_name": "タガノデュード",
+            "borda_score": 0,
+            "win_prob": 0.0074,
+            "win_prob_linear": 0.0072,
+            "place_prob_lb": 0,
+            "borda_rank": 12,
+            "prob_rank": 16
+          },
+          {
+            "rank": 16,
+            "horse_num": 13,
+            "horse_name": "シェイクユアハート",
+            "borda_score": 0,
+            "win_prob": 0.0089,
+            "win_prob_linear": 0.0097,
+            "place_prob_lb": 0.01,
+            "borda_rank": 17,
+            "prob_rank": 12
+          },
+          {
+            "rank": 17,
+            "horse_num": 11,
+            "horse_name": "シンエンペラー",
+            "borda_score": 0,
+            "win_prob": 0.0074,
+            "win_prob_linear": 0.0072,
+            "place_prob_lb": 0,
+            "borda_rank": 15,
+            "prob_rank": 17
+          },
+          {
+            "rank": 18,
+            "horse_num": 18,
+            "horse_name": "ミステリーウェイ",
+            "borda_score": 0,
+            "win_prob": 0.0074,
+            "win_prob_linear": 0.0072,
+            "place_prob_lb": 0,
+            "borda_rank": 18,
+            "prob_rank": 18
+          }
+        ],
+        "marks": {
+          "honmei": 5,
+          "taikou": 2,
+          "tanana": 16,
+          "renka": [
+            17,
+            1,
+            15
+          ]
+        },
+        "honmei": 5,
+        "taikou": 2,
+        "tanana": 16,
+        "renka": [
+          17,
+          1,
+          15
+        ],
+        "brier": 0.8213,
+        "pWinner": 0.1752,
+        "winLogloss": 1.7419,
+        "note": "集約印6頭の中に3着内3頭すべてを含んだ。"
+      },
+      "experts": [
+        {
+          "id": "aoi",
+          "expert_id": "aoi",
+          "expert_name": "葵",
+          "school": "騎手",
+          "backend": "claude-sonnet",
+          "effort": "medium",
+          "pack_version": "v1",
+          "confidence": 0.62,
+          "pWinner": 0.2,
+          "winBrier": 0.7806,
+          "winLogloss": 1.6094,
+          "honmei": 5,
+          "honmeiStatus": "place",
+          "coverage": 3,
+          "placedMeanRank": 1.5,
+          "specOk": false,
+          "specSum": 0.88,
+          "prediction": {
+            "predicted_ranking": [
+              {
+                "horse_num": 5,
+                "rank": 1,
+                "horse_name": "クロワデュノール"
+              },
+              {
+                "horse_num": 16,
+                "rank": 2,
+                "horse_name": "メイショウタバル"
+              },
+              {
+                "horse_num": 2,
+                "rank": 3,
+                "horse_name": "ミュージアムマイル"
+              },
+              {
+                "horse_num": 17,
+                "rank": 4,
+                "horse_name": "レガレイラ"
+              },
+              {
+                "horse_num": 14,
+                "rank": 5,
+                "horse_name": "スティンガーグラス"
+              }
+            ],
+            "win_prob": [
+              {
+                "horse_num": 5,
+                "horse_name": "クロワデュノール",
+                "prob": 0.32
+              },
+              {
+                "horse_num": 16,
+                "horse_name": "メイショウタバル",
+                "prob": 0.2
+              },
+              {
+                "horse_num": 2,
+                "horse_name": "ミュージアムマイル",
+                "prob": 0.14
+              },
+              {
+                "horse_num": 17,
+                "horse_name": "レガレイラ",
+                "prob": 0.1
+              },
+              {
+                "horse_num": 1,
+                "horse_name": "ダノンデサイル",
+                "prob": 0.07
+              },
+              {
+                "horse_num": 14,
+                "horse_name": "スティンガーグラス",
+                "prob": 0.05
+              }
+            ],
+            "place_prob": [
+              {
+                "horse_num": 5,
+                "horse_name": "クロワデュノール",
+                "prob": 0.65
+              },
+              {
+                "horse_num": 16,
+                "horse_name": "メイショウタバル",
+                "prob": 0.52
+              },
+              {
+                "horse_num": 2,
+                "horse_name": "ミュージアムマイル",
+                "prob": 0.42
+              },
+              {
+                "horse_num": 17,
+                "horse_name": "レガレイラ",
+                "prob": 0.35
+              },
+              {
+                "horse_num": 1,
+                "horse_name": "ダノンデサイル",
+                "prob": 0.25
+              },
+              {
+                "horse_num": 14,
+                "horse_name": "スティンガーグラス",
+                "prob": 0.22
+              }
+            ],
+            "marks": {
+              "honmei": 5,
+              "taikou": 16,
+              "tanana": 2,
+              "renka": [
+                17,
+                14,
+                1
+              ]
+            },
+            "confidence": 0.62,
+            "rationale": "◎クロワデュノール（北村友一/斉藤崇史・栗東）：2026年大阪杯・天皇賞春を連勝し春古馬4冠目を狙う。阪神コースでの大阪杯G1勝利実績があり、栗東所属の地の利も万全。北村友一とのコンビ成績は今季G1二桁騎乗で最良。○メイショウタバル（武豊/石橋守・栗東）：2025年宝塚記念制覇、武豊の阪神芝2200m G1実績は圧倒的（5勝）。逃げ馬の戦法と1枠有利。栗東仕上げ。▲ミュージアムマイル（D.レーン/高柳大輔・美浦）：有馬記念勝馬でレーンとのコンビ再結成。レーン自身が馬の成長を高評価。ただし美浦東上馬で栗東比やや不利。△レガレイラ（ルメール/木村哲也・美浦）：エリザベス女王杯勝馬、牝馬56kg斤量利。ルメールの阪神2200m複勝実績あり。",
+            "data_used": [
+              "pack-v1.json",
+              "web:騎手G1実績（武豊/北村友一/川田将雅/ルメール/D.レーン）",
+              "web:2026年大阪杯・天皇賞春結果（クロワデュノール北村友一）",
+              "web:2025年宝塚記念結果（メイショウタバル武豊逃げ切り）",
+              "web:阪神芝2200m騎手データ（岩田望来1位/川田/武豊）",
+              "web:ミュージアムマイルD.レーン宝塚記念コメント",
+              "web:レガレイラ2025エリザベス女王杯勝利実績"
+            ],
+            "warnings": [
+              "past_races / training フィールドが空のため馬の近走成績は騎手・厩舎実績ベースで推定",
+              "梅雨期の馬場状態（良→稍重変動）は当日確認要。武豊×メイショウタバルは稍重で2025年宝塚記念勝利実績あり",
+              "ミュージアムマイルは有馬記念でC.デムーロ騎乗（D.レーンではなかった）。乗り替わり評価に注意",
+              "美浦所属馬（2番・17番）は栗東比で阪神への輸送不利を考慮"
+            ]
+          },
+          "score": {
+            "p_winner": 0.2,
+            "win_brier": 0.7806,
+            "win_logloss": 1.6094,
+            "honmei": 5,
+            "honmei_won": false,
+            "honmei_in_place3": true,
+            "honmei_status": "place",
+            "marks_place3_coverage": 3,
+            "placed_in_ranking": 2,
+            "placed_mean_pred_rank": 1.5,
+            "spec_sum_ok": false,
+            "win_prob_listed_sum": 0.88
+          }
+        },
+        {
+          "id": "goro",
+          "expert_id": "goro",
+          "expert_name": "吾郎",
+          "school": "馬場読み・トラックバイアス",
+          "backend": "claude-sonnet (gemini-fallback)",
+          "effort": "high",
+          "pack_version": "v1",
+          "confidence": 0.62,
+          "pWinner": 0.09,
+          "winBrier": 0.9843,
+          "winLogloss": 2.4079,
+          "honmei": 5,
+          "honmeiStatus": "place",
+          "coverage": 3,
+          "placedMeanRank": 3,
+          "specOk": false,
+          "specSum": 0.91,
+          "prediction": {
+            "predicted_ranking": [
+              {
+                "horse_num": 5,
+                "rank": 1,
+                "horse_name": "クロワデュノール"
+              },
+              {
+                "horse_num": 2,
+                "rank": 2,
+                "horse_name": "ミュージアムマイル"
+              },
+              {
+                "horse_num": 1,
+                "rank": 3,
+                "horse_name": "ダノンデサイル"
+              },
+              {
+                "horse_num": 6,
+                "rank": 4,
+                "horse_name": "ビザンチンドリーム"
+              },
+              {
+                "horse_num": 16,
+                "rank": 5,
+                "horse_name": "メイショウタバル"
+              }
+            ],
+            "win_prob": [
+              {
+                "horse_num": 5,
+                "horse_name": "クロワデュノール",
+                "prob": 0.3
+              },
+              {
+                "horse_num": 2,
+                "horse_name": "ミュージアムマイル",
+                "prob": 0.2
+              },
+              {
+                "horse_num": 1,
+                "horse_name": "ダノンデサイル",
+                "prob": 0.12
+              },
+              {
+                "horse_num": 16,
+                "horse_name": "メイショウタバル",
+                "prob": 0.09
+              },
+              {
+                "horse_num": 17,
+                "horse_name": "レガレイラ",
+                "prob": 0.07
+              },
+              {
+                "horse_num": 6,
+                "horse_name": "ビザンチンドリーム",
+                "prob": 0.06
+              },
+              {
+                "horse_num": 15,
+                "horse_name": "マイユニバース",
+                "prob": 0.04
+              },
+              {
+                "horse_num": 14,
+                "horse_name": "スティンガーグラス",
+                "prob": 0.03
+              }
+            ],
+            "place_prob": [
+              {
+                "horse_num": 5,
+                "horse_name": "クロワデュノール",
+                "prob": 0.62
+              },
+              {
+                "horse_num": 2,
+                "horse_name": "ミュージアムマイル",
+                "prob": 0.52
+              },
+              {
+                "horse_num": 1,
+                "horse_name": "ダノンデサイル",
+                "prob": 0.4
+              },
+              {
+                "horse_num": 6,
+                "horse_name": "ビザンチンドリーム",
+                "prob": 0.28
+              },
+              {
+                "horse_num": 16,
+                "horse_name": "メイショウタバル",
+                "prob": 0.27
+              },
+              {
+                "horse_num": 17,
+                "horse_name": "レガレイラ",
+                "prob": 0.25
+              },
+              {
+                "horse_num": 15,
+                "horse_name": "マイユニバース",
+                "prob": 0.15
+              }
+            ],
+            "marks": {
+              "honmei": 5,
+              "taikou": 2,
+              "tanana": 1,
+              "renka": [
+                6,
+                16
+              ]
+            },
+            "confidence": 0.62,
+            "rationale": "6/6-7阪神芝は2日間フラットバイアス（内外・前後差なし）。6/14は晴のち曇・降水確率20%で良馬場維持が濃厚。開幕馬場コンディションは時計速く持続力型に有利。◎クロワデュノール（3枠5番・キタサンブラック産駒）は阪神芝2200m良馬場で血統適性最高。○ミュージアムマイル（1枠2番・D.レーン）は内ラチ沿いロスゼロで好走圏。▲ダノンデサイル（1枠1番・エピファネイア系）は内枠×持続力で3着圏内。△ビザンチンドリームはエピファネイア系穴として評価。メイショウタバルはゴールドシップ系で良馬場では割引。",
+            "data_used": [
+              "pack-v1.json",
+              "阪神芝6/6-7週バイアス結果（bloodline-trackbias.work）",
+              "阪神競馬場6/14天気予報（tenki.jp: 晴のち曇・降水確率20%）",
+              "JRA馬場情報（芝：良）",
+              "阪神芝2200m枠順・脚質データ（keiba-course.com）",
+              "JRAリフレッシュ工事後馬場特性（2025春完了）"
+            ],
+            "warnings": [
+              "past_races / training データなし（pack-v1では空配列）。血統・馬場・枠順・オッズのみで判定",
+              "梅雨期のため前日からの降雨で馬場変動リスクあり。やや重以下になればメイショウタバル（ゴールドシップ系）の評価を上方修正要",
+              "gemini CLI unavailable につき claude-sonnet で代替実行"
+            ]
+          },
+          "score": {
+            "p_winner": 0.09,
+            "win_brier": 0.9843,
+            "win_logloss": 2.4079,
+            "honmei": 5,
+            "honmei_won": false,
+            "honmei_in_place3": true,
+            "honmei_status": "place",
+            "marks_place3_coverage": 3,
+            "placed_in_ranking": 3,
+            "placed_mean_pred_rank": 3,
+            "spec_sum_ok": false,
+            "win_prob_listed_sum": 0.91
+          }
+        },
+        {
+          "id": "hina",
+          "expert_id": "hina",
+          "expert_name": "陽菜",
+          "school": "穴党・逆張り",
+          "backend": "claude-haiku (gemini-fallback)",
+          "effort": "high",
+          "pack_version": "v1",
+          "confidence": 0.62,
+          "pWinner": 0.1143,
+          "winBrier": 0.9395,
+          "winLogloss": 2.1691,
+          "honmei": 17,
+          "honmeiStatus": "out",
+          "coverage": 3,
+          "placedMeanRank": 4,
+          "specOk": true,
+          "specSum": 1,
+          "prediction": {
+            "predicted_ranking": [
+              {
+                "horse_num": 17,
+                "rank": 1,
+                "horse_name": "レガレイラ"
+              },
+              {
+                "horse_num": 5,
+                "rank": 2,
+                "horse_name": "クロワデュノール"
+              },
+              {
+                "horse_num": 2,
+                "rank": 3,
+                "horse_name": "ミュージアムマイル"
+              },
+              {
+                "horse_num": 16,
+                "rank": 4,
+                "horse_name": "メイショウタバル"
+              },
+              {
+                "horse_num": 6,
+                "rank": 5,
+                "horse_name": "ビザンチンドリーム"
+              },
+              {
+                "horse_num": 1,
+                "rank": 6,
+                "horse_name": "ダノンデサイル"
+              },
+              {
+                "horse_num": 15,
+                "rank": 7,
+                "horse_name": "マイユニバース"
+              },
+              {
+                "horse_num": 14,
+                "rank": 8,
+                "horse_name": "スティンガーグラス"
+              }
+            ],
+            "win_prob": [
+              {
+                "horse_num": 17,
+                "horse_name": "レガレイラ",
+                "prob": 0.28
+              },
+              {
+                "horse_num": 5,
+                "horse_name": "クロワデュノール",
+                "prob": 0.22
+              },
+              {
+                "horse_num": 2,
+                "horse_name": "ミュージアムマイル",
+                "prob": 0.18
+              },
+              {
+                "horse_num": 16,
+                "horse_name": "メイショウタバル",
+                "prob": 0.12
+              },
+              {
+                "horse_num": 6,
+                "horse_name": "ビザンチンドリーム",
+                "prob": 0.08
+              },
+              {
+                "horse_num": 1,
+                "horse_name": "ダノンデサイル",
+                "prob": 0.05
+              },
+              {
+                "horse_num": 15,
+                "horse_name": "マイユニバース",
+                "prob": 0.04
+              },
+              {
+                "horse_num": 14,
+                "horse_name": "スティンガーグラス",
+                "prob": 0.03
+              }
+            ],
+            "place_prob": [
+              {
+                "horse_num": 17,
+                "horse_name": "レガレイラ",
+                "prob": 0.58
+              },
+              {
+                "horse_num": 5,
+                "horse_name": "クロワデュノール",
+                "prob": 0.52
+              },
+              {
+                "horse_num": 2,
+                "horse_name": "ミュージアムマイル",
+                "prob": 0.48
+              },
+              {
+                "horse_num": 16,
+                "horse_name": "メイショウタバル",
+                "prob": 0.38
+              },
+              {
+                "horse_num": 6,
+                "horse_name": "ビザンチンドリーム",
+                "prob": 0.32
+              },
+              {
+                "horse_num": 1,
+                "horse_name": "ダノンデサイル",
+                "prob": 0.25
+              },
+              {
+                "horse_num": 15,
+                "horse_name": "マイユニバース",
+                "prob": 0.22
+              },
+              {
+                "horse_num": 14,
+                "horse_name": "スティンガーグラス",
+                "prob": 0.18
+              }
+            ],
+            "marks": {
+              "honmei": 17,
+              "taikou": 5,
+              "tanana": 2,
+              "renka": [
+                16,
+                6,
+                1
+              ]
+            },
+            "confidence": 0.62,
+            "rationale": "穴党として1番人気クロワデュノールを外す。天皇賞春勝利後、調教師が『動き重い』と評価。半年の短期で重馬場対応は不透明。メイショウタバル連覇は大阪杯2着で前走から下降気配。本命層の不安定さを突き、実力馬レガレイラ（G1 3勝）に着目。G1 4勝目『名牝の系譜入り』の底力、『夏は牝馬57.1%勝率』データ、梅雨期適性の実績で急浮上。",
+            "data_used": [
+              "pack-v1.odds",
+              "天皇賞春2026成績・調教",
+              "有馬記念2025成績",
+              "大阪杯2026成績",
+              "宝塚記念牝馬データ",
+              "阪神芝2200m馬場リニューアル情報",
+              "梅雨期G1適性"
+            ],
+            "warnings": [
+              "前日オッズ未確定。本予想は前日夜時点の仮説。",
+              "梅雨入り後のため当日馬場変動に注意。",
+              "レガレイラは牝馬（56.0kg）で斤量有利。",
+              "ミュージアムマイルは半年ぶりの実戦。仕上がり次第で評価大変動の可能性。"
+            ]
+          },
+          "score": {
+            "p_winner": 0.1143,
+            "win_brier": 0.9395,
+            "win_logloss": 2.1691,
+            "honmei": 17,
+            "honmei_won": false,
+            "honmei_in_place3": false,
+            "honmei_status": "out",
+            "marks_place3_coverage": 3,
+            "placed_in_ranking": 3,
+            "placed_mean_pred_rank": 4,
+            "spec_sum_ok": true,
+            "win_prob_listed_sum": 1
+          }
+        },
+        {
+          "id": "kenta",
+          "expert_id": "kenta",
+          "expert_name": "健太",
+          "school": "指数",
+          "backend": "claude-sonnet",
+          "effort": "low",
+          "pack_version": "v1",
+          "confidence": 0.68,
+          "pWinner": 0.22,
+          "winBrier": 0.7879,
+          "winLogloss": 1.5141,
+          "honmei": 5,
+          "honmeiStatus": "place",
+          "coverage": 3,
+          "placedMeanRank": 2.33,
+          "specOk": false,
+          "specSum": 0.91,
+          "prediction": {
+            "predicted_ranking": [
+              {
+                "horse_num": 5,
+                "rank": 1,
+                "horse_name": "クロワデュノール"
+              },
+              {
+                "horse_num": 16,
+                "rank": 2,
+                "horse_name": "メイショウタバル"
+              },
+              {
+                "horse_num": 2,
+                "rank": 3,
+                "horse_name": "ミュージアムマイル"
+              },
+              {
+                "horse_num": 1,
+                "rank": 4,
+                "horse_name": "ダノンデサイル"
+              },
+              {
+                "horse_num": 17,
+                "rank": 5,
+                "horse_name": "レガレイラ"
+              }
+            ],
+            "win_prob": [
+              {
+                "horse_num": 5,
+                "horse_name": "クロワデュノール",
+                "prob": 0.38
+              },
+              {
+                "horse_num": 16,
+                "horse_name": "メイショウタバル",
+                "prob": 0.22
+              },
+              {
+                "horse_num": 2,
+                "horse_name": "ミュージアムマイル",
+                "prob": 0.14
+              },
+              {
+                "horse_num": 1,
+                "horse_name": "ダノンデサイル",
+                "prob": 0.1
+              },
+              {
+                "horse_num": 17,
+                "horse_name": "レガレイラ",
+                "prob": 0.07
+              }
+            ],
+            "place_prob": [
+              {
+                "horse_num": 5,
+                "horse_name": "クロワデュノール",
+                "prob": 0.72
+              },
+              {
+                "horse_num": 16,
+                "horse_name": "メイショウタバル",
+                "prob": 0.55
+              },
+              {
+                "horse_num": 2,
+                "horse_name": "ミュージアムマイル",
+                "prob": 0.42
+              },
+              {
+                "horse_num": 1,
+                "horse_name": "ダノンデサイル",
+                "prob": 0.32
+              },
+              {
+                "horse_num": 17,
+                "horse_name": "レガレイラ",
+                "prob": 0.25
+              }
+            ],
+            "marks": {
+              "honmei": 5,
+              "taikou": 16,
+              "tanana": 2,
+              "renka": [
+                1,
+                17
+              ]
+            },
+            "confidence": 0.68,
+            "rationale": "JRAプレレーティング（本年度最高値）を主軸に序列化。◎クロワデュノール（122I）は大阪杯・天皇賞春を連勝、ZI指数135で全馬トップ。数字は嘘をつかない。○メイショウタバル（120I）は昨年宝塚記念1着の阪神2200m巧者でZI124。▲ミュージアムマイル（昨年121L）は有馬記念優勝実績があるが本年度指数なし（遠征取消・休み明け）でZI128とリスク込み3位評価。ダノンデサイル（118I）とレガレイラ（昨年117L）が連下圏。指数差が明確で1頭抜け判定。",
+            "data_used": [
+              "JRA公式プレレーティング2026宝塚記念",
+              "JRA-VAN ZI指数（宝塚記念2026特集）",
+              "netkeiba近走成績（クロワデュノール・メイショウタバル・ミュージアムマイル・ダノンデサイル）",
+              "有馬記念2025結果（ミュージアムマイル1着・コスモキュランダ2着・ダノンデサイル3着）",
+              "大阪杯2026結果（クロワデュノール1着・メイショウタバル2着・ダノンデサイル3着）",
+              "天皇賞春2026結果（クロワデュノール1着）"
+            ],
+            "warnings": [
+              "pack-v1.jsonのpast_races・trainingが全頭空配列のため外部データを自力取得",
+              "ミュージアムマイル（2番）の本年度JRAプレレーティングは記録なし（ドバイ・香港遠征取消による未出走）、昨年度121Lを代用",
+              "レガレイラ（17番）・コスモキュランダ（9番）・ビザンチンドリーム（6番）の本年度レーティングも記録なしのため昨年度値を参考使用",
+              "梅雨入り後の当日馬場変動により重・稍重になった場合、道悪実績の加味が必要だが本分析では良馬場前提",
+              "JRA-VANのZI指数ページは文字化けのため馬名対応に一部推定を含む（プレレーティングで補完）"
+            ]
+          },
+          "score": {
+            "p_winner": 0.22,
+            "win_brier": 0.7879,
+            "win_logloss": 1.5141,
+            "honmei": 5,
+            "honmei_won": false,
+            "honmei_in_place3": true,
+            "honmei_status": "place",
+            "marks_place3_coverage": 3,
+            "placed_in_ranking": 3,
+            "placed_mean_pred_rank": 2.33,
+            "spec_sum_ok": false,
+            "win_prob_listed_sum": 0.91
+          }
+        },
+        {
+          "id": "makoto",
+          "expert_id": "makoto",
+          "expert_name": "誠",
+          "school": "データ統計派",
+          "backend": "claude-sonnet (codex-fallback)",
+          "effort": "high",
+          "pack_version": "v1",
+          "confidence": 0.62,
+          "pWinner": 0.18,
+          "winBrier": 0.8346,
+          "winLogloss": 1.7148,
+          "honmei": 5,
+          "honmeiStatus": "place",
+          "coverage": 3,
+          "placedMeanRank": 2.67,
+          "specOk": false,
+          "specSum": 0.92,
+          "prediction": {
+            "predicted_ranking": [
+              {
+                "horse_num": 5,
+                "rank": 1,
+                "horse_name": "クロワデュノール"
+              },
+              {
+                "horse_num": 16,
+                "rank": 2,
+                "horse_name": "メイショウタバル"
+              },
+              {
+                "horse_num": 2,
+                "rank": 3,
+                "horse_name": "ミュージアムマイル"
+              },
+              {
+                "horse_num": 17,
+                "rank": 4,
+                "horse_name": "レガレイラ"
+              },
+              {
+                "horse_num": 1,
+                "rank": 5,
+                "horse_name": "ダノンデサイル"
+              }
+            ],
+            "win_prob": [
+              {
+                "horse_num": 5,
+                "horse_name": "クロワデュノール",
+                "prob": 0.35
+              },
+              {
+                "horse_num": 16,
+                "horse_name": "メイショウタバル",
+                "prob": 0.18
+              },
+              {
+                "horse_num": 2,
+                "horse_name": "ミュージアムマイル",
+                "prob": 0.15
+              },
+              {
+                "horse_num": 17,
+                "horse_name": "レガレイラ",
+                "prob": 0.1
+              },
+              {
+                "horse_num": 1,
+                "horse_name": "ダノンデサイル",
+                "prob": 0.07
+              },
+              {
+                "horse_num": 15,
+                "horse_name": "マイユニバース",
+                "prob": 0.03
+              },
+              {
+                "horse_num": 6,
+                "horse_name": "ビザンチンドリーム",
+                "prob": 0.02
+              },
+              {
+                "horse_num": 14,
+                "horse_name": "スティンガーグラス",
+                "prob": 0.02
+              }
+            ],
+            "place_prob": [
+              {
+                "horse_num": 5,
+                "horse_name": "クロワデュノール",
+                "prob": 0.62
+              },
+              {
+                "horse_num": 16,
+                "horse_name": "メイショウタバル",
+                "prob": 0.48
+              },
+              {
+                "horse_num": 2,
+                "horse_name": "ミュージアムマイル",
+                "prob": 0.42
+              },
+              {
+                "horse_num": 17,
+                "horse_name": "レガレイラ",
+                "prob": 0.3
+              },
+              {
+                "horse_num": 1,
+                "horse_name": "ダノンデサイル",
+                "prob": 0.22
+              }
+            ],
+            "marks": {
+              "honmei": 5,
+              "taikou": 16,
+              "tanana": 2,
+              "renka": [
+                17,
+                1
+              ]
+            },
+            "confidence": 0.62,
+            "rationale": "◎クロワデュノール：キタサンブラック産駒は阪神芝内2200m勝率18.6%でトップ。G1 4連勝中（ホープフルS・日本ダービー・大阪杯・天皇賞春）。3番人気帯は過去10年最多3勝。前走天皇賞（春）勝ちは好走条件に合致。○メイショウタバル：8枠は過去10年5勝で最多。前年優勝馬の連覇は統計的にも支持されており、前走大阪杯2着で状態良好。▲ミュージアムマイル：4歳馬の複勝率28.9%は高く、有馬記念・皐月賞の2G1勝ちで実力証明。D.レーン騎乗も加点。先行有利のコースで前から9番手以内に収まる脚質が統計的に重要。",
+            "data_used": [
+              "pack-v1.json",
+              "宝塚記念過去10年人気別成績（JRA公式・Winsight）",
+              "宝塚記念過去10年枠番別成績（8枠5勝）",
+              "阪神芝2200m種牡馬別成績（キタサンブラック勝率18.6%）",
+              "宝塚記念過去10年脚質傾向（逃げ馬券内率40%・先行馬5勝）",
+              "宝塚記念過去10年年齢別成績（4歳複勝率28.9%・5歳複勝率25.0%）",
+              "クロワデュノール2026戦績（G1 4連勝：ホープフルS・日本ダービー・大阪杯・天皇賞春）",
+              "メイショウタバル2026戦績（前走大阪杯2着・2025宝塚記念勝ち）",
+              "ミュージアムマイル2026戦績（有馬記念2025勝ち・皐月賞2025勝ち）"
+            ],
+            "warnings": [
+              "pack-v1.json の past_races / training フィールドが空。個別馬の近走詳細タイム・馬体重変動は未取得",
+              "梅雨入り後の馬場変動（当日稍重・重化の可能性）が統計外のリスクファクターとして残存",
+              "前日オッズ未確定のため人気帯の最終確認が必要",
+              "codex CLI 不在のため claude-sonnet にフォールバック実行。本来の jinba-makoto-codex.sh は未実行"
+            ]
+          },
+          "score": {
+            "p_winner": 0.18,
+            "win_brier": 0.8346,
+            "win_logloss": 1.7148,
+            "honmei": 5,
+            "honmei_won": false,
+            "honmei_in_place3": true,
+            "honmei_status": "place",
+            "marks_place3_coverage": 3,
+            "placed_in_ranking": 3,
+            "placed_mean_pred_rank": 2.67,
+            "spec_sum_ok": false,
+            "win_prob_listed_sum": 0.92
+          }
+        },
+        {
+          "id": "misaki",
+          "expert_id": "misaki",
+          "expert_name": "美咲",
+          "school": "展開",
+          "backend": "claude-opus",
+          "effort": "medium",
+          "pack_version": "v1",
+          "confidence": 0.62,
+          "pWinner": 0.17,
+          "winBrier": 0.8238,
+          "winLogloss": 1.772,
+          "honmei": 5,
+          "honmeiStatus": "place",
+          "coverage": 3,
+          "placedMeanRank": 2.33,
+          "specOk": true,
+          "specSum": 0.96,
+          "prediction": {
+            "predicted_ranking": [
+              {
+                "horse_num": 5,
+                "rank": 1,
+                "horse_name": "クロワデュノール"
+              },
+              {
+                "horse_num": 16,
+                "rank": 2,
+                "horse_name": "メイショウタバル"
+              },
+              {
+                "horse_num": 2,
+                "rank": 3,
+                "horse_name": "ミュージアムマイル"
+              },
+              {
+                "horse_num": 1,
+                "rank": 4,
+                "horse_name": "ダノンデサイル"
+              },
+              {
+                "horse_num": 17,
+                "rank": 5,
+                "horse_name": "レガレイラ"
+              }
+            ],
+            "win_prob": [
+              {
+                "horse_num": 5,
+                "horse_name": "クロワデュノール",
+                "prob": 0.3
+              },
+              {
+                "horse_num": 16,
+                "horse_name": "メイショウタバル",
+                "prob": 0.17
+              },
+              {
+                "horse_num": 2,
+                "horse_name": "ミュージアムマイル",
+                "prob": 0.15
+              },
+              {
+                "horse_num": 1,
+                "horse_name": "ダノンデサイル",
+                "prob": 0.1
+              },
+              {
+                "horse_num": 17,
+                "horse_name": "レガレイラ",
+                "prob": 0.08
+              },
+              {
+                "horse_num": 15,
+                "horse_name": "マイユニバース",
+                "prob": 0.05
+              },
+              {
+                "horse_num": 6,
+                "horse_name": "ビザンチンドリーム",
+                "prob": 0.04
+              },
+              {
+                "horse_num": 4,
+                "horse_name": "ミクニインスパイア",
+                "prob": 0.03
+              },
+              {
+                "horse_num": 14,
+                "horse_name": "スティンガーグラス",
+                "prob": 0.02
+              },
+              {
+                "horse_num": 9,
+                "horse_name": "コスモキュランダ",
+                "prob": 0.02
+              }
+            ],
+            "place_prob": [
+              {
+                "horse_num": 5,
+                "horse_name": "クロワデュノール",
+                "prob": 0.65
+              },
+              {
+                "horse_num": 16,
+                "horse_name": "メイショウタバル",
+                "prob": 0.48
+              },
+              {
+                "horse_num": 2,
+                "horse_name": "ミュージアムマイル",
+                "prob": 0.42
+              },
+              {
+                "horse_num": 1,
+                "horse_name": "ダノンデサイル",
+                "prob": 0.3
+              },
+              {
+                "horse_num": 17,
+                "horse_name": "レガレイラ",
+                "prob": 0.25
+              },
+              {
+                "horse_num": 15,
+                "horse_name": "マイユニバース",
+                "prob": 0.15
+              },
+              {
+                "horse_num": 6,
+                "horse_name": "ビザンチンドリーム",
+                "prob": 0.12
+              },
+              {
+                "horse_num": 4,
+                "horse_name": "ミクニインスパイア",
+                "prob": 0.1
+              },
+              {
+                "horse_num": 9,
+                "horse_name": "コスモキュランダ",
+                "prob": 0.08
+              },
+              {
+                "horse_num": 14,
+                "horse_name": "スティンガーグラス",
+                "prob": 0.07
+              }
+            ],
+            "marks": {
+              "honmei": 5,
+              "taikou": 16,
+              "tanana": 2,
+              "renka": [
+                1,
+                17,
+                15
+              ]
+            },
+            "confidence": 0.62,
+            "rationale": "想定ラップ: 12.5-12.3-11.8-12.0-12.3-12.0-11.8-11.6-11.5-11.8-12.0（2:11.6前後）。メイショウタバル単騎逃げ濃厚、1000m通過59.0-59.5秒の平均ペース想定。3-4角からのロングスパート戦で、中団好位から持続力で押し切れるクロワデュノールが最有力。大阪杯・天皇賞春と同パターンで3-4角外から長く脚を使い差し切る形。メイショウタバルは昨年同様の単騎逃げで粘り込み2着候補。ミュージアムマイルは末脚鋭いが内枠発走で包まれるリスクあり、展開が向けば突き抜ける力はある。ペース速化時はミュージアムマイル・レガレイラ浮上、スロー時はクロワデュノール・メイショウタバルで堅い。両シナリオで残るクロワデュノール本命。",
+            "data_used": [
+              "pack-v1.json",
+              "宝塚記念過去ラップ(2024-2025)",
+              "大阪杯2026結果",
+              "天皇賞春2026結果",
+              "有馬記念2025結果",
+              "各馬脚質・近走成績(web)",
+              "阪神芝馬場情報(2026年6月)"
+            ],
+            "warnings": [
+              "梅雨入り後のため当日馬場悪化の場合は差し・追込有利にシフトし、レガレイラ・ミュージアムマイルの評価上昇要因となる",
+              "past_racesデータ未提供のためweb調査に依存。一部馬の近走詳細が不完全",
+              "ミュージアムマイルの大阪杯2026着順が複数情報源で不一致のため確認要"
+            ]
+          },
+          "score": {
+            "p_winner": 0.17,
+            "win_brier": 0.8238,
+            "win_logloss": 1.772,
+            "honmei": 5,
+            "honmei_won": false,
+            "honmei_in_place3": true,
+            "honmei_status": "place",
+            "marks_place3_coverage": 3,
+            "placed_in_ranking": 3,
+            "placed_mean_pred_rank": 2.33,
+            "spec_sum_ok": true,
+            "win_prob_listed_sum": 0.96
+          }
+        },
+        {
+          "id": "sakura",
+          "expert_id": "sakura",
+          "expert_name": "さくら",
+          "school": "オッズ",
+          "backend": "claude-haiku",
+          "effort": "medium",
+          "pack_version": "v1",
+          "confidence": 0.55,
+          "pWinner": 0.1353,
+          "winBrier": 0.8991,
+          "winLogloss": 2.0005,
+          "honmei": 5,
+          "honmeiStatus": "place",
+          "coverage": 3,
+          "placedMeanRank": 3,
+          "specOk": true,
+          "specSum": 0.99,
+          "prediction": {
+            "predicted_ranking": [
+              {
+                "horse_num": 5,
+                "rank": 1,
+                "horse_name": "クロワデュノール"
+              },
+              {
+                "horse_num": 2,
+                "rank": 2,
+                "horse_name": "ミュージアムマイル"
+              },
+              {
+                "horse_num": 16,
+                "rank": 3,
+                "horse_name": "メイショウタバル"
+              },
+              {
+                "horse_num": 17,
+                "rank": 4,
+                "horse_name": "レガレイラ"
+              },
+              {
+                "horse_num": 1,
+                "rank": 5,
+                "horse_name": "ダノンデサイル"
+              }
+            ],
+            "win_prob": [
+              {
+                "horse_num": 5,
+                "horse_name": "クロワデュノール",
+                "prob": 0.32
+              },
+              {
+                "horse_num": 2,
+                "horse_name": "ミュージアムマイル",
+                "prob": 0.18
+              },
+              {
+                "horse_num": 16,
+                "horse_name": "メイショウタバル",
+                "prob": 0.14
+              },
+              {
+                "horse_num": 17,
+                "horse_name": "レガレイラ",
+                "prob": 0.12
+              },
+              {
+                "horse_num": 1,
+                "horse_name": "ダノンデサイル",
+                "prob": 0.08
+              },
+              {
+                "horse_num": 15,
+                "horse_name": "マイユニバース",
+                "prob": 0.05
+              },
+              {
+                "horse_num": 6,
+                "horse_name": "ビザンチンドリーム",
+                "prob": 0.05
+              },
+              {
+                "horse_num": 4,
+                "horse_name": "ミクニインスパイア",
+                "prob": 0.03
+              },
+              {
+                "horse_num": 14,
+                "horse_name": "スティンガーグラス",
+                "prob": 0.02
+              }
+            ],
+            "place_prob": [
+              {
+                "horse_num": 5,
+                "horse_name": "クロワデュノール",
+                "prob": 0.62
+              },
+              {
+                "horse_num": 2,
+                "horse_name": "ミュージアムマイル",
+                "prob": 0.42
+              },
+              {
+                "horse_num": 16,
+                "horse_name": "メイショウタバル",
+                "prob": 0.35
+              },
+              {
+                "horse_num": 17,
+                "horse_name": "レガレイラ",
+                "prob": 0.32
+              },
+              {
+                "horse_num": 1,
+                "horse_name": "ダノンデサイル",
+                "prob": 0.22
+              },
+              {
+                "horse_num": 15,
+                "horse_name": "マイユニバース",
+                "prob": 0.15
+              },
+              {
+                "horse_num": 6,
+                "horse_name": "ビザンチンドリーム",
+                "prob": 0.14
+              },
+              {
+                "horse_num": 4,
+                "horse_name": "ミクニインスパイア",
+                "prob": 0.1
+              }
+            ],
+            "marks": {
+              "honmei": 5,
+              "taikou": 2,
+              "tanana": 16,
+              "renka": [
+                17,
+                1
+              ]
+            },
+            "confidence": 0.55,
+            "rationale": "オッズ市場はファン投票と一致し、クロワデュノール(2.4倍)が圧倒的本命。ミュージアムマイル(4.5倍)は若い4歳馬で外国人騎手。メイショウタバル(6倍)が3番人気で、宝塚記念の歴史的な3-4番人気波乱パターンに合致。複勝層の支持を受けるレガレイラ(9倍)も軽視できず。市場の歪みは小さいが、古馬層からダノンデサイル(10倍)が控除的な狙い目。",
+            "data_used": [
+              "horses.odds",
+              "race.fan_vote_top3",
+              "pack_meta.sources"
+            ],
+            "warnings": [
+              "複勝オッズが明示されていないため、単勝オッズから推定",
+              "当週阪神芝バイアスと梅雨時の馬場変動に注意（実況中継時の変更あり得る）",
+              "past_races / training データなしで流動的メンバーの詳細評価は限定的"
+            ]
+          },
+          "score": {
+            "p_winner": 0.1353,
+            "win_brier": 0.8991,
+            "win_logloss": 2.0005,
+            "honmei": 5,
+            "honmei_won": false,
+            "honmei_in_place3": true,
+            "honmei_status": "place",
+            "marks_place3_coverage": 3,
+            "placed_in_ranking": 3,
+            "placed_mean_pred_rank": 3,
+            "spec_sum_ok": true,
+            "win_prob_listed_sum": 0.99
+          }
+        },
+        {
+          "id": "tatsunosuke",
+          "expert_id": "tatsunosuke",
+          "expert_name": "龍之介",
+          "school": "血統",
+          "backend": "claude-opus",
+          "effort": "high",
+          "pack_version": "v1",
+          "confidence": 0.65,
+          "pWinner": 0.2167,
+          "winBrier": 0.6997,
+          "winLogloss": 1.529,
+          "honmei": 16,
+          "honmeiStatus": "win",
+          "coverage": 3,
+          "placedMeanRank": 2,
+          "specOk": true,
+          "specSum": 1.001,
+          "prediction": {
+            "predicted_ranking": [
+              {
+                "horse_num": 16,
+                "rank": 1,
+                "horse_name": "メイショウタバル"
+              },
+              {
+                "horse_num": 2,
+                "rank": 2,
+                "horse_name": "ミュージアムマイル"
+              },
+              {
+                "horse_num": 5,
+                "rank": 3,
+                "horse_name": "クロワデュノール"
+              },
+              {
+                "horse_num": 17,
+                "rank": 4,
+                "horse_name": "レガレイラ"
+              },
+              {
+                "horse_num": 6,
+                "rank": 5,
+                "horse_name": "ビザンチンドリーム"
+              }
+            ],
+            "win_prob": [
+              {
+                "horse_num": 16,
+                "horse_name": "メイショウタバル",
+                "prob": 0.22
+              },
+              {
+                "horse_num": 2,
+                "horse_name": "ミュージアムマイル",
+                "prob": 0.18
+              },
+              {
+                "horse_num": 5,
+                "horse_name": "クロワデュノール",
+                "prob": 0.16
+              },
+              {
+                "horse_num": 17,
+                "horse_name": "レガレイラ",
+                "prob": 0.12
+              },
+              {
+                "horse_num": 6,
+                "horse_name": "ビザンチンドリーム",
+                "prob": 0.08
+              },
+              {
+                "horse_num": 1,
+                "horse_name": "ダノンデサイル",
+                "prob": 0.07
+              },
+              {
+                "horse_num": 15,
+                "horse_name": "マイユニバース",
+                "prob": 0.05
+              },
+              {
+                "horse_num": 13,
+                "horse_name": "シェイクユアハート",
+                "prob": 0.03
+              },
+              {
+                "horse_num": 12,
+                "horse_name": "マイネルエンペラー",
+                "prob": 0.03
+              },
+              {
+                "horse_num": 14,
+                "horse_name": "スティンガーグラス",
+                "prob": 0.02
+              },
+              {
+                "horse_num": 10,
+                "horse_name": "ジューンテイク",
+                "prob": 0.01
+              },
+              {
+                "horse_num": 7,
+                "horse_name": "ファミリータイム",
+                "prob": 0.01
+              },
+              {
+                "horse_num": 9,
+                "horse_name": "コスモキュランダ",
+                "prob": 0.01
+              },
+              {
+                "horse_num": 4,
+                "horse_name": "ミクニインスパイア",
+                "prob": 0.005
+              },
+              {
+                "horse_num": 11,
+                "horse_name": "シンエンペラー",
+                "prob": 0.003
+              },
+              {
+                "horse_num": 3,
+                "horse_name": "シュガークン",
+                "prob": 0.001
+              },
+              {
+                "horse_num": 8,
+                "horse_name": "タガノデュード",
+                "prob": 0.001
+              },
+              {
+                "horse_num": 18,
+                "horse_name": "ミステリーウェイ",
+                "prob": 0.001
+              }
+            ],
+            "place_prob": [
+              {
+                "horse_num": 16,
+                "horse_name": "メイショウタバル",
+                "prob": 0.52
+              },
+              {
+                "horse_num": 2,
+                "horse_name": "ミュージアムマイル",
+                "prob": 0.46
+              },
+              {
+                "horse_num": 5,
+                "horse_name": "クロワデュノール",
+                "prob": 0.42
+              },
+              {
+                "horse_num": 17,
+                "horse_name": "レガレイラ",
+                "prob": 0.32
+              },
+              {
+                "horse_num": 6,
+                "horse_name": "ビザンチンドリーム",
+                "prob": 0.22
+              },
+              {
+                "horse_num": 1,
+                "horse_name": "ダノンデサイル",
+                "prob": 0.2
+              },
+              {
+                "horse_num": 15,
+                "horse_name": "マイユニバース",
+                "prob": 0.14
+              },
+              {
+                "horse_num": 13,
+                "horse_name": "シェイクユアハート",
+                "prob": 0.1
+              },
+              {
+                "horse_num": 12,
+                "horse_name": "マイネルエンペラー",
+                "prob": 0.09
+              }
+            ],
+            "marks": {
+              "honmei": 16,
+              "taikou": 2,
+              "tanana": 5,
+              "renka": [
+                17,
+                6,
+                1
+              ]
+            },
+            "confidence": 0.65,
+            "rationale": "宝塚記念はステイゴールド系の独壇場。父ゴールドシップ（ステイゴールド直仔）のメイショウタバルは昨年の同レース勝馬で阪神芝全勝、梅雨馬場も苦にしない。母父フレンチデピュティのパワーも内回り向き。対抗ミュージアムマイルは父リオンディーズ（ロベルト系）×母父ハーツクライでスタミナ二重補強、トニービン内包も宝塚好走血統に合致。クロワデュノールは能力最上位も、キタサンブラック産駒はSS系統で本レースでは血統的にやや割引。",
+            "data_used": [
+              "pedigree",
+              "broodmare_sire",
+              "takarazuka_kinen_blood_trend_10yr",
+              "stay_gold_line_stats",
+              "hearts_cry_tonbin_stats",
+              "web_search_pedigree_data"
+            ],
+            "warnings": [
+              "past_races・training データが pack に未収録のため、近走調子・調教内容は未考慮",
+              "馬場状態が良予報だが梅雨入り後で当日変動リスクあり。稍重以上ならメイショウタバルの優位度はさらに上昇",
+              "ファン投票1位クロワデュノールは能力面では最上位候補だが、血統視点ではSS主流系統のため本分析では3番手評価"
+            ]
+          },
+          "score": {
+            "p_winner": 0.2167,
+            "win_brier": 0.6997,
+            "win_logloss": 1.529,
+            "honmei": 16,
+            "honmei_won": true,
+            "honmei_in_place3": true,
+            "honmei_status": "win",
+            "marks_place3_coverage": 3,
+            "placed_in_ranking": 2,
+            "placed_mean_pred_rank": 2,
+            "spec_sum_ok": true,
+            "win_prob_listed_sum": 1.001
+          }
+        },
+        {
+          "id": "teppei",
+          "expert_id": "teppei",
+          "expert_name": "鉄平",
+          "school": "調教",
+          "backend": "claude-sonnet (codex-fallback)",
+          "effort": "high",
+          "pack_version": "v1",
+          "confidence": 0.58,
+          "pWinner": 0.18,
+          "winBrier": 0.7749,
+          "winLogloss": 1.7148,
+          "honmei": 1,
+          "honmeiStatus": "place",
+          "coverage": 3,
+          "placedMeanRank": 2.33,
+          "specOk": false,
+          "specSum": 0.83,
+          "prediction": {
+            "predicted_ranking": [
+              {
+                "horse_num": 1,
+                "rank": 1,
+                "horse_name": "ダノンデサイル"
+              },
+              {
+                "horse_num": 16,
+                "rank": 2,
+                "horse_name": "メイショウタバル"
+              },
+              {
+                "horse_num": 15,
+                "rank": 3,
+                "horse_name": "マイユニバース"
+              },
+              {
+                "horse_num": 5,
+                "rank": 4,
+                "horse_name": "クロワデュノール"
+              },
+              {
+                "horse_num": 2,
+                "rank": 5,
+                "horse_name": "ミュージアムマイル"
+              }
+            ],
+            "win_prob": [
+              {
+                "horse_num": 1,
+                "horse_name": "ダノンデサイル",
+                "prob": 0.22
+              },
+              {
+                "horse_num": 16,
+                "horse_name": "メイショウタバル",
+                "prob": 0.18
+              },
+              {
+                "horse_num": 15,
+                "horse_name": "マイユニバース",
+                "prob": 0.16
+              },
+              {
+                "horse_num": 5,
+                "horse_name": "クロワデュノール",
+                "prob": 0.12
+              },
+              {
+                "horse_num": 2,
+                "horse_name": "ミュージアムマイル",
+                "prob": 0.09
+              },
+              {
+                "horse_num": 12,
+                "horse_name": "マイネルエンペラー",
+                "prob": 0.06
+              }
+            ],
+            "place_prob": [
+              {
+                "horse_num": 1,
+                "horse_name": "ダノンデサイル",
+                "prob": 0.55
+              },
+              {
+                "horse_num": 16,
+                "horse_name": "メイショウタバル",
+                "prob": 0.5
+              },
+              {
+                "horse_num": 15,
+                "horse_name": "マイユニバース",
+                "prob": 0.48
+              },
+              {
+                "horse_num": 5,
+                "horse_name": "クロワデュノール",
+                "prob": 0.38
+              },
+              {
+                "horse_num": 2,
+                "horse_name": "ミュージアムマイル",
+                "prob": 0.3
+              },
+              {
+                "horse_num": 12,
+                "horse_name": "マイネルエンペラー",
+                "prob": 0.22
+              }
+            ],
+            "marks": {
+              "honmei": 1,
+              "taikou": 16,
+              "tanana": 15,
+              "renka": [
+                5,
+                2,
+                12
+              ]
+            },
+            "confidence": 0.58,
+            "rationale": "◎ダノンデサイル：最終追い切り栗東CW 84.6-54.5-38.6-11.7は全体こそ遅めだが、1週前82.6で手前変換タイミング良好・加速速いと好評価。ウッド選択で長距離対応の余力を残した仕上げ方が好感。○メイショウタバル：最終CW ラスト1F 10.9は出走18頭中最速。1週前80.8も好調評価で2走通じて末脚が研ぎ澄まされている。▲マイユニバース：最終CW 78.6全体時計は全出走馬中最速。1週前79.3も単走で好調、可動域広く伸び良好。仕上がり最高潮。△連下はクロワデュノール（1週前の併せ遅れから最終で改善）、ミュージアムマイル（最終坂路で併せ先着）、マイネルエンペラー（最終CW 11.5安定）。スティンガーグラスは1週前舌出し・反応鈍く消し。",
+            "data_used": [
+              "pack-v1.json",
+              "web:宝塚記念2026最終追い切りタイム一覧（bfkeiba.com）",
+              "web:宝塚記念2026 1週前追い切り診断（rihua-keiba.com）",
+              "web:宝塚記念2026調教S評価（umanity.jp）"
+            ],
+            "warnings": [
+              "training フィールドが空のためWebFetchで取得した追切タイムを使用",
+              "past_races フィールドが空のため近走実績は調教評価に絞った予想",
+              "梅雨入り後の馬場変動（良→稍重）は当日確認必須。含水率・クッション値は金曜公開前",
+              "ダノンデサイルは本来CWよりウッド選択の意図を重視した評価だが、追切タイム数値は全体遅め。仕上げ方針の判断に裁量含む",
+              "クロワデュノールは1週前に3頭併せ外で遅れており、最終での改善は確認できるが1週前評価との乖離に注意"
+            ]
+          },
+          "score": {
+            "p_winner": 0.18,
+            "win_brier": 0.7749,
+            "win_logloss": 1.7148,
+            "honmei": 1,
+            "honmei_won": false,
+            "honmei_in_place3": true,
+            "honmei_status": "place",
+            "marks_place3_coverage": 3,
+            "placed_in_ranking": 3,
+            "placed_mean_pred_rank": 2.33,
+            "spec_sum_ok": false,
+            "win_prob_listed_sum": 0.83
+          }
+        },
+        {
+          "id": "yuko",
+          "expert_id": "yuko",
+          "expert_name": "優子",
+          "school": "本命",
+          "backend": "claude-haiku",
+          "effort": "low",
+          "pack_version": "v1",
+          "confidence": 0.72,
+          "pWinner": 0.1327,
+          "winBrier": 0.9898,
+          "winLogloss": 2.0197,
+          "honmei": 5,
+          "honmeiStatus": "place",
+          "coverage": 3,
+          "placedMeanRank": 3,
+          "specOk": true,
+          "specSum": 1,
+          "prediction": {
+            "predicted_ranking": [
+              {
+                "horse_num": 5,
+                "rank": 1,
+                "horse_name": "クロワデュノール"
+              },
+              {
+                "horse_num": 2,
+                "rank": 2,
+                "horse_name": "ミュージアムマイル"
+              },
+              {
+                "horse_num": 16,
+                "rank": 3,
+                "horse_name": "メイショウタバル"
+              },
+              {
+                "horse_num": 17,
+                "rank": 4,
+                "horse_name": "レガレイラ"
+              },
+              {
+                "horse_num": 1,
+                "rank": 5,
+                "horse_name": "ダノンデサイル"
+              }
+            ],
+            "win_prob": [
+              {
+                "horse_num": 5,
+                "horse_name": "クロワデュノール",
+                "prob": 0.42
+              },
+              {
+                "horse_num": 2,
+                "horse_name": "ミュージアムマイル",
+                "prob": 0.28
+              },
+              {
+                "horse_num": 16,
+                "horse_name": "メイショウタバル",
+                "prob": 0.14
+              },
+              {
+                "horse_num": 17,
+                "horse_name": "レガレイラ",
+                "prob": 0.08
+              },
+              {
+                "horse_num": 1,
+                "horse_name": "ダノンデサイル",
+                "prob": 0.05
+              },
+              {
+                "horse_num": 6,
+                "horse_name": "ビザンチンドリーム",
+                "prob": 0.02
+              },
+              {
+                "horse_num": 15,
+                "horse_name": "マイユニバース",
+                "prob": 0.01
+              }
+            ],
+            "place_prob": [
+              {
+                "horse_num": 5,
+                "horse_name": "クロワデュノール",
+                "prob": 0.68
+              },
+              {
+                "horse_num": 2,
+                "horse_name": "ミュージアムマイル",
+                "prob": 0.58
+              },
+              {
+                "horse_num": 16,
+                "horse_name": "メイショウタバル",
+                "prob": 0.38
+              },
+              {
+                "horse_num": 17,
+                "horse_name": "レガレイラ",
+                "prob": 0.28
+              },
+              {
+                "horse_num": 1,
+                "horse_name": "ダノンデサイル",
+                "prob": 0.18
+              },
+              {
+                "horse_num": 6,
+                "horse_name": "ビザンチンドリーム",
+                "prob": 0.1
+              },
+              {
+                "horse_num": 15,
+                "horse_name": "マイユニバース",
+                "prob": 0.08
+              },
+              {
+                "horse_num": 14,
+                "horse_name": "スティンガーグラス",
+                "prob": 0.06
+              }
+            ],
+            "marks": {
+              "honmei": 5,
+              "taikou": 2,
+              "tanana": 16,
+              "renka": [
+                17,
+                1,
+                6
+              ]
+            },
+            "confidence": 0.72,
+            "rationale": "クロワデュノールは2.4倍1番人気で、直近のG1（天皇賞春、大阪杯）を連勝している。安定感抜群。阪神芝2200mは大阪杯勝利で距離・コース適性を証明済み。ミュージアムマイルは4.5倍で2番人気。有馬記念勝利、秋天2着と安定した実績。メイショウタバルは6.0倍で武豊とのコンビ、父ゴールドシップがこのレース連覇したG1馬。複勝圏は5、2、16で堅く考える。",
+            "data_used": [
+              "odds",
+              "horses_pedigree",
+              "recent_g1_wins",
+              "jockey_information"
+            ],
+            "warnings": [
+              "梅雨入り後の馬場変動に注意",
+              "前日オッズ未確定"
+            ]
+          },
+          "score": {
+            "p_winner": 0.1327,
+            "win_brier": 0.9898,
+            "win_logloss": 2.0197,
+            "honmei": 5,
+            "honmei_won": false,
+            "honmei_in_place3": true,
+            "honmei_status": "place",
+            "marks_place3_coverage": 3,
+            "placed_in_ranking": 3,
+            "placed_mean_pred_rank": 3,
+            "spec_sum_ok": true,
+            "win_prob_listed_sum": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "202609030611",
+      "race_id": "202609030611",
+      "name": "しらさぎステークス",
+      "race_name": "しらさぎステークス",
+      "grade": "G3",
+      "date": "2026-06-21",
+      "post_time": "15:30",
+      "course": "阪神・芝1600m・外回り・重",
+      "course_detail": {
+        "track": "阪神",
+        "surface": "芝",
+        "distance": 1600,
+        "direction": "右",
+        "inner_outer": "外",
+        "course_variant": "Bコース"
+      },
+      "weather": {
+        "forecast": "晴",
+        "track_condition": "重",
+        "track_condition_note": "当日午前確認。晴天だが馬場は重。梅雨時期の影響。"
+      },
+      "sampleLabel": "n=2 / 正式運用",
+      "sample_label": "n=2 / 正式運用",
+      "horses": {
+        "1": "スマートワイス",
+        "2": "ファインライン",
+        "3": "メイショウシンタケ",
+        "4": "ブエナオンダ",
+        "5": "ファーヴェント",
+        "6": "シンフォーエバー",
+        "7": "キープカルム",
+        "8": "サイルーン",
+        "9": "ファンダム",
+        "10": "エルトンバローズ",
+        "11": "エコロアルバ",
+        "12": "カズミクラーシュ",
+        "13": "メタルスピード",
+        "14": "ミニトランザット",
+        "15": "ショウナンアデイブ",
+        "16": "スリールミニョン",
+        "17": "スイープアワーズ",
+        "18": "タガノエルピーダ"
+      },
+      "horse_list": [
+        {
+          "horse_num": 1,
+          "name": "スマートワイス",
+          "gate": 1,
+          "jockey": "川田将雅",
+          "trainer": "大久保龍志",
+          "odds_win": 19.3
+        },
+        {
+          "horse_num": 2,
+          "name": "ファインライン",
+          "gate": 1,
+          "jockey": "小崎綾也",
+          "trainer": "松永幹夫",
+          "odds_win": 46.5
+        },
+        {
+          "horse_num": 3,
+          "name": "メイショウシンタケ",
+          "gate": 2,
+          "jockey": "太宰啓介",
+          "trainer": "千田輝彦",
+          "odds_win": 112.1
+        },
+        {
+          "horse_num": 4,
+          "name": "ブエナオンダ",
+          "gate": 3,
+          "jockey": "田口貫太",
+          "trainer": "須貝尚介",
+          "odds_win": 37.4
+        },
+        {
+          "horse_num": 5,
+          "name": "ファーヴェント",
+          "gate": 3,
+          "jockey": "高杉和也",
+          "trainer": "藤原英昭",
+          "odds_win": 6.1
+        },
+        {
+          "horse_num": 6,
+          "name": "シンフォーエバー",
+          "gate": 4,
+          "jockey": "吉村誠之助",
+          "trainer": "森秀行",
+          "odds_win": 121.3
+        },
+        {
+          "horse_num": 7,
+          "name": "キープカルム",
+          "gate": 4,
+          "jockey": "坂井瑠星",
+          "trainer": "中竹和也",
+          "odds_win": 16.2
+        },
+        {
+          "horse_num": 8,
+          "name": "サイルーン",
+          "gate": 5,
+          "jockey": "岩田望来",
+          "trainer": "堀宣行",
+          "odds_win": 8.1
+        },
+        {
+          "horse_num": 9,
+          "name": "ファンダム",
+          "gate": 5,
+          "jockey": "北村宏司",
+          "trainer": "辻哲也",
+          "odds_win": 10.6
+        },
+        {
+          "horse_num": 10,
+          "name": "エルトンバローズ",
+          "gate": 6,
+          "jockey": "松若風馬",
+          "trainer": "杉山晴紀",
+          "odds_win": 12.1
+        },
+        {
+          "horse_num": 11,
+          "name": "エコロアルバ",
+          "gate": 6,
+          "jockey": "横山和生",
+          "trainer": "田村康仁",
+          "odds_win": 4
+        },
+        {
+          "horse_num": 12,
+          "name": "カズミクラーシュ",
+          "gate": 7,
+          "jockey": "幸英明",
+          "trainer": "吉岡辰弥",
+          "odds_win": 15.1
+        },
+        {
+          "horse_num": 13,
+          "name": "メタルスピード",
+          "gate": 7,
+          "jockey": "菱田裕二",
+          "trainer": "斎藤誠",
+          "odds_win": 53.1
+        },
+        {
+          "horse_num": 14,
+          "name": "ミニトランザット",
+          "gate": 7,
+          "jockey": "松山弘平",
+          "trainer": "杉山佳明",
+          "odds_win": 7.5
+        },
+        {
+          "horse_num": 15,
+          "name": "ショウナンアデイブ",
+          "gate": 8,
+          "jockey": "池添謙一",
+          "trainer": "高野友和",
+          "odds_win": 26.6
+        },
+        {
+          "horse_num": 16,
+          "name": "スリールミニョン",
+          "gate": 8,
+          "jockey": "永島まな",
+          "trainer": "高橋康之",
+          "odds_win": 61.5
+        },
+        {
+          "horse_num": 17,
+          "name": "スイープアワーズ",
+          "gate": 8,
+          "jockey": "国分恭介",
+          "trainer": "宮地彰彦",
+          "odds_win": 14.5
+        },
+        {
+          "horse_num": 18,
+          "name": "タガノエルピーダ",
+          "gate": 8,
+          "jockey": "亀田温心",
+          "trainer": "斉藤崇史",
+          "odds_win": 43.8
+        }
+      ],
+      "result": {
+        "winner": 10,
+        "place3": [
+          10,
+          7,
+          11
+        ],
+        "finish_order_known": [
+          10,
+          7,
+          11
+        ],
+        "finish_order_complete": true,
+        "popularity": {},
+        "payouts": {
+          "tansho": [
+            {
+              "horse_num": 10,
+              "payout": 1290,
+              "popularity": 7
+            }
+          ],
+          "fukusho": [
+            {
+              "horse_num": 10,
+              "payout": 340,
+              "popularity": 4
+            },
+            {
+              "horse_num": 7,
+              "payout": 380,
+              "popularity": 7
+            },
+            {
+              "horse_num": 11,
+              "payout": 160,
+              "popularity": 1
+            }
+          ],
+          "wakuren": [
+            {
+              "selection": "4-5",
+              "payout": 1870,
+              "popularity": 10
+            }
+          ],
+          "umaren": [
+            {
+              "selection": "7-10",
+              "payout": 6400,
+              "popularity": 27
+            }
+          ],
+          "wide": [
+            {
+              "selection": "7-10",
+              "payout": 1920,
+              "popularity": 24
+            },
+            {
+              "selection": "10-11",
+              "payout": 1050,
+              "popularity": 7
+            },
+            {
+              "selection": "7-11",
+              "payout": 1040,
+              "popularity": 6
+            }
+          ],
+          "umatan": [
+            {
+              "selection": "10-7",
+              "payout": 13920,
+              "popularity": 57
+            }
+          ],
+          "sanrenpuku": [
+            {
+              "selection": "7-10-11",
+              "payout": 10320,
+              "popularity": 26
+            }
+          ],
+          "sanrentan": [
+            {
+              "selection": "10-7-11",
+              "payout": 90760,
+              "popularity": 297
+            }
+          ]
+        },
+        "source": null,
+        "note": null,
+        "payout_list": [
+          {
+            "bet_type": "単勝",
+            "selection": "10",
+            "selection_horses": [
+              10
+            ],
+            "selection_label": "10 エルトンバローズ",
+            "payout_per_100": 1290,
+            "popularity": 7
+          },
+          {
+            "bet_type": "複勝",
+            "selection": "10",
+            "selection_horses": [
+              10
+            ],
+            "selection_label": "10 エルトンバローズ",
+            "payout_per_100": 340,
+            "popularity": 4
+          },
+          {
+            "bet_type": "複勝",
+            "selection": "7",
+            "selection_horses": [
+              7
+            ],
+            "selection_label": "7 キープカルム",
+            "payout_per_100": 380,
+            "popularity": 7
+          },
+          {
+            "bet_type": "複勝",
+            "selection": "11",
+            "selection_horses": [
+              11
+            ],
+            "selection_label": "11 エコロアルバ",
+            "payout_per_100": 160,
+            "popularity": 1
+          },
+          {
+            "bet_type": "枠連",
+            "selection": "4-5",
+            "selection_horses": [],
+            "selection_label": "4-5",
+            "payout_per_100": 1870,
+            "popularity": 10
+          },
+          {
+            "bet_type": "馬連",
+            "selection": "7-10",
+            "selection_horses": [
+              7,
+              10
+            ],
+            "selection_label": "7 キープカルム - 10 エルトンバローズ",
+            "payout_per_100": 6400,
+            "popularity": 27
+          },
+          {
+            "bet_type": "ワイド",
+            "selection": "7-10",
+            "selection_horses": [
+              7,
+              10
+            ],
+            "selection_label": "7 キープカルム - 10 エルトンバローズ",
+            "payout_per_100": 1920,
+            "popularity": 24
+          },
+          {
+            "bet_type": "ワイド",
+            "selection": "10-11",
+            "selection_horses": [
+              10,
+              11
+            ],
+            "selection_label": "10 エルトンバローズ - 11 エコロアルバ",
+            "payout_per_100": 1050,
+            "popularity": 7
+          },
+          {
+            "bet_type": "ワイド",
+            "selection": "7-11",
+            "selection_horses": [
+              7,
+              11
+            ],
+            "selection_label": "7 キープカルム - 11 エコロアルバ",
+            "payout_per_100": 1040,
+            "popularity": 6
+          },
+          {
+            "bet_type": "馬単",
+            "selection": "10-7",
+            "selection_horses": [
+              10,
+              7
+            ],
+            "selection_label": "10 エルトンバローズ → 7 キープカルム",
+            "payout_per_100": 13920,
+            "popularity": 57
+          },
+          {
+            "bet_type": "三連複",
+            "selection": "7-10-11",
+            "selection_horses": [
+              7,
+              10,
+              11
+            ],
+            "selection_label": "7 キープカルム - 10 エルトンバローズ - 11 エコロアルバ",
+            "payout_per_100": 10320,
+            "popularity": 26
+          },
+          {
+            "bet_type": "三連単",
+            "selection": "10-7-11",
+            "selection_horses": [
+              10,
+              7,
+              11
+            ],
+            "selection_label": "10 エルトンバローズ → 7 キープカルム → 11 エコロアルバ",
+            "payout_per_100": 90760,
+            "popularity": 297
+          }
+        ]
+      },
+      "betting": {
+        "investment_jpy": 3800,
+        "payout_jpy": 7740,
+        "profit_jpy": 3940,
+        "roi_percent": 203.7,
+        "hit_tickets": 1,
+        "total_tickets": 11,
+        "source_files": [
+          "runs/202609030611/betting-v2.md",
+          "runs/202609030611/bets/aggregated-v1.json",
+          "runs/202609030611/result.json"
+        ],
+        "tickets": [
+          {
+            "bet_type": "単勝",
+            "selection": "5",
+            "selection_horses": [
+              5
+            ],
+            "selection_label": "5 ファーヴェント",
+            "stake_jpy": 700,
+            "hit": false,
+            "result": "miss",
+            "payout_per_100": null,
+            "return_jpy": 0
+          },
+          {
+            "bet_type": "単勝",
+            "selection": "10",
+            "selection_horses": [
+              10
+            ],
+            "selection_label": "10 エルトンバローズ",
+            "stake_jpy": 600,
+            "hit": true,
+            "result": "hit",
+            "payout_per_100": 1290,
+            "return_jpy": 7740
+          },
+          {
+            "bet_type": "単勝",
+            "selection": "14",
+            "selection_horses": [
+              14
+            ],
+            "selection_label": "14 ミニトランザット",
+            "stake_jpy": 500,
+            "hit": false,
+            "result": "miss",
+            "payout_per_100": null,
+            "return_jpy": 0
+          },
+          {
+            "bet_type": "三連複",
+            "selection": "5-11-14",
+            "selection_horses": [
+              5,
+              11,
+              14
+            ],
+            "selection_label": "5 ファーヴェント - 11 エコロアルバ - 14 ミニトランザット",
+            "stake_jpy": 300,
+            "hit": false,
+            "result": "miss",
+            "payout_per_100": null,
+            "return_jpy": 0
+          },
+          {
+            "bet_type": "三連複",
+            "selection": "5-10-14",
+            "selection_horses": [
+              5,
+              10,
+              14
+            ],
+            "selection_label": "5 ファーヴェント - 10 エルトンバローズ - 14 ミニトランザット",
+            "stake_jpy": 300,
+            "hit": false,
+            "result": "miss",
+            "payout_per_100": null,
+            "return_jpy": 0
+          },
+          {
+            "bet_type": "複勝",
+            "selection": "5",
+            "selection_horses": [
+              5
+            ],
+            "selection_label": "5 ファーヴェント",
+            "stake_jpy": 300,
+            "hit": false,
+            "result": "miss",
+            "payout_per_100": null,
+            "return_jpy": 0
+          },
+          {
+            "bet_type": "ワイド",
+            "selection": "5-10",
+            "selection_horses": [
+              5,
+              10
+            ],
+            "selection_label": "5 ファーヴェント - 10 エルトンバローズ",
+            "stake_jpy": 300,
+            "hit": false,
+            "result": "miss",
+            "payout_per_100": null,
+            "return_jpy": 0
+          },
+          {
+            "bet_type": "三連複",
+            "selection": "5-10-11",
+            "selection_horses": [
+              5,
+              10,
+              11
+            ],
+            "selection_label": "5 ファーヴェント - 10 エルトンバローズ - 11 エコロアルバ",
+            "stake_jpy": 200,
+            "hit": false,
+            "result": "miss",
+            "payout_per_100": null,
+            "return_jpy": 0
+          },
+          {
+            "bet_type": "三連複",
+            "selection": "5-8-14",
+            "selection_horses": [
+              5,
+              8,
+              14
+            ],
+            "selection_label": "5 ファーヴェント - 8 サイルーン - 14 ミニトランザット",
+            "stake_jpy": 200,
+            "hit": false,
+            "result": "miss",
+            "payout_per_100": null,
+            "return_jpy": 0
+          },
+          {
+            "bet_type": "複勝",
+            "selection": "14",
+            "selection_horses": [
+              14
+            ],
+            "selection_label": "14 ミニトランザット",
+            "stake_jpy": 200,
+            "hit": false,
+            "result": "miss",
+            "payout_per_100": null,
+            "return_jpy": 0
+          },
+          {
+            "bet_type": "ワイド",
+            "selection": "5-11",
+            "selection_horses": [
+              5,
+              11
+            ],
+            "selection_label": "5 ファーヴェント - 11 エコロアルバ",
+            "stake_jpy": 200,
+            "hit": false,
+            "result": "miss",
+            "payout_per_100": null,
+            "return_jpy": 0
+          }
+        ],
+        "hits": [
+          {
+            "bet_type": "単勝",
+            "selection": "10",
+            "selection_horses": [
+              10
+            ],
+            "selection_label": "10 エルトンバローズ",
+            "stake_jpy": 600,
+            "hit": true,
+            "result": "hit",
+            "payout_per_100": 1290,
+            "return_jpy": 7740
+          }
+        ],
+        "how_won": {
+          "headline": "集約△のエルトンバローズを単勝で拾った。",
+          "key_ticket_selection": "10",
+          "key_ticket_return_jpy": 7740,
+          "notes": [
+            "集合知は◎5、○14、▲11を中心にしつつ、△10にも単勝600円を置いていた。",
+            "勝った10エルトンバローズの単勝が唯一的中し、600円が7,740円になった。",
+            "軸にした5番絡みの三連複・ワイドは外れたため、勝因は単勝分散で勝ち馬を残していたこと。"
+          ]
+        }
+      },
+      "investment": 3800,
+      "payout": 7740,
+      "profit": 3940,
+      "roi": 203.7,
+      "hitTickets": 1,
+      "totalTickets": 11,
+      "collective": {
+        "method": "borda_count + normalized log pooling (confidence-weighted geometric mean); tiebreak: avg_rank → win_prob → borda → horse_num",
+        "probability_notes": {
+          "win_prob": "正規化 log pooling（Σ重み=1 の信頼度加重幾何平均）",
+          "win_prob_linear": "線形プール（単純平均・参考）",
+          "place_prob_lb": "place_prob の線形平均。未列挙馬を0扱いした下限近似"
+        },
+        "ranking": [
+          {
+            "rank": 1,
+            "horse_num": 5,
+            "horse_name": "ファーヴェント",
+            "borda_score": 53,
+            "win_prob": 0.2218,
+            "win_prob_linear": 0.1541,
+            "place_prob_lb": 0.055,
+            "borda_rank": 1,
+            "prob_rank": 1
+          },
+          {
+            "rank": 2,
+            "horse_num": 14,
+            "horse_name": "ミニトランザット",
+            "borda_score": 50,
+            "win_prob": 0.1691,
+            "win_prob_linear": 0.1337,
+            "place_prob_lb": 0.042,
+            "borda_rank": 3,
+            "prob_rank": 2
+          },
+          {
+            "rank": 3,
+            "horse_num": 11,
+            "horse_name": "エコロアルバ",
+            "borda_score": 50,
+            "win_prob": 0.1303,
+            "win_prob_linear": 0.1665,
+            "place_prob_lb": 0.065,
+            "borda_rank": 2,
+            "prob_rank": 3
+          },
+          {
+            "rank": 4,
+            "horse_num": 10,
+            "horse_name": "エルトンバローズ",
+            "borda_score": 28,
+            "win_prob": 0.1213,
+            "win_prob_linear": 0.0964,
+            "place_prob_lb": 0.016,
+            "borda_rank": 4,
+            "prob_rank": 4
+          },
+          {
+            "rank": 5,
+            "horse_num": 8,
+            "horse_name": "サイルーン",
+            "borda_score": 27,
+            "win_prob": 0.0664,
+            "win_prob_linear": 0.073,
+            "place_prob_lb": 0.032,
+            "borda_rank": 5,
+            "prob_rank": 5
+          },
+          {
+            "rank": 6,
+            "horse_num": 12,
+            "horse_name": "カズミクラーシュ",
+            "borda_score": 27,
+            "win_prob": 0.0553,
+            "win_prob_linear": 0.0818,
+            "place_prob_lb": 0.008,
+            "borda_rank": 7,
+            "prob_rank": 6
+          },
+          {
+            "rank": 7,
+            "horse_num": 9,
+            "horse_name": "ファンダム",
+            "borda_score": 27,
+            "win_prob": 0.0457,
+            "win_prob_linear": 0.0568,
+            "place_prob_lb": 0.022,
+            "borda_rank": 6,
+            "prob_rank": 7
+          },
+          {
+            "rank": 8,
+            "horse_num": 1,
+            "horse_name": "スマートワイス",
+            "borda_score": 18,
+            "win_prob": 0.0379,
+            "win_prob_linear": 0.0632,
+            "place_prob_lb": 0,
+            "borda_rank": 9,
+            "prob_rank": 8
+          },
+          {
+            "rank": 9,
+            "horse_num": 7,
+            "horse_name": "キープカルム",
+            "borda_score": 19,
+            "win_prob": 0.0323,
+            "win_prob_linear": 0.0509,
+            "place_prob_lb": 0,
+            "borda_rank": 8,
+            "prob_rank": 10
+          },
+          {
+            "rank": 10,
+            "horse_num": 17,
+            "horse_name": "スイープアワーズ",
+            "borda_score": 18,
+            "win_prob": 0.0345,
+            "win_prob_linear": 0.0425,
+            "place_prob_lb": 0.012,
+            "borda_rank": 10,
+            "prob_rank": 9
+          },
+          {
+            "rank": 11,
+            "horse_num": 18,
+            "horse_name": "タガノエルピーダ",
+            "borda_score": 9,
+            "win_prob": 0.0147,
+            "win_prob_linear": 0.0214,
+            "place_prob_lb": 0,
+            "borda_rank": 11,
+            "prob_rank": 11
+          },
+          {
+            "rank": 12,
+            "horse_num": 4,
+            "horse_name": "ブエナオンダ",
+            "borda_score": 7,
+            "win_prob": 0.0123,
+            "win_prob_linear": 0.0119,
+            "place_prob_lb": 0,
+            "borda_rank": 12,
+            "prob_rank": 12
+          },
+          {
+            "rank": 13,
+            "horse_num": 15,
+            "horse_name": "ショウナンアデイブ",
+            "borda_score": 5,
+            "win_prob": 0.0122,
+            "win_prob_linear": 0.0116,
+            "place_prob_lb": 0,
+            "borda_rank": 14,
+            "prob_rank": 13
+          },
+          {
+            "rank": 14,
+            "horse_num": 16,
+            "horse_name": "スリールミニョン",
+            "borda_score": 6,
+            "win_prob": 0.0096,
+            "win_prob_linear": 0.0086,
+            "place_prob_lb": 0,
+            "borda_rank": 13,
+            "prob_rank": 15
+          },
+          {
+            "rank": 15,
+            "horse_num": 2,
+            "horse_name": "ファインライン",
+            "borda_score": 4,
+            "win_prob": 0.0103,
+            "win_prob_linear": 0.0084,
+            "place_prob_lb": 0,
+            "borda_rank": 15,
+            "prob_rank": 14
+          },
+          {
+            "rank": 16,
+            "horse_num": 13,
+            "horse_name": "メタルスピード",
+            "borda_score": 3,
+            "win_prob": 0.0093,
+            "win_prob_linear": 0.0073,
+            "place_prob_lb": 0,
+            "borda_rank": 16,
+            "prob_rank": 16
+          },
+          {
+            "rank": 17,
+            "horse_num": 3,
+            "horse_name": "メイショウシンタケ",
+            "borda_score": 1,
+            "win_prob": 0.0087,
+            "win_prob_linear": 0.0059,
+            "place_prob_lb": 0,
+            "borda_rank": 18,
+            "prob_rank": 17
+          },
+          {
+            "rank": 18,
+            "horse_num": 6,
+            "horse_name": "シンフォーエバー",
+            "borda_score": 2,
+            "win_prob": 0.0083,
+            "win_prob_linear": 0.006,
+            "place_prob_lb": 0,
+            "borda_rank": 17,
+            "prob_rank": 18
+          }
+        ],
+        "marks": {
+          "honmei": 5,
+          "taikou": 14,
+          "tanana": 11,
+          "renka": [
+            10,
+            8,
+            12
+          ]
+        },
+        "honmei": 5,
+        "taikou": 14,
+        "tanana": 11,
+        "renka": [
+          10,
+          8,
+          12
+        ],
+        "brier": 0.8811,
+        "pWinner": 0.1213,
+        "winLogloss": 2.1095,
+        "note": "集約◎は圏外（5番）。△10番・▲11番が3着内に入った。"
+      },
+      "experts": [
+        {
+          "id": "aoi",
+          "expert_id": "aoi",
+          "expert_name": "葵",
+          "school": "騎手",
+          "backend": "claude-sonnet",
+          "effort": "medium",
+          "pack_version": "v1",
+          "confidence": 0.5,
+          "pWinner": 0.1171,
+          "winBrier": 0.9735,
+          "winLogloss": 2.145,
+          "honmei": 1,
+          "honmeiStatus": "out",
+          "coverage": 2,
+          "placedMeanRank": 3.5,
+          "specOk": true,
+          "specSum": 0.96,
+          "prediction": {
+            "predicted_ranking": [
+              {
+                "horse_num": 1,
+                "rank": 1,
+                "horse_name": "スマートワイス"
+              },
+              {
+                "horse_num": 14,
+                "rank": 2,
+                "horse_name": "ミニトランザット"
+              },
+              {
+                "horse_num": 7,
+                "rank": 3,
+                "horse_name": "キープカルム"
+              },
+              {
+                "horse_num": 10,
+                "rank": 4,
+                "horse_name": "エルトンバローズ"
+              },
+              {
+                "horse_num": 5,
+                "rank": 5,
+                "horse_name": "ファーヴェント"
+              }
+            ],
+            "win_prob": [
+              {
+                "horse_num": 1,
+                "horse_name": "スマートワイス",
+                "prob": 0.3
+              },
+              {
+                "horse_num": 14,
+                "horse_name": "ミニトランザット",
+                "prob": 0.27
+              },
+              {
+                "horse_num": 7,
+                "horse_name": "キープカルム",
+                "prob": 0.18
+              },
+              {
+                "horse_num": 10,
+                "horse_name": "エルトンバローズ",
+                "prob": 0.12
+              },
+              {
+                "horse_num": 5,
+                "horse_name": "ファーヴェント",
+                "prob": 0.09
+              }
+            ],
+            "place_prob": [],
+            "marks": {
+              "honmei": 1,
+              "taikou": 14,
+              "tanana": 7,
+              "renka": [
+                10,
+                5
+              ]
+            },
+            "confidence": 0.5,
+            "rationale": "川田将雅（2026年JRAリーディング1位・88勝）が本命スマートワイス（大久保龍志厩舎・栗東）に騎乗。最上位騎手×栗東地の利で最大加点。対抗はJRAリーディング2位・松山弘平（69勝）騎乗のミニトランザット（杉山佳明厩舎・栗東）。3番手は坂井瑠星（G1勝利実績・若手エース）起用のキープカルム（中竹和也栗東）。エルトンバローズは馬のG1実績（マイルCS4着歴）を加点。重馬場・阪神外回りは栗東勢有利、美浦4頭（サイルーン/堀宣行・ファンダム・エコロアルバ・メタルスピード）は遠征で地の利マイナス評価。",
+            "data_used": [
+              "jockey_name",
+              "trainer_name",
+              "trainer_stable",
+              "odds_win",
+              "jockey_leading_jra_2026",
+              "race_condition_heavy",
+              "horse_g1_history_search"
+            ],
+            "warnings": [
+              "pack の past_races が全18頭空のためコンビ実績・乗り替わり前後騎手比較の定量評価を実施できなかった。信頼度を低めに設定",
+              "スマートワイスの血統: pack は sire=ディープインパクトだが外部検索でロードカナロアとの情報あり（血統不一致）。騎手分析には影響なし",
+              "重馬場適性は各馬の過去成績データがないため騎手実績のみで代替評価"
+            ]
+          },
+          "score": {
+            "p_winner": 0.1171,
+            "win_brier": 0.9735,
+            "win_logloss": 2.145,
+            "honmei": 1,
+            "honmei_won": false,
+            "honmei_in_place3": false,
+            "honmei_status": "out",
+            "marks_place3_coverage": 2,
+            "placed_in_ranking": 2,
+            "placed_mean_pred_rank": 3.5,
+            "spec_sum_ok": true,
+            "win_prob_listed_sum": 0.96
+          }
+        },
+        {
+          "id": "goro",
+          "expert_id": "goro",
+          "expert_name": "吾郎",
+          "school": "馬場",
+          "backend": "claude-opus-4-6",
+          "effort": "high",
+          "pack_version": "v1",
+          "confidence": 0.5,
+          "pWinner": 0.0891,
+          "winBrier": 0.9373,
+          "winLogloss": 2.4179,
+          "honmei": 11,
+          "honmeiStatus": "place",
+          "coverage": 2,
+          "placedMeanRank": 3,
+          "specOk": true,
+          "specSum": 1.01,
+          "prediction": {
+            "predicted_ranking": [
+              {
+                "horse_num": 11,
+                "rank": 1,
+                "horse_name": "エコロアルバ"
+              },
+              {
+                "horse_num": 14,
+                "rank": 2,
+                "horse_name": "ミニトランザット"
+              },
+              {
+                "horse_num": 9,
+                "rank": 3,
+                "horse_name": "ファンダム"
+              },
+              {
+                "horse_num": 12,
+                "rank": 4,
+                "horse_name": "カズミクラーシュ"
+              },
+              {
+                "horse_num": 10,
+                "rank": 5,
+                "horse_name": "エルトンバローズ"
+              }
+            ],
+            "win_prob": [
+              {
+                "horse_num": 11,
+                "horse_name": "エコロアルバ",
+                "prob": 0.22
+              },
+              {
+                "horse_num": 14,
+                "horse_name": "ミニトランザット",
+                "prob": 0.15
+              },
+              {
+                "horse_num": 9,
+                "horse_name": "ファンダム",
+                "prob": 0.12
+              },
+              {
+                "horse_num": 12,
+                "horse_name": "カズミクラーシュ",
+                "prob": 0.1
+              },
+              {
+                "horse_num": 10,
+                "horse_name": "エルトンバローズ",
+                "prob": 0.09
+              },
+              {
+                "horse_num": 5,
+                "horse_name": "ファーヴェント",
+                "prob": 0.07
+              },
+              {
+                "horse_num": 8,
+                "horse_name": "サイルーン",
+                "prob": 0.06
+              },
+              {
+                "horse_num": 7,
+                "horse_name": "キープカルム",
+                "prob": 0.05
+              },
+              {
+                "horse_num": 17,
+                "horse_name": "スイープアワーズ",
+                "prob": 0.03
+              },
+              {
+                "horse_num": 4,
+                "horse_name": "ブエナオンダ",
+                "prob": 0.03
+              },
+              {
+                "horse_num": 1,
+                "horse_name": "スマートワイス",
+                "prob": 0.03
+              },
+              {
+                "horse_num": 15,
+                "horse_name": "ショウナンアデイブ",
+                "prob": 0.02
+              },
+              {
+                "horse_num": 2,
+                "horse_name": "ファインライン",
+                "prob": 0.01
+              },
+              {
+                "horse_num": 3,
+                "horse_name": "メイショウシンタケ",
+                "prob": 0.01
+              },
+              {
+                "horse_num": 6,
+                "horse_name": "シンフォーエバー",
+                "prob": 0.005
+              },
+              {
+                "horse_num": 13,
+                "horse_name": "メタルスピード",
+                "prob": 0.005
+              },
+              {
+                "horse_num": 16,
+                "horse_name": "スリールミニョン",
+                "prob": 0.005
+              },
+              {
+                "horse_num": 18,
+                "horse_name": "タガノエルピーダ",
+                "prob": 0.005
+              }
+            ],
+            "place_prob": [],
+            "marks": {
+              "honmei": 11,
+              "taikou": 14,
+              "tanana": 9,
+              "renka": [
+                12,
+                10,
+                5
+              ]
+            },
+            "confidence": 0.5,
+            "rationale": "馬場:重確定。阪神芝外1600mBコース、重馬場ではパワー型血統・先行脚質が有利。◎エコロアルバはFrankel系×フレンチデピュティ母父のパワー配合に3歳53kgの斤量利。○ミニトランザットはエピファネイア(Roberto系)で道悪王道。▲ファンダムは母父ジャスタウェイ(ハーツクライ系)で道悪適性高。2番人気ファーヴェントはカナロア産駒で重馬場成績低下が一次データで確認済、割引。",
+            "data_used": [
+              "weather",
+              "track_condition",
+              "pedigree",
+              "odds",
+              "gate"
+            ],
+            "warnings": [
+              "past_racesデータが全馬空のため馬場別パフォーマンス実績を直接確認不可。血統・オッズ・斤量で代用",
+              "当週阪神芝の内外バイアス実データ（土曜結果の脚質別成績）の取得に失敗。一般的な重馬場傾向で推定",
+              "血統情報が取得不能の馬(2,4,9,11,13,16,18)はWeb補完を試みたが一部のみ成功"
+            ]
+          },
+          "score": {
+            "p_winner": 0.0891,
+            "win_brier": 0.9373,
+            "win_logloss": 2.4179,
+            "honmei": 11,
+            "honmei_won": false,
+            "honmei_in_place3": true,
+            "honmei_status": "place",
+            "marks_place3_coverage": 2,
+            "placed_in_ranking": 2,
+            "placed_mean_pred_rank": 3,
+            "spec_sum_ok": true,
+            "win_prob_listed_sum": 1.01
+          }
+        },
+        {
+          "id": "hina",
+          "expert_id": "hina",
+          "expert_name": "陽菜",
+          "school": "穴党",
+          "backend": "gemini-2.5-flash",
+          "effort": "low",
+          "pack_version": "v1",
+          "confidence": 0.35,
+          "pWinner": 0.2358,
+          "winBrier": 0.7411,
+          "winLogloss": 1.4446,
+          "honmei": 12,
+          "honmeiStatus": "out",
+          "coverage": 1,
+          "placedMeanRank": 2,
+          "specOk": true,
+          "specSum": 1,
+          "prediction": {
+            "predicted_ranking": [
+              {
+                "horse_num": 12,
+                "rank": 1,
+                "horse_name": "カズミクラーシュ"
+              },
+              {
+                "horse_num": 10,
+                "rank": 2,
+                "horse_name": "エルトンバローズ"
+              },
+              {
+                "horse_num": 5,
+                "rank": 3,
+                "horse_name": "ファーヴェント"
+              },
+              {
+                "horse_num": 1,
+                "rank": 4,
+                "horse_name": "スマートワイス"
+              },
+              {
+                "horse_num": 17,
+                "rank": 5,
+                "horse_name": "スイープアワーズ"
+              }
+            ],
+            "win_prob": [
+              {
+                "horse_num": 12,
+                "horse_name": "カズミクラーシュ",
+                "prob": 0.35
+              },
+              {
+                "horse_num": 10,
+                "horse_name": "エルトンバローズ",
+                "prob": 0.25
+              },
+              {
+                "horse_num": 5,
+                "horse_name": "ファーヴェント",
+                "prob": 0.2
+              },
+              {
+                "horse_num": 1,
+                "horse_name": "スマートワイス",
+                "prob": 0.08
+              },
+              {
+                "horse_num": 17,
+                "horse_name": "スイープアワーズ",
+                "prob": 0.07
+              },
+              {
+                "horse_num": 18,
+                "horse_name": "タガノエルピーダ",
+                "prob": 0.05
+              }
+            ],
+            "place_prob": [],
+            "marks": {
+              "honmei": 12,
+              "taikou": 10,
+              "tanana": 5,
+              "renka": [
+                1,
+                17,
+                18
+              ]
+            },
+            "confidence": 0.35,
+            "rationale": "みんなが見落としてるけど、重馬場の阪神マイルなら12番カズミクラーシュが本命！前走は良馬場の瞬発力勝負で負けただけで、モーリス×キングマンボのタフな血統は重馬場でこそ輝くよ。1番人気11番エコロアルバは3歳53kgで過剰人気。初のタフな阪神重馬場では若さが裏目に出るはずだからバッサリ消し。対抗は母父にブライアンズタイムを持つ10番エルトンバローズ。連下には10番人気以下から、重馬場で不気味な川田騎手騎乗の1番スマートワイスを拾っておくよ！",
+            "data_used": [
+              "pedigree",
+              "odds",
+              "weather"
+            ],
+            "warnings": []
+          },
+          "score": {
+            "p_winner": 0.2358,
+            "win_brier": 0.7411,
+            "win_logloss": 1.4446,
+            "honmei": 12,
+            "honmei_won": false,
+            "honmei_in_place3": false,
+            "honmei_status": "out",
+            "marks_place3_coverage": 1,
+            "placed_in_ranking": 1,
+            "placed_mean_pred_rank": 2,
+            "spec_sum_ok": true,
+            "win_prob_listed_sum": 1
+          }
+        },
+        {
+          "id": "kenta",
+          "expert_id": "kenta",
+          "expert_name": "健太",
+          "school": "指数",
+          "backend": "claude-sonnet",
+          "effort": "low",
+          "pack_version": "v1",
+          "confidence": 0.45,
+          "pWinner": 0.0773,
+          "winBrier": 1.0605,
+          "winLogloss": 2.5601,
+          "honmei": 11,
+          "honmeiStatus": "place",
+          "coverage": 2,
+          "placedMeanRank": 3,
+          "specOk": true,
+          "specSum": 0.97,
+          "prediction": {
+            "predicted_ranking": [
+              {
+                "horse_num": 11,
+                "rank": 1,
+                "horse_name": "エコロアルバ"
+              },
+              {
+                "horse_num": 5,
+                "rank": 2,
+                "horse_name": "ファーヴェント"
+              },
+              {
+                "horse_num": 8,
+                "rank": 3,
+                "horse_name": "サイルーン"
+              },
+              {
+                "horse_num": 14,
+                "rank": 4,
+                "horse_name": "ミニトランザット"
+              },
+              {
+                "horse_num": 10,
+                "rank": 5,
+                "horse_name": "エルトンバローズ"
+              }
+            ],
+            "win_prob": [
+              {
+                "horse_num": 11,
+                "horse_name": "エコロアルバ",
+                "prob": 0.34
+              },
+              {
+                "horse_num": 5,
+                "horse_name": "ファーヴェント",
+                "prob": 0.24
+              },
+              {
+                "horse_num": 8,
+                "horse_name": "サイルーン",
+                "prob": 0.19
+              },
+              {
+                "horse_num": 14,
+                "horse_name": "ミニトランザット",
+                "prob": 0.12
+              },
+              {
+                "horse_num": 10,
+                "horse_name": "エルトンバローズ",
+                "prob": 0.08
+              }
+            ],
+            "place_prob": [],
+            "marks": {
+              "honmei": 11,
+              "taikou": 5,
+              "tanana": 8,
+              "renka": [
+                14,
+                10
+              ]
+            },
+            "confidence": 0.45,
+            "rationale": "重馬場×阪神1600mで道悪実績を最重視。◎11エコロアルバ：朝日杯FS（阪神重4着）換算SI=85.4は今回と完全同条件での証明値。斤量53kg(+4kg分補正済み)も有利。○5ファーヴェント：ダービー卿CT稍重3着換算SI=86.6が直近最高値、近4走全て1600m専念で安定。▲8サイルーン：同レース推定1着でSI=86.6だが7歳・レース特定データ不確実。11と5・8の差は約1〜2pt で上位横一線気味だが、阪神重の直接実証実績でエコロアルバを頭に抜擢。",
+            "data_used": [
+              "winsight.jp/db/horse_race_result: エコロアルバ(2023103184), ファーヴェント(2021104893), ミニトランザット(2022105230), エルトンバローズ(2020100680), サイルーン(2019104838), ファンダム(2022105836), カズミクラーシュ(2021105564)",
+              "s.keibabook.co.jp/db/uma/0951718/top: エコロアルバ成績確認",
+              "race.netkeiba.com/race/result.html?race_id=202605010411: 東京新聞杯2026全着順",
+              "web_search: 朝日杯FS2025, NHKマイルC2026, ダービー卿CT2026 各レース結果・馬場情報",
+              "pack-v1.json: オッズ・斤量・騎手・血統"
+            ],
+            "warnings": [
+              "pack-v1.json の horses[].past_races が全頭空配列のため外部webデータで代替（走破時計推定値）",
+              "スマートワイス・ファインライン・メイショウシンタケ・シンフォーエバー・キープカルム・スイープアワーズ・ショウナンアデイブ・スリールミニョン・タガノエルピーダの指数データ取得不能、ランク付け対象外",
+              "ブエナオンダ: 東京新聞杯2026 15着(1:33.0 東京良)確認のみ、換算SI≈67",
+              "サイルーン前走（26/04/04 中山芝1600m 1着 1:33.4）がダービー卿CT(G3稍重)か同日別クラスか未確認。G3想定SI=86.6、別クラス想定SI≈77",
+              "ファンダム: 直近1600m実績は前々々走シンザン記念(推定)3着1:32.3のみで指数信頼性低、前走は1400m8着と距離不安定",
+              "SI計算は推定基準タイム(阪神芝1600m良=1:33.0)・コース補正・馬場補正を使った簡易指数。公式JRAスピード指数ではない",
+              "斤量補正: 57kg基準・1kg=0.15秒換算適用（エコロアルバ53kgに対し+0.6秒の遅化補正済み）"
+            ]
+          },
+          "score": {
+            "p_winner": 0.0773,
+            "win_brier": 1.0605,
+            "win_logloss": 2.5601,
+            "honmei": 11,
+            "honmei_won": false,
+            "honmei_in_place3": true,
+            "honmei_status": "place",
+            "marks_place3_coverage": 2,
+            "placed_in_ranking": 2,
+            "placed_mean_pred_rank": 3,
+            "spec_sum_ok": true,
+            "win_prob_listed_sum": 0.97
+          }
+        },
+        {
+          "id": "makoto",
+          "expert_id": "makoto",
+          "expert_name": "誠",
+          "school": "統計",
+          "backend": "codex-gpt-5.5",
+          "effort": "high",
+          "pack_version": "v1",
+          "confidence": 0.31,
+          "pWinner": 0.048,
+          "winBrier": 0.9841,
+          "winLogloss": 3.0366,
+          "honmei": 5,
+          "honmeiStatus": "out",
+          "coverage": 2,
+          "placedMeanRank": 6,
+          "specOk": true,
+          "specSum": 1,
+          "prediction": {
+            "predicted_ranking": [
+              {
+                "horse_num": 5,
+                "rank": 1,
+                "horse_name": "ファーヴェント"
+              },
+              {
+                "horse_num": 14,
+                "rank": 2,
+                "horse_name": "ミニトランザット"
+              },
+              {
+                "horse_num": 11,
+                "rank": 3,
+                "horse_name": "エコロアルバ"
+              },
+              {
+                "horse_num": 9,
+                "rank": 4,
+                "horse_name": "ファンダム"
+              },
+              {
+                "horse_num": 12,
+                "rank": 5,
+                "horse_name": "カズミクラーシュ"
+              },
+              {
+                "horse_num": 7,
+                "rank": 6,
+                "horse_name": "キープカルム"
+              },
+              {
+                "horse_num": 8,
+                "rank": 7,
+                "horse_name": "サイルーン"
+              },
+              {
+                "horse_num": 17,
+                "rank": 8,
+                "horse_name": "スイープアワーズ"
+              },
+              {
+                "horse_num": 10,
+                "rank": 9,
+                "horse_name": "エルトンバローズ"
+              },
+              {
+                "horse_num": 1,
+                "rank": 10,
+                "horse_name": "スマートワイス"
+              },
+              {
+                "horse_num": 18,
+                "rank": 11,
+                "horse_name": "タガノエルピーダ"
+              },
+              {
+                "horse_num": 4,
+                "rank": 12,
+                "horse_name": "ブエナオンダ"
+              },
+              {
+                "horse_num": 16,
+                "rank": 13,
+                "horse_name": "スリールミニョン"
+              },
+              {
+                "horse_num": 15,
+                "rank": 14,
+                "horse_name": "ショウナンアデイブ"
+              },
+              {
+                "horse_num": 2,
+                "rank": 15,
+                "horse_name": "ファインライン"
+              },
+              {
+                "horse_num": 13,
+                "rank": 16,
+                "horse_name": "メタルスピード"
+              },
+              {
+                "horse_num": 6,
+                "rank": 17,
+                "horse_name": "シンフォーエバー"
+              },
+              {
+                "horse_num": 3,
+                "rank": 18,
+                "horse_name": "メイショウシンタケ"
+              }
+            ],
+            "win_prob": [
+              {
+                "horse_num": 5,
+                "horse_name": "ファーヴェント",
+                "prob": 0.134
+              },
+              {
+                "horse_num": 14,
+                "horse_name": "ミニトランザット",
+                "prob": 0.124
+              },
+              {
+                "horse_num": 11,
+                "horse_name": "エコロアルバ",
+                "prob": 0.114
+              },
+              {
+                "horse_num": 9,
+                "horse_name": "ファンダム",
+                "prob": 0.089
+              },
+              {
+                "horse_num": 12,
+                "horse_name": "カズミクラーシュ",
+                "prob": 0.074
+              },
+              {
+                "horse_num": 7,
+                "horse_name": "キープカルム",
+                "prob": 0.061
+              },
+              {
+                "horse_num": 8,
+                "horse_name": "サイルーン",
+                "prob": 0.059
+              },
+              {
+                "horse_num": 17,
+                "horse_name": "スイープアワーズ",
+                "prob": 0.057
+              },
+              {
+                "horse_num": 10,
+                "horse_name": "エルトンバローズ",
+                "prob": 0.048
+              },
+              {
+                "horse_num": 1,
+                "horse_name": "スマートワイス",
+                "prob": 0.042
+              },
+              {
+                "horse_num": 18,
+                "horse_name": "タガノエルピーダ",
+                "prob": 0.042
+              },
+              {
+                "horse_num": 4,
+                "horse_name": "ブエナオンダ",
+                "prob": 0.032
+              },
+              {
+                "horse_num": 16,
+                "horse_name": "スリールミニョン",
+                "prob": 0.032
+              },
+              {
+                "horse_num": 15,
+                "horse_name": "ショウナンアデイブ",
+                "prob": 0.031
+              },
+              {
+                "horse_num": 2,
+                "horse_name": "ファインライン",
+                "prob": 0.022
+              },
+              {
+                "horse_num": 13,
+                "horse_name": "メタルスピード",
+                "prob": 0.018
+              },
+              {
+                "horse_num": 6,
+                "horse_name": "シンフォーエバー",
+                "prob": 0.014
+              },
+              {
+                "horse_num": 3,
+                "horse_name": "メイショウシンタケ",
+                "prob": 0.007
+              }
+            ],
+            "place_prob": [],
+            "marks": {
+              "honmei": 5,
+              "taikou": 14,
+              "tanana": 11,
+              "renka": [
+                9,
+                12,
+                7,
+                8,
+                17
+              ]
+            },
+            "confidence": 0.31,
+            "rationale": "S=0.75*log(1/単勝)+年齢+枠+斤量。年齢4-5+.35、8枠+.25、1枠-.30。P上位:5=.134,14=.124,11=.114,9=.089,12=.074。",
+            "data_used": [
+              "RaceDataPack v1: 出走馬18頭、枠、年齢、斤量、単勝オッズ、阪神芝1600m外B、重馬場",
+              "web GET: https://race.netkeiba.com/race/shutuba.html?race_id=202609030611 出馬表・天候馬場確認",
+              "web検索: 宝塚記念過去10年の年齢別・枠別・前走別3着内率を確認試行"
+            ],
+            "warnings": [
+              "宝塚記念過去10年の具体表は一次表に到達できず、数値は直接投入せず傾向符号のみ使用した",
+              "RaceDataPackのpast_races/trainingが空で、前走G1・前走着順・スピード指数は全馬欠損として0扱い",
+              "対象はしらさぎS（阪神芝1600m）で、宝塚記念（阪神芝2200m内回り）とは条件が異なる",
+              "出馬表ページ内のAI予測・印・調教評価など第三者判断は使用していない"
+            ]
+          },
+          "score": {
+            "p_winner": 0.048,
+            "win_brier": 0.9841,
+            "win_logloss": 3.0366,
+            "honmei": 5,
+            "honmei_won": false,
+            "honmei_in_place3": false,
+            "honmei_status": "out",
+            "marks_place3_coverage": 2,
+            "placed_in_ranking": 3,
+            "placed_mean_pred_rank": 6,
+            "spec_sum_ok": true,
+            "win_prob_listed_sum": 1
+          }
+        },
+        {
+          "id": "misaki",
+          "expert_id": "misaki",
+          "expert_name": "美咲",
+          "school": "展開",
+          "backend": "claude-opus",
+          "effort": "medium",
+          "pack_version": "v1",
+          "confidence": 0.32,
+          "pWinner": 0.08,
+          "winBrier": 0.9492,
+          "winLogloss": 2.5257,
+          "honmei": 11,
+          "honmeiStatus": "place",
+          "coverage": 2,
+          "placedMeanRank": 3.5,
+          "specOk": true,
+          "specSum": 0.95,
+          "prediction": {
+            "predicted_ranking": [
+              {
+                "horse_num": 11,
+                "rank": 1,
+                "horse_name": "エコロアルバ"
+              },
+              {
+                "horse_num": 5,
+                "rank": 2,
+                "horse_name": "ファーヴェント"
+              },
+              {
+                "horse_num": 8,
+                "rank": 3,
+                "horse_name": "サイルーン"
+              },
+              {
+                "horse_num": 14,
+                "rank": 4,
+                "horse_name": "ミニトランザット"
+              },
+              {
+                "horse_num": 9,
+                "rank": 5,
+                "horse_name": "ファンダム"
+              },
+              {
+                "horse_num": 10,
+                "rank": 6,
+                "horse_name": "エルトンバローズ"
+              },
+              {
+                "horse_num": 17,
+                "rank": 7,
+                "horse_name": "スイープアワーズ"
+              },
+              {
+                "horse_num": 12,
+                "rank": 8,
+                "horse_name": "カズミクラーシュ"
+              }
+            ],
+            "win_prob": [
+              {
+                "horse_num": 11,
+                "horse_name": "エコロアルバ",
+                "prob": 0.19
+              },
+              {
+                "horse_num": 5,
+                "horse_name": "ファーヴェント",
+                "prob": 0.14
+              },
+              {
+                "horse_num": 8,
+                "horse_name": "サイルーン",
+                "prob": 0.12
+              },
+              {
+                "horse_num": 14,
+                "horse_name": "ミニトランザット",
+                "prob": 0.11
+              },
+              {
+                "horse_num": 9,
+                "horse_name": "ファンダム",
+                "prob": 0.09
+              },
+              {
+                "horse_num": 10,
+                "horse_name": "エルトンバローズ",
+                "prob": 0.08
+              },
+              {
+                "horse_num": 17,
+                "horse_name": "スイープアワーズ",
+                "prob": 0.06
+              },
+              {
+                "horse_num": 12,
+                "horse_name": "カズミクラーシュ",
+                "prob": 0.06
+              },
+              {
+                "horse_num": 7,
+                "horse_name": "キープカルム",
+                "prob": 0.05
+              },
+              {
+                "horse_num": 1,
+                "horse_name": "スマートワイス",
+                "prob": 0.05
+              }
+            ],
+            "place_prob": [],
+            "marks": {
+              "honmei": 11,
+              "taikou": 5,
+              "tanana": 8,
+              "renka": [
+                14,
+                9,
+                10,
+                17
+              ]
+            },
+            "confidence": 0.32,
+            "rationale": "阪神1600m外・重馬場想定。重で前半緩みにくく全体95秒台後半（12.4-11.0-11.6-11.8-11.8-11.6-11.9-12.4級）、4角好位を取れるタフな先行〜好位差しが有利、極端な追込は届かずと読む。よって斤量53kgで好位を取りやすいエコロアルバ(11)を本命、好位力のファーヴェント(5)・サイルーン(8)・ミニトランザット(14)を上位。脚質一次データ皆無のため通過順は推定、市場オッズ(事実)を主軸に補正。",
+            "data_used": [
+              "odds.win",
+              "race.course",
+              "race.weather.track_condition",
+              "horse.weight_kg"
+            ],
+            "warnings": [
+              "ペルソナ指示(阪神2200m内回り宝塚記念)と実パック(阪神1600m外回りしらさぎS・重馬場)が不一致。実レース条件に合わせて分析した。",
+              "全頭past_racesが空で脚質・通過順位・上がり3Fの一次データが取得できず、展開推定は一般傾向とオッズ依存。信頼度を大幅に低下させた。",
+              "個別の逃げ・先行馬を成績データで特定できないため、想定ラップの確度が低い。"
+            ]
+          },
+          "score": {
+            "p_winner": 0.08,
+            "win_brier": 0.9492,
+            "win_logloss": 2.5257,
+            "honmei": 11,
+            "honmei_won": false,
+            "honmei_in_place3": true,
+            "honmei_status": "place",
+            "marks_place3_coverage": 2,
+            "placed_in_ranking": 2,
+            "placed_mean_pred_rank": 3.5,
+            "spec_sum_ok": true,
+            "win_prob_listed_sum": 0.95
+          }
+        },
+        {
+          "id": "sakura",
+          "expert_id": "sakura",
+          "expert_name": "さくら",
+          "school": "オッズ",
+          "backend": "claude-haiku",
+          "effort": "medium",
+          "pack_version": "v1",
+          "confidence": 0.48,
+          "pWinner": 0.0658,
+          "winBrier": 0.968,
+          "winLogloss": 2.7215,
+          "honmei": 11,
+          "honmeiStatus": "place",
+          "coverage": 2,
+          "placedMeanRank": 3.5,
+          "specOk": false,
+          "specSum": 0.821,
+          "prediction": {
+            "predicted_ranking": [
+              {
+                "horse_num": 11,
+                "rank": 1,
+                "horse_name": "エコロアルバ"
+              },
+              {
+                "horse_num": 5,
+                "rank": 2,
+                "horse_name": "ファーヴェント"
+              },
+              {
+                "horse_num": 14,
+                "rank": 3,
+                "horse_name": "ミニトランザット"
+              },
+              {
+                "horse_num": 8,
+                "rank": 4,
+                "horse_name": "サイルーン"
+              },
+              {
+                "horse_num": 9,
+                "rank": 5,
+                "horse_name": "ファンダム"
+              },
+              {
+                "horse_num": 10,
+                "rank": 6,
+                "horse_name": "エルトンバローズ"
+              }
+            ],
+            "win_prob": [
+              {
+                "horse_num": 11,
+                "horse_name": "エコロアルバ",
+                "prob": 0.163
+              },
+              {
+                "horse_num": 5,
+                "horse_name": "ファーヴェント",
+                "prob": 0.107
+              },
+              {
+                "horse_num": 14,
+                "horse_name": "ミニトランザット",
+                "prob": 0.087
+              },
+              {
+                "horse_num": 8,
+                "horse_name": "サイルーン",
+                "prob": 0.081
+              },
+              {
+                "horse_num": 9,
+                "horse_name": "ファンダム",
+                "prob": 0.061
+              },
+              {
+                "horse_num": 10,
+                "horse_name": "エルトンバローズ",
+                "prob": 0.054
+              },
+              {
+                "horse_num": 17,
+                "horse_name": "スイープアワーズ",
+                "prob": 0.045
+              },
+              {
+                "horse_num": 12,
+                "horse_name": "カズミクラーシュ",
+                "prob": 0.043
+              },
+              {
+                "horse_num": 7,
+                "horse_name": "キープカルム",
+                "prob": 0.04
+              },
+              {
+                "horse_num": 1,
+                "horse_name": "スマートワイス",
+                "prob": 0.034
+              },
+              {
+                "horse_num": 15,
+                "horse_name": "ショウナンアデイブ",
+                "prob": 0.025
+              },
+              {
+                "horse_num": 4,
+                "horse_name": "ブエナオンダ",
+                "prob": 0.018
+              },
+              {
+                "horse_num": 18,
+                "horse_name": "タガノエルピーダ",
+                "prob": 0.015
+              },
+              {
+                "horse_num": 2,
+                "horse_name": "ファインライン",
+                "prob": 0.014
+              },
+              {
+                "horse_num": 13,
+                "horse_name": "メタルスピード",
+                "prob": 0.012
+              },
+              {
+                "horse_num": 16,
+                "horse_name": "スリールミニョン",
+                "prob": 0.011
+              },
+              {
+                "horse_num": 3,
+                "horse_name": "メイショウシンタケ",
+                "prob": 0.006
+              },
+              {
+                "horse_num": 6,
+                "horse_name": "シンフォーエバー",
+                "prob": 0.005
+              }
+            ],
+            "place_prob": [],
+            "marks": {
+              "honmei": 11,
+              "taikou": 5,
+              "tanana": 14,
+              "renka": [
+                8,
+                9,
+                10
+              ]
+            },
+            "confidence": 0.48,
+            "rationale": "市場単勝オッズからの逆算分析。最人気エコロアルバ(4.0倍/推定163%)が圧倒的投票集中を示す。次点ファーヴェント(6.1倍/107%)との落差38%が顕著で、2強構図が明確。3-4番人気(ミニトランザット14番7.5倍・サイルーン8番8.1倍)は堅い支持。複勝オッズ・ファン投票は取得失敗のため、単勝のみからの推定。新設レース(サマーマイルシリーズ第1戦)で過去波乱傾向が利用不可のため、自信0.48に抑制。",
+            "data_used": [
+              "race_odds_win",
+              "horse_info",
+              "pedigree"
+            ],
+            "warnings": [
+              "複勝オッズ取得失敗: netkeiba が JavaScript 動的読み込みのため HTML 抽出不可",
+              "ファン投票データ: 対象外またはプレミアム要素",
+              "血統情報: 8頭分(馬番2,4,9,11,13,14,16,18)が web 誤読のため null",
+              "新設レース(サマーマイルシリーズ第1戦)で過去データ利用不可",
+              "単勝インプライド確率のみからの推定のため、複勝乖離の検出不可"
+            ]
+          },
+          "score": {
+            "p_winner": 0.0658,
+            "win_brier": 0.968,
+            "win_logloss": 2.7215,
+            "honmei": 11,
+            "honmei_won": false,
+            "honmei_in_place3": true,
+            "honmei_status": "place",
+            "marks_place3_coverage": 2,
+            "placed_in_ranking": 2,
+            "placed_mean_pred_rank": 3.5,
+            "spec_sum_ok": false,
+            "win_prob_listed_sum": 0.821
+          }
+        },
+        {
+          "id": "tatsunosuke",
+          "expert_id": "tatsunosuke",
+          "expert_name": "龍之介",
+          "school": "血統",
+          "backend": "claude-opus",
+          "effort": "high",
+          "pack_version": "v1",
+          "confidence": 0.5,
+          "pWinner": 0.0796,
+          "winBrier": 1.0006,
+          "winLogloss": 2.5307,
+          "honmei": 11,
+          "honmeiStatus": "place",
+          "coverage": 2,
+          "placedMeanRank": 1,
+          "specOk": true,
+          "specSum": 0.95,
+          "prediction": {
+            "predicted_ranking": [
+              {
+                "horse_num": 11,
+                "rank": 1,
+                "horse_name": "エコロアルバ"
+              },
+              {
+                "horse_num": 14,
+                "rank": 2,
+                "horse_name": "ミニトランザット"
+              },
+              {
+                "horse_num": 5,
+                "rank": 3,
+                "horse_name": "ファーヴェント"
+              },
+              {
+                "horse_num": 9,
+                "rank": 4,
+                "horse_name": "ファンダム"
+              },
+              {
+                "horse_num": 8,
+                "rank": 5,
+                "horse_name": "サイルーン"
+              }
+            ],
+            "win_prob": [
+              {
+                "horse_num": 11,
+                "horse_name": "エコロアルバ",
+                "prob": 0.27
+              },
+              {
+                "horse_num": 14,
+                "horse_name": "ミニトランザット",
+                "prob": 0.18
+              },
+              {
+                "horse_num": 5,
+                "horse_name": "ファーヴェント",
+                "prob": 0.15
+              },
+              {
+                "horse_num": 9,
+                "horse_name": "ファンダム",
+                "prob": 0.12
+              },
+              {
+                "horse_num": 8,
+                "horse_name": "サイルーン",
+                "prob": 0.1
+              },
+              {
+                "horse_num": 10,
+                "horse_name": "エルトンバローズ",
+                "prob": 0.08
+              },
+              {
+                "horse_num": 12,
+                "horse_name": "カズミクラーシュ",
+                "prob": 0.05
+              }
+            ],
+            "place_prob": [],
+            "marks": {
+              "honmei": 11,
+              "taikou": 14,
+              "tanana": 5,
+              "renka": [
+                9,
+                8,
+                10
+              ]
+            },
+            "confidence": 0.5,
+            "rationale": "本レースは阪神芝1600m外回り・重馬場のマイル戦。エコロアルバはモズアスコット（Frankel系）×フレンチデピュティ（Deputy Minister系）でスピードとパワーを併せ持つ道悪マイラー配合、3歳53kgも軽い。ミニトランザットはエピファネイア×ゼンノロブロイのロベルト系で渋った馬場の粘りに分。ファーヴェントはロードカナロア×ディープのマイル王道で阪神コースに好適。",
+            "data_used": [
+              "pedigree(sire/broodmare_sire)",
+              "web血統補完(エコロアルバ・ミニトランザット・ファンダム・タガノエルピーダ)",
+              "odds(win)",
+              "course(阪神芝1600m外回りBコース)",
+              "track_condition(重)"
+            ],
+            "warnings": [
+              "ペルソナ前提（宝塚記念2200m内回り）と実レースが不一致。実データに従い阪神芝1600m外回り・重馬場のマイル戦として血統評価した",
+              "errata該当馬（2,4,9,11,13,14,16,18）の血統はpack値null。うち有力馬の父母父はweb一次情報で補完（11=モズアスコット×フレンチデピュティ、14=エピファネイア×ゼンノロブロイ、9=サートゥルナーリア×ジャスタウェイ、18=キズナ×キングカメハメハ）",
+              "全馬past_racesが空でフォーム・距離馬場別実績が未確認。評価は血統配合とコース適性に依存し不確実性が高い",
+              "10番エルトンバローズの父はpack知識補完値（サトノダイヤモンド）でweb未確認"
+            ]
+          },
+          "score": {
+            "p_winner": 0.0796,
+            "win_brier": 1.0006,
+            "win_logloss": 2.5307,
+            "honmei": 11,
+            "honmei_won": false,
+            "honmei_in_place3": true,
+            "honmei_status": "place",
+            "marks_place3_coverage": 2,
+            "placed_in_ranking": 1,
+            "placed_mean_pred_rank": 1,
+            "spec_sum_ok": true,
+            "win_prob_listed_sum": 0.95
+          }
+        },
+        {
+          "id": "teppei",
+          "expert_id": "teppei",
+          "expert_name": "鉄平",
+          "school": "調教",
+          "backend": "codex-gpt-5.5",
+          "effort": "medium",
+          "pack_version": "v1",
+          "confidence": 0.32,
+          "pWinner": 0.1333,
+          "winBrier": 0.8537,
+          "winLogloss": 2.0149,
+          "honmei": 5,
+          "honmeiStatus": "out",
+          "coverage": 2,
+          "placedMeanRank": 4.5,
+          "specOk": true,
+          "specSum": 1,
+          "prediction": {
+            "predicted_ranking": [
+              {
+                "horse_num": 5,
+                "rank": 1,
+                "horse_name": "ファーヴェント"
+              },
+              {
+                "horse_num": 14,
+                "rank": 2,
+                "horse_name": "ミニトランザット"
+              },
+              {
+                "horse_num": 10,
+                "rank": 3,
+                "horse_name": "エルトンバローズ"
+              },
+              {
+                "horse_num": 12,
+                "rank": 4,
+                "horse_name": "カズミクラーシュ"
+              },
+              {
+                "horse_num": 17,
+                "rank": 5,
+                "horse_name": "スイープアワーズ"
+              },
+              {
+                "horse_num": 7,
+                "rank": 6,
+                "horse_name": "キープカルム"
+              },
+              {
+                "horse_num": 1,
+                "rank": 7,
+                "horse_name": "スマートワイス"
+              },
+              {
+                "horse_num": 18,
+                "rank": 8,
+                "horse_name": "タガノエルピーダ"
+              }
+            ],
+            "win_prob": [
+              {
+                "horse_num": 5,
+                "horse_name": "ファーヴェント",
+                "prob": 0.18
+              },
+              {
+                "horse_num": 14,
+                "horse_name": "ミニトランザット",
+                "prob": 0.15
+              },
+              {
+                "horse_num": 10,
+                "horse_name": "エルトンバローズ",
+                "prob": 0.14
+              },
+              {
+                "horse_num": 12,
+                "horse_name": "カズミクラーシュ",
+                "prob": 0.13
+              },
+              {
+                "horse_num": 17,
+                "horse_name": "スイープアワーズ",
+                "prob": 0.12
+              },
+              {
+                "horse_num": 7,
+                "horse_name": "キープカルム",
+                "prob": 0.11
+              },
+              {
+                "horse_num": 1,
+                "horse_name": "スマートワイス",
+                "prob": 0.09
+              },
+              {
+                "horse_num": 18,
+                "horse_name": "タガノエルピーダ",
+                "prob": 0.08
+              }
+            ],
+            "place_prob": [],
+            "marks": {
+              "honmei": 5,
+              "taikou": 14,
+              "tanana": 10,
+              "renka": [
+                12,
+                17,
+                7,
+                1
+              ]
+            },
+            "confidence": 0.32,
+            "rationale": "追切時計は取得不能。栗東補正込みで5ファーヴェントB、14ミニトランザットB、10エルトンバローズB、12カズミクラーシュBを上位。時計・本数不明のためA評価は置かない。",
+            "data_used": [
+              "RaceDataPack v1 出走馬、所属厩舎、単勝オッズ、阪神芝1600m重馬場情報",
+              "web検索: しらさぎステークス2026追い切り時計を確認試行したが一次時計データを取得できず"
+            ],
+            "warnings": [
+              "RaceDataPackにtraining配列が空で、最終追切時計・上がり1F・併走位置・追切本数を確認できない",
+              "web検索で生の調教時計に到達できず、第三者の調教評価・印・格付けは参照していない",
+              "調教専門としての信頼度は低く、栗東所属補正と当日オッズを補助情報として暫定順位化した"
+            ]
+          },
+          "score": {
+            "p_winner": 0.1333,
+            "win_brier": 0.8537,
+            "win_logloss": 2.0149,
+            "honmei": 5,
+            "honmei_won": false,
+            "honmei_in_place3": false,
+            "honmei_status": "out",
+            "marks_place3_coverage": 2,
+            "placed_in_ranking": 2,
+            "placed_mean_pred_rank": 4.5,
+            "spec_sum_ok": true,
+            "win_prob_listed_sum": 1
+          }
+        },
+        {
+          "id": "yuko",
+          "expert_id": "yuko",
+          "expert_name": "優子",
+          "school": "本命",
+          "backend": "gemini-2.5-flash",
+          "effort": "low",
+          "pack_version": "v1",
+          "confidence": 0.72,
+          "pWinner": 0.0381,
+          "winBrier": 1.1272,
+          "winLogloss": 3.2677,
+          "honmei": 11,
+          "honmeiStatus": "place",
+          "coverage": 2,
+          "placedMeanRank": 1,
+          "specOk": true,
+          "specSum": 1,
+          "prediction": {
+            "predicted_ranking": [
+              {
+                "horse_num": 11,
+                "rank": 1,
+                "horse_name": "エコロアルバ"
+              },
+              {
+                "horse_num": 5,
+                "rank": 2,
+                "horse_name": "ファーヴェント"
+              },
+              {
+                "horse_num": 14,
+                "rank": 3,
+                "horse_name": "ミニトランザット"
+              },
+              {
+                "horse_num": 8,
+                "rank": 4,
+                "horse_name": "サイルーン"
+              },
+              {
+                "horse_num": 9,
+                "rank": 5,
+                "horse_name": "ファンダム"
+              }
+            ],
+            "win_prob": [
+              {
+                "horse_num": 11,
+                "horse_name": "エコロアルバ",
+                "prob": 0.35
+              },
+              {
+                "horse_num": 5,
+                "horse_name": "ファーヴェント",
+                "prob": 0.25
+              },
+              {
+                "horse_num": 14,
+                "horse_name": "ミニトランザット",
+                "prob": 0.15
+              },
+              {
+                "horse_num": 8,
+                "horse_name": "サイルーン",
+                "prob": 0.1
+              },
+              {
+                "horse_num": 9,
+                "horse_name": "ファンダム",
+                "prob": 0.06
+              },
+              {
+                "horse_num": 10,
+                "horse_name": "エルトンバローズ",
+                "prob": 0.04
+              },
+              {
+                "horse_num": 17,
+                "horse_name": "スイープアワーズ",
+                "prob": 0.03
+              },
+              {
+                "horse_num": 12,
+                "horse_name": "カズミクラーシュ",
+                "prob": 0.02
+              }
+            ],
+            "place_prob": [
+              {
+                "horse_num": 11,
+                "horse_name": "エコロアルバ",
+                "prob": 0.65
+              },
+              {
+                "horse_num": 5,
+                "horse_name": "ファーヴェント",
+                "prob": 0.55
+              },
+              {
+                "horse_num": 14,
+                "horse_name": "ミニトランザット",
+                "prob": 0.42
+              },
+              {
+                "horse_num": 8,
+                "horse_name": "サイルーン",
+                "prob": 0.32
+              },
+              {
+                "horse_num": 9,
+                "horse_name": "ファンダム",
+                "prob": 0.22
+              },
+              {
+                "horse_num": 10,
+                "horse_name": "エルトンバローズ",
+                "prob": 0.16
+              },
+              {
+                "horse_num": 17,
+                "horse_name": "スイープアワーズ",
+                "prob": 0.12
+              },
+              {
+                "horse_num": 12,
+                "horse_name": "カズミクラーシュ",
+                "prob": 0.08
+              }
+            ],
+            "marks": {
+              "honmei": 11,
+              "taikou": 5,
+              "tanana": 14,
+              "renka": [
+                8,
+                9,
+                10
+              ]
+            },
+            "confidence": 0.72,
+            "rationale": "単勝1番人気のエコロアルバを最上位に評価する。3歳馬で斤量53.0kgは極めて有利。2番人気のファーヴェント、3番人気のミニトランザットが相手。梅雨時期の重馬場だが、能力上位の人気馬を素真に評価すべき。私の流儀は複勝圏。エコロアルバ、ファーヴェント、ミニトランザットの3頭は複勝圏内としての安定感が非常に高いと見ている。連下にはサイルーン、ファンダム、エルトンバローズまでを押さえる。",
+            "data_used": [
+              "odds",
+              "jockey_information"
+            ],
+            "warnings": [
+              "重馬場発表だが当日の晴天による乾き具合に注意が必要",
+              "詳細な過去走実績データが不足しているためオッズの支持率に依存"
+            ]
+          },
+          "score": {
+            "p_winner": 0.0381,
+            "win_brier": 1.1272,
+            "win_logloss": 3.2677,
+            "honmei": 11,
+            "honmei_won": false,
+            "honmei_in_place3": true,
+            "honmei_status": "place",
+            "marks_place3_coverage": 2,
+            "placed_in_ranking": 1,
+            "placed_mean_pred_rank": 1,
+            "spec_sum_ok": true,
+            "win_prob_listed_sum": 1
+          }
+        }
+      ]
+    }
+  ]
+}

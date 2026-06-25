@@ -1,0 +1,46 @@
+{
+  "schema_version": "live-race.v1",
+  "generated_at": "2026-06-23T00:00:00+09:00",
+  "active_phase": "result",
+  "current_race_id": "202609030611",
+  "source": {
+    "kind": "site-static-control",
+    "race_history_dependency": "race-history.v1",
+    "note": "公開中のリアルタイムページ状態を切り替える薄い制御データ。レース本体・予想・結果は race-history.v1 から参照する。"
+  },
+  "phases": [
+    {
+      "id": "announce",
+      "route": "announce",
+      "label": "数日前",
+      "short_title": "次回予定",
+      "title": "次回対象レース発表",
+      "lead": "円卓が次に読むレースを公開しました。予想は当日朝に掲載します。",
+      "next_phase": "predictions",
+      "next_timing": "当日朝に予想公開へ",
+      "status": "ready"
+    },
+    {
+      "id": "predictions",
+      "route": "predictions",
+      "label": "当日朝",
+      "short_title": "当日予想",
+      "title": "10人の予想と集合知を公開",
+      "lead": "各キャラクターの印、勝率分布、集合知の上位評価を同時に公開します。",
+      "next_phase": "result",
+      "next_timing": "レース確定後に結果公開へ",
+      "status": "ready"
+    },
+    {
+      "id": "result",
+      "route": "result",
+      "label": "レース後",
+      "short_title": "前回結果",
+      "title": "予想結果と答え合わせ",
+      "lead": "レース結果、集合知の的中、各キャラクターの本命成績をまとめます。",
+      "next_phase": "announce",
+      "next_timing": "次回対象レース決定時に次回予定へ",
+      "status": "active"
+    }
+  ]
+}
