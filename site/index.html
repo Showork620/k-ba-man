@@ -22,6 +22,7 @@
       </a>
       <nav class="top-nav" aria-label="主要ナビゲーション">
         <a href="#/overview" data-nav="overview">概要</a>
+        <a href="#/live" data-nav="live">予想ライブ</a>
         <a href="#/ranking" data-nav="ranking">ランキング</a>
         <a href="#/characters" data-nav="characters">キャラクター</a>
         <a href="#/races" data-nav="races">成績履歴</a>
@@ -34,12 +35,15 @@
       <p>
         k-ba-man prototype. Data source:
         <code>docs/worldbuilding/yosouya-10</code>,
-        <code>runs/202609030411</code>,
-        <code>data/scoring</code>.
+        <code>site/data/race-history.v1</code>.
       </p>
       <p>競馬予想は娯楽情報です。馬券購入は各自の判断と責任で行ってください。</p>
     </footer>
 
+    <script src="./data/race-history.v1.js"></script>
+    <script src="./data/live-race.v1.js"></script>
+    <script src="./api/race-history-api.js"></script>
+    <script src="./api/live-race-api.js"></script>
     <script src="./app.js"></script>
   </body>
 </html>
